@@ -8,8 +8,8 @@ Les notions abordées (corps pur, mélange homogène, mélange hétérogène) se
 
 📘 **Document élève**  
 
-➡️ [Télécharger la fiche élève (PDF)](01_fiche_eleve.pdf)
+➡️ [Télécharger la fiche élève (PDF)](01a_fiche_eleve.pdf)
 
-➡️ [Télécharger la trace écrite (PDF)](01_trace_ecrite.pdf)
+➡️ [Télécharger la trace écrite (PDF)](01b_trace_ecrite.pdf)
 
-➡️ [Télécharger l'évaluation (PDF)](01_evaluation.pdf)
+➡️ [Télécharger l'évaluation (PDF)](01c_evaluation.pdf)
