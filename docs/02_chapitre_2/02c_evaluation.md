@@ -5,7 +5,7 @@ title: 02 🖊️ Évaluation formative
 
 # 02 Solutions : 🖊️ Évaluation formative  
 
-## Solution – Solvant – Soluté
+**Solution – Solvant – Soluté**
 
 ⏱️ Durée : 15 à 20 minutes  
 
@@ -40,12 +40,12 @@ et un actif hydrosoluble.
 
 ..............................................................................
 
-2. Citez **un ou deux solutés** présents dans cette solution.  
+2\. Citez **un ou deux solutés** présents dans cette solution.  
 
 ..............................................................................
 ..............................................................................
 
-3. Justifiez votre réponse à l’aide des définitions.  
+3\. Justifiez votre réponse à l’aide des définitions.  
 
 ..............................................................................
 ..............................................................................
