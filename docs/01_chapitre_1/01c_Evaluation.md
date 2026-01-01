@@ -3,9 +3,9 @@ author: ELP
 title: 01 🖊️ Évaluation diagnostique
 ---
 
-# 01 Diagnostic : 🖊️ Évaluation diagnostique 
+# 01 Corps pur et mélange : 🖊️ Évaluation diagnostique 
 
-**Corps pur et mélanges**
+**Analyse d’un produit cosmétique simple : corps pur et mélanges**
 
 ⏱️ Durée : 15 à 20 minutes  
 

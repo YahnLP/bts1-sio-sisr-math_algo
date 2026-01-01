@@ -3,9 +3,9 @@ author: ELP
 title: 01 📝 Fiche élève
 ---
 
-# 01 Diagnostic : 📝 Fiche élève
+# 01 Corps pur et mélanges : 📝 Fiche élève
 
-**Analyse d’un produit cosmétique simple**
+**Analyse d’un produit cosmétique simple : corps pur et mélanges**
 
 > En BTS MECP, on attend des réponses rédigées, justifiées et utilisant un vocabulaire scientifique précis.
 

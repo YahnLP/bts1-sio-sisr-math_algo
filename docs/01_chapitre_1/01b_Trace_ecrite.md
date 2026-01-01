@@ -4,12 +4,12 @@ title: 01 📖 Trace écrite
 ---
 
 
-# 01 Diagnostic : 📖 Trace écrite
+# 01 Corps pur et mélange : 📖 Trace écrite
 
 
-**Analyse d’un produit cosmétique simple**
+**Analyse d’un produit cosmétique simple : corps pur et mélanges**
 
-### Corps pur – Mélanges
+
 
 ---
 

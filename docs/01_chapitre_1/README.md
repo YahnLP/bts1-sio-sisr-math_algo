@@ -4,6 +4,20 @@ Cette séance introductive a pour objectif de diagnostiquer les acquis des étud
 
 Les notions abordées (corps pur, mélange homogène, mélange hétérogène) seront réinvesties tout au long de l’année dans des situations professionnelles liées à la cosmétologie et à l’épreuve E2.
 
+## 🎯 Objectifs 
+
+### Objectifs scientifiques
+
+* Distinguer **corps pur**, **mélange homogène** et **mélange hétérogène**
+* Identifier les **données utiles** dans une situation professionnelle
+
+### Objectifs méthodologiques (E2)
+
+* Lire une situation professionnelle
+* Extraire les informations pertinentes
+* Commencer à **raisonner** avant de calculer
+
+
 ### 📥 Ressource à télécharger
 
 📘 **Document élève**  
