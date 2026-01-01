@@ -40,6 +40,7 @@ Le responsable du laboratoire vous demande d’**analyser cette mesure** avant t
 ## 🧠 Travail 1 – Première analyse (réflexion qualitative)
 
 1\. Le pH mesuré correspond à un milieu :
+
    ☐ acide  
    ☐ neutre  
    ☐ basique  
@@ -54,6 +55,7 @@ Justifiez brièvement votre réponse.
    <br>
 
 2\. Selon vous, un produit de pH 9,2 est-il **a priori adapté** à un usage cutané quotidien ?  
+
    ☐ oui  ☐ non  ☐ cela dépend  
 
 Expliquez votre choix.
@@ -75,6 +77,7 @@ On rappelle que :
 - un milieu basique est riche en **HO⁻**.
 
 1\. Un produit de pH 9,2 est majoritairement riche en :
+
    ☐ H₃O⁺  
    ☐ HO⁻  
 
@@ -88,6 +91,7 @@ Justifiez.
    <br>
 
 2\. Le pH est :
+
    ☐ une conclusion  
    ☐ **une mesure expérimentale à interpréter**  
 
