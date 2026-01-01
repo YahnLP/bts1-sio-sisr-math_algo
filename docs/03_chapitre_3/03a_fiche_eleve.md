@@ -52,8 +52,7 @@ Avant toute validation de formulation ou de communication produit, il est néces
 2\. S’agit-il d’une information :
    ☐ qualitative  ☐ quantitative  
 
-3\. Cette indication permet-elle de connaître précisément la quantité d’actif
-contenue dans le produit ?  
+3\. Cette indication permet-elle de connaître précisément la quantité d’actif contenue dans le produit ?  
    ☐ Oui  ☐ Non  
 
 Justifiez brièvement votre réponse.
