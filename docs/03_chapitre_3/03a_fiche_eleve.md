@@ -25,7 +25,7 @@ title: 03 📝 Fiche élève
 
 Vous travaillez dans un **laboratoire cosmétique**.
 
-![Sérum à 20 % d’acide hyaluronique](serum_hyaluronique_20.jpg)
+![Sérum à 20 % d’acide hyaluronique](serum_hyaluronique_20.jpg){width=50%; : center}
 
 Un sérum hydratant est commercialisé avec l’indication suivante :
 
