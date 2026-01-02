@@ -20,22 +20,27 @@ Construire progressivement les **compétences scientifiques et techniques néces
 
 ---
 
-## 🔵 Étape 1 – Bases expérimentales et interprétation (Séances 1 à 10)
+## 🔵 Étape 1 – Bases expérimentales et interprétation 
 
-| Séance | Thème / situation professionnelle                                               | Notions du référentiel couvertes                          | Compétences travaillées                    |
-|--------|----------------------------------------------------------------------------------|------------------------------------------------------------|--------------------------------------------|
-| 1      | Diagnostic – Analyse d’un produit cosmétique simple                              | Corps pur, mélange homogène / hétérogène                   | Lire une situation, identifier les données |
-| 2      | Solutions cosmétiques                                                            | Solutions, dissolution, solubilité, miscibilité            | Décrire un système                         |
-| 3      | Concentration d’un actif                                                         | Concentration massique, quantité de matière                | Calculer et interpréter                    |
-| TP 1   | Dissolution – Dilution – Échelle de teinte                                       | Notions S2–S3                                              | Observer, exploiter                        |
-| 4      | Dilution en formulation : choix et justification d’une méthode                   | Dilution, conservation de la masse                         | Choisir et justifier                       |
-| 5      | Évaluation formative n°1                                                         | Séances 1 à 4                                              | Calculer, interpréter, justifier           |
-| 6      | Masse volumique, texture et perception                                           | Masse volumique, densité                                   | Relier valeur ↔ propriété                  |
-| 7      | Cohérence des résultats expérimentaux                                            | Unités, ordres de grandeur                                 | Vérifier, critiquer                        |
-| 8      | pH des produits cosmétiques et efficacité cutanée                                | pH, H₃O⁺ / HO⁻, acidité / basicité                          | Lire et interpréter une mesure             |
-| 9      | Exploitation d’un ensemble de résultats expérimentaux en cosmétique              | Comparaison de résultats, cohérence, tendances              | Analyser, comparer, argumenter             |
-| TP 2   | TP pH-métrie requalifié : exploitation et interprétation de résultats fournis   | Acido-basicité, pH-métrie                                   | Exploiter, interpréter, conclure           |
-| 10     | Évaluation sommative type E2 – Expertise scientifique et technologique           | Mobilisation transversale des notions de l’étape            | Analyser, interpréter, argumenter          |
+
+
+
+| Séance | Thème / situation professionnelle                                      | Notions du référentiel couvertes                 | Compétences travaillées                    |
+| ------ | ---------------------------------------------------------------------- | ------------------------------------------------ | ------------------------------------------ |
+| 1      | Diagnostic – Analyse d’un produit cosmétique simple                    | Corps pur, mélange homogène / hétérogène         | Lire une situation, identifier les données |
+| 2      | Solutions cosmétiques                                                  | Solutions, dissolution, solubilité, miscibilité  | Décrire un système                         |
+| 3      | Concentration d’un actif                                               | Concentration massique                           | Calculer, interpréter                      |
+| 4  | Quantité de matière : sens, usage et décision cosmétique           | Quantité de matière, lien masse ↔ entités        | Donner du sens, raisonner                  |
+| 5  | Dilution en formulation : choix et justification d’une méthode         | Dilution, conservation de la masse               | Choisir et justifier                       |
+| TP 1   | Dissolution – Dilution – Échelle de teinte                             | Notions S2 à S4                                  | Observer, exploiter                        |
+| 6  | Évaluation formative n°1                                               | Séances 1 à 5                                    | Calculer, interpréter, justifier           |
+| 7  | Masse volumique, texture et perception                                 | Masse volumique, densité                         | Relier valeur ↔ propriété                  |
+| 8  | Cohérence des résultats expérimentaux                                  | Unités, ordres de grandeur                       | Vérifier, critiquer                        |
+| 9  | pH des produits cosmétiques et efficacité cutanée                      | pH, H₃O⁺ / HO⁻, acidité / basicité               | Lire et interpréter une mesure             |
+| 10 | Exploitation d’un ensemble de résultats expérimentaux en cosmétique    | Comparaison de résultats, cohérence, tendances   | Analyser, comparer, argumenter             |
+| TP 2   | TP pH-métrie : exploitation et interprétation de résultats fournis     | Acido-basicité, pH-métrie                        | Exploiter, interpréter, conclure           |
+| 11 | Évaluation sommative type E2 – Expertise scientifique et technologique | Mobilisation transversale des notions de l’étape | Analyser, interpréter, argumenter          |
+
 
 
 ---
