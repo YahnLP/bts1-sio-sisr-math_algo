@@ -20,6 +20,7 @@ Construire progressivement les **compétences scientifiques et techniques néces
 
 ---
 
+
 ## 🔵 Étape 1 – Bases expérimentales et interprétation 
 
 
@@ -48,17 +49,19 @@ Construire progressivement les **compétences scientifiques et techniques néces
 
 > Cette étape vise à donner aux étudiants les outils microscopiques nécessaires pour comprendre, interpréter et argumenter face à des dossiers scientifiques et technologiques tels que ceux rencontrés à l’épreuve E2.
 
+|   Séance | Thème / situation professionnelle                                | Notions                       | Compétences travaillées                |
+| -------: | ---------------------------------------------------------------- | ------------------------------------------------------ | -------------------------------------- |
+|       12 | Composition microscopique et structure de l’atome                | Atomes, ions, électrons de valence                     | Identifier                             |
+|       13 | Stabilité chimique et représentations                            | Gaz nobles, représentations de Lewis                   | Comprendre                             |
+|       14 | Interactions moléculaires                                        | Polarité, liaisons hydrogène                           | Interpréter                            |
+| TP 3 | Exploitation de représentations moléculaires en cosmétologie | Lewis fournie, polarité, interactions moléculaires | Exploiter, interpréter, argumenter |
+|       15 | Réactivité et cosmétologie                                       | Radicaux, liaisons fragiles                            | Justifier                              |
+|       16 | Représentations moléculaires                                     | Formules, isomérie de constitution                     | Identifier                             |
+|       17 | Molécules d’intérêt biologique                                   | Fonctions chimiques                                    | Relier structure ↔ rôle                |
+|       18 | Évaluation n°3 – Analyse guidée (type E2)                        | Séances 12 à 17                                        | Argumenter                             |
+|       19 | Consolidation du raisonnement microscopique                      | Réinvestissement transversal                           | Structurer                             |
 
-| Séance | Thème                                                 | Notions                            | Compétences             |
-| ------ | ----------------------------------------------------- | ---------------------------------- | ----------------------- |
-| 12      | Composition microscopique et structure de l’atome | Atomes, ions, électrons de valence | Identifier              |
-| 13     | Stabilité chimique et représentations                 | Gaz nobles, Lewis                  | Comprendre              |
-| 14     | Interactions moléculaires                             | Polarité, liaisons H               | Interpréter             |
-| 15     | Réactivité et cosmétologie                            | Radicaux, liaisons fragiles        | Justifier               |
-| 16     | Représentations moléculaires                          | Formules, isomérie                 | Identifier              |
-| 17     | Molécules d’intérêt biologique                        | Fonctions chimiques                | Relier structure ↔ rôle |
-| 18     | Évaluation n°3 – Analyse guidée                       | Séances 12 à 17                     | Argumenter              |
-| 19     | Consolidation raisonnement microscopique              | Réinvestissement                   | Structurer              |
+
 
 
 ---
@@ -67,14 +70,14 @@ Construire progressivement les **compétences scientifiques et techniques néces
 
 | Séance           | Thème                             | Notions                       | Compétences                   |
 | ---------------- | --------------------------------- | ----------------------------- | ----------------------------- |
-| 21               | Conductivité et émulsions         | Conductivité, ions            | Interpréter                   |
-| 22               | Absorbance et couleur             | Beer-Lambert                  | Relier mesure ↔ concentration |
-| 23               | Produits solaires                 | UV, filtres                   | Argumenter                    |
-| 24               | Transformations chimiques         | Modélisation                  | Analyser                      |
-| 25               | Acide-base et catalyse            | pKa, tampons, enzymes         | Expliquer                     |
-| 26               | Ondes, énergie et sécurité        | Ondes, électricité, thermique | Critiquer                     |
-| 27               | Évaluation type E2 (complète) | Sujet transversal             | Argumenter comme à l’épreuve  |
-| 28  | Bilan méthodologique              | Méthodes E2                   | Consolider                    |
+| 20               | Conductivité et émulsions         | Conductivité, ions            | Interpréter                   |
+| 21               | Absorbance et couleur             | Beer-Lambert                  | Relier mesure ↔ concentration |
+| 22               | Produits solaires                 | UV, filtres                   | Argumenter                    |
+| 23               | Transformations chimiques         | Modélisation                  | Analyser                      |
+| 24               | Acide-base et catalyse            | pKa, tampons, enzymes         | Expliquer                     |
+| 25               | Ondes, énergie et sécurité        | Ondes, électricité, thermique | Critiquer                     |
+| 26               | Évaluation type E2 (complète) | Sujet transversal             | Argumenter comme à l’épreuve  |
+| 27  | Bilan méthodologique              | Méthodes E2                   | Consolider                    |
 
 
 
@@ -85,7 +88,8 @@ Construire progressivement les **compétences scientifiques et techniques néces
 Les TP sont intégrés comme **supports d’expertise scientifique** :
 
 * TP Dissolution – Dilution – Échelle de teinte
-* TP pH et conductivité
+* TP pHmétrie 
+* TP conductivité
 * TP absorbance
 * TP stabilité / formulation
 
