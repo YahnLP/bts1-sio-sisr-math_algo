@@ -20,7 +20,6 @@ Construire progressivement les **compétences scientifiques et techniques néces
 
 ---
 
-
 ## 🔵 Étape 1 – Bases expérimentales et interprétation 
 
 
@@ -34,13 +33,13 @@ Construire progressivement les **compétences scientifiques et techniques néces
 | 4  | Quantité de matière : sens, usage et décision cosmétique           | Quantité de matière, lien masse ↔ entités        | Donner du sens, raisonner                  |
 | 5  | Dilution en formulation : choix et justification d’une méthode         | Dilution, conservation de la masse               | Choisir et justifier                       |
 | TP 1   | Dissolution – Dilution – Échelle de teinte                             | Notions S2 à S4                                  | Observer, exploiter                        |
-| 6  | Évaluation formative n°1                                               | Séances 1 à 5                                    | Calculer, interpréter, justifier           |
+| 6  | Évaluation n°1                                               | Séances 1 à 5                                    | Calculer, interpréter, justifier           |
 | 7  | Masse volumique, texture et perception                                 | Masse volumique, densité                         | Relier valeur ↔ propriété                  |
 | 8  | Cohérence des résultats expérimentaux                                  | Unités, ordres de grandeur                       | Vérifier, critiquer                        |
 | 9  | pH des produits cosmétiques et efficacité cutanée                      | pH, H₃O⁺ / HO⁻, acidité / basicité               | Lire et interpréter une mesure             |
 | 10 | Exploitation d’un ensemble de résultats expérimentaux en cosmétique    | Comparaison de résultats, cohérence, tendances   | Analyser, comparer, argumenter             |
 | TP 2   | TP pH-métrie : exploitation et interprétation de résultats fournis     | Acido-basicité, pH-métrie                        | Exploiter, interpréter, conclure           |
-| 11 | Évaluation sommative type E2 – Expertise scientifique et technologique | Mobilisation transversale des notions de l’étape | Analyser, interpréter, argumenter          |
+| 11 | Évaluation n°2 type E2 – Expertise scientifique et technologique | Mobilisation transversale des notions de l’étape | Analyser, interpréter, argumenter          |
 
 
 ---
@@ -52,15 +51,14 @@ Construire progressivement les **compétences scientifiques et techniques néces
 
 | Séance | Thème                                                 | Notions                            | Compétences             |
 | ------ | ----------------------------------------------------- | ---------------------------------- | ----------------------- |
-| 13      | Composition microscopique et structure de l’atome | Atomes, ions, électrons de valence | Identifier              |
-| 14     | Stabilité chimique et représentations                 | Gaz nobles, Lewis                  | Comprendre              |
-| 15     | Interactions moléculaires                             | Polarité, liaisons H               | Interpréter             |
-| 16     | Réactivité et cosmétologie                            | Radicaux, liaisons fragiles        | Justifier               |
-| 17     | Représentations moléculaires                          | Formules, isomérie                 | Identifier              |
-| 18     | Molécules d’intérêt biologique                        | Fonctions chimiques                | Relier structure ↔ rôle |
-| 19     | Évaluation n°2 – Analyse guidée                       | Séances 9 à 14                     | Argumenter              |
-| 20     | Consolidation raisonnement microscopique              | Réinvestissement                   | Structurer              |
-
+| 12      | Composition microscopique et structure de l’atome | Atomes, ions, électrons de valence | Identifier              |
+| 13     | Stabilité chimique et représentations                 | Gaz nobles, Lewis                  | Comprendre              |
+| 14     | Interactions moléculaires                             | Polarité, liaisons H               | Interpréter             |
+| 15     | Réactivité et cosmétologie                            | Radicaux, liaisons fragiles        | Justifier               |
+| 16     | Représentations moléculaires                          | Formules, isomérie                 | Identifier              |
+| 17     | Molécules d’intérêt biologique                        | Fonctions chimiques                | Relier structure ↔ rôle |
+| 18     | Évaluation n°3 – Analyse guidée                       | Séances 12 à 17                     | Argumenter              |
+| 19     | Consolidation raisonnement microscopique              | Réinvestissement                   | Structurer              |
 
 
 ---
