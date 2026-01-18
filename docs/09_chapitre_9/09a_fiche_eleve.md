@@ -55,9 +55,9 @@ Justifiez votre réponse en mobilisant vos connaissances sur le pH.
 
 <br><br><br><br>
 
-3\. Selon vous, un produit de pH 9,2 est-il **a priori adapté** à un usage cutané quotidien ?
+3\. Selon vous, un produit de pH 9,2 est-il **a priori adapté** à un usage cutané quotidien ? (produit rincé ? leave-on ? durée de contact ?)
 
-☐ oui  ☐ non  ☐ cela dépend  
+☐ oui  ☐ non  ☐ cela dépend
 
 Expliquez votre choix.
 

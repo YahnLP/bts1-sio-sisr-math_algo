@@ -60,6 +60,9 @@ La valeur du pH permet ainsi de caractériser :
 
 peut être élevé, notamment en cas de **contact prolongé**.
 
+📌 **Repère** : le pH moyen d’une peau saine est d’environ **5,5** (peau légèrement acide).
+
+
 ---
 
 ## 4️⃣ Lien entre pH, tolérance cutanée et efficacité

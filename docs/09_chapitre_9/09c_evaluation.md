@@ -60,7 +60,7 @@ Le candidat doit **exploiter ces résultats** afin d’en apprécier la **cohér
 
 ---
 
-## Exercice 1 – Mobiliser des connaissances et lire les documents (4 points)
+## Exercice 1 – Mobiliser des connaissances et lire les documents (3 points)
 
 1\. Identifier la **grandeur physico-chimique mesurée** dans le document 1.
 
@@ -74,7 +74,7 @@ Le candidat doit **exploiter ces résultats** afin d’en apprécier la **cohér
 
 ---
 
-## Exercice 2 – Analyse de cohérence des résultats (6 points)
+## Exercice 2 – Analyse de cohérence des résultats (4 points)
 
 1\. Quelle(s) formulation(s) présente(nt) un pH **compatible** avec une application cutanée quotidienne ?  
 Justifier à l’aide des documents.
@@ -90,7 +90,7 @@ Indiquer en quoi cela peut poser problème.
 
 ---
 
-## Exercice 3 – Interprétation scientifique d’une mesure (6 points)
+## Exercice 3 – Interprétation scientifique d’une mesure (4 points)
 
 On s’intéresse à la **formulation B (pH = 7,8)**.
 
@@ -106,7 +106,7 @@ On s’intéresse à la **formulation B (pH = 7,8)**.
 
 ---
 
-## Exercice 4 – Argumentation scientifique (attendus E2) (8 points)
+## Exercice 4 – Argumentation scientifique (attendus E2) (6 points)
 
 En vous appuyant sur **l’ensemble des résultats fournis**, déterminer quelle formulation vous semble **la plus adaptée** à une application cutanée quotidienne.
 
@@ -122,7 +122,7 @@ Rédigez une **réponse argumentée** (4 à 6 lignes) en mobilisant :
 
 ---
 
-## Exercice 5 – Posture E2 : exploiter un résultat (6 points)
+## Exercice 5 – Posture E2 : exploiter un résultat (3 points)
 
 Un candidat écrit :
 
