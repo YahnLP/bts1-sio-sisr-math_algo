@@ -78,7 +78,9 @@ même si le résultat final est partiellement incorrect.
 
 ➡️ [Télécharger la fiche 3 *Exploiter un TP à l'écrit* (PDF)](03_fiche_methode.pdf)
 
-➡️ [Télécharger la fiche 4 *Interpréter une mesure physique en E2* (PDF)](04_fiche_methode.pdf)
+➡️ [Télécharger la fiche 4 *Choisir et justifier une dilution (épreuve E2)* (PDF)](04_fiche_methode.pdf)
 
 ➡️ [Télécharger la fiche 5 *Lire une représentation microscopique dans un dossier scientifique* (PDF)](05_fiche_methode.pdf)
+
+➡️ [Télécharger la fiche 6 *Interpréter une mesure physique en E2* (PDF)](04_fiche_methode.pdf)
 
