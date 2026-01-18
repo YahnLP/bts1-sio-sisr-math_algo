@@ -57,15 +57,13 @@ Le système présente **une seule phase** observable.
 
 ### 🔸 Mélange hétérogène
 
-🔹 **Définition**
+🔹 **Définition**  
+Un **mélange hétérogène** est un mélange dont les constituants **ne sont pas répartis uniformément** :  on peut observer **plusieurs phases** (au moins 2 aspects différents).
 
-Un **mélange hétérogène** est un mélange dont les constituants **sont visibles à l’œil nu**.
-Le système présente **plusieurs phases** observables.
+🔹 **Exemples cosmétiques**  
 
-🔹 **Exemple cosmétique**
-
-* Gommage à grains
-* Crème non homogénéisée
+- Gommage à grains  
+- Crème non homogénéisée
 
 ---
 
@@ -73,15 +71,15 @@ Le système présente **plusieurs phases** observables.
 
 La **lotion micellaire** :
 
-* contient **plusieurs ingrédients** (eau, glycérine, tensioactifs…),
-* présente **un aspect limpide et uniforme**,
-* ne permet pas de distinguer les constituants à l’œil nu.
+- contient **plusieurs ingrédients** (eau, glycérine, tensioactifs…),
+- présente **un aspect limpide et uniforme**,
+- ne permet pas de distinguer les constituants à l’œil nu.
 
-**Note (niveau macroscopique)** : on classe ici **selon l’observation** (1 phase visible).  
-Une eau micellaire peut être une **dispersion très fine**, mais ce détail n’est **pas exigé** à ce stade.
+👉 **Conclusion :** la lotion micellaire est **un mélange homogène**.
 
-👉 **Conclusion**  
-La lotion micellaire est **un mélange homogène**.
+**Note (niveau attendu ici)** : on classe selon l’observation (**1 phase visible**).  
+Les détails sur les micelles (dispersion colloïdale) ne sont **pas exigés** à ce stade.
+
 
 
 ---
