@@ -3,107 +3,139 @@ author: ELP
 title: Fiche méthode 04 🧠
 ---
 
-# Fiche méthode 04 🧠 : Interpréter une mesure physique (épreuve E2)
+# Fiche méthode 04 🧠 : Choisir et justifier une dilution (épreuve E2)
 
 ---
 
 ## 🎯 Pourquoi cette fiche est indispensable
 
-En BTS MECP, lors d’un **travail expérimental** ou à l’**épreuve E2**, il ne suffit pas de :
+En BTS MECP, lors d’une situation de formulation ou à l’épreuve **E2**, une dilution n’est pas un “calcul de plus”.  
+Elle sert à **prendre une décision professionnelle** :
 
-- relever une valeur,
+- ajuster la **concentration** d’un actif,
+- respecter un **cahier des charges** (sécurité, efficacité, réglementation),
+- préparer un **essai** ou un **contrôle qualité** (pH, conductivité, absorbance…).
 
-- effectuer un calcul,
+👉 Ce qui est évalué en E2, c’est la capacité à :
 
-- donner un résultat numérique.
-
-👉 Ce qui est évalué, c’est la capacité à **donner du sens à une mesure physique**, c’est-à-dire à :
-
-- l’interpréter scientifiquement,
-
-- la relier aux propriétés du produit cosmétique,
-
-- argumenter dans un **contexte professionnel**.
+- **choisir** une méthode réaliste,
+- **justifier** ce choix,
+- **argumenter** la cohérence scientifique (conservation du soluté),
+- **communiquer** clairement (vocabulaire pro, unités, protocole).
 
 ---
 
-## 1️⃣ Ce qu’on attend à l’épreuve E2 face à une mesure
+## 1️⃣ Ce qu’on attend à l’épreuve E2 face à une dilution
 
-Lorsqu’une **mesure physique** est fournie (masse volumique, pH, conductivité, absorbance…), l’étudiant doit répondre à **quatre questions clés** :
+Face à une consigne du type *“obtenir une solution / préparation à la concentration C₂ à partir d’une solution mère de concentration C₁”*, l’étudiant doit répondre à **quatre questions clés** :
 
-1. **Quelle grandeur a été mesurée ?**
-2. **Quelle est la valeur obtenue ?**
-3. **Que signifie cette valeur physiquement ?**
-4. **Quelles conséquences pour le produit cosmétique ?**
+1. **Quel objectif de concentration et quel volume final ?**  
+2. **Quelle méthode de dilution est la plus adaptée ?** (matériel, précision, sécurité, faisabilité)  
+3. **Quel calcul et quel volume prélever ?**  
+4. **Comment justifier scientifiquement et conclure professionnellement ?**
 
-👉 Une valeur **non interprétée** n’est **pas suffisante** en E2.
+👉 En E2, une dilution est validée si elle est **cohérente**, **justifiée**, et **réalisable**.
 
 ---
 
 ## 2️⃣ La méthode en 5 étapes (à appliquer systématiquement)
 
-### 🔹 Étape 1 – Identifier la grandeur mesurée
+### 🔹 Étape 1 – Identifier les données utiles (et ce qu’on cherche)
 
-Commencer par nommer clairement la **grandeur physique**.
+Repérer dans le dossier :
 
-📝 Exemples de phrases attendues :
+- **C₁** : concentration de la solution mère  
+- **C₂** : concentration souhaitée (objectif)  
+- **V₂** : volume final à préparer  
+- **V₁** : volume de solution mère à prélever (à déterminer)
 
-- *La grandeur mesurée est la masse volumique de la lotion.*  
-- *La mesure réalisée correspond au pH de la solution.*  
-- *La conductivité de l’échantillon a été mesurée.*
+📝 Phrases attendues :
 
----
-
-### 🔹 Étape 2 – Présenter la valeur mesurée
-
-Donner la **valeur numérique**, avec son **unité**, sans interprétation.
-
-📝 Exemples :
-
-- *La masse volumique mesurée est de 1,05 g·mL⁻¹.*  
-- *Le pH de la solution est égal à 5,5.*  
-- *La conductivité mesurée est de 3,2 mS·cm⁻¹.*
-
-⚠️ À ce stade, on **décrit**, on n’explique pas.
+- *La solution mère a une concentration C₁ de …*  
+- *On souhaite obtenir une solution fille de concentration C₂ de … pour un volume final V₂ de …*
 
 ---
 
-### 🔹 Étape 3 – Interpréter physiquement la valeur
+### 🔹 Étape 2 – Choisir une méthode de dilution (et la justifier)
 
-Expliquer ce que **signifie la valeur** du point de vue scientifique.
+On choisit en fonction de :
 
-📝 Exemples :
+- **précision attendue**,
+- **matériel disponible**,
+- **sécurité / risques**,
+- **volume à préparer**.
 
-- *Une masse volumique élevée signifie que le produit contient plus de matière à volume égal.*  
-- *Un pH proche de celui de la peau indique une bonne compatibilité cutanée.*  
-- *Une conductivité élevée traduit la présence d’ions en solution.*
+✅ Méthodes typiques (BTS MECP) :
 
-👉 Cette étape est **centrale** en E2.
+- **Dilution précise (recommandée)** : pipette jaugée + fiole jaugée  
+  👉 adaptée si on vise une concentration rigoureuse (CQ, essai comparatif)
 
----
+- **Dilution approximative (tolérée si justifiée)** : éprouvette graduée / bécher  
+  👉 acceptable si l’objectif est un **pré-test** ou si la précision n’est pas critique
 
-### 🔹 Étape 4 – Relier à une propriété du produit cosmétique
-
-Mettre en lien la mesure avec une **propriété d’usage** ou de qualité.
-
-📝 Exemples :
-
-- *Cette masse volumique explique une texture plus riche du produit.*  
-- *Ce pH est compatible avec une application cutanée.*  
-- *La conductivité permet d’évaluer la nature ionique de la formulation.*
-
-👉 On passe de la **mesure** au **produit**.
+📝 Exemple de justification :
+> *On choisit une pipette jaugée et une fiole jaugée car la concentration doit être fiable pour comparer des résultats et valider un essai de formulation.*
 
 ---
 
-### 🔹 Étape 5 – Conclure dans un contexte professionnel
+### 🔹 Étape 3 – Écrire la relation de dilution (justification scientifique)
 
-Formuler une **conclusion argumentée**, en lien avec l’objectif du laboratoire.
+La dilution repose sur un principe clé :
+
+✅ **conservation de la quantité de soluté prélevée** (la quantité d’actif ne “disparaît” pas, on ajoute seulement du solvant).
+
+Relation attendue (niveau BTS) :
+
+\[
+C_1 \times V_1 = C_2 \times V_2
+\]
+
+📝 Phrase attendue :
+> *Lors d’une dilution, la quantité de soluté prélevée est conservée, donc C₁V₁ = C₂V₂.*
+
+---
+
+### 🔹 Étape 4 – Calculer V₁ et vérifier la cohérence
+
+On isole \(V_1\) :
+
+\[
+V_1 = \frac{C_2 \times V_2}{C_1}
+\]
+
+✅ Toujours :
+- convertir les volumes dans une unité cohérente (mL ou L),
+- arrondir de manière réaliste (selon le matériel),
+- vérifier que **V₁ < V₂** (sinon, incohérence).
+
+🧪 Exemple (simple et “E2-compatible”) :
+
+- \(C_1 = 20\ g\cdot L^{-1}\)
+- \(C_2 = 5\ g\cdot L^{-1}\)
+- \(V_2 = 100\ mL = 0{,}100\ L\)
+
+\[
+V_1 = \frac{5 \times 0{,}100}{20} = 0{,}025\ L = 25\ mL
+\]
+
+👉 On prélève **25 mL** de solution mère et on complète à **100 mL**.
+
+---
+
+### 🔹 Étape 5 – Décrire le protocole et conclure professionnellement
+
+✅ Protocole type (précis) :
+
+1. Rincer la **pipette jaugée** avec un peu de solution mère.  
+2. Prélever \(V_1\) de solution mère.  
+3. Introduire dans une **fiole jaugée** de volume \(V_2\).  
+4. Compléter avec le solvant (souvent eau) jusqu’au trait de jauge.  
+5. Boucher, homogénéiser (retournements).  
+6. Étiqueter : concentration, date, opérateur.
 
 📝 Exemple de conclusion attendue :
-
-> *La lotion étudiée présente une masse volumique de 1,05 g·mL⁻¹, ce qui traduit une texture plus dense et une sensation de richesse à l’application.
-> Cette valeur est cohérente avec l’objectif de formulation d’un soin nourrissant et répond aux attentes du laboratoire.*
+> *Pour obtenir une solution à 5 g·L⁻¹ à partir d’une solution mère à 20 g·L⁻¹, il faut prélever 25 mL de solution mère puis compléter à 100 mL.  
+> La méthode par pipette et fiole jaugées garantit la précision nécessaire au contrôle qualité.*
 
 ---
 
@@ -111,13 +143,14 @@ Formuler une **conclusion argumentée**, en lien avec l’objectif du laboratoir
 
 👉 **Structure conseillée** :
 
-> *La grandeur mesurée est …  
-> La valeur obtenue est …  
-> Cela signifie que …  
-> Cette propriété influence …  
-> On peut donc conclure que …*
+> *On souhaite obtenir … (C₂, V₂).  
+> On dispose de … (C₁).  
+> On choisit … (matériel) car … (justification pro).  
+> On applique C₁V₁ = C₂V₂.  
+> On calcule V₁ = …  
+> On réalise la dilution et on conclut que …*
 
-📌 Cette structure est valable pour **toutes les mesures physiques** en BTS MECP.
+📌 Cette structure est valable pour toutes les dilutions en BTS MECP.
 
 ---
 
@@ -125,32 +158,33 @@ Formuler une **conclusion argumentée**, en lien avec l’objectif du laboratoir
 
 ⚠️ À ne pas faire :
 
-- donner uniquement une valeur numérique  
-- oublier l’unité  
-- confondre mesure et interprétation  
-- utiliser un vocabulaire vague (*c’est bien*, *c’est mauvais*)  
-- ne pas relier la mesure au produit cosmétique  
-- répondre sans conclusion
+- oublier les **unités** (mL / L)  
+- utiliser C₁V₂ = C₂V₁ (inversion)  
+- obtenir un **V₁ supérieur à V₂** (impossible)  
+- ne pas justifier le **choix de matériel**  
+- donner uniquement le calcul sans protocole  
+- oublier de conclure dans un **contexte cosmétique**
 
 ---
 
 ## 5️⃣ Ce qui fait gagner des points à l’épreuve E2
 
-✔ grandeur clairement identifiée  
-✔ valeur correctement exprimée  
-✔ interprétation scientifique correcte  
-✔ lien explicite avec le produit  
-✔ conclusion professionnelle argumentée  
+✔ données bien identifiées (C₁, C₂, V₂)  
+✔ méthode choisie et **justifiée** (précision / faisabilité / sécurité)  
+✔ relation de dilution correctement posée (C₁V₁ = C₂V₂)  
+✔ calcul avec conversions cohérentes  
+✔ protocole réaliste et vocabulaire professionnel  
+✔ conclusion argumentée (décision + sens)
 
-👉 Même avec une valeur imparfaite, **un raisonnement cohérent est valorisé**.
+👉 Même avec un calcul imparfait, un **raisonnement professionnel cohérent** est valorisé.
 
 ---
 
 ## 🎓 À retenir pour l’épreuve E2
 
-- Une mesure n’est **jamais une réponse en soi**
-- Elle doit être **interprétée**
-- Elle doit être reliée à une **propriété du produit cosmétique**
-- L’**argumentation scientifique** est essentielle
+- Une dilution = **une décision technique**, pas un exercice isolé  
+- On doit **choisir**, **justifier**, **calculer**, **décrire**, **conclure**  
+- La phrase clé : **conservation du soluté**  
+- En E2, on évalue une posture d’**expertise** (rigueur + justification)
 
-👉 **En E2, on évalue la capacité à raisonner comme un professionnel de la cosmétologie.**
+👉 **En E2, on attend un raisonnement structuré : documents → analyse → justification → décision.**
