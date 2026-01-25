@@ -136,6 +136,15 @@ Face à une mesure ou un tableau de pH, le candidat doit être capable de :
 - Les résultats sont souvent présentés sous forme de **tableaux**
 - L’**argumentation scientifique** est centrale en BTS MECP et en E2
 
+--- 
+## 🔧 Outil méthodologique associé
+
+Pour t’aider à **lire une valeur**, **la comparer** et **rédiger une interprétation** (attendu E2) :
+
+➡️ [**Fiche méthode 06 – Interpréter une mesure physique**](https://bts-mecp-physique-chimie-688080.forge.apps.education.fr/Methodologie/06_fiche_methode/)
+
+
+
 ---
 
 ## 🔗 Transition vers la suite
