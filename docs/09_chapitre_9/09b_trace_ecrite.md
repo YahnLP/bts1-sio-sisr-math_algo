@@ -13,6 +13,9 @@ title: 09 📖 Trace écrite
 
 En formulation cosmétique, le **pH** est une **grandeur physico-chimique essentielle** pour caractériser un produit destiné à un **usage cutané**.
 
+> 📌 **Ligne repère** : $pH = -\log_{10}([H_3O^+])$ avec $[H_3O^+]$ en mol·L⁻¹.
+> 📌 **Conséquence** : **1 unité de pH** correspond à un facteur **10** sur $[H_3O^+]$.
+
 À l’épreuve **E2 – Expertise scientifique et technologique**, le candidat **ne mesure pas le pH**.
 
 👉 Les **résultats de pH sont fournis** au candidat sous forme de :
