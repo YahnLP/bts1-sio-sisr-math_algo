@@ -3,27 +3,23 @@ author: ELP
 title: 14 🖊️ Évaluation formative
 ---
 
-# 14 – Interactions moléculaires et propriétés des produits cosmétiques  
-
-
-**Comprendre – Lire – Interpréter – Argumenter un choix de formulation**
+# 14 – Interactions et compatibilités 🧴🧪  
+**Comprendre – Lire – Interpréter – Argumenter – Décider (logique E2)**
 
 ⏱️ Durée : 25–30 minutes  
-🎯 Objectif : vérifier la capacité à **comprendre les interactions moléculaires**, **interpréter leur rôle sur les propriétés d’un produit cosmétique**, et **argumenter scientifiquement**, conformément aux attendus de l’épreuve  
-**E2 – Expertise scientifique et technologique**.  
+🎯 Objectif : vérifier la capacité à **expliquer une compatibilité de formulation** en reliant :  
+**polarité → interactions → solubilité/miscibilité → décision professionnelle**.
 
-📌 Évaluation formative – barème indicatif
+📌 Évaluation formative – barème indicatif /20
 
 ---
 
-## 🧴 Contexte scientifique (type E2)
+## 🧴 Contexte (type E2)
 
-Un laboratoire cosmétique étudie le comportement d’un **actif intégré dans une phase aqueuse**.
+Un laboratoire cosmétique étudie le comportement d’un actif et d’un parfum dans une lotion aqueuse.  
+Le dossier scientifique relie les propriétés du produit (solubilité, texture, stabilité) aux **interactions moléculaires**.
 
-Le dossier scientifique indique que la **solubilité**, la **texture** et la **stabilité physique** du produit sont liées aux **interactions moléculaires** entre les différentes espèces chimiques présentes.
-
-Aucune manipulation expérimentale n’est réalisée.  
-Les documents nécessaires à l’analyse sont **fournis**.
+Aucune manipulation n’est réalisée. Les documents nécessaires sont fournis.
 
 ---
 
@@ -34,110 +30,123 @@ Les molécules d’un produit cosmétique exercent entre elles des **forces d’
 Ces interactions sont généralement **faibles individuellement**, mais leur effet global influence fortement les propriétés du produit.
 
 <p align="center">
-  <img src="../billes.png" alt="interaction entre molécules" width="50%"><br>
+  <img src="billes.png" alt="interaction entre molécules" width="50%"><br>
   <em>Interactions entre molécules</em><br>
 </p>
 
 ---
 
-## 📄 Document 2 – Répartition des charges dans une molécule polaire
-
-Une représentation microscopique d’une molécule polaire est fournie.
-
-Elle met en évidence une **répartition inégale des charges électriques**, susceptible d’influencer les interactions entre molécules.
+## 📄 Document 2 – Répartition des charges dans une molécule polaire (eau)
 
 <p align="center">
-  <img src="../water_polarity.jpg" alt="Répartition des charge dans une molécules polaires" width="50%"><br>
-  <em>Répartition des charge dans une molécules polaires</em><br>
+  <img src="water_polarity.jpg" alt="Répartition des charges dans une molécule polaire" width="50%"><br>
+  <em>Répartition des charges dans une molécule polaire</em><br>
 </p>
 
 ---
 
-## 📄 Document 3 – Exemple de liaison hydrogène entre molécules
-
-Un schéma montre une interaction particulière entre deux molécules contenant des groupes –OH ou –NH.
-
-Cette interaction joue un rôle important dans la **cohésion des phases aqueuses** et la **solubilité** de nombreux actifs cosmétiques.
+## 📄 Document 3 – Exemple de liaison hydrogène + interactions avec l’eau
 
 <p align="center">
-  <img src="../liaison.png" alt="Exemple de liaison hydrogène entre molécules" width="50%"><br>
+  <img src="liaison.png" alt="Exemple de liaison hydrogène entre molécules" width="50%"><br>
   <em>Exemple de liaison hydrogène entre molécules</em><br>
-<img src="../mol_pol.png" alt="Interaction entre un ion et l’eau" width="50%"><br>
+  <img src="mol_pol.png" alt="Interaction entre un ion et l’eau" width="50%"><br>
   <em>Interaction entre un ion et l’eau</em><br>
-  <img src="../The-OHN-and-NHO-intra-hydrogen.png" alt="liaison hydrogène dans une même molécule" width="65%"><br>
-  <em>liaison hydrogène dans une même molécule</em><br>
+  <img src="The-OHN-and-NHO-intra-hydrogen.png" alt="Liaison hydrogène dans une même molécule" width="65%"><br>
+  <em>Liaison hydrogène dans une même molécule</em><br>
 </p>
 
+---
+
+## 📄 Document 4 – Observation laboratoire (compatibilité)
+
+> La formule est une lotion aqueuse. On veut intégrer un parfum (majoritairement lipophile).  
+> Ajout direct du parfum dans l’eau : **trouble + gouttelettes visibles + séparation en deux phases**.
 
 ---
 
-## 📄 Document 4 – Extrait de dossier scientifique
-
-> *« L’actif présente une bonne affinité avec la phase aqueuse grâce aux interactions moléculaires qu’il établit avec les molécules d’eau. »*
-
----
-
-## Exercice 1 – Comprendre les interactions moléculaires (6 points)
+# Exercice 1 – Interactions moléculaires (4 points)
 
 1\. Reformuler, avec vos mots, ce que l’on appelle une **interaction moléculaire** à partir du document 1.  
-<br><br><br><br><br><br>
+<br><br><br><br><br>
 
-2\. Expliquer pourquoi les interactions moléculaires sont importantes pour comprendre le **comportement global** d’un produit cosmétique.  
-<br><br><br><br><br><br>
+🔎 *Compétences évaluées : lire un document scientifique – reformuler*
+
+2\. Expliquer pourquoi ces interactions sont essentielles pour comprendre les **propriétés globales** d’un produit cosmétique (solubilité, texture, stabilité).  
+<br><br><br><br><br>
 
 🔎 *Compétences évaluées : comprendre – relier à une situation professionnelle*
 
 ---
 
-## Exercice 2 – Polarité et interactions avec l’eau (6 points)
+# Exercice 2 – Polarité et affinité avec l’eau (6 points)
 
 3\. À partir du document 2, expliquer ce que signifie qu’une molécule est **polaire**.  
-<br><br><br><br><br><br>
-
-4\. En quoi la polarité d’une molécule influence-t-elle ses **interactions avec l’eau** ?  
-<br><br><br><br><br><br>
+<br><br><br><br><br>
 
 🔎 *Compétences évaluées : lire un document scientifique – interpréter*
 
----
-
-## Exercice 3 – Liaison hydrogène et propriétés cosmétiques (8 points)
-
-5\. Identifier, à partir du document 3, les éléments nécessaires à la formation d’une **liaison hydrogène**.  
+4\. En quoi la polarité d’une molécule influence-t-elle ses **interactions avec l’eau** et donc sa solubilité/compatibilité ?  
 <br><br><br><br><br><br>
 
-6\. Expliquer pourquoi la liaison hydrogène joue un rôle important dans :
+🔎 *Compétences évaluées : interpréter – relier microscopique et macroscopique*
 
-- la **solubilité** d’un actif,
-- la **cohésion** d’une phase aqueuse,
-- la **texture** d’un produit cosmétique.  
-<br><br><br><br><br><br><br>
+---
+
+# Exercice 3 – Liaisons hydrogène : rôle en cosmétique (5 points)
+
+5\. Identifier, à partir du document 3, les éléments nécessaires à la formation d’une **liaison hydrogène**.  
+<br><br><br><br><br>
+
+🔎 *Compétences évaluées : lire un document scientifique – analyser*
+
+6\. Expliquer en quoi la liaison hydrogène peut influencer **(au choix : 2 éléments)** parmi :  
+- solubilité d’un actif,  
+- cohésion d’une phase aqueuse,  
+- texture/viscosité d’un produit.  
+(6–8 lignes au total)
+
+<br><br><br><br><br><br><br><br>
 
 🔎 *Compétences évaluées : analyser – relier microscopique et macroscopique*
 
 ---
 
-## Exercice 4 – Argumentation scientifique (attendus E2) (8 points)
+# Exercice 4 – Application E2 : compatibilité eau / parfum (5 points)
 
-Un technicien affirme :
+7\. Un technicien affirme :  
+> « Les interactions moléculaires sont faibles, donc elles ont peu d’influence sur un produit cosmétique. »
 
-> *« Les interactions moléculaires sont faibles, donc elles ont peu d’influence sur les propriétés d’un produit cosmétique. »*
+Cette affirmation est-elle acceptable ? ☐ Oui ☐ Non  
+Justifier en 2–3 lignes.  
+<br><br><br><br><br><br>
 
-7\. Cette affirmation est-elle scientifiquement acceptable en BTS MECP ?  
-☐ Oui  ☐ Non  
+🔎 *Compétences évaluées : analyser – argumenter*
 
-Justifier votre réponse (4 à 5 lignes) en vous appuyant sur les notions  
-d’**interactions moléculaires**, de **polarité** et de **formulation cosmétique**.
+8\. À partir du document 4, **interpréter** scientifiquement l’observation (4–6 lignes).  
+📌 Attendus : au moins 2 éléments parmi : polarité, liaison H, interactions trop faibles eau–parfum, “semblable dissout semblable” justifié.  
+<br><br><br><br><br><br>
 
-<br><br><br><br><br><br><br><br>
+🔎 *Compétences évaluées : interpréter – communiquer clairement*
 
-🔎 *Compétences évaluées : analyser – argumenter – communiquer*
+9\. **Décider** : proposer **2 solutions techniques** possibles pour améliorer la compatibilité/stabilité, et justifier chacune en 2–3 lignes.  
+- Solution 1 : ________________________________  
+  Justification :  
+  <br><br><br><br>
+
+- Solution 2 : ________________________________  
+  Justification :  
+  <br><br><br><br>
+
+🔎 *Compétences évaluées : proposer une décision professionnelle – argumenter scientifiquement*
 
 ---
 
-## 🧠 Auto-évaluation (métacognition)
+## ✅ Auto-évaluation
 
-☐ Je comprends ce que sont les interactions moléculaires  
-☐ Je comprends le rôle de la polarité dans les interactions  
-☐ Je comprends l’importance de la liaison hydrogène en cosmétologie  
-☐ Je me sens capable d’argumenter un choix scientifique en E2
+☐ Je sais définir une interaction moléculaire  
+☐ Je sais expliquer “polaire” et le lien avec l’eau  
+☐ Je sais expliquer le rôle des liaisons hydrogène  
+☐ Je sais argumenter une décision pro (E2)
+
+---

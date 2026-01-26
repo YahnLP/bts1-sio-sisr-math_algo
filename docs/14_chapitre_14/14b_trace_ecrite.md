@@ -3,127 +3,118 @@ author: ELP
 title: 14 📖 Trace écrite
 ---
 
-# 14 – Interactions moléculaires et propriétés des produits cosmétiques : 📖 Trace écrite
-
-**Interactions moléculaires – Polarité – Liaison hydrogène – Solubilité – Texture – Analyse E2**
-
----
-
-## 1️⃣ Pourquoi s’intéresser aux interactions moléculaires en cosmétologie et en E2
-
-En cosmétologie, de nombreuses propriétés des produits, telles que la **solubilité**, la **texture** ou la **stabilité physique**, ne peuvent pas être expliquées uniquement par la nature des molécules prises isolément.
-
-Ces propriétés dépendent aussi des **interactions qui existent entre les molécules**, à l’échelle microscopique.
-
-À l’épreuve **E2 – Expertise scientifique et technologique**, le candidat doit être capable de :
-
-- interpréter un **comportement observable** d’un produit,
-- relier ce comportement à des **phénomènes microscopiques**,
-- **argumenter scientifiquement** à partir d’un dossier.
-
-👉 Les interactions moléculaires constituent donc un **outil d’analyse essentiel**, et non une notion théorique abstraite.
+# 14 – Interactions et compatibilités 🧴🧪  
+**Polarité – Interactions intermoléculaires – Liaisons H – Solubilité / miscibilité – Compatibilité de formulation (E2)**
 
 ---
 
-## 2️⃣ Notion d’interaction moléculaire
+## 1️⃣ Pourquoi c’est indispensable en cosmétologie (et en E2)
 
-Une **interaction moléculaire** correspond à une **force d’attraction** qui s’exerce entre des molécules proches les unes des autres.
+En formulation cosmétique, on doit justifier des choix tels que :
+- pourquoi un ingrédient est **soluble** dans l’eau (ou non),
+- pourquoi deux liquides sont **miscibles** (ou forment deux phases),
+- pourquoi un ajout provoque un **trouble**, un **précipité** ou un **déphasage**,
+- comment stabiliser une formule (solubilisation / émulsion / ordre d’introduction).
 
-Ces interactions :
-
-- ne modifient pas la nature chimique des molécules,
-- sont généralement **faibles individuellement**,
-- ont un **effet global important** lorsqu’elles sont nombreuses.
-
-👉 Elles expliquent pourquoi les molécules d’un produit cosmétique ne sont pas indépendantes, mais se comportent comme un **ensemble cohérent**.
-
----
-
-## 3️⃣ Interactions moléculaires et propriétés macroscopiques
-
-Les interactions moléculaires influencent directement plusieurs propriétés observables des produits cosmétiques, notamment :
-
-- la **solubilité** d’un actif dans une phase donnée,
-- la **cohésion** d’une phase aqueuse ou huileuse,
-- la **texture** et la consistance du produit.
-
-👉 Une interaction faible à l’échelle microscopique peut avoir un **impact significatif** à l’échelle du produit.
+🎯 En **E2**, on attend une démarche :
+**indice microscopique → interprétation → recommandation professionnelle**.
 
 ---
 
-## 4️⃣ Polarité des molécules et interactions
+## 2️⃣ Polarité : δ+ / δ− (repère)
 
-Certaines molécules présentent une **répartition inégale des charges électriques** : elles sont dites **polaires**.
+Une liaison est **polarisée** lorsque le partage des électrons est **déséquilibré** :
+- l’atome qui attire davantage les électrons porte **δ−**,
+- l’autre porte **δ+**.
 
-La polarité d’une molécule :
+👉 Exemple clé : la liaison **O–H** est fortement polarisée  
+(O δ− / H δ+).
 
-- influence la nature et l’intensité des interactions qu’elle peut établir,
-- explique son **affinité avec l’eau**,
-- joue un rôle clé dans les phénomènes de solubilité et de miscibilité.
-
-👉 Comprendre la polarité permet d’interpréter pourquoi certaines molécules interagissent plus facilement entre elles que d’autres.
-
----
-
-## 5️⃣ La liaison hydrogène : une interaction clé en cosmétologie
-
-La **liaison hydrogène** est une interaction particulière qui peut s’établir entre certaines molécules contenant des groupes spécifiques (par exemple –OH ou –NH).
-
-Cette interaction :
-
-- est plus intense que les autres interactions moléculaires faibles,
-- favorise la **cohésion des phases aqueuses**,
-- explique la **bonne solubilité** de nombreux actifs hydrophiles.
-
-👉 En cosmétologie, la liaison hydrogène joue un rôle central dans la formulation et la stabilité des produits.
+⚠️ Une molécule peut avoir des liaisons polarisées **sans être globalement polaire** si les dipôles se **compensent** (ex : CO₂ linéaire).
 
 ---
 
-## 6️⃣ Interactions moléculaires et choix de formulation
+## 3️⃣ Trois interactions intermoléculaires à connaître (niveau BTS MECP)
 
-Lors de la formulation d’un produit cosmétique :
+### ✅ 1. Dispersion (London)
+- présentes **dans toutes les molécules**
+- dominantes dans les milieux **apolaires** (huiles, hydrocarbures)
 
-- les interactions moléculaires sont **recherchées ou limitées** selon l’effet souhaité,
-- elles permettent d’optimiser la solubilité, la texture ou la stabilité physique,
-- elles expliquent certains choix indiqués dans les dossiers scientifiques.
+### ✅ 2. Dipôle–dipôle
+- entre molécules **polaires**
+- interactions plus fortes que London (dans un milieu polaire)
 
-👉 Les interactions moléculaires ne sont pas un détail : elles participent directement à la **performance du produit**.
+### ✅ 3. Liaison hydrogène (liaison H)
+Condition principale :
+- **H lié à O, N ou F**
+- interaction avec un **doublet non liant** d’un autre O/N/F
 
----
-
-## 7️⃣ Ce qui est attendu en E2 à ce stade
-
-À l’épreuve E2, il n’est pas attendu :
-
-- de classifier les interactions moléculaires,
-- de décrire des mécanismes théoriques détaillés,
-- de mémoriser des définitions complexes.
-
-En revanche, il est attendu de :
-
-- **comprendre** l’existence des interactions moléculaires,
-- **lire et interpréter** une représentation microscopique,
-- **relier** ces interactions aux propriétés du produit,
-- **argumenter scientifiquement** dans un contexte professionnel.
-
-👉 Les interactions moléculaires sont un **levier d’interprétation et d’argumentation**, au service de l’expertise.
+Conséquences fréquentes en cosmétique :
+- meilleure **solubilité** dans l’eau pour certaines molécules,
+- cohésion importante (effets sur viscosité, stabilité de certaines phases),
+- interactions fortes eau–actifs hydrophiles.
 
 ---
 
-## 🔧 Outil méthodologique associé
+## 4️⃣ Dissolution des sels : interaction ion–dipôle (repère utile)
 
-Pour **lire, interpréter et exploiter une représentation microscopique** dans une situation professionnelle et dans une analyse de type **E2**, se référer à :
+L’eau est **polaire**, donc elle interagit fortement avec les **ions** :
+- l’oxygène (δ−) s’oriente vers un cation (ex : Na⁺),
+- les hydrogènes (δ+) vers un anion (ex : Cl⁻).
 
-➡️ [**Fiche méthode 05 – Lire une représentation microscopique dans un dossier scientifique**](https://bts-mecp-physique-chimie-688080.forge.apps.education.fr/Methodologie/05_fiche_methode/)
+👉 Cette interaction **ion–dipôle** stabilise les ions séparés → dissolution possible.
+
+---
+
+## 5️⃣ Solubilité / miscibilité / compatibilité : expliquer avec les interactions
+
+### ✅ Idée directrice (à utiliser en E2)
+Un mélange est stable si les **interactions solvant–soluté** (ou liquide–liquide) sont **comparables** ou **plus favorables** que les interactions initiales.
+
+### Eau (polaire)
+- interactions dipôle–dipôle + **liaisons H**
+- favorise la solubilité des molécules polaires / capables de liaison H
+
+### Huiles / parfums (souvent apolaires)
+- interactions principalement **London**
+- miscibles entre eux, mais souvent **non miscibles avec l’eau**
+
+👉 Résultat fréquent :
+- eau + huile → **2 phases** (déphasage)
+- eau + actif hydrophile → **solution homogène**
+
+---
+
+## 6️⃣ Décision professionnelle : que proposer quand ça ne se mélange pas ?
+
+Si un ingrédient lipophile ne se mélange pas dans l’eau, options possibles :
+- ajouter un **solubilisant / tensioactif** (compatibilise hydrophile + lipophile),
+- utiliser un **co-solvant** compatible (ex : alcool) si autorisé et cohérent,
+- changer l’objectif : passer d’une **solution** à une **émulsion** (dispersion stable),
+- adapter l’ordre d’introduction / agitation / contrôle.
+
+---
+
+## ✅ Ligne repère E2 (à mémoriser)
+
+**Structure (Lewis/polarité) → type d’interactions → miscibilité/solubilité → recommandation pro**
+
+---
+
+## 🔧 Outils méthodologiques associés
+
+
+➡️ Voir : [*Fiche méthode 05 – Lire une représentation microscopique dans un dossier scientifique (E2)*](https://bts-mecp-physique-chimie-688080.forge.apps.education.fr/Methodologie/05_fiche_methode/)
+
+➡️ Voir : [*Fiche méthode 01 – Justifier une réponse en physique-chimie*](https://bts-mecp-physique-chimie-688080.forge.apps.education.fr/Methodologie/01_fiche_methode/)
 
 ---
 
 ## 🔗 Pour la suite…
 
-Cette séance prépare directement :
-
-- le [**TP – Exploitation de représentations moléculaires en cosmétologie**](https://bts-mecp-physique-chimie-688080.forge.apps.education.fr/TP/03_TP/),
-- l’étude de la **réactivité chimique** dans les produits (séance 15),
-- l’analyse de **dossiers scientifiques E2** mobilisant plusieurs niveaux d’explication.
+Cette séance prépare :
+- les séances de **chimie organique** (repérer groupes polaires/apolaires),
+- les notions de **tensioactifs / émulsions / micelles** (stabilité, CQ),
+- des dossiers E2 de formulation : compatibilité, déphasage, choix technique.
 
 ---
