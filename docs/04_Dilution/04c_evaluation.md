@@ -16,7 +16,7 @@ title: 04 🖊️ Évaluation formative
 
 ## Consignes (attendus BTS / E2)
 
-- Utiliser la relation **Ci × Vi = Cf × Vf**
+- Utiliser la relation **Cm × Vm = Cf × Vf**
 - Toujours **vérifier** avec le facteur de dilution
 - Rédiger les protocoles en **étapes claires**
 - **Argumenter** les choix de méthode
@@ -38,33 +38,35 @@ title: 04 🖊️ Évaluation formative
 Un facteur de dilution F = 20 signifie que :
 
 ☐ La concentration finale est 20 fois plus grande que la concentration initiale
+
 ☐ La concentration finale est 20 fois plus petite que la concentration initiale
+
 ☐ Le volume final est 20 fois plus petit que le volume initial
 
 ---
 
 ## Exercice 2 – Calcul de volume à prélever (5 points)
 
-On dispose d'une solution mère de **vitamine E** à **Ci = 150 g/L**.
+On dispose d'une solution mère de **vitamine E** à **Cm = 150 g/L**.
 On souhaite préparer **Vf = 200 mL** d'une solution fille à **Cf = 30 g/L**.
 
 ### Questions :
 
 1\. Identifiez les données. (1 pt)
 
-- Ci = _______ g/L
+- Cm = _______ g/L
 - Cf = _______ g/L  
 - Vf = _______ mL
-- Vi = ?
+- Vm = ?
 
-2\. Calculez le volume Vi à prélever. (2 pts)
+2\. Calculez le volume Vm à prélever. (2 pts)
 
 <br><br><br><br>
 
 3\. Vérifiez votre résultat en calculant le facteur de dilution de deux façons. (1 pt)
 
-- F = Ci / Cf = 
-- F = Vf / Vi = 
+- F = Cm / Cf = 
+- F = Vf / Vm = 
 
 4\. Rédigez une phrase d'interprétation. (1 pt)
 
@@ -93,6 +95,7 @@ Vous devez préparer **100 mL** d'une solution de **caféine à 10 g/L** à part
 Un laboratoire doit préparer **250 mL** d'une solution de colorant à **2 g/L**.
 
 Deux solutions mères sont disponibles :
+
 - **Solution A** : 20 g/L
 - **Solution B** : 200 g/L
 
@@ -135,7 +138,7 @@ Avant de rendre votre copie, vérifiez :
 
 | Critère | ✓ |
 |---------|---|
-| J'ai utilisé la formule Ci × Vi = Cf × Vf | ☐ |
+| J'ai utilisé la formule Cm × Vm = Cf × Vf | ☐ |
 | J'ai vérifié mes calculs avec le facteur de dilution | ☐ |
 | Mes protocoles sont rédigés en étapes claires | ☐ |
 | J'ai argumenté mon choix de méthode (exercice 4) | ☐ |
@@ -147,7 +150,7 @@ Avant de rendre votre copie, vérifiez :
 | Exercice | Points | Compétences E2 |
 |----------|:------:|----------------|
 | Exercice 1 – Vocabulaire | /3 | Mobiliser |
-| Exercice 2 – Calcul de Vi | /5 | Mobiliser |
+| Exercice 2 – Calcul de Vm | /5 | Mobiliser |
 | Exercice 3 – Protocole | /4 | Communiquer |
 | Exercice 4 – Choix de méthode | /4 | Argumenter |
 | Exercice 5 – Mini-synthèse | /4 | Communiquer |

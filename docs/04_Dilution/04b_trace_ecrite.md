@@ -31,7 +31,7 @@ La **dilution** est une opération qui consiste à **diminuer la concentration**
 
 | Terme | Définition | Notation |
 |-------|------------|:--------:|
-| **Solution mère** | Solution initiale, concentrée | Ci, Vi |
+| **Solution mère** | Solution initiale, concentrée | Cm, Vm |
 | **Solution fille** | Solution obtenue après dilution, moins concentrée | Cf, Vf |
 | **Facteur de dilution** | Nombre par lequel la concentration est divisée | F |
 
@@ -41,7 +41,7 @@ La **dilution** est une opération qui consiste à **diminuer la concentration**
 SOLUTION MÈRE                              SOLUTION FILLE
 (concentrée)                               (diluée)
                                            
-   Ci, Vi          + solvant                  Cf, Vf
+   Cm, Vm          + solvant                  Cf, Vf
      ●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━►○
                                            
 Concentration      Ajouter du solvant      Concentration
@@ -63,22 +63,22 @@ Lors d'une dilution, la **quantité de soluté est conservée** :
 
 On sait que m = C × V, donc :
 
-$$m_i = C_i \times V_i \quad \text{et} \quad m_f = C_f \times V_f$$
+$$m_i = C_m \times V_m \quad \text{et} \quad m_f = C_f \times V_f$$
 
 Comme mi = mf :
 
-$$\boxed{C_i \times V_i = C_f \times V_f}$$
+$$\boxed{C_m \times V_m = C_f \times V_f}$$
 
 ### 🔹 Signification des grandeurs
 
 | Grandeur | Signification | Unité |
 |----------|---------------|:-----:|
-| **Ci** | Concentration de la solution mère | g/L |
-| **Vi** | Volume prélevé de solution mère | L ou mL |
+| **Cm** | Concentration de la solution mère | g/L |
+| **Vm** | Volume prélevé de solution mère | L ou mL |
 | **Cf** | Concentration de la solution fille | g/L |
 | **Vf** | Volume final de solution fille | L ou mL |
 
-📌 **Attention** : Vi et Vf doivent être dans la **même unité** (tous les deux en mL ou tous les deux en L).
+📌 **Attention** : Vm et Vf doivent être dans la **même unité** (tous les deux en mL ou tous les deux en L).
 
 ---
 
@@ -88,16 +88,16 @@ $$\boxed{C_i \times V_i = C_f \times V_f}$$
 
 Le **facteur de dilution (F)** indique combien de fois la concentration est **divisée** :
 
-$$\boxed{F = \frac{C_i}{C_f} = \frac{V_f}{V_i}}$$
+$$\boxed{F = \frac{C_m}{C_f} = \frac{V_f}{V_m}}$$
 
 ### 🔹 Exemples
 
 | Expression | Facteur F | Signification |
 |------------|:---------:|---------------|
-| Dilution au 1/2 | 2 | Cf = Ci / 2 |
-| Dilution au 1/5 | 5 | Cf = Ci / 5 |
-| Dilution au 1/10 | 10 | Cf = Ci / 10 |
-| Dilution au 1/100 | 100 | Cf = Ci / 100 |
+| Dilution au 1/2 | 2 | Cf = Cm / 2 |
+| Dilution au 1/5 | 5 | Cf = Cm / 5 |
+| Dilution au 1/10 | 10 | Cf = Cm / 10 |
+| Dilution au 1/100 | 100 | Cf = Cm / 100 |
 
 ### 🔹 Utilité
 
@@ -112,27 +112,27 @@ Le facteur de dilution permet de :
 
 ### 🔹 Formule à utiliser
 
-Pour trouver **Vi** (volume de solution mère à prélever) :
+Pour trouver **Vm** (volume de solution mère à prélever) :
 
-$$\boxed{V_i = \frac{C_f \times V_f}{C_i}}$$
+$$\boxed{V_m = \frac{C_f \times V_f}{C_m}}$$
 
 ### 🔹 Exemple
 
 **Énoncé** : Préparer 100 mL de solution à 20 g/L à partir d'une solution mère à 80 g/L.
 
 **Données** :
-- Ci = 80 g/L
+- Cm = 80 g/L
 - Cf = 20 g/L
 - Vf = 100 mL
-- Vi = ?
+- Vm = ?
 
 **Calcul** :
 
-$$V_i = \frac{C_f \times V_f}{C_i} = \frac{20 \times 100}{80} = 25 \text{ mL}$$
+$$V_m = \frac{C_f \times V_f}{C_m} = \frac{20 \times 100}{80} = 25 \text{ mL}$$
 
 **Vérification** :
-- F = Ci / Cf = 80 / 20 = 4
-- F = Vf / Vi = 100 / 25 = 4 ✓
+- F = Cm / Cf = 80 / 20 = 4
+- F = Vf / Vm = 100 / 25 = 4 ✓
 
 **Interprétation** : Il faut prélever 25 mL de solution mère et compléter jusqu'à 100 mL avec du solvant.
 
@@ -145,9 +145,9 @@ $$V_i = \frac{C_f \times V_f}{C_i} = \frac{20 \times 100}{80} = 25 \text{ mL}$$
 ```
 PROTOCOLE DE DILUTION
 
-1. CALCULER le volume Vi à prélever
+1. CALCULER le volume Vm à prélever
 
-2. PRÉLEVER Vi de solution mère avec une pipette jaugée adaptée
+2. PRÉLEVER Vm de solution mère avec une pipette jaugée adaptée
 
 3. VERSER dans une fiole jaugée de volume Vf
 
@@ -167,9 +167,9 @@ PROTOCOLE DE DILUTION
 
 ```
    Solution mère         Pipette jaugée        Fiole jaugée
-       (Ci)                  (Vi)                 (Vf)
+       (Cm)                  (Vm)                 (Vf)
         │                     │                    │
-        │    Prélever Vi      │                    │
+        │    Prélever Vm      │                    │
         └────────────────────►│                    │
                               │    Verser          │
                               └───────────────────►│
@@ -205,7 +205,7 @@ Préparer une solution à 0,1 g/L à partir d'une solution à 100 g/L.
 
 **Facteur total** : F = 100 / 0,1 = 1000
 
-**En une seule étape** : Vi = 0,1 mL pour 100 mL → **Trop imprécis !**
+**En une seule étape** : Vm = 0,1 mL pour 100 mL → **Trop imprécis !**
 
 **En 3 étapes** (dilutions au 1/10) :
 
@@ -215,7 +215,7 @@ Préparer une solution à 0,1 g/L à partir d'une solution à 100 g/L.
 
 F = 10 × 10 × 10 = 1000 ✓
 
-À chaque étape, Vi = 10 mL pour 100 mL → **Plus précis !**
+À chaque étape, Vm = 10 mL pour 100 mL → **Plus précis !**
 
 ---
 
@@ -243,9 +243,9 @@ F = 10 × 10 × 10 = 1000 ✓
 
 | Formule | Utilisation |
 |---------|-------------|
-| Ci × Vi = Cf × Vf | Relation de conservation |
-| Vi = (Cf × Vf) / Ci | Calculer le volume à prélever |
-| F = Ci / Cf = Vf / Vi | Facteur de dilution |
+| Cm × Vm = Cf × Vf | Relation de conservation |
+| Vm = (Cf × Vf) / Cm | Calculer le volume à prélever |
+| F = Cm / Cf = Vf / Vm | Facteur de dilution |
 
 ### ✅ Points clés
 
@@ -258,8 +258,8 @@ F = 10 × 10 × 10 = 1000 ✓
 
 | ❌ Erreur | ✅ Correction |
 |----------|--------------|
-| Inverser Ci et Cf | Ci = mère (concentrée), Cf = fille (diluée) |
-| Confondre Vi et Vf | Vi = prélevé, Vf = volume final |
+| Inverser Cm et Cf | Cm = mère (concentrée), Cf = fille (diluée) |
+| Confondre Vm et Vf | Vm = prélevé, Vf = volume final |
 | Oublier de compléter au trait | Le volume final doit être exact |
 
 ---
