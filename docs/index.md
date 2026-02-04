@@ -1,4 +1,4 @@
-# 🧪 Physique-Chimie appliquée – BTS MECP
+# 🧪 Physique-Chimie appliquées – BTS MECP
 
 **Lycée Jean Cassaigne – Mont-de-Marsan**
 
