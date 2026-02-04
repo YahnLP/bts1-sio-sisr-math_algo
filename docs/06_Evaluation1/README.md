@@ -1,4 +1,4 @@
-# 06 – Évaluation n°1 : Objectifs et ressources
+# 06 – Objectifs et ressources
 
 Cette première évaluation porte sur les **bases expérimentales** acquises lors des séances S01 à S05. Elle permet de vérifier la maîtrise des notions fondamentales avant de poursuivre vers des concepts plus avancés.
 
