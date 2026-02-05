@@ -80,7 +80,7 @@ même si le résultat final est partiellement incorrect.
 
 ➡️ [Télécharger la fiche 4 *Choisir et justifier une dilution (épreuve E2)* (PDF)](04_fiche_methode.pdf)
 
-➡️ [Télécharger la fiche 5 *Lire une représentation microscopique dans un dossier scientifique* (PDF)](05_fiche_methode.pdf)
+➡️ [Télécharger la fiche 5 *Lire un tableau périodique* (PDF)](05_fiche_methode.pdf)
 
-➡️ [Télécharger la fiche 6 *Interpréter une mesure physique en E2* (PDF)](06_fiche_methode.pdf)
+
 
