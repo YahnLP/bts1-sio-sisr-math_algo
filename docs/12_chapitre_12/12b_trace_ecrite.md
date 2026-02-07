@@ -3,160 +3,281 @@ author: ELP
 title: 12 📖 Trace écrite
 ---
 
-# 12 – Composition microscopique de la matière en cosmétologie : 📖 Trace écrite
-
-**Atomes – Ions – Molécules – Électrons de valence – Lecture microscopique d’un dossier scientifique**
+# S12 – Stabilité chimique : lecture de Lewis
 
 ---
 
-## 1️⃣ Pourquoi s’intéresser à l’échelle microscopique en cosmétologie et en E2
+## 1️⃣ Les gaz nobles : modèles de stabilité
 
-En cosmétologie, les résultats expérimentaux (pH, conductivité, efficacité, stabilité…) dépendent de la **nature microscopique des espèces chimiques** présentes dans un produit.
+### Caractéristiques des gaz nobles
 
-À l’épreuve **E2 – Expertise scientifique et technologique**, le candidat analyse des **dossiers scientifiques** décrivant la composition de produits cosmétiques.
+Les **gaz nobles** (colonne 18 du tableau périodique) sont des éléments **chimiquement inertes** : ils ne réagissent quasiment pas avec les autres éléments.
 
-👉 Comprendre ce dossier nécessite d’identifier :
+| Gaz noble | Symbole | Z | e⁻ couche externe |
+|-----------|:-------:|:-:|:-----------------:|
+| Hélium | He | 2 | 2 |
+| Néon | Ne | 10 | 8 |
+| Argon | Ar | 18 | 8 |
 
-- quelles **espèces chimiques** sont présentes,
-- leur **nature** (molécule / ion),
-- leur rôle potentiel dans le comportement du produit.
+### Pourquoi sont-ils stables ?
 
-
-
----
-
-## 2️⃣ Les entités chimiques : atome, ion, molécule
-
-Une **entité chimique** est une unité microscopique constituant la matière.
-
-On distingue principalement :
-
-- **Atome** : entité **électriquement neutre** (ex. Na, Cl, O…).
-- **Ion** : entité **chargée** :
-
-    - **cation** : charge positive (ex. Na⁺, Ca²⁺…)
-    - **anion** : charge négative (ex. Cl⁻, SO₄²⁻…)
-
-- **Molécule** : assemblage d’atomes **globalement neutre** (ex. H₂O, CO₂, acide lactique…).
-
-✅ En cosmétique, on rencontre aussi des **ions polyatomiques** (ex. **ion citrate**, sulfate…), très fréquents dans les formulations.
-
-👉 Identifier la nature d’une entité est indispensable pour comprendre le comportement d’une solution cosmétique.
+Leur couche électronique externe est **complète** : ils n'ont pas besoin de gagner, perdre ou partager des électrons.
 
 ---
 
-## 3️⃣ Structure simplifiée de l’atome (outil utile, sans complexifier)
+## 2️⃣ La règle de l'octet (et du duet)
 
-Un atome est constitué :
+### Énoncé
 
-- d’un **noyau** (protons + neutrons),
-- d’**électrons** autour du noyau.
+Les atomes cherchent à acquérir la configuration électronique stable des gaz nobles :
 
-Les **électrons de valence** (couche externe) sont essentiels car ils :
+$$\boxed{\text{Règle de l'OCTET : 8 électrons sur la couche externe = STABILITÉ}}$$
 
-- interviennent dans la **formation des ions**,
-- influencent la **stabilité chimique**,
-- conditionnent les **interactions** entre espèces.
+$$\boxed{\text{Règle du DUET (pour H) : 2 électrons sur la couche externe = STABILITÉ}}$$
 
-👉 On ne cherche pas des configurations électroniques complexes : on retient le **rôle** des électrons de valence.
+### Comment atteindre cette stabilité ?
 
----
-
-## 4️⃣ Formation des ions et propriétés mesurables en cosmétologie
-
-Un atome devient un **ion** lorsqu’il :
-
-- **perd** un ou plusieurs électrons → **cation**,
-- **gagne** un ou plusieurs électrons → **anion**.
-
-La présence d’ions dans une solution explique des **propriétés mesurables** utilisées en cosmétologie, notamment :
-
-- le **pH** (lié à l’acidité/basicité en solution),
-- la **conductivité** (plus il y a d’ions mobiles, plus la solution conduit le courant).
-
-👉 Ces notions sont exploitées dans les séances de contrôle qualité (CQ) : on relie **espèces présentes → mesure → interprétation**.
+| Méthode | Résultat | Exemple |
+|---------|----------|---------|
+| Perdre des e⁻ | Formation d'un **cation** | Na → Na⁺ |
+| Gagner des e⁻ | Formation d'un **anion** | Cl → Cl⁻ |
+| Partager des e⁻ | Formation d'une **liaison covalente** | H₂, H₂O, CH₄ |
 
 ---
 
-## 5️⃣ Charges usuelles & électroneutralité (essentiel CQ)
+## 3️⃣ Les formules de Lewis
 
-#### Repères rapides à partir du tableau périodique (charges usuelles)
+### Principe
 
-À partir de la colonne (groupe) dans le tableau périodique, on retient souvent :
+La **représentation de Lewis** permet de visualiser les **électrons de valence** d'un atome ou d'une molécule.
 
-- **Groupe 1** → ions **+1** (Na⁺, K⁺ …)
-- **Groupe 2** → ions **+2** (Mg²⁺, Ca²⁺ …)
-- **Groupe 13** → ions **+3** (Al³⁺ …)
-- **Groupe 17** → ions **−1** (Cl⁻, Br⁻ …)
-- **Groupe 16** → ions **−2** (O²⁻, S²⁻ …)
+**Conventions :**
+- Un **point** (•) = 1 électron
+- Un **trait** (—) = 2 électrons (doublet)
 
-⚠️ Ce sont des **repères usuels** (on ne traite pas ici tous les cas particuliers).
+### Lewis des atomes courants
 
-#### Règle d’électroneutralité (indispensable)
+| Atome | e⁻ de valence | Représentation |
+|:-----:|:-------------:|:--------------:|
+| H | 1 | H• |
+| C | 4 | 4 électrons autour |
+| N | 5 | 1 doublet + 3 électrons |
+| O | 6 | 2 doublets + 2 électrons |
+| Cl | 7 | 3 doublets + 1 électron |
 
-Un **composé ionique** est **globalement neutre** :
-> somme des charges positives = somme des charges négatives
+### Types de doublets
 
-**Exemples :**
-- Na⁺ + Cl⁻ → **NaCl**
-- Ca²⁺ + 2 Cl⁻ → **CaCl₂**
-- 2 Al³⁺ + 3 O²⁻ → **Al₂O₃**
-- 2 Na⁺ + SO₄²⁻ → **Na₂SO₄**
+| Type | Description | Représentation | Exemple |
+|------|-------------|:--------------:|---------|
+| **Doublet liant** | Partagé entre 2 atomes | — (trait) | Liaison O—H |
+| **Doublet non liant** | Sur 1 seul atome | •• | Sur l'oxygène de H₂O |
 
-✅ Méthode : on choisit des **indices** pour que la somme des charges soit **nulle**.
+### Exemple : la molécule d'eau H₂O
 
----
-
-## 6️⃣ Lecture microscopique d’un dossier scientifique (logique E2)
-
-Quand un dossier scientifique mentionne la composition d’un produit cosmétique, il faut savoir :
-
-1\. **Identifier** les espèces citées (eau, ions sodium, ion citrate, actif organique…)
-
-2\. **Distinguer** :
-
-   - **molécules** (souvent neutres)
-   - **ions** (chargés, souvent responsables de propriétés mesurables)
+<p align="center">
+  <img src=".\images\h2o.png" alt="Lewis H2O" width="20%"><br>
+</p>
+                    
+   • 2 doublets liants (traits H—O)
+   • 2 doublets non liants (sur O)
    
-3\. Comprendre pourquoi cette étape est essentielle **avant** d’interpréter des mesures (pH, conductivité, stabilité…).
+**Vérification de l'octet :**
+- Oxygène : 2 + 2 + 2 + 2 = **8 électrons** ✓
+- Hydrogène : **2 électrons** chacun ✓ (règle du duet)
 
-👉 Cette lecture microscopique est un **outil d’analyse** : elle prépare l’argumentation.
 
----
-
-## 7️⃣ Ce qui est attendu en E2  (à retenir)
-
-✅ Il n’est pas attendu :
-
-- des calculs complexes,
-- des configurations électroniques détaillées,
-- des schémas avancés.
-
-✅ Il est attendu :
-
-- d’**identifier correctement** atome / ion / molécule,
-- de mobiliser des **repères simples** (charges usuelles),
-- d’appliquer la **règle d’électroneutralité**,
-- de relier la présence d’ions à des **propriétés mesurables** (pH / conductivité),
-- d’argumenter dans un **contexte professionnel**.
+```
+┌─────────────────────────────────────────────────────────────┐
+│                                                             │
+│   📌 À RETENIR :                                           │
+│                                                             │
+│   • Doublet LIANT = ENTRE deux atomes (liaison)             │
+│   • Doublet NON LIANT = SUR un seul atome                   │
+│                                                             │
+└─────────────────────────────────────────────────────────────┘
+```
 
 ---
 
-## 🔧 Outil méthodologique associé
+## 4️⃣ Les radicaux : espèces instables
 
-Pour lire et interpréter correctement une représentation microscopique dans un contexte cosmétique, se référer à :
+### Définition
 
-➡️ Voir : [*Fiche méthode 05 – Lire une représentation microscopique dans un dossier scientifique*](https://bts-mecp-physique-chimie-688080.forge.apps.education.fr/Methodologie/05_fiche_methode/)
+Un **radical** est une espèce chimique possédant un **électron célibataire** (non apparié).
 
+$$\boxed{\text{RADICAL = électron célibataire = INSTABLE et TRÈS RÉACTIF}}$$
+
+### Exemple : le radical hydroxyle HO•
+
+<p align="center">
+  <img src=".\images\radical.png" alt="Radical : électron célibataire" width="25%"><br>
+  <em>Électron célibataire → très réactif</em>
+</p>
+              
+   L'oxygène n'a que 7 e⁻ au lieu de 8
+   → Le radical va "arracher" un électron à une molécule voisine
+
+
+### Les ROS (Espèces Réactives de l'Oxygène)
+
+| ROS | Formule | Source |
+|-----|:-------:|--------|
+| Radical hydroxyle | HO• | UV, pollution |
+| Anion superoxyde | O₂•⁻ | Métabolisme cellulaire |
+| Peroxyde d'hydrogène | H₂O₂ | Métabolisme |
+
+**Conséquences sur la peau :**
+- Attaque des lipides membranaires
+- Dégradation du collagène
+- Dommages à l'ADN
+- → **Vieillissement cutané accéléré**
 
 ---
 
-## 🔗 Pour la suite…
+## 5️⃣ Les liaisons fragiles O–O et S–S
 
-Cette séance prépare directement :
+### Liaison O–O (peroxyde)
 
-- la **stabilité chimique** et les **représentations de Lewis**,
-- la compréhension des **interactions**,
-- l’analyse complète de **dossiers scientifiques E2** (justifications microscopiques).
+```
+         R — O — O — R
+               ↑
+         Liaison FRAGILE
+```
 
+La liaison O–O a une **énergie de liaison faible** : elle se casse facilement.
 
+| Composé | Formule | Utilisation |
+|---------|:-------:|-------------|
+| Eau oxygénée | H₂O₂ | Décoloration capillaire |
+| Peroxyde de benzoyle | – | Actif anti-acné |
+
+### Liaison S–S (pont disulfure)
+
+```
+         R — S — S — R
+               ↑
+         Liaison FRAGILE
+```
+
+La liaison S–S peut être **réduite** (cassée) ou **oxydée** (reformée).
+
+| Structure | Localisation | Application |
+|-----------|--------------|-------------|
+| Cystine | Kératine du cheveu | Structure capillaire |
+| Ponts S–S | Entre fibres de kératine | Permanente / défrisage |
+
+---
+
+## 6️⃣ Application : la permanente
+
+La permanente exploite la fragilité des liaisons S–S de la kératine.
+
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│                                                                     │
+│   ÉTAPE 1 : RÉDUCTION                                               │
+│   ─────────────────                                                 │
+│   Réducteur (acide thioglycolique) → CASSE les liaisons S–S         │
+│   Le cheveu devient MALLÉABLE                                       │
+│                                                                     │
+│   ÉTAPE 2 : MISE EN FORME                                           │
+│   ───────────────────────                                           │
+│   Bigoudis (boucles) ou lissage (défrisage)                         │
+│                                                                     │
+│   ÉTAPE 3 : OXYDATION                                               │
+│   ──────────────────                                                │
+│   Oxydant (H₂O₂) → REFORME les liaisons S–S                         │
+│   Le cheveu GARDE sa nouvelle forme                                 │
+│                                                                     │
+└─────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 7️⃣ Les antioxydants : protection contre les radicaux
+
+### Rôle des antioxydants
+
+Les **antioxydants** neutralisent les radicaux libres en leur **donnant un électron**, sans devenir eux-mêmes dangereux.
+
+| Antioxydant | Type | Action |
+|-------------|------|--------|
+| Vitamine C | Hydrosoluble | Neutralise les radicaux en milieu aqueux |
+| Vitamine E | Liposoluble | Protège les membranes lipidiques |
+| Polyphénols | Variable | Piègent les radicaux |
+
+### Synergie C + E
+
+La vitamine C **régénère** la vitamine E après que celle-ci a neutralisé un radical.
+
+---
+
+## 8️⃣ Électronégativité : un aperçu pour la suite
+
+### Définition
+
+L'**électronégativité** (notée χ, « chi ») est la capacité d'un atome à **attirer vers lui les électrons** d'une liaison chimique.
+
+### Tendance dans le tableau périodique
+
+$$\boxed{\text{L'électronégativité AUGMENTE de gauche à droite et de bas en haut}}$$
+
+### Valeurs utiles en cosmétique
+
+| Atome | χ (Pauling) | Commentaire |
+|:-----:|:-----------:|-------------|
+| H | 2,2 | Référence |
+| C | 2,5 | Peu électronégatif |
+| N | 3,0 | Électronégatif |
+| O | 3,4 | Très électronégatif |
+| F | 4,0 | Le plus électronégatif |
+| S | 2,6 | Proche du carbone |
+| Cl | 3,2 | Électronégatif |
+
+> 💡 *En S13, nous verrons comment la DIFFÉRENCE d'électronégativité entre deux atomes crée une liaison polarisée, ce qui explique pourquoi certaines molécules cosmétiques sont solubles dans l'eau et d'autres dans l'huile.*
+
+---
+
+## 📌 À retenir pour l'E2
+
+### Règles de stabilité
+
+| Règle | Application |
+|-------|-------------|
+| Règle de l'octet | 8 e⁻ sur la couche externe = stable |
+| Règle du duet | 2 e⁻ pour l'hydrogène |
+| Gaz nobles | Configuration idéale (couche pleine) |
+
+### Signes d'instabilité
+
+| Signe | Conséquence |
+|-------|-------------|
+| Électron célibataire | **Radical** (très réactif) |
+| Liaison O–O | Fragile (se casse facilement) |
+| Liaison S–S | Fragile (permanente, défrisage) |
+
+### Vocabulaire à maîtriser
+
+| Terme | Définition |
+|-------|------------|
+| **Doublet liant** | 2 e⁻ partagés entre 2 atomes (liaison) |
+| **Doublet non liant** | 2 e⁻ sur un seul atome |
+| **Radical** | Espèce avec un e⁻ célibataire |
+| **ROS** | Espèces réactives de l'oxygène (radicaux) |
+| **Antioxydant** | Molécule qui neutralise les radicaux |
+
+---
+
+## 🔗 Lien avec la suite de la progression
+
+| Séance | Réinvestissement |
+|--------|------------------|
+| **S13** | Polarité et interactions (liaisons H, Van der Waals) |
+| **S19** | Fonctions organiques (alcools, peroxydes, thiols) |
+| **S25** | Stabilité des cosmétiques, facteurs de dégradation |
+
+---
+
+## 🔧 Fiche méthode associée
+
+➡️ [**Fiche méthode 06 – Lire une formule de Lewis**](../Methodologie/06_fiche_methode/)
