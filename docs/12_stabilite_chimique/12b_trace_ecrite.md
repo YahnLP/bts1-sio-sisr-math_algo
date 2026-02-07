@@ -1,6 +1,6 @@
 ---
 author: ELP
-title: "12 📖 Trace écrite"
+title: 12 📖 Trace écrite
 ---
 
 # S12 – Stabilité chimique : lecture de Lewis
@@ -91,8 +91,8 @@ La **représentation de Lewis** permet de visualiser les **électrons de valence
 │                                                             │
 │   📌 À RETENIR :                                           │
 │                                                             │
-│   • Doublet LIANT = ENTRE deux atomes (liaison)            │
-│   • Doublet NON LIANT = SUR un seul atome                  │
+│   • Doublet LIANT = ENTRE deux atomes (liaison)             │
+│   • Doublet NON LIANT = SUR un seul atome                   │
 │                                                             │
 └─────────────────────────────────────────────────────────────┘
 ```
@@ -175,18 +175,18 @@ La permanente exploite la fragilité des liaisons S–S de la kératine.
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
 │                                                                     │
-│   ÉTAPE 1 : RÉDUCTION                                              │
+│   ÉTAPE 1 : RÉDUCTION                                               │
 │   ─────────────────                                                 │
-│   Réducteur (acide thioglycolique) → CASSE les liaisons S–S        │
+│   Réducteur (acide thioglycolique) → CASSE les liaisons S–S         │
 │   Le cheveu devient MALLÉABLE                                       │
 │                                                                     │
-│   ÉTAPE 2 : MISE EN FORME                                          │
+│   ÉTAPE 2 : MISE EN FORME                                           │
 │   ───────────────────────                                           │
-│   Bigoudis (boucles) ou lissage (défrisage)                        │
+│   Bigoudis (boucles) ou lissage (défrisage)                         │
 │                                                                     │
-│   ÉTAPE 3 : OXYDATION                                              │
+│   ÉTAPE 3 : OXYDATION                                               │
 │   ──────────────────                                                │
-│   Oxydant (H₂O₂) → REFORME les liaisons S–S                        │
+│   Oxydant (H₂O₂) → REFORME les liaisons S–S                         │
 │   Le cheveu GARDE sa nouvelle forme                                 │
 │                                                                     │
 └─────────────────────────────────────────────────────────────────────┘
@@ -209,6 +209,32 @@ Les **antioxydants** neutralisent les radicaux libres en leur **donnant un élec
 ### Synergie C + E
 
 La vitamine C **régénère** la vitamine E après que celle-ci a neutralisé un radical.
+
+---
+
+## 8️⃣ Électronégativité : un aperçu pour la suite
+
+### Définition
+
+L'**électronégativité** (notée χ, « chi ») est la capacité d'un atome à **attirer vers lui les électrons** d'une liaison chimique.
+
+### Tendance dans le tableau périodique
+
+$$\boxed{\text{L'électronégativité AUGMENTE de gauche à droite et de bas en haut}}$$
+
+### Valeurs utiles en cosmétique
+
+| Atome | χ (Pauling) | Commentaire |
+|:-----:|:-----------:|-------------|
+| H | 2,2 | Référence |
+| C | 2,5 | Peu électronégatif |
+| N | 3,0 | Électronégatif |
+| O | 3,4 | Très électronégatif |
+| F | 4,0 | Le plus électronégatif |
+| S | 2,6 | Proche du carbone |
+| Cl | 3,2 | Électronégatif |
+
+> 💡 *En S13, nous verrons comment la DIFFÉRENCE d'électronégativité entre deux atomes crée une liaison polarisée, ce qui explique pourquoi certaines molécules cosmétiques sont solubles dans l'eau et d'autres dans l'huile.*
 
 ---
 
