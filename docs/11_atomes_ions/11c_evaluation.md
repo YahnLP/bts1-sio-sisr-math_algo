@@ -14,6 +14,10 @@ title: "11 🖋️ Évaluation formative"
 
 ---
 
+<p align="center">
+  <img src=".\images\tableau_periodique.png" alt="Tableau périodique" width="95%"><br>
+</p>
+
 ## Exercice 1 – Connaissances (4 points)
 
 ### A) Compléter les phrases (2 points)
