@@ -89,9 +89,10 @@ $$\boxed{\text{CH}_3\text{–CH}_2\text{–CH}_2\text{–CH}_3}$$
 
 ##### 3. Formule topologique (ou développée)
 
-<p align="center">
-  <img src=".\images\topo2.png" alt="Formule topologique" width="35%"><br>
+<p style="text-align:center;">
+  <img src="/17_representation_molecules/images/topo2.png" alt="Formule topologique" style="width:35%;">
 </p>
+
 
 **Définition :** Représentation **simplifiée** où :
 - Chaque **sommet** du zigzag = **1 atome de carbone**
@@ -130,9 +131,10 @@ Formule semi-développée : CH₃–CH₂–CH₂–CH₂–CH₃
 ```
 
 Formule topologique :     
-<p align="center">
-  <img src=".\images\pentane.png" alt="Pentane" width="25%"><br>
+<p style="text-align:center;">
+  <img src="/17_representation_molecules/images/pentane.png" alt="Pentane" style="width:25%;">
 </p>
+
 
 > 💡 *En cosmétique : les acides gras saturés (acide laurique, acide stéarique) ont des chaînes linéaires.*
 
@@ -150,9 +152,10 @@ Formule semi-développée :   CH₃
                         CH₃–CH–CH₃
 ```
 Formule topologique :       
-<p align="center">
-  <img src=".\images\isobutane.png" alt="Pentane" width="25%"><br>
+<p style="text-align:center;">
+  <img src="/17_representation_molecules/images/isobutane.png" alt="Pentane" style="width:25%;">
 </p>
+
 
                             
 
@@ -169,14 +172,15 @@ Les atomes de carbone forment un **anneau fermé** (cycle).
 
 
 Formule semi-développée :  
-<p align="center">
-  <img src=".\images\hexane.png" alt="hexane" width="35%"><br>
+<p style="text-align:center;">
+  <img src="/17_representation_molecules/images/hexane.png" alt="hexane" style="width:35%;">
 </p>
 
 Formule topologique :    
-<p align="center">
-  <img src=".\images\hexagone.png" alt="hexane" width="25%"><br>
+<p style="text-align:center;">
+  <img src="/17_representation_molecules/images/hexagone.png" alt="hexane" style="width:25%;">
 </p>
+
 
 
 
@@ -201,9 +205,10 @@ Formule topologique :
 
 Étape 2 : Relier
 
-<p align="center">
-  <img src=".\images\propane.png" alt="Propane" width="15%"><br>
+<p style="text-align:center;">
+  <img src="/17_representation_molecules/images/propane.png" alt="Propane" style="width:15%;">
 </p>
+
 
 ---
 
@@ -218,9 +223,10 @@ Formule topologique :
 
 **Exemple :**
 
-<p align="center">
-  <img src=".\images\butane.png" alt="Butane" width="15%"><br>
+<p style="text-align:center;">
+  <img src="/17_representation_molecules/images/butane.png" alt="Butane" style="width:15%;">
 </p>
+
 
 - C1 (bout) : 1 liaison → CH₃
 - C2 (milieu) : 2 liaisons → CH₂
@@ -241,8 +247,8 @@ Pour chaque molécule, indiquez le type de représentation (brute, semi-dévelop
 
 | Molécule | Représentation A | Type A | Représentation B | Type B | Représentation C | Type C |
 |----------|:----------------:|:------:|:----------------:|:------:|:----------------:|:------:|
-| **Propane** | C₃H₈ | _______ | CH₃–CH₂–CH₃ | _______ | ![Propane](.\images\propane.png) | _______ |
-| **Pentane** | C₅H₁₂ | _______ | CH₃–CH₂–CH₂–CH₂–CH₃ | _______ | ![Pentane](.\images\pentane.png)  | _______ |
+| **Propane** | C₃H₈ | _______ | CH₃–CH₂–CH₃ | _______ | <img src="/17_representation_molecules/images/propane.png" alt="Propane" style="width:15%;"> | _______ |
+| **Pentane** | C₅H₁₂ | _______ | CH₃–CH₂–CH₂–CH₂–CH₃ | _______ | <img src="/17_representation_molecules/images/pentane.png" alt="Pentane" style="width:15%;">  | _______ |
 
 ### 1.2 – Compter les atomes dans la formule topologique
 
