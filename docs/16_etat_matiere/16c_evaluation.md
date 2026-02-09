@@ -50,9 +50,10 @@ title: 16 🖋️ Évaluation formative
 
 Voici un diagramme d'état simplifié d'une cire cosmétique :
 
-<p align="center">
-  <img src=".\images\cire.png" alt="Changement d'état" width="75%"><br>
+<p style="text-align:center;">
+  <img src="/16_etat_matiere/images/cire.png" alt="Changement d'état" style="width:75%;">
 </p>
+
 
 ### 2.1 – Identifier l'état (2 pts)
 

@@ -70,8 +70,9 @@ Les **lignes** entre les zones représentent les **changements d'état** :
 - Ligne liquide/gaz : **vaporisation** (→) ou **liquéfaction** (←)
 - Ligne solide/gaz : **sublimation** (→) ou **condensation** (←)
 
-<p align="center">
-  <img src=".\images\changement.png" alt="Changement d'état" width="55%"><br>
+
+<p style="text-align:center;">
+  <img src="/16_etat_matiere/images/changement.png" alt="Changement d'état" style="width:55%;">
 </p>
 
 > 💡 *À pression atmosphérique (1 bar), on suit la ligne horizontale en pointillés. C'est pourquoi l'eau bout à 100 °C à 1 bar.*

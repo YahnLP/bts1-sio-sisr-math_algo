@@ -23,8 +23,8 @@ La **matière** peut exister sous trois états physiques :
 
 Un **changement d'état** est le passage d'un état physique à un autre, sous l'effet d'une variation de **température** ou de **pression**.
 
-<p align="center">
-  <img src=".\images\changement.png" alt="Changement d'état" width="55%"><br>
+<p style="text-align:center;">
+  <img src="/16_etat_matiere/images/changement.png" alt="Changement d'état" style="width:55%;">
 </p>
 
 
@@ -60,8 +60,8 @@ Un **diagramme d'état** représente l'état physique d'une substance en fonctio
 
 ### Lecture du diagramme
 
-<p align="center">
-  <img src=".\images\Diag_eau.svg.png" alt="Diagramme d'état de l'eau" width="80%"><br>
+<p style="text-align:center;">
+  <img src="/16_etat_matiere/images/Diag_eau.svg.png" alt="Diagramme d'état de l'eau" style="width:80%;">
 </p>
 
 | Zone | État | Comment la repérer |
@@ -294,9 +294,10 @@ Un **histogramme** est un graphique en **barres** qui représente la **répartit
 
 **Histogramme :**
 
-<p align="center">
-  <img src=".\images\histogramme.png" alt="Changement d'état" width="75%"><br>
+<p style="text-align:center;">
+  <img src="/16_etat_matiere/images/histogramme.png" alt="Changement d'état" style="width:75%;">
 </p>
+
 
 #### Interprétation
 
