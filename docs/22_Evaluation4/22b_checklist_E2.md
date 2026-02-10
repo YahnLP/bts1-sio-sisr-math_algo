@@ -205,6 +205,10 @@ title: 22 📋 Checklist E2 – Évaluation n°4
 | ☐ | Comparé au **pH physiologique de la peau** (4,5-5,5) |
 | ☐ | Conclu sur la **compatibilité cutanée** |
 | ☐ | Fait le lien avec le **film hydrolipidique** |
+| ☐ | Relié le pH à la concentration en ions **H₃O⁺** |
+| ☐ | Compris que le pH est une **échelle logarithmique** (×10 ↔ ±1 unité) |
+| ☐ | Conclus sur la **conformité** par rapport au cahier des charges (OACJ) |
+
 
 ## 🆕 Interprétation de la conductivité
 
