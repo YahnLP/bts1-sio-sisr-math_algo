@@ -134,7 +134,7 @@ Cette séance introduit les **fonctions organiques** (oxygénées, azotées, sou
 
 ⬅️ Séance précédente : [S18 – Isomérie de constitution](../18_isomerie/)
 
-➡️ Séance suivante : [S20 – TP3 Dossier moléculaire (E2)](../20_tp3_dossier_moleculaire/)
+➡️ Séance suivante : [S20 – TP3 Dossier moléculaire (E2)](../20_TP3_lewis/)
 
 ---
 

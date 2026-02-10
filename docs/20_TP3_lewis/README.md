@@ -152,9 +152,9 @@ Cette séance est un **TP d'exploitation E2** qui synthétise les notions de S12
 
 ## 🔗 Navigation
 
-⬅️ Séance précédente : [S19 – Fonctions organiques](../19_fonctions_organiques/)
+⬅️ Séance précédente : [S19 – Fonctions organiques](../19_fonctions_orga)
 
-➡️ Séance suivante : [S21 – Réactions chimiques](../21_reactions_chimiques/)
+➡️ Séance suivante : [S21 – Conductivite](../21_conductivite/)
 
 ---
 

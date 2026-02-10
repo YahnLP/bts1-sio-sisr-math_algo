@@ -147,9 +147,9 @@ Cette séance introduit la **conductivité σ** et ses applications en contrôle
 
 ## 🔗 Navigation
 
-⬅️ Séance précédente : [S20 – TP3 Dossier moléculaire (E2)](../20_tp3_dossier_moleculaire/)
+⬅️ Séance précédente : [S20 – TP3 Dossier moléculaire (E2)](../20_TP3_lewis/)
 
-➡️ Séance suivante : [S22 – Évaluation type E2 transversale](../22_evaluation_E2/)
+➡️ Séance suivante : [S22 – Évaluation type E2 transversale](../22_Evaluation4/)
 
 ---
 
