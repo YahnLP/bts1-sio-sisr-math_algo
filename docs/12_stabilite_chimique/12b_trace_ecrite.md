@@ -274,7 +274,7 @@ $$\boxed{\text{L'électronégativité AUGMENTE de gauche à droite et de bas en 
 |--------|------------------|
 | **S13** | Polarité et interactions (liaisons H, Van der Waals) |
 | **S19** | Fonctions organiques (alcools, peroxydes, thiols) |
-| **S25** | Stabilité des cosmétiques, facteurs de dégradation |
+| **S26** | Stabilité des cosmétiques, facteurs de dégradation |
 
 ---
 
