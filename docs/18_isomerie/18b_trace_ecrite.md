@@ -71,6 +71,8 @@ Les propriétés **physiques** sont différentes :
 |----------|:--------------:|-----------|-------|
 | **Acide stéarique** (C₁₈) | Linéaire | Émollient occlusif, texture épaisse | Crèmes riches |
 | **Squalane** (C₃₀) | Ramifiée | Émollient léger, texture fluide | Sérums, huiles sèches |
+| **Dodécane** (C₁₂H₂₆) | Linéaire | Toucher plus "gras", évaporation plus lente | Solvant / support |
+| **Isododécane** (C₁₂H₂₆) | Ramifiée | Toucher sec, évaporation plus rapide, améliore la tenue | Maquillage longue tenue, sprays |
 
 ---
 
