@@ -1,1 +1,1 @@
-Rendu du site : https://e-leprettre.github.io/bts-mecp-physique-chimie/
+Rendu du site : https://YahnLP.github.io/bts1-sio-sisr-bloc1/
