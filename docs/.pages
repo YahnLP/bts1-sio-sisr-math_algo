@@ -1,5 +1,7 @@
 arrange:
-    - index.md
-    - 00_Progression
+    - 00_progression
     - Semaine-01
-
+    - Semaine-02
+    - Semaine-03
+    
+    
