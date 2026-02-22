@@ -2,6 +2,9 @@
 
 **SUP'ADOUR - MFR de Pontonx**
 
+<p align="center">
+  <img src="./images/logo-b1.png" width="500">
+</p>
 ---
 
 Bienvenue sur l'espace de ressources du BTS Services Informatique aux organisations Spécialité SISR.
