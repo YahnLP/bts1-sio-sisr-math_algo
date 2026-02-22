@@ -1,150 +1,144 @@
-# 🧪 Physique-Chimie appliquée – BTS MECP
+# BLOC 1 - Support et services - BTS SIO1
 
-**Lycée Jean Cassaigne – Mont-de-Marsan**
-
----
-
-Bienvenue sur l'espace de ressources en **physique-chimie appliquée** du BTS Métiers de l'Esthétique, de la Cosmétique et de la Parfumerie.
-
-> 💡 *Comprendre la science des cosmétiques pour devenir un(e) professionnel(le) expert(e).*
+**SUP'ADOUR - MFR de Pontonx**
 
 ---
 
-### 🎯 Pourquoi la physique-chimie en BTS MECP ?
+Bienvenue sur l'espace de ressources du BTS Services Informatique aux organisations Spécialité SISR.
 
-La physique-chimie n'est pas qu'une matière scolaire : c'est un **outil professionnel** indispensable pour :
+# 💻 BTS SIO – Option SISR
 
-| Situation professionnelle | Ce que vous saurez faire |
-|---------------------------|--------------------------|
-| Un client vous interroge sur un ingrédient | Lire et expliquer une liste INCI |
-| Un produit présente un dépôt anormal | Comprendre les problèmes de solubilité |
-| Vous devez choisir entre deux actifs | Analyser leurs propriétés moléculaires |
-| Une lampe UV doit être contrôlée | Interpréter un spectre d'irradiance |
-| Vous préparez une dilution en cabine | Calculer et vérifier une concentration |
+## Bloc 1 : Support et mise à disposition de services informatiques
 
-👉 **L'épreuve E2** (3h, coefficient 4) évalue exactement ces compétences.
+> 💡 *Comprendre les infrastructures informatiques pour devenir un(e) professionnel(le) SISR opérationnel(le) et fiable.*
 
 ---
 
-### 📚 Organisation du site
+## 🎯 Pourquoi le Bloc 1 en BTS SIO SISR ?
 
-#### 📘 Séances de cours
+Le Bloc 1 constitue le **socle technique fondamental** du parcours SISR.
+Il vous forme aux compétences indispensables pour :
 
-29 séances progressives, de la découverte des mélanges jusqu'à la préparation complète de l'épreuve E2.
+* Installer et configurer des équipements
+* Mettre à disposition des services réseau
+* Assurer la maintenance et le support
+* Garantir la disponibilité et la sécurité des infrastructures
+
+| Situation professionnelle              | Ce que vous saurez faire                     |
+| -------------------------------------- | -------------------------------------------- |
+| Un utilisateur n’accède plus au réseau | Diagnostiquer et résoudre un incident        |
+| Un service doit être déployé           | Installer et configurer un serveur           |
+| Un poste doit intégrer un domaine      | Configurer l’authentification et les droits  |
+| Une entreprise ouvre un nouveau site   | Mettre en place l’architecture réseau        |
+| Une panne impacte la production        | Identifier la cause et proposer une solution |
+
+👉 Les épreuves certificatives (E4 notamment) évaluent directement ces compétences professionnelles à travers des mises en situation.
+
+---
+
+## 🌐 Les environnements et technologies étudiés
+
+Vous serez amené(e) à travailler sur :
+
+* Systèmes **Windows Server**
+* Systèmes **Linux**
+* Équipements réseau (commutateurs, routeurs)
+* Virtualisation
+* Services d’infrastructure (DHCP, DNS, Active Directory, etc.)
+
+---
+
+## 📚 Organisation du site
+
+### 📘 Séances de cours
+
+Progression structurée du **diagnostic réseau** jusqu’au **déploiement complet d’une infrastructure sécurisée**.
 
 Chaque séance comprend :
 
-- Une **fiche élève** (activités guidées)
-- Une **trace écrite** (cours structuré)
-- Une **évaluation formative** (auto-évaluation)
+* Une **fiche étudiant** (mise en situation professionnelle)
+* Une **trace technique structurée**
+* Une **activité pratique ou TP**
+* Une **auto-évaluation de compétences**
 
-➡️ [Accéder aux séances](./)
+➡️ Accès aux séances via l’espace dédié.
 
 ---
 
-#### 🔬 Travaux pratiques
+### 🖥️ Travaux pratiques (TP)
 
-4 TP sur l'année pour développer vos compétences expérimentales :
-
-| TP | Thème | Séance |
-|----|-------|:------:|
-| TP1 | Dissolution, dilution, échelle de teinte | S05 |
-| TP2 | pH-métrie et conformité | S10 |
-| TP3 | Dossier moléculaire (documentaire) | S21 |
-| TP4 | CMC par conductimétrie | S23 |
-
+Les TP développent vos compétences opérationnelles en environnement réel ou virtualisé.
 
 
 ---
 
-#### 🧠 Méthodologie E2
+### 🧠 Méthodologie professionnelle
 
-Plusieurs fiches méthode pour structurer vos réponses et maximiser vos points.
+Des fiches méthodes pour :
 
-
-➡️ [Accéder à la méthodologie](./Methodologie/)
-
----
-
-#### 📺 Vidéos de révision
-
-Une sélection de vidéos courtes (2-6 min) pour réviser chaque notion à votre rythme.
-
-➡️ [Accéder aux vidéos recommandées](./000_videos_recommandees/videos_recommandees.md)
+* Rédiger une procédure claire
+* Structurer un compte rendu technique
+* Présenter une solution à un client
+* Justifier un choix d’architecture
 
 ---
 
-#### 📅 Progression annuelle
+## 🧭 Comment utiliser cet espace ?
 
-La progression complète avec les compétences E2 travaillées à chaque séance.
-
-➡️ [Voir la progression](./00_Progression/progression.md)
-
----
-
-### 🧭 Comment utiliser ce site ?
-
-#### En classe
+### En classe
 
 ```
-1. Ouvrir la fiche élève de la séance du jour
-2. Suivre les activités guidées
-3. Compléter la trace écrite
-4. Faire l'évaluation formative
+1. Ouvrir la fiche du jour
+2. Lire la situation professionnelle
+3. Réaliser les manipulations
+4. Compléter la synthèse technique
 ```
 
-#### À la maison
+### À la maison
 
 ```
-1. Relire la trace écrite
-2. Regarder les vidéos recommandées si besoin
-3. Refaire les exercices non compris
-4. Préparer les questions pour le cours suivant
+1. Revoir les procédures réalisées
+2. Tester les commandes sur environnement virtuel si possible
+3. Compléter les parties non finalisées
+4. Préparer les questions techniques
 ```
 
-#### En cas d'absence
+### En cas d’absence
 
 ```
-1. Consulter la fiche élève + trace écrite
-2. Regarder les vidéos associées
-3. Faire l'évaluation formative en autonomie
-4. Poser vos questions au cours suivant
+1. Consulter la fiche + ressources
+2. Lire la synthèse technique
+3. Reproduire les manipulations en autonomie
+4. Faire valider la compréhension au cours suivant
 ```
 
 ---
 
-### 🏆 Les clés de la réussite
+## 🏆 Les clés de la réussite en SISR
 
-| Habitude | Pourquoi c'est important |
-|----------|--------------------------|
-| **Régularité** | 15 min de révision/jour > 3h la veille de l'examen |
-| **Vocabulaire** | Les mots scientifiques précis rapportent des points |
-| **Justification** | Une réponse sans "car" ou "en effet" est incomplète |
-| **Entraînement** | Refaire les évaluations formatives plusieurs fois |
+| Habitude                  | Pourquoi c’est essentiel                                |
+| ------------------------- | ------------------------------------------------------- |
+| **Rigueur**               | Une erreur de configuration peut bloquer tout un réseau |
+| **Méthode**               | Diagnostiquer avant d’agir évite les erreurs            |
+| **Documentation**         | Un bon administrateur laisse des procédures claires     |
+| **Entraînement régulier** | La maîtrise vient par la pratique                       |
 
-> 📌 **Message clé** : En E2, la méthode compte autant que le résultat. Une erreur de calcul avec une bonne démarche rapporte plus de points qu'un résultat juste sans explication.
-
-
+> 📌 Message clé : En informatique d’infrastructure, la démarche de diagnostic et la justification technique comptent autant que la solution finale.
 
 ---
 
+## 🔄 Mises à jour
 
-
-
-
-### 🔄 Mises à jour
-
-
-En cas de problème d'accès ou de lien cassé, merci de le signaler en classe.
+En cas de problème technique ou de lien inaccessible, le signaler directement à l’enseignant.
 
 ---
 
 <div align="center">
 
-Formation professionnalisante orientée expertise scientifique et réussite à l'épreuve E2
+Formation professionnalisante orientée expertise technique, autonomie et réussite aux épreuves du BTS SIO
 
 <br>
 
-✍️ Elisabeth Le Prettre
+✍️ YAHN LE PRETTRE
 
 </div>
