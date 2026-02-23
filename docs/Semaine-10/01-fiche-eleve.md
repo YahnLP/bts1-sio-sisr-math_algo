@@ -5,7 +5,7 @@ title: 📚 FICHE DE COURS
 
 
 # 📚 FICHE DE COURS ÉLÈVE
-## "Gestion des Configurations · Versioning · ITIL Configuration Management"
+## "Droits d'Accès · Principe du Moindre Privilège · Modèles d'Accès"
 
 *Version 1.0 — BTS SIO SISR — Année 1 — Semaine 10*
 
@@ -15,358 +15,559 @@ title: 📚 FICHE DE COURS
 
 | **Code** | **Compétence** |
 |----------|---------------|
-| **B1.2** | Exploiter des référentiels (ITIL Configuration Management) |
-| **B2.3** | Gérer les accès et services réseaux (configs équipements) |
-| **B3.3** | Documenter les configurations |
+| **B3.2** | Mettre en œuvre les mesures de sécurité de base |
+| **B3.4** | Gérer les accès et les droits des utilisateurs |
 
 ---
 
-## PARTIE I — Gestion des Configurations selon ITIL
+## PARTIE I — Authentification vs Autorisation
 
-### I.A. Configuration Management — Définition
-
-En ITIL 4, la **gestion des configurations** (Configuration Management) est la pratique qui consiste à maintenir une information fiable et à jour sur tous les **éléments de configuration** (CI — Configuration Items) de l'infrastructure IT et leurs relations.
+### I.A. Deux Concepts Distincts
 
 ```
-   CMDB (Configuration Management DataBase)
-   ────────────────────────────────────────────────────────────
-   Base de données centrale contenant tous les CI et leurs relations
+   AUTHENTIFICATION vs AUTORISATION
+   ═══════════════════════════════════════════════════════════════
 
-   Exemples de CI :
-   ├── Serveurs (physiques, virtuels)
-   ├── Équipements réseau (switches, routeurs, firewalls)
-   ├── Postes de travail (fixes, portables)
-   ├── Logiciels (OS, applications, versions)
-   ├── Licences (nombre, type, expiration)
-   ├── Documents (DAT, procédures, schémas)
-   └── Relations entre CI (ce serveur héberge cette application,
-       cette application utilise cette base de données...)
-```
-
----
-
-### I.B. Baseline de Configuration
-
-Une **baseline** (ou **référence de configuration**) est un instantané figé de la configuration d'un CI à un moment donné, qui sert de référence pour les changements futurs.
-
-```
-   EXEMPLE — Baseline Serveur Web Production
-   ─────────────────────────────────────────────────────────────
-   Baseline v1.0 — 2024-09-15
-   ├── Serveur : SRV-WEB-01 / Ubuntu 22.04.3 LTS
-   ├── Apache 2.4.52
-   ├── PHP 8.1.12
-   ├── MariaDB 10.6.12
-   ├── Sites hébergés : intranet.siosarl.local, catalogue.siosarl.local
-   ├── Certificat SSL : Let's Encrypt — expire 2024-12-10
-   ├── Configuration réseau : IP 192.168.10.50/24, GW .1, DNS .10
-   ├── Fichiers de config : /etc/apache2/sites-available/*
-   └── Date de création baseline : 2024-09-15
-
-   → Tout changement par rapport à cette baseline doit être documenté
-     et validé (Change Management)
-```
-
-> 💡 **Pourquoi une baseline ?** Sans baseline, on ne peut pas savoir si une configuration actuelle est conforme à ce qu'elle devrait être. C'est la référence pour les audits de conformité et les retours arrière (rollback) en cas de problème.
-
----
-
-### I.C. Relations entre CI dans la CMDB
-
-Un CI ne vit jamais seul. La CMDB enregistre les **dépendances** entre CI :
-
-```
-   Exemple de relations :
-   ─────────────────────────────────────────────────────────────
-   APPLICATION INTRANET
-       │
-       ├── Hébergée sur → SRV-WEB-01
-       ├── Utilise → BASE-INTRANET (MariaDB sur SRV-DB-01)
-       ├── Nécessite → Licence PHP (10 utilisateurs simultanés)
-       └── Accessible via → Switch-CoreN1 (VLAN 20)
-
-   Impact :
-   Si SRV-WEB-01 tombe en panne → l'intranet est inaccessible
-   Si Switch-CoreN1 redémarre → tous les services sur VLAN 20 coupés
-   Si la licence PHP expire → l'intranet peut cesser de fonctionner
-```
-
-> 📌 **Utilité en gestion d'incidents :** Quand un incident P1 survient ("L'intranet est HS"), la CMDB permet de voir immédiatement tous les composants impliqués et de remonter la chaîne de dépendance pour identifier la cause.
-
----
-
-## PARTIE II — Versioning des Configurations
-
-### II.A. Pourquoi Versionner ?
-
-Le **versioning** (ou **gestion de versions**) consiste à garder une trace de toutes les versions successives d'un fichier de configuration, avec l'horodatage et l'auteur de chaque modification.
-
-| **Sans versioning** | **Avec versioning** |
-|---|---|
-| On écrase l'ancienne config à chaque modification | Chaque modification crée une nouvelle version datée |
-| En cas d'erreur, on ne peut pas revenir en arrière | On peut restaurer n'importe quelle version antérieure |
-| On ne sait pas qui a changé quoi ni quand | Chaque changement est tracé (auteur, date, raison) |
-| Impossible de comparer deux états du système | Diff entre versions pour voir ce qui a changé |
-
----
-
-### II.B. Méthodes de Versioning
-
-| **Méthode** | **Principe** | **Avantages** | **Inconvénients** | **Usage** |
-|---|---|---|---|---|
-| **Fichiers horodatés** | Copier le fichier avec date dans le nom | Simple, universel | Pas de diff automatique, volume de stockage | Petite infra, configs manuelles |
-| **Git / SVN** | Dépôt versionné avec historique complet | Diff, merge, rollback, commentaires | Nécessite apprentissage Git | Infra moyenne à grande |
-| **Outils spécialisés** | Rancid, Oxidized (pour équipements réseau) | Automatisation, alertes sur changement non autorisé | Configuration initiale complexe | Datacenter, parc réseau important |
-| **Backup CMDB** | Sauvegarde automatique de la CMDB GLPI | Intégré ITSM | Pas de granularité fichier | PME avec GLPI |
-
----
-
-### II.C. Fichiers Horodatés — Convention de Nommage
-
-Si vous gérez les configurations manuellement (sans Git), respecter une **convention de nommage stricte** :
-
-```
-   Format recommandé :
-   [Type]_[Équipement]_[YYYYMMDD]_[Version].[extension]
-
-   Exemples :
-   config_Switch-Core1_20241015_v1.0.txt
-   config_SRV-DHCP_20241022_v2.3.conf
-   baseline_Firewall-PFSense_20241101_v1.0.xml
-
-   Arborescence :
-   /backup/configs/
-   ├── switches/
-   │   ├── Switch-Core1/
-   │   │   ├── config_Switch-Core1_20241001_v1.0.txt
-   │   │   ├── config_Switch-Core1_20241015_v1.1.txt
-   │   │   └── config_Switch-Core1_20241101_v2.0.txt
-   │   └── Switch-Distrib-RH/
-   ├── serveurs/
-   └── firewalls/
-
-   + Un fichier CHANGELOG.md par équipement :
-   Switch-Core1 — Historique des modifications
-   v2.0 — 2024-11-01 — Ajout VLAN 30 pour Marketing — Auteur: [Nom]
-   v1.1 — 2024-10-15 — Correction ACL port 22 — Auteur: [Nom]
-   v1.0 — 2024-10-01 — Configuration initiale — Auteur: [Nom]
-```
-
----
-
-## PARTIE III — Configurations Réseau (Running vs Startup)
-
-### III.A. Cisco IOS — Deux Configurations
-
-Les équipements réseau Cisco (et la plupart des constructeurs) utilisent deux emplacements de stockage pour la configuration :
-
-```
-   ┌──────────────────────────────────────────────────────────────┐
-   │               RUNNING-CONFIG                                  │
-   │  Stockage : RAM (volatile — effacée au redémarrage)           │
-   │  Fichier  : running-config                                    │
-   │  Rôle     : Configuration ACTIVE, en cours d'utilisation       │
-   │  Commande : show running-config                                │
-   │                                                               │
-   │  C'est la config actuellement appliquée sur l'équipement.     │
-   │  Toute modification (ajout VLAN, changement IP...) modifie     │
-   │  d'abord la running-config.                                    │
-   └──────────────────────────────────────────────────────────────┘
-
-   ┌──────────────────────────────────────────────────────────────┐
-   │               STARTUP-CONFIG                                  │
-   │  Stockage : NVRAM (non-volatile — survit au redémarrage)       │
-   │  Fichier  : startup-config                                    │
-   │  Rôle     : Configuration SAUVEGARDÉE, chargée au boot         │
-   │  Commande : show startup-config                                │
-   │                                                               │
-   │  C'est la config que l'équipement chargera au prochain         │
-   │  redémarrage. Si on ne sauvegarde pas la running-config        │
-   │  vers la startup-config, les modifications sont perdues.       │
-   └──────────────────────────────────────────────────────────────┘
-```
-
----
-
-### III.B. Commandes Cisco IOS Essentielles
-
-```cisco
-! ─── Voir la configuration active ───
-Switch# show running-config
-! Affiche toute la config en RAM (peut être long)
-
-! ─── Voir la configuration de démarrage ───
-Switch# show startup-config
-! Affiche la config qui sera chargée au prochain boot
-
-! ─── Comparer les deux configs ───
-Switch# show archive config differences
-! Montre les différences entre running et startup (si disponible)
-
-! ─── Sauvegarder la running-config vers la startup-config ───
-Switch# copy running-config startup-config
-! ou raccourci :
-Switch# write memory
-Switch# wr
-
-! ─── Exporter la config vers un serveur TFTP ───
-Switch# copy running-config tftp:
-! Puis entrer l'IP du serveur TFTP et le nom de fichier
-
-! ─── Restaurer une config depuis TFTP ───
-Switch# copy tftp: running-config
-! Attention : fusionne avec la config existante, ne la remplace pas
-
-! ─── Effacer la startup-config (reset factory) ───
-Switch# erase startup-config
-! Au prochain redémarrage, l'équipement démarre vierge
-```
-
----
-
-### III.C. Workflow Professionnel de Modification
-
-```
-   ÉTAPE 1 — SAUVEGARDE PRÉVENTIVE
+   AUTHENTIFICATION (Qui êtes-vous ?)
    ──────────────────────────────────────────────────────────────
-   Avant toute modification, sauvegarder la config actuelle :
-   Switch# copy running-config tftp:
-   Destination : backup_Switch-Core1_20241115_avant-modif.txt
+   Vérifier l'IDENTITÉ d'un utilisateur
 
-   ÉTAPE 2 — MODIFICATION EN MODE CONFIG
+   Méthodes :
+   • Mot de passe (ce que je sais)
+   • Badge / clé (ce que j'ai)
+   • Empreinte / Face ID (ce que je suis)
+   • MFA = Combinaison de plusieurs facteurs
+
+   Analogie : Montrer sa CARTE D'IDENTITÉ à l'entrée
+
+   Résultat : L'utilisateur est reconnu → Session ouverte
+
+
+   AUTORISATION (Que pouvez-vous faire ?)
    ──────────────────────────────────────────────────────────────
-   Switch# configure terminal
-   Switch(config)# [commandes de modification]
-   Switch(config)# exit
+   Vérifier les DROITS d'un utilisateur authentifié
 
-   ÉTAPE 3 — TEST ET VALIDATION
+   Questions posées par le système :
+   • L'utilisateur peut-il LIRE ce fichier ?
+   • L'utilisateur peut-il MODIFIER cette base de données ?
+   • L'utilisateur peut-il SUPPRIMER cet enregistrement ?
+   • L'utilisateur peut-il EXÉCUTER ce programme ?
+
+   Analogie : Votre badge d'entrée OUVRE certaines portes
+              mais PAS d'autres (même si vous êtes identifié)
+
+   Résultat : Accès accordé ou refusé selon les droits
+
    ──────────────────────────────────────────────────────────────
-   Vérifier que la modification fonctionne (ping, accès, VLAN...)
-   Si KO → annuler (reload sans sauvegarder)
-   Si OK → passer à l'étape 4
-
-   ÉTAPE 4 — SAUVEGARDE PERMANENTE
+   ORDRE OBLIGATOIRE : Authentification → PUIS → Autorisation
    ──────────────────────────────────────────────────────────────
-   Switch# copy running-config startup-config
-   → La modification survivra au redémarrage
-
-   ÉTAPE 5 — DOCUMENTATION
-   ──────────────────────────────────────────────────────────────
-   Exporter la nouvelle config et mettre à jour le CHANGELOG :
-   Switch# copy running-config tftp:
-   Destination : config_Switch-Core1_20241115_v2.1.txt
-
-   Fichier CHANGELOG.md :
-   v2.1 — 2024-11-15 — Ajout VLAN 40 Commerce — Auteur: [Nom]
 ```
 
 ---
 
-### III.D. Comparer Deux Versions de Configuration
+## PARTIE II — Le Principe du Moindre Privilège
 
-Pour identifier ce qui a changé entre deux versions, utiliser un outil de diff :
+### II.A. Définition
 
-**Sous Linux :**
-```bash
-diff -u config_Switch_20241001_v1.0.txt config_Switch_20241115_v2.1.txt
+**Principe du Moindre Privilège** (Least Privilege Principle) :
 
-# Ou pour une sortie plus lisible :
-diff -u config_Switch_20241001_v1.0.txt config_Switch_20241115_v2.1.txt | colordiff
+> *Un utilisateur, un programme ou un processus ne doit disposer que des droits strictement nécessaires à l'accomplissement de sa mission, ni plus, ni moins.*
+
+**Origine :** Principe fondateur de la sécurité informatique, formulé par Jerome Saltzer et Michael Schroeder (MIT, 1975). Toujours d'actualité 50 ans après.
+
+---
+
+### II.B. Pourquoi ce Principe est-il Critique ?
+
+```
+   SCÉNARIO SANS MOINDRE PRIVILÈGE
+   ═══════════════════════════════════════════════════════════════
+
+   Entreprise de 50 personnes.
+   Tous les salariés ont un accès "Administrateur" sur leur PC
+   (plus pratique pour installer des logiciels...)
+
+   MARDI 14H : Le comptable ouvre un email de phishing.
+   ──────────────────────────────────────────────────────────────
+   → Il clique sur la pièce jointe
+   → Le malware s'exécute... avec les droits ADMINISTRATEUR
+   → Le malware peut :
+     • S'installer dans les dossiers système (C:\Windows\System32)
+     • Désactiver l'antivirus
+     • Modifier les paramètres système
+     • Se propager sur le réseau avec les droits admin
+     • Chiffrer TOUS les fichiers accessibles (ransomware)
+
+   AVEC MOINDRE PRIVILÈGE :
+   ──────────────────────────────────────────────────────────────
+   → Le comptable a des droits LIMITÉS (utilisateur standard)
+   → Le malware s'exécute avec les droits limités du comptable
+   → Il NE PEUT PAS :
+     • S'installer dans les dossiers système
+     • Désactiver l'antivirus (droits insuffisants)
+     • Modifier les paramètres système
+   → Impact CONTENU au profil de l'utilisateur uniquement
+   → Pas de propagation (pas de droits réseau admin)
 ```
 
-**Sous Windows :**
-- WinMerge (gratuit, interface graphique)
-- Notepad++ avec plugin Compare
-- Visual Studio Code avec extension GitLens
+**La règle d'or :**
 
-**En ligne :**
-- diffchecker.com (copier-coller les deux configs)
+```
+   DROITS = BESOIN MÉTIER RÉEL (ni plus, ni moins)
+   ═══════════════════════════════════════════════════════════════
 
----
+   ❌ "Il vaut mieux lui donner trop de droits que pas assez"
+      → C'est l'erreur la plus commune et la plus dangereuse
 
-## PARTIE IV — Versioning avec Git (Aperçu)
+   ✅ "Il obtient exactement les droits dont il a besoin"
+      → Si besoin de droits supplémentaires → Demande formelle
 
-### IV.A. Pourquoi Git pour les Configs ?
+   ❌ "Il était admin avant, autant le laisser admin"
+      → Les droits doivent évoluer avec le poste
 
-**Git** n'est pas réservé au code source — il est parfait pour versionner des fichiers de configuration texte :
-
-| **Avantage Git** | **Exemple sur configs réseau** |
-|---|---|
-| Historique complet | Voir tous les changements depuis 2 ans |
-| Auteur et date | Savoir qui a modifié quoi et quand |
-| Commentaire de commit | "Ajout VLAN 40 pour le service Commerce — Ticket GLPI #1234" |
-| Diff automatique | `git diff` montre exactement les lignes modifiées |
-| Rollback facile | Revenir à une version antérieure en 1 commande |
-| Branches | Tester une modif dans une branche sans toucher à la prod |
-
----
-
-### IV.B. Workflow Git pour Configs — Exemple
-
-```bash
-# ─── Initialisation du dépôt (une seule fois) ───
-cd /backup/configs
-git init
-git config user.name "Technicien Réseau"
-git config user.email "technicien@siosarl.local"
-
-# ─── Ajouter une première config ───
-# (après avoir exporté depuis le switch)
-cp ~/downloads/config_Switch-Core1.txt switches/Switch-Core1.txt
-git add switches/Switch-Core1.txt
-git commit -m "Config initiale Switch-Core1 — v1.0"
-
-# ─── 2 semaines plus tard : modification du switch ───
-# (exporter la nouvelle config)
-cp ~/downloads/config_Switch-Core1_nouvelle.txt switches/Switch-Core1.txt
-git add switches/Switch-Core1.txt
-git commit -m "Ajout VLAN 40 Commerce — Ticket GLPI #1234"
-
-# ─── Voir l'historique ───
-git log --oneline
-# Affiche :
-# a3f82c1 Ajout VLAN 40 Commerce — Ticket GLPI #1234
-# e7b12f4 Config initiale Switch-Core1 — v1.0
-
-# ─── Voir ce qui a changé entre deux commits ───
-git diff e7b12f4 a3f82c1
-
-# ─── Revenir à une version antérieure (rollback) ───
-git checkout e7b12f4 -- switches/Switch-Core1.txt
-# Le fichier est restauré à la version initiale
-# Il faut ensuite le réappliquer sur le switch
+   ✅ "Il a changé de poste → Revue et adaptation des droits"
 ```
 
 ---
 
-## V. Vocabulaire Clé
+### II.C. Applications Concrètes du Moindre Privilège
+
+```
+   EXEMPLES PAR RÔLE EN ENTREPRISE
+   ═══════════════════════════════════════════════════════════════
+
+   RÔLE                 │ DROITS APPROPRIÉS
+   ─────────────────────┼──────────────────────────────────────────
+   Commercial           │ Lecture/Écriture sur /Clients/
+                        │ Lecture sur /Produits/
+                        │ ❌ Pas /Comptabilité/ ni /RH/
+
+   Comptable            │ Lecture/Écriture sur /Comptabilité/
+                        │ Lecture sur /Clients/ (facturation)
+                        │ ❌ Pas /RH/ ni /Développement/
+
+   Développeur          │ Lecture/Écriture sur /Dev/ (projet assigné)
+                        │ Lecture sur /Dev/ (autres projets)
+                        │ ❌ Pas /Comptabilité/ ni /Production/
+
+   DRH                  │ Lecture/Écriture sur /RH/
+                        │ ❌ Pas /Comptabilité/ ni /Dev/
+
+   Technicien IT        │ Admin système (installation, config)
+                        │ Lecture logs sur tous les serveurs
+                        │ ❌ Pas de lecture /RH/ ni /Comptabilité/
+                        │ (sauf incident documenté)
+
+   Stagiaire            │ Lecture uniquement sur dossier projet
+                        │ ❌ Rien d'autre
+
+   PRINCIPES ASSOCIÉS
+   ──────────────────────────────────────────────────────────────
+   • Séparation des tâches : Deux personnes pour valider une action
+     sensible (ex : comptable saisit, directeur approuve)
+   • Rotation des rôles : Éviter qu'une personne accumule les droits
+   • Révocation immédiate : Départ salarié = désactivation le jour J
+```
+
+---
+
+## PARTIE III — Les Modèles de Contrôle d'Accès
+
+### III.A. DAC — Discretionary Access Control
+
+**Contrôle d'accès discrétionnaire**
+
+```
+   DAC — PRINCIPE
+   ═══════════════════════════════════════════════════════════════
+
+   Le PROPRIÉTAIRE du fichier décide qui peut y accéder.
+
+   Fonctionnement :
+   → Sophie crée un fichier → Sophie est propriétaire
+   → Sophie choisit : "Marc peut lire, Julie peut lire et écrire"
+   → Marc et Julie ont accès selon le choix de Sophie
+
+   IMPLÉMENTATION
+   ──────────────────────────────────────────────────────────────
+   Windows NTFS (clic droit → Propriétés → Sécurité)
+   Linux : chmod / chown
+
+   AVANTAGES                    INCONVÉNIENTS
+   ──────────────────────       ──────────────────────────────
+   ✅ Simple et flexible         ❌ Peu adapté aux grandes structures
+   ✅ L'utilisateur contrôle     ❌ Difficile à auditer globalement
+   ✅ Pas besoin d'admin         ❌ Risque : Utilisateur peut accorder
+      pour chaque modification     des droits à n'importe qui
+
+   USAGE TYPIQUE
+   ──────────────────────────────────────────────────────────────
+   • PME simple
+   • Partages de fichiers entre collègues de confiance
+   • Environnements peu réglementés
+```
+
+---
+
+### III.B. MAC — Mandatory Access Control
+
+**Contrôle d'accès obligatoire**
+
+```
+   MAC — PRINCIPE
+   ═══════════════════════════════════════════════════════════════
+
+   L'ADMINISTRATEUR (ou le système) définit centralement les droits.
+   Les utilisateurs NE PEUVENT PAS modifier les permissions.
+
+   Fonctionnement basé sur des NIVEAUX DE CLASSIFICATION :
+   ────────────────────────────────────────────────────────
+   NIVEAU 4 : TOP SECRET     → Accès : Directeurs uniquement
+   NIVEAU 3 : SECRET         → Accès : Cadres + Directeurs
+   NIVEAU 2 : CONFIDENTIEL   → Accès : Tous les employés permanents
+   NIVEAU 1 : PUBLIC         → Accès : Tous (y compris stagiaires)
+
+   Règle : Un utilisateur de niveau N peut accéder
+           aux données de niveau ≤ N
+           (Pas d'accès aux données de niveau supérieur)
+
+   AVANTAGES                    INCONVÉNIENTS
+   ──────────────────────       ──────────────────────────────
+   ✅ Très sécurisé              ❌ Rigide et complexe à gérer
+   ✅ Contrôle centralisé        ❌ Déploiement coûteux
+   ✅ Audit simplifié            ❌ Peu adapté au secteur privé
+
+   USAGE TYPIQUE
+   ──────────────────────────────────────────────────────────────
+   • Défense nationale / renseignement
+   • Secteur militaire
+   • Environnements haute sécurité (nucléaire)
+   • OS : SELinux (Linux), Trusted Solaris
+```
+
+---
+
+### III.C. RBAC — Role-Based Access Control ⭐
+
+**Contrôle d'accès basé sur les rôles**
+
+> Le modèle **le plus utilisé en entreprise**. C'est celui que les apprenants configureront en alternance.
+
+```
+   RBAC — PRINCIPE
+   ═══════════════════════════════════════════════════════════════
+
+   Les droits sont attribués à des RÔLES.
+   Les utilisateurs reçoivent un ou plusieurs RÔLES.
+   → Modification de rôle = Modification automatique des droits
+
+   STRUCTURE
+   ──────────────────────────────────────────────────────────────
+
+   RÔLES (définissent les droits)
+   ├── Rôle "Commercial"      → /Clients/ L+E, /Produits/ L
+   ├── Rôle "Comptable"       → /Comptabilité/ L+E, /Clients/ L
+   ├── Rôle "DRH"             → /RH/ L+E
+   ├── Rôle "Développeur"     → /Dev/ L+E
+   └── Rôle "Admin IT"        → Tout en administration
+
+   UTILISATEURS (reçoivent des rôles)
+   ├── Sophie MARTIN    → Rôle "Commercial"
+   ├── Marc DUPONT      → Rôle "Comptable"
+   ├── Julie BERNARD    → Rôle "DRH"
+   └── Pierre LEFEBVRE  → Rôle "Développeur" + "Commercial"
+                          (double mission → double rôle)
+
+   AVANTAGES                    INCONVÉNIENTS
+   ──────────────────────       ──────────────────────────────
+   ✅ Facile à gérer             ❌ Risque "role explosion"
+      (modifier le rôle =           (trop de rôles différents)
+      modifier tous les users)
+   ✅ Auditabilité claire        ❌ Droits individuels limités
+   ✅ Onboarding rapide
+   ✅ Scalable (1 → 10 000)
+
+   IMPLÉMENTATION
+   ──────────────────────────────────────────────────────────────
+   Windows Active Directory :
+   → Groupes de sécurité AD = Rôles RBAC
+   → Utilisateur rejoint le groupe → Droits automatiques
+
+   Linux :
+   → Groupes Linux (addgroup, usermod -aG)
+
+   Applications web :
+   → Table roles + Table user_roles en base de données
+```
+
+---
+
+## PARTIE IV — La Matrice de Droits (ACL)
+
+### IV.A. Définition et Structure
+
+**Matrice de droits** (ou **matrice d'habilitation** ou **ACL — Access Control List**) :
+
+> Tableau à double entrée listant les **utilisateurs** (ou groupes) en ligne et les **ressources** (ou fonctionnalités) en colonne, avec le **niveau d'accès** à l'intersection.
+
+```
+   STRUCTURE DE BASE
+   ═══════════════════════════════════════════════════════════════
+
+   CODES D'ACCÈS STANDARDS
+   ──────────────────────────────────────────────────────────────
+   — (tiret)  : Aucun accès
+   L          : Lecture seule (Read)
+   L+E        : Lecture + Écriture (Read + Write)
+   L+E+S      : Lecture + Écriture + Suppression (Full Write)
+   A          : Accès total (Admin/Full Control)
+   X          : Exécution uniquement (scripts, programmes)
+
+   EXEMPLE DE MATRICE SIMPLE
+   ──────────────────────────────────────────────────────────────
+
+                  │/Clients/│/Compta/│/RH/ │/Dev/│/Système/
+   ───────────────┼─────────┼────────┼─────┼─────┼─────────
+   G_Commercial   │  L+E    │   —    │  —  │  —  │   —
+   G_Comptable    │   L     │  L+E   │  —  │  —  │   —
+   G_DRH          │   —     │   —    │ L+E │  —  │   —
+   G_Dev          │   —     │   —    │  —  │ L+E │   —
+   G_Directeur    │   L     │   L    │  L  │  L  │   —
+   G_Admin_IT     │   —     │   —    │  —  │  —  │   A
+   G_Tous         │   —     │   —    │  —  │  —  │   —
+   ───────────────┴─────────┴────────┴─────┴─────┴─────────
+
+   → G_Directeur a L sur tous (vision globale sans modification)
+   → G_Admin_IT a A sur /Système/ mais PAS sur les données métier
+     (Technicien IT NE LIT PAS les salaires ou données clients)
+   → G_Tous = Aucun droit (droits explicites obligatoires)
+```
+
+---
+
+### IV.B. Matrice Complète avec Niveaux Fins
+
+```
+   MATRICE DE DROITS — EXEMPLE PME COMPLET
+   ═══════════════════════════════════════════════════════════════
+
+   LÉGENDE :
+   — = Aucun accès
+   L = Lecture
+   E = Écriture
+   S = Suppression
+   A = Administration (tous droits)
+   Les cellules combinées : L+E = Lecture ET Écriture
+
+                     │ Clients │ Compta │ Paie  │  RH   │  Dev  │ Sauv. │ Logs
+   ──────────────────┼─────────┼────────┼───────┼───────┼───────┼───────┼──────
+   G_Direction       │   L     │   L    │   L   │   L   │   —   │   —   │  —
+   G_Commercial      │  L+E    │   —    │   —   │   —   │   —   │   —   │  —
+   G_Comptable       │   L     │  L+E+S │  L+E  │   —   │   —   │   —   │  —
+   G_DRH             │   —     │   —    │  L+E  │  L+E+S│   —   │   —   │  —
+   G_Dev_Senior      │   —     │   —    │   —   │   —   │  L+E+S│   —   │  —
+   G_Dev_Junior      │   —     │   —    │   —   │   —   │  L+E  │   —   │  —
+   G_Stagiaire       │   —     │   —    │   —   │   —   │   L   │   —   │  —
+   G_Admin_IT        │   —     │   —    │   —   │   —   │   —   │   A   │  L+E
+   G_RSSI            │   —     │   —    │   —   │   —   │   L   │   L   │  L+E+S
+   ──────────────────┴─────────┴────────┴───────┴───────┴───────┴───────┴──────
+
+   POINTS CLÉS DE CETTE MATRICE :
+   ──────────────────────────────────────────────────────────────
+   → G_Dev_Junior : L+E mais PAS Suppression (pas de droit détruire)
+   → G_Dev_Senior : L+E+S (peut gérer la suppression du code)
+   → G_Stagiaire : Lecture uniquement sur /Dev/ (pas d'écriture)
+   → G_Admin_IT : Admin sauvegardes ET logs, mais ZÉRO accès données
+   → G_RSSI : Lecture sur tout (audit) mais NE MODIFIE RIEN
+   → G_DRH : Accès paie ET RH (les deux dossiers liés)
+   → G_Direction : Lecture seule sur tout (vision stratégique)
+```
+
+---
+
+### IV.C. Revue Périodique des Droits
+
+**La matrice de droits est un document VIVANT.**
+
+```
+   CYCLE DE GESTION DES DROITS
+   ═══════════════════════════════════════════════════════════════
+
+   ÉVÉNEMENTS DÉCLENCHEURS DE MODIFICATION
+   ──────────────────────────────────────────────────────────────
+   ① ARRIVÉE (Onboarding)
+   → Créer le compte, assigner les groupes selon le rôle
+   → Fiche d'arrivée signée par le manager (liste des accès requis)
+
+   ② CHANGEMENT DE POSTE
+   → Retirer les anciens droits (rôle précédent)
+   → Ajouter les nouveaux droits (nouveau rôle)
+   → Principe : Jamais d'accumulation de droits
+
+   ③ DÉPART (Offboarding) — CRITIQUE
+   → DÉSACTIVER le compte LE JOUR DU DÉPART (pas "la semaine prochaine")
+   → Révoquer tous les accès (VPN, email, apps cloud, AD)
+   → Transférer les données si nécessaire
+   → Conserver le compte désactivé 30 jours puis supprimer
+
+   ④ REVUE PÉRIODIQUE (tous les 6 mois)
+   → Parcourir la matrice avec les managers
+   → "Untel a-t-il encore besoin de ce droit ?"
+   → Supprimer les droits inutilisés (audit des logs d'accès)
+   → Documenter la revue (date, participants, actions)
+
+   INDICATEUR ROUGE : DROIT JAMAIS UTILISÉ
+   ──────────────────────────────────────────────────────────────
+   Si un utilisateur a le droit de lire /Comptabilité/ mais
+   n'y a jamais accédé en 6 mois → Supprimer ce droit
+   → Logs d'accès : Requête SQL sur la table d'audit
+     SELECT user, resource, COUNT(*) as nb_acces
+     FROM access_log
+     WHERE date > DATE_SUB(NOW(), INTERVAL 6 MONTH)
+     GROUP BY user, resource
+     ORDER BY nb_acces ASC
+```
+
+---
+
+## PARTIE V — Implémentation Technique
+
+### V.A. Windows Active Directory (RBAC avec Groupes)
+
+```
+   IMPLÉMENTATION AD — RBAC PAR GROUPES DE SÉCURITÉ
+   ═══════════════════════════════════════════════════════════════
+
+   ÉTAPE 1 — Créer les groupes (= Rôles RBAC)
+   ──────────────────────────────────────────────────────────────
+   Dans Active Directory Users and Computers (ADUC) :
+
+   Créer dans l'OU "Groupes_Securite" :
+   • GS_Commercial
+   • GS_Comptable
+   • GS_DRH
+   • GS_Dev_Junior
+   • GS_Dev_Senior
+   • GS_Admin_IT
+
+   PowerShell :
+   New-ADGroup -Name "GS_Commercial" `
+     -GroupScope Global `
+     -GroupCategory Security `
+     -Path "OU=Groupes_Securite,DC=entreprise,DC=local"
+
+   ÉTAPE 2 — Ajouter les utilisateurs aux groupes
+   ──────────────────────────────────────────────────────────────
+   PowerShell :
+   Add-ADGroupMember -Identity "GS_Commercial" `
+     -Members "s.martin", "j.dubois", "a.petit"
+
+   ÉTAPE 3 — Configurer les droits NTFS sur les dossiers partagés
+   ──────────────────────────────────────────────────────────────
+   PowerShell :
+   # Dossier /Clients/ — GS_Commercial : Modifier (L+E)
+   $acl = Get-Acl "\\SERVEUR\Données\Clients"
+   $rule = New-Object System.Security.AccessControl.FileSystemAccessRule(
+     "ENTREPRISE\GS_Commercial",
+     "Modify",      # Lecture + Écriture (pas Suppression)
+     "ContainerInherit,ObjectInherit",
+     "None",
+     "Allow"
+   )
+   $acl.SetAccessRule($rule)
+   Set-Acl "\\SERVEUR\Données\Clients" $acl
+
+   NIVEAUX NTFS COURANTS
+   ──────────────────────────────────────────────────────────────
+   • FullControl     = L+E+S + Droits (Admin complet)
+   • Modify          = L+E + Suppression des propres fichiers
+   • ReadAndExecute  = Lecture + Exécution (pas d'écriture)
+   • Write           = Écriture seulement (pas lecture !)
+   • Read            = Lecture seule
+   • ListDirectory   = Voir le contenu du dossier uniquement
+
+   ÉTAPE 4 — Désactiver un compte lors d'un départ
+   ──────────────────────────────────────────────────────────────
+   PowerShell :
+   Disable-ADAccount -Identity "prenom.nom"
+   Move-ADObject -Identity "CN=Prenom Nom,OU=Utilisateurs,..." `
+     -TargetPath "OU=Comptes_Desactives,DC=entreprise,DC=local"
+```
+
+---
+
+### V.B. Linux (Permissions et Groupes)
+
+```
+   IMPLÉMENTATION LINUX — DROITS ET GROUPES
+   ═══════════════════════════════════════════════════════════════
+
+   RAPPEL PERMISSIONS LINUX
+   ──────────────────────────────────────────────────────────────
+   -rwxr-xr-- 1 sophie comptable 1024 mars 15 fichier.txt
+    │││││││││
+    ││││││└└└─ Autres (r = lecture, - = pas écriture, - = pas exéc.)
+    │││└└└──── Groupe (r = lecture, - = pas écriture, x = exéc.)
+    └└└──────── Propriétaire (r+w+x = lecture, écriture, exécution)
+
+   CODES NUMÉRIQUES (chmod)
+   ──────────────────────────────────────────────────────────────
+   4 = Lecture (r)
+   2 = Écriture (w)
+   1 = Exécution (x)
+   0 = Aucun droit (-)
+
+   chmod 750 dossier → Propriétaire: 7(r+w+x), Groupe: 5(r+x), Autres: 0
+
+   GESTION DES GROUPES
+   ──────────────────────────────────────────────────────────────
+   # Créer un groupe
+   groupadd gs_commercial
+
+   # Créer un utilisateur et l'assigner au groupe
+   useradd -m -G gs_commercial sophie.martin
+   usermod -aG gs_commercial jean.durand
+
+   # Appliquer les droits sur un dossier
+   chown -R :gs_commercial /data/clients/
+   chmod -R 770 /data/clients/
+   # 770 → Propriétaire: rwx, Groupe: rwx, Autres: ---
+
+   # Vérifier les membres d'un groupe
+   getent group gs_commercial
+
+   # Supprimer un utilisateur d'un groupe (départ)
+   gpasswd -d prenom.nom gs_commercial
+
+   SUDO — ACCÈS ADMINISTRATEUR CONTRÔLÉ
+   ──────────────────────────────────────────────────────────────
+   # /etc/sudoers — Donner des droits ciblés sans accès root total
+   # Technicien IT peut redémarrer les services Apache uniquement :
+   technicien_it ALL=(root) NOPASSWD: /usr/bin/systemctl restart apache2
+
+   # Comptable peut lire les logs uniquement :
+   comptable_user ALL=(root) NOPASSWD: /usr/bin/journalctl -u mysql
+```
+
+---
+
+## VI. Vocabulaire Clé
 
 | **Terme** | **Définition** |
 |-----------|---------------|
-| **Configuration Management** | Pratique ITIL de gestion de tous les CI et leurs relations dans la CMDB |
-| **CI (Configuration Item)** | Tout élément de l'infrastructure géré dans la CMDB (serveur, switch, logiciel...) |
-| **Baseline** | Référence de configuration figée à un instant T, servant de base pour les changements |
-| **Versioning** | Gestion des versions successives d'un fichier avec horodatage et traçabilité |
-| **Running-config** | Configuration active d'un équipement réseau (stockée en RAM, volatile) |
-| **Startup-config** | Configuration de démarrage d'un équipement réseau (stockée en NVRAM, persistante) |
-| **NVRAM** | Non-Volatile RAM — mémoire qui conserve les données sans alimentation |
-| **TFTP** | Trivial File Transfer Protocol — protocole simple pour transférer des fichiers (configs) |
-| **Diff** | Comparaison de deux fichiers pour identifier les lignes modifiées |
-| **Rollback** | Retour à une version antérieure d'une configuration |
-| **Commit** | Enregistrement d'une version dans un système de versioning (Git) |
-| **CHANGELOG** | Fichier documentant l'historique des modifications d'une configuration |
-| **Copy run start** | Commande Cisco pour sauvegarder la running-config vers la startup-config |
+| **Authentification** | Vérification de l'identité d'un utilisateur (Qui êtes-vous ?) |
+| **Autorisation** | Vérification des droits d'un utilisateur authentifié (Que pouvez-vous faire ?) |
+| **Moindre privilège** | Principe : Donner uniquement les droits strictement nécessaires à la mission |
+| **DAC** | Discretionary Access Control — Le propriétaire définit les droits |
+| **MAC** | Mandatory Access Control — Le système définit des niveaux de classification |
+| **RBAC** | Role-Based Access Control — Les droits sont liés à des rôles, pas à des individus |
+| **Matrice de droits** | Tableau croisant utilisateurs/groupes et ressources avec le niveau d'accès |
+| **ACL** | Access Control List — Liste de contrôle d'accès implémentant la matrice |
+| **NTFS** | New Technology File System — Système de fichiers Windows permettant les ACL |
+| **Groupe de sécurité AD** | Objet Active Directory regroupant des utilisateurs pour leur attribuer des droits |
+| **Onboarding** | Processus d'arrivée d'un collaborateur, incluant la création de son compte et droits |
+| **Offboarding** | Processus de départ d'un collaborateur, incluant la désactivation immédiate du compte |
+| **Revue des droits** | Audit périodique (6 mois) vérifiant que chaque droit est toujours nécessaire |
+| **Séparation des tâches** | Principe : Deux personnes pour valider une action sensible (éviter fraude interne) |
 
 ---
-
-## ✅ Auto-évaluation : Suis-je Prêt ?
-
-- [ ] Je définis Configuration Management selon ITIL
-- [ ] J'explique ce qu'est une baseline et pourquoi elle est utile
-- [ ] Je distingue running-config (RAM) et startup-config (NVRAM)
-- [ ] Je sais sauvegarder une running-config vers startup-config
-- [ ] J'applique une convention de nommage cohérente aux fichiers de config
-- [ ] J'explique pourquoi versionner les configs est essentiel
-- [ ] Je documente un changement de configuration (qui, quoi, quand, pourquoi)
-- [ ] Je peux comparer deux versions de configuration avec diff
-

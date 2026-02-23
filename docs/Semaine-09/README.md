@@ -5,11 +5,11 @@
 | **Champ** | **Détail** |
 |-----------|-----------|
 | **Semaine** | S9 — Année 1 |
-| **Bloc** | Bloc 1 — Support et mise à disposition de services informatiques |
+| **Bloc** | Bloc 3 — Cybersécurité des services informatiques |
 | **Durée totale** | 4 heures |
 | **Public** | Apprentis BTS SIO SISR — neuvième semaine |
-| **Modalité** | Présentiel — salle de cours/TP |
-| **Prérequis** | S1 à S8 — Bloc 1 complet |
+| **Modalité** | Présentiel — salle de cours avec accès internet |
+| **Prérequis** | S8 BLOC 3 (Cisco Cyber Ch.1-2 · RGPD travail/vidéosurveillance) |
 
 ---
 
@@ -17,26 +17,27 @@
 
 | **Code** | **Intitulé de la compétence** | **Niveau visé** |
 |----------|-------------------------------|-----------------|
-| **B1.2** | Exploiter des référentiels, normes et standards | Maîtrise |
-| **B1.5** | Mettre à disposition des utilisateurs un service informatique | Maîtrise |
-| **B3.3** | Participer à la gestion et au suivi d'un projet | Maîtrise |
-| **E5 SPS** | Formaliser une Situation Professionnelle Significative | Acquisition |
+| **B3.1** | Identifier les principales menaces de sécurité | Maîtrise |
+| **B3.2** | Mettre en œuvre les mesures de sécurité de base | Maîtrise |
+| **B3.3** | Gérer les incidents de sécurité et les violations de données | Maîtrise |
 
-> 📌 **S9 joue un rôle stratégique dans le parcours.** Elle clôture véritablement le Bloc 1 sur deux dimensions complémentaires : (1) le **catalogue de services** est l'aboutissement naturel de tout ce qui a été vu — on ne fait plus que gérer des incidents au cas par cas, on formalise une offre IT cohérente et communicable ; (2) la **première SPS guidée** lance concrètement le dossier E5, avant que les sujets du Bloc 2 ne deviennent trop absorbants pour y consacrer du temps.
+> 📌 **S9 BLOC 3 est une séance à dominante autonome et applicative.** Les apprenants progressent dans la certification Cisco Cyber (chapitres 3-4-5) en autonomie guidée, tandis que la partie RGPD les plonge dans une **étude de cas réaliste et complète** — analyser une violation de données comme le ferait un DPO ou un technicien IT senior en situation réelle.
 
 ---
 
 ## Objectifs Pédagogiques
 
-**Catalogue de services :**
-- ✅ Définir ce qu'est un **catalogue de services IT** et sa place dans ITIL 4
-- ✅ Distinguer le **catalogue de services métier** (vue utilisateur) du **catalogue technique** (vue DSI)
-- ✅ Rédiger une **fiche de service** complète (nom, description métier, périmètre, SLA, contact)
-- ✅ Construire le **catalogue de services de SimIO SARL** à partir des séances S2-S8
-- ✅ Expliquer comment le catalogue de services alimente le portail GLPI
+**Cisco Cyber — Modules 3-4-5 :**
+- ✅ Comprendre la **protection des données et de la vie privée** (Ch.3)
+- ✅ Identifier les **mécanismes de protection organisationnelle** (Ch.4)
+- ✅ Explorer les **métiers de la cybersécurité** (Ch.5)
+- ✅ Réussir les **quiz de chapitres** avec un score ≥ 70%
+- ✅ Se préparer à l'**examen final Cisco** (S10)
 
-**Portfolio E5 — Première SPS :**
-- ✅ Expliquer la structure officielle d'une **SPS (Situation Professionnelle Significative)**
-- ✅ Rédiger la **SPS #1** à partir d'un travail réalisé en S2-S8
-- ✅ Identifier les **preuves** (captures, tickets, fiches) à verser au portfolio
-- ✅ Vérifier la conformité de la SPS avec la **grille d'évaluation E5**
+**RGPD — Étude de Cas Violation :**
+- ✅ Mobiliser **tous les savoirs RGPD** (S5 à S8) dans un cas intégré
+- ✅ **Qualifier** une violation (type, gravité, données concernées)
+- ✅ **Décider** si la notification CNIL et/ou personnes est requise
+- ✅ **Rédiger** une notification CNIL complète
+- ✅ **Proposer** des mesures correctives techniques et organisationnelles
+- ✅ Simuler le **travail d'un DPO** face à une crise réelle

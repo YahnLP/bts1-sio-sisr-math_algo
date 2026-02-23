@@ -8,40 +8,41 @@
 | **Champ** | **Détail** |
 |-----------|-----------|
 | **Semaine** | S13 — Année 1 |
-| **Bloc** | Bloc 1 — Support et mise à disposition de services informatiques |
+| **Bloc** | Bloc 3 — Cybersécurité des services informatiques |
 | **Durée totale** | 4 heures |
 | **Public** | Apprentis BTS SIO SISR — treizième semaine |
-| **Modalité** | Présentiel — salle de cours |
-| **Prérequis** | S3 (ITIL fondamentaux), S10 (gestion des configurations), S12 (déploiement) |
+| **Modalité** | Présentiel — salle de cours + TP machines Linux/Windows |
+| **Prérequis** | S11 (cryptographie symétrique, AES, OpenSSL) · Notions de réseaux (HTTPS, TLS) |
 
 ---
 
-## Compétences RNCP Visées
+## Compétences Visées
 
 | **Code** | **Intitulé de la compétence** | **Niveau visé** |
 |----------|-------------------------------|-----------------|
-| **B1.2** | Exploiter des référentiels, normes et standards (ITIL) | Maîtrise |
-| **B3.3** | Participer à la gestion et au suivi d'un projet | Maîtrise |
-| **B3.4** | Mettre en œuvre une démarche de veille technologique | Acquisition |
+| **B3.2** | Mettre en œuvre les mesures de sécurité de base | Maîtrise |
+| **B3.5** | Mettre en œuvre des mécanismes de chiffrement | Maîtrise |
+| **B3.6** | Administrer une infrastructure à clés publiques | Acquisition |
 
-> 📌 **S13 BLOC 1 remplit deux fonctions complémentaires :** (1) clôturer le triptyque ITIL (Incident Management S3-S4, Configuration Management S10, **Change Management S13**) en l'appliquant à la gestion de l'infrastructure ; (2) lancer la **veille technologique** comme pratique professionnelle continue, indispensable pour rester employable dans un secteur qui évolue constamment.
+> 📌 **S13 est la séance qui fait enfin comprendre pourquoi le cadenas HTTPS apparaît dans un navigateur.** La PKI (Public Key Infrastructure) est l'une des infrastructures les plus fondamentales d'Internet — et pourtant l'une des moins comprises. Un technicien SISR qui ne maîtrise pas les certificats X.509 ne peut pas administrer un serveur web sécurisé, configurer un VPN, déployer de la messagerie chiffrée, ou gérer une CA d'entreprise. S13 donne les clés théoriques ET pratiques.
 
 ---
 
 ## Objectifs Pédagogiques
 
-**Gestion des changements :**
-- ✅ Définir un **changement** selon ITIL et le distinguer d'un incident ou d'une demande
-- ✅ Expliquer le rôle du **CAB** (Change Advisory Board) et du Change Manager
-- ✅ Décrire le **cycle de vie d'un changement** en 7 étapes
-- ✅ Rédiger une **RFC** (Request For Change) complète et professionnelle
-- ✅ Identifier les **3 types de changements** (standard, normal, urgent)
-- ✅ Appliquer l'**analyse de risque** d'un changement
+**Certificats et PKI — Théorie :**
+- ✅ Comprendre le **problème de confiance** que résout la PKI
+- ✅ Définir un **certificat numérique** et ses composants
+- ✅ Maîtriser le **standard X.509** (champs, structure, extensions)
+- ✅ Comprendre la **chaîne de confiance** (Root CA → Intermediate CA → Leaf)
+- ✅ Distinguer les **types de certificats** (DV, OV, EV, wildcard, client)
+- ✅ Comprendre le **cycle de vie** d'un certificat (demande, signature, révocation)
+- ✅ Connaître les **mécanismes de révocation** (CRL, OCSP)
 
-**Veille technologique :**
-- ✅ Expliquer pourquoi la veille est **obligatoire** dans les métiers IT
-- ✅ Identifier les **sources fiables** selon le domaine
-- ✅ Configurer un **agrégateur de flux RSS** (Feedly)
-- ✅ Mettre en place des **alertes Google** ciblées
-- ✅ Distinguer information de qualité et clickbait technique
-- ✅ Organiser sa veille en **routine hebdomadaire**
+**TP OpenSSL :**
+- ✅ Créer une **clé privée RSA** et **EC** avec OpenSSL
+- ✅ Générer une **CSR** (Certificate Signing Request)
+- ✅ Créer un **certificat auto-signé** (pour serveur de test)
+- ✅ Créer une **mini-CA locale** (Root CA + certificat signé)
+- ✅ **Inspecter** un certificat (lire les champs X.509)
+- ✅ Déployer un certificat sur un **serveur HTTPS minimal**

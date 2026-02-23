@@ -1,334 +1,532 @@
 ---
 author: YLP
-title: 📚 FICHE DE COURS
+title: 🖥️ CISCO CYBER — CHAPITRES 3-4-5
 ---
 
-# 📚 FICHE DE COURS ÉLÈVE
-## "Catalogue de Services IT"
+# 🖥️ CISCO CYBER — CHAPITRES 3-4-5 (AUTONOME GUIDÉ)
 
-*Version 1.0 — BTS SIO SISR — Année 1 — Semaine 9*
-
----
-
-## 🎯 Compétences Travaillées
-
-| **Code** | **Compétence** |
-|----------|---------------|
-| **B1.2** | Exploiter des référentiels (ITIL — Gestion du catalogue de services) |
-| **B1.5** | Mettre à disposition des utilisateurs un service informatique |
-| **B3.3** | Documenter et communiquer professionnellement |
+*Durée : 1h25 — Individuel avec checkpoints collectifs*
 
 ---
 
-## PARTIE I — Définition et Rôle du Catalogue de Services
+## 📚 ANNEXE 1 — Fiches de Prise de Notes (Ch.3-4-5)
 
-### I.A. Définition ITIL
+---
 
-En ITIL 4, le **catalogue de services** est la liste complète et structurée de tous les services IT disponibles, publiée à destination des utilisateurs et des clients internes.
+### Chapitre 3 — Protection des Données et de la Vie Privée
 
-Il répond à la question fondamentale que tout utilisateur se pose :
-
-> *"Qu'est-ce que la DSI peut faire pour moi, et comment le demander ?"*
-
-### I.B. Les Deux Vues du Catalogue
-
-ITIL distingue deux catalogues complémentaires qui servent des publics différents :
+*Objectif : Comprendre comment les organisations protègent les données*
 
 ```
-   ┌───────────────────────────────────────────────────────────────┐
-   │              CATALOGUE DE SERVICES                            │
-   │                                                               │
-   │   VUE MÉTIER (Utilisateurs)     VUE TECHNIQUE (DSI)          │
-   │   ──────────────────────────    ───────────────────────────   │
-   │   "Accès à la messagerie"       Serveur Exchange 2019         │
-   │   "Que peut-il faire ?"         Architecture HA, 2 nœuds      │
-   │   "Comment y accéder ?"         Composants : AD, DNS, MX...   │
-   │   "Que faire si ça ne marche    SLA : 99,9% / RTO 2h          │
-   │    pas ?"                       Responsable technique : X      │
-   │   "Quel délai si panne ?"       Procédures exploitation        │
-   │                                                               │
-   │   → Publié sur le portail       → Document interne DSI        │
-   │     GLPI, intranet                (DAT, CMDB)                 │
-   └───────────────────────────────────────────────────────────────┘
-```
+CHAPITRE 3 — MES NOTES
+═══════════════════════════════════════════════════════════════
 
-> 💡 **La règle d'or de la vue métier :** Jamais de jargon technique. Si l'utilisateur doit connaître un terme technique pour comprendre la fiche de service, c'est que la fiche est mal rédigée.
+SECTION 3.1 — TYPES DE DONNÉES ORGANISATIONNELLES
+──────────────────────────────────────────────────────────────
+Les 3 états des données selon Cisco :
+1. _________________________ (données en cours d'utilisation)
+2. _________________________ (données stockées)
+3. _________________________ (données en transit réseau)
+
+Exemple d'attaque sur chaque état :
+En cours : _________________ Au repos : _________________
+En transit : _______________
+
+SECTION 3.2 — MÉTHODES DE PROTECTION
+──────────────────────────────────────────────────────────────
+Définition de chaque terme :
+
+Chiffrement : _______________________________________________
+Authentification : __________________________________________
+Contrôle d'accès : __________________________________________
+
+SECTION 3.3 — DESTRUCTION DES DONNÉES
+──────────────────────────────────────────────────────────────
+Pourquoi la simple suppression ne suffit pas ?
+_______________________________________________________________
+
+3 méthodes de destruction sécurisée des données :
+1. _______________________ 2. _______________________ 3. _______________________
+
+SECTION 3.4 — TECHNOLOGIES DE PROTECTION
+──────────────────────────────────────────────────────────────
+Qu'est-ce qu'un VPN ? (selon Cisco)
+_______________________________________________________________
+
+Rôle d'un pare-feu :
+_______________________________________________________________
+
+QUIZ CHAPITRE 3
+──────────────────────────────────────────────────────────────
+Score obtenu : _____ %
+Questions manquées : ________________________________________
+À revoir : __________________________________________________
+═══════════════════════════════════════════════════════════════
+```
 
 ---
 
-### I.C. Pourquoi un Catalogue de Services ?
+### Checkpoint Ch.3 (5 min — Collectif)
 
-| **Bénéfice** | **Pour les utilisateurs** | **Pour la DSI** |
+L'enseignant demande à un apprenant :
+
+> *"En une phrase : Quels sont les 3 états des données selon Cisco et pourquoi cette distinction est-elle importante pour la sécurité ?"*
+
+**Réponse attendue :**
+- **En cours d'utilisation** (RAM, processeur) — Attaques mémoire
+- **Au repos** (disque, BDD) — Vol physique, intrusion
+- **En transit** (réseau) — Interception, MITM
+
+**Concept clé à retenir :** *Chaque état appelle des mesures de protection différentes.*
+
+---
+
+### Chapitre 4 — Protection de l'Organisation
+
+*Objectif : Comprendre les mécanismes de défense systémiques*
+
+```
+CHAPITRE 4 — MES NOTES
+═══════════════════════════════════════════════════════════════
+
+SECTION 4.1 — LE PARE-FEU
+──────────────────────────────────────────────────────────────
+Rôle du pare-feu :
+_______________________________________________________________
+
+Différence pare-feu réseau vs pare-feu hôte (personnel) :
+Réseau : ____________________________________________________
+Hôte :   ____________________________________________________
+
+SECTION 4.2 — DÉTECTION D'INTRUSION (IDS / IPS)
+──────────────────────────────────────────────────────────────
+IDS = __________________ → Rôle : ___________________________
+IPS = __________________ → Rôle : ___________________________
+Différence entre les deux :
+_______________________________________________________________
+
+SECTION 4.3 — SÉCURITÉ EN TEMPS RÉEL
+──────────────────────────────────────────────────────────────
+Qu'est-ce qu'un SIEM ?
+_______________________________________________________________
+
+Qu'est-ce que la threat intelligence ?
+_______________________________________________________________
+
+SECTION 4.4 — GESTION DES VULNÉRABILITÉS
+──────────────────────────────────────────────────────────────
+Qu'est-ce qu'un test de pénétration (pentest) ?
+_______________________________________________________________
+
+Pourquoi faire des audits de sécurité réguliers ?
+_______________________________________________________________
+
+QUIZ CHAPITRE 4
+──────────────────────────────────────────────────────────────
+Score obtenu : _____ %
+Questions manquées : ________________________________________
+═══════════════════════════════════════════════════════════════
+```
+
+---
+
+### Checkpoint Ch.4 (5 min — Collectif)
+
+L'enseignant demande :
+
+> *"Quelle est la différence entre IDS et IPS ? Donnez un exemple concret pour chacun."*
+
+**Réponse attendue :**
+- **IDS** (Intrusion Detection System) : Détecte et alerte — *"Quelqu'un essaie d'entrer par la fenêtre → Alarme"*
+- **IPS** (Intrusion Prevention System) : Détecte ET bloque — *"Quelqu'un essaie d'entrer → Porte automatique claquée"*
+
+---
+
+### Chapitre 5 — Votre Futur en Cybersécurité
+
+*Objectif : Découvrir les métiers et parcours de carrière*
+
+```
+CHAPITRE 5 — MES NOTES
+═══════════════════════════════════════════════════════════════
+
+SECTION 5.1 — MÉTIERS DE LA CYBERSÉCURITÉ
+──────────────────────────────────────────────────────────────
+Notez 5 métiers cités et leur description :
+
+1. ___________________________ :  ___________________________
+2. ___________________________ :  ___________________________
+3. ___________________________ :  ___________________________
+4. ___________________________ :  ___________________________
+5. ___________________________ :  ___________________________
+
+Quel métier vous intéresse le plus ? Pourquoi ?
+_______________________________________________________________
+
+SECTION 5.2 — CERTIFICATIONS
+──────────────────────────────────────────────────────────────
+Certifications citées par Cisco (en plus de celle-ci) :
+
+Niveau débutant : ___________________________________________
+Niveau intermédiaire : ______________________________________
+Niveau avancé : _____________________________________________
+
+SECTION 5.3 — CONSEILS CISCO POUR DÉBUTER
+──────────────────────────────────────────────────────────────
+3 conseils pratiques retenus du module :
+1. _________________________________________________________
+2. _________________________________________________________
+3. _________________________________________________________
+
+QUIZ CHAPITRE 5
+──────────────────────────────────────────────────────────────
+Score obtenu : _____ %
+
+TABLEAU DE PROGRESSION GLOBAL (à remettre à l'enseignant)
+──────────────────────────────────────────────────────────────
+Ch.1 : ___ %  Ch.2 : ___ %  Ch.3 : ___ %
+Ch.4 : ___ %  Ch.5 : ___ %
+
+Prêt pour l'examen final ? ☐ Oui  ☐ Pas encore (Ch. à retravailler : ___)
+═══════════════════════════════════════════════════════════════
+```
+
+---
+
+### Checkpoint Ch.5 (10 min — Collectif)
+
+L'enseignant anime un **tour de table rapide** :
+
+> *"Quel métier de la cybersécurité vous a le plus surpris ou intéressé ? En une phrase."*
+
+**Objectif pédagogique :** Connecter la formation à leur projet professionnel. Montrer que la cybersécurité offre des débouchés variés (pas seulement hacker ou analyste).
+
+**Métiers à connaître pour le BTS SIO SISR :**
+
+| **Métier** | **Description** | **Salaire débutant** |
 |---|---|---|
-| **Visibilité** | Savent ce qui existe | Peuvent communiquer leur offre |
-| **Autonomie** | Savent comment accéder sans appeler | Réduction des demandes informelles |
-| **Attentes réalistes** | Connaissent les SLA et délais | Réduction des plaintes injustifiées |
-| **Gouvernance** | — | Base pour les priorités budgétaires |
-| **Onboarding** | Nouveaux employés autonomes plus vite | Réduction des appels helpdesk N1 |
-| **Amélioration continue** | Peuvent évaluer les services | Mesure de satisfaction formalisée |
+| Analyste SOC (N1) | Surveille les alertes de sécurité en temps réel | 28-35 K€ |
+| Pentesteur | Teste les défenses d'une organisation | 35-45 K€ |
+| RSSI | Responsable de la stratégie sécurité | 60-90 K€ |
+| Ingénieur cybersécurité | Conçoit et implémente les défenses | 40-60 K€ |
+| Répondant à incidents | Gère les crises de sécurité | 38-55 K€ |
+| DPO | Conformité RGPD | 45-75 K€ |
+| Forensics / Investigation | Analyse post-incident | 35-50 K€ |
 
 ---
 
-## PARTIE II — La Fiche de Service
+---
 
-### II.A. Structure d'une Fiche de Service
+# ⚖️ ÉTUDE DE CAS RGPD — ANALYSE COMPLÈTE D'UNE VIOLATION
 
-Une **fiche de service** est le document unitaire décrivant un service spécifique. Elle contient :
+## ANNEXE 2 — DOSSIER ÉTUDIANT
 
-| **Section** | **Contenu** | **Exemple — Service Messagerie** |
-|---|---|---|
-| **Nom du service** | Nom clair et court en termes métier | Messagerie d'entreprise |
-| **Description** | Ce que le service fait pour l'utilisateur (2-3 phrases, zéro jargon) | "Permet d'envoyer et recevoir des emails professionnels depuis votre poste, smartphone ou navigateur web." |
-| **Bénéficiaires** | Qui peut utiliser ce service | Tous les employés de SimIO SARL |
-| **Conditions d'accès** | Ce qu'il faut pour en bénéficier | Compte Active Directory actif |
-| **Comment accéder** | Procédure simple pour commencer | "Ouvrir Outlook sur votre poste — vos identifiants réseau sont les mêmes" |
-| **Fonctionnalités incluses** | Ce que couvre le service | Email, agenda partagé, contacts, salle de réunion |
-| **Ce qui est EXCLU** | Limitations importantes | Pièces jointes > 25 Mo — stockage personnel illimité (OneDrive séparé) |
-| **Disponibilité** | Plage horaire + SLA | 24h/24 — SLA 99,9% — hors maintenance planifiée dimanche 22h-6h |
-| **Délai de support** | Selon priorité | P1 < 4h, P3 < 24h |
-| **Comment signaler un problème** | Canal de contact | Ticket GLPI — Catégorie : Logiciel > Messagerie |
-| **Responsable technique** | Contact DSI | [Technicien désigné] |
-| **Dernière révision** | Date et version | 2024-09-01 — v1.0 |
+*Durée : 35 min individuel + 20 min délibération collective*
 
 ---
 
-### II.B. Les Catégories de Services IT
+## LE CAS : "MÉDIAGROUP SA"
 
-Un catalogue de services est organisé en **catégories** cohérentes. Voici une organisation typique pour une PME :
+### Présentation de l'Organisation
 
-```
-   CATALOGUE DE SERVICES IT — SimIO SARL
-   ─────────────────────────────────────────────────────────────────
-
-   📧 COMMUNICATION
-   ├── Messagerie d'entreprise
-   ├── Calendrier et salles de réunion
-   └── Téléphonie (fixe / mobile)
-
-   💾 DONNÉES ET STOCKAGE
-   ├── Partage de fichiers (dossiers réseau)
-   ├── Sauvegarde et restauration
-   └── Archivage
-
-   🖥️ POSTE DE TRAVAIL
-   ├── Installation et configuration d'un poste
-   ├── Logiciels métier et bureautique
-   └── Impression
-
-   🔒 ACCÈS ET IDENTITÉ
-   ├── Création / modification de compte
-   ├── Réinitialisation de mot de passe
-   └── Accès VPN (télétravail)
-
-   🌐 RÉSEAU ET CONNECTIVITÉ
-   ├── Accès Internet
-   ├── WiFi entreprise
-   └── Connexion filaire
-
-   🛠️ SUPPORT ET ASSISTANCE
-   ├── Helpdesk N1 (centre de services)
-   ├── Dépannage sur site
-   └── Formation utilisateur
-```
+**MédiaGroup SA** est un groupe de presse régionale français :
+- 180 salariés répartis sur 3 sites (Lyon, Grenoble, Clermont-Ferrand)
+- Activités : Presse papier + Site web d'information + Application mobile
+- Données traitées :
+  - **Abonnés numériques :** 47 000 personnes (nom, prénom, email, adresse, IBAN pour prélèvement, historique de lecture)
+  - **Salariés :** 180 dossiers RH complets (données de santé pour certains)
+  - **Annonceurs :** 1 200 entreprises clientes (données contacts)
+  - **Données sensibles :** Articles en cours de rédaction (sources journalistiques protégées)
+- DPO désigné : Mme Isabelle Renaud (interne, juriste)
+- Hébergeur : OVHcloud (France)
 
 ---
 
-### II.C. Le Catalogue dans GLPI
-
-GLPI peut exposer le catalogue de services directement sur le **portail utilisateur**. Chaque service du catalogue devient une **catégorie de ticket** avec des formulaires adaptés.
+### Chronologie de l'Incident
 
 ```
-   PORTAIL GLPI UTILISATEUR
-   ─────────────────────────────────────────────────────────────────
-   L'utilisateur arrive sur le portail et voit :
+CHRONOLOGIE DÉTAILLÉE
+═══════════════════════════════════════════════════════════════
 
-   ┌────────────────────────────────────────────────────────────┐
-   │  🔑 Problème avec mon mot de passe                        │
-   │  📧 Ma messagerie ne fonctionne pas                       │
-   │  🖨️ Mon imprimante ne répond pas                          │
-   │  💾 Je ne peux pas accéder à un dossier partagé           │
-   │  💻 Je souhaite installer un logiciel                     │
-   │  🆕 Demande de création de compte                        │
-   │  📞 Autre demande                                         │
-   └────────────────────────────────────────────────────────────┘
+LUNDI 18 NOVEMBRE — JOUR DE L'INCIDENT
 
-   Chaque tuile crée automatiquement un ticket avec :
-   - La catégorie pré-remplie
-   - Les champs adaptés à ce type de demande
-   - L'affectation automatique au bon groupe technique
-   - Le SLA correspondant appliqué automatiquement
-```
+04h37   Alerte automatique du système de monitoring :
+        Trafic réseau anormal depuis le serveur de BDD principal
+        → Connexion inhabituelle depuis une IP roumaine (185.234.XX.XX)
+        → Export massif en cours (2,3 Go de données transférées)
 
----
+        ⚠️ L'alerte est envoyée par email à l'administrateur IT,
+        Marc Lefebvre. Marc ne lit pas ses emails professionnels
+        la nuit.
 
-### II.D. Cycle de Vie d'un Service dans le Catalogue
+05h15   La connexion cesse. 2,3 Go ont été exfiltrés.
 
-Un service n'est pas éternel. ITIL définit son cycle de vie dans le catalogue :
+08h45   Marc Lefebvre arrive au bureau. Lit l'alerte de 4h37.
+        Il analyse les logs : L'attaquant a utilisé un compte
+        administrateur valide (admin_legacy) avec mot de passe
+        "Admin2019!" — Ce compte était inutilisé depuis 2021
+        mais jamais supprimé.
 
-```
-   NOUVEAU SERVICE          SERVICE ACTIF           SERVICE RETIRÉ
-   ───────────────          ─────────────           ──────────────
-   Analyse du besoin   →    Disponible dans    →    Annonce de
-   Construction            le catalogue            fin de service
-   Tests                   SLA suivi               Migration
-   Communication           Améliorations           Retrait du
-   → Mise en service        selon retours           catalogue
-     (PV — S7)                                     Archivage
+09h30   Marc isole le serveur de BDD et change tous les mots
+        de passe administrateurs.
+
+10h15   Marc informe sa responsable, la Directrice Technique,
+        Laurène Moreau.
+
+11h00   Laurène Moreau contacte Isabelle Renaud (DPO).
+        Première réunion de crise.
+
+11h30   Analyse des données exfiltrées :
+        → Base complète des abonnés numériques (47 000 personnes)
+          Noms, prénoms, emails, adresses postales, IBAN,
+          dates de naissance, historique de lecture des articles
+        → 23 dossiers RH de salariés malades (arrêts maladie,
+          diagnostics partiels transmis par erreur au serveur BDD)
+        → Articles en cours de rédaction non publiés
+          (sources journalistiques potentiellement identifiables)
+
+13h00   Le DPO Isabelle Renaud prépare la notification CNIL.
+        Elle se demande si elle a le temps d'attendre mardi matin
+        pour avoir plus d'informations.
+
+MARDI 19 NOVEMBRE
+
+09h00   Isabelle Renaud envoie la notification CNIL.
+        (28 heures après la prise de connaissance par Marc)
+
+10h00   Un journaliste du concurrent "Le Quotidien du Rhône"
+        appelle MédiaGroup : Des données d'abonnés circulent
+        sur un forum du dark web depuis ce matin.
+
+14h00   Confirmation : Les 47 000 dossiers abonnés sont en ligne
+        sur un forum cybercriminel. Prix : 0,03 € par enregistrement.
+        Les IBAN sont clairement visibles.
+
+MERCREDI 20 NOVEMBRE
+
+09h00   Plusieurs abonnés appellent le service client :
+        Ils ont reçu des emails de phishing très ciblés utilisant
+        leurs données précises (nom, dernier article lu, abonnement exact).
+
+═══════════════════════════════════════════════════════════════
 ```
 
 ---
 
-## III. Vocabulaire Clé
+### Erreurs Commises (À identifier par les apprenants)
 
-| **Terme** | **Définition** |
-|-----------|---------------|
-| **Catalogue de services** | Liste structurée de tous les services IT disponibles, publiée pour les utilisateurs |
-| **Vue métier** | Version du catalogue rédigée en termes compréhensibles par les utilisateurs non-techniciens |
-| **Vue technique** | Version interne du catalogue décrivant l'infrastructure supportant chaque service |
-| **Fiche de service** | Document décrivant un service individuel (description, SLA, accès, contact) |
-| **Portail utilisateur** | Interface GLPI permettant aux utilisateurs de créer des tickets depuis le catalogue |
-| **Service actif** | Service disponible dans le catalogue et supporté par la DSI |
-| **Service déprécié** | Service maintenu temporairement mais en cours de remplacement |
-| **Service retiré** | Service supprimé du catalogue (ne doit plus être demandé) |
-| **Onboarding IT** | Processus d'intégration d'un nouvel employé — le catalogue accélère son autonomie |
-
----
-
----
-
-# 📚 FICHE DE COURS ÉLÈVE
-## "Portfolio E5 — La Situation Professionnelle Significative"
-
-*Version 1.0 — BTS SIO SISR — Année 1 — Semaine 9*
-
----
-
-## 🎯 L'Épreuve E5 en Résumé
-
-| **Paramètre** | **Détail** |
-|---|---|
-| **Épreuve** | E5 — Support et mise à disposition de services informatiques |
-| **Coefficient** | 4 |
-| **Format** | 1h30 de préparation + 40 min devant le jury |
-| **Supports** | Dossier de SPS remis avant l'oral + supports visuels optionnels |
-| **Jury** | 2 membres : 1 professionnel + 1 enseignant (BTS différent) |
-| **Ce que le jury évalue** | Votre capacité à décrire, justifier et réfléchir sur vos réalisations |
-
----
-
-## PARTIE I — Qu'est-ce qu'une SPS ?
-
-### I.A. Définition
-
-Une **Situation Professionnelle Significative (SPS)** est la description structurée d'une réalisation technique concrète que vous avez conduite, en formation ou en entreprise, qui mobilise une ou plusieurs compétences du référentiel RNCP.
-
-> 📌 **"Significative" ne signifie pas "impressionnante".** Une SPS n'a pas besoin d'être un projet de migration d'infrastructure. Remplir une fiche technique (S2), résoudre un incident imprimante (S4), configurer GLPI (S6) — tout cela peut être une SPS si c'est bien documenté.
-
-### I.B. Ce qu'une SPS N'est Pas
-
-| **Ce n'est pas...** | **C'est plutôt...** |
-|---|---|
-| Un résumé de votre BTS | Une réalisation précise, datée, sur un périmètre défini |
-| Une liste de technologies | Une narration de ce que VOUS avez fait et décidé |
-| Un tutoriel technique | Une description de votre démarche professionnelle |
-| Un copier-coller du cours | Votre expérience personnelle avec ses difficultés et apprentissages |
-
----
-
-## PARTIE II — Structure Officielle d'une SPS
-
-### II.A. Les 6 Sections Obligatoires
+*L'enseignant ne les révèle pas à ce stade — Les apprenants doivent les trouver.*
 
 ```
-   ① CONTEXTE
-   ──────────────────────────────────────────────────────────────
-   Qui est l'organisation (taille, secteur, structure IT) ?
-   Quel est l'environnement technique pertinent ?
-   Quelle est votre place dans cet environnement ?
+ERREURS À IDENTIFIER DANS LE CAS
+═══════════════════════════════════════════════════════════════
+(Liste pour l'enseignant — NE PAS DISTRIBUER)
 
-   ② MISSION
-   ──────────────────────────────────────────────────────────────
-   Quel était l'objectif assigné ?
-   Par qui ? Dans quel cadre ?
-   Quelles étaient les contraintes (délais, budget, périmètre) ?
+① Compte admin_legacy jamais supprimé malgré inactivité depuis 2021
+  → Violation principe de moindre privilège + revue périodique des comptes
 
-   ③ RÉALISATION
-   ──────────────────────────────────────────────────────────────
-   Ce que VOUS avez fait, étape par étape
-   Les décisions prises et leur justification
-   Les difficultés rencontrées et comment vous les avez résolues
-   → C'est la section la plus longue et la plus importante
+② Mot de passe faible "Admin2019!" sur compte admin
+  → Violation politique de mots de passe robustes
 
-   ④ COMPÉTENCES MOBILISÉES
-   ──────────────────────────────────────────────────────────────
-   Code RNCP + intitulé pour chaque compétence mobilisée
-   Ex : B1.1 — Recenser et identifier les ressources numériques
-   Ex : B1.6 — Assurer le support des utilisateurs
+③ Alertes de sécurité uniquement par email (non lues la nuit)
+  → Procédure d'astreinte inexistante
 
-   ⑤ RÉSULTATS ET VALIDATION
-   ──────────────────────────────────────────────────────────────
-   Comment la réussite a été vérifiée et par qui
-   Résultats mesurables si possible (MTTR, tickets résolus, SLA...)
-   Retour utilisateur / superviseur
+④ Données RH (diagnostics) stockées sur même serveur que BDD abonnés
+  → Violation de cloisonnement des données + données sensibles santé
 
-   ⑥ RÉFLEXIVITÉ — CE QUE J'AI APPRIS
-   ──────────────────────────────────────────────────────────────
-   Ce que vous feriez différemment
-   Ce que cette expérience vous a apporté professionnellement
-   Lien avec la suite (compétences à approfondir)
-```
+⑤ Données RH contenant "diagnostics partiels" = données de santé
+  → Ne devaient PAS être sur ce serveur (violation Art. 9 RGPD)
 
-> ⭐ **La section ⑥ est souvent négligée et pourtant décisive.** Le jury E5 peut passer 10 minutes sur cette section seule. Un apprenant capable de dire "j'aurais dû faire X plutôt que Y parce que..." démontre une maturité professionnelle que le jury valorise fortement.
+⑥ Laurène Moreau attend 2h avant de contacter le DPO
+  → Procédure de remontée d'incident non définie / non respectée
 
----
+⑦ Isabelle Renaud envisage d'attendre le lendemain matin
+  → Le délai 72h ne se met pas en pause la nuit !
 
-### II.B. Format et Volume
-
-| **Paramètre** | **Recommandation** |
-|---|---|
-| **Longueur de la fiche SPS** | 2 pages maximum (sans les preuves) |
-| **Preuves associées** | 3 à 8 documents (captures, tickets, DAT, schémas) |
-| **Nombre de SPS dans le dossier** | 3 minimum, 5 recommandées, 6 maximum |
-| **Variété des compétences** | Couvrir au minimum B1.1, B1.2, B1.3, B1.6 et un B2 |
-| **Répartition formation/entreprise** | Au moins 2 SPS issues de missions en entreprise |
-| **Format** | PDF ou présentation — pas de Word non converti |
-
----
-
-### II.C. Ce que le Jury Cherche à Comprendre
-
-Pendant les 40 minutes d'oral, le jury cherche à valider 3 choses :
-
-```
-   1. VOUS AVEZ VRAIMENT FAIT ÇA
-      → Questions de détail : "Quelle commande avez-vous utilisée ?"
-        "Qu'est-ce qui s'est passé quand vous avez fait X ?"
-        Réponse attendue : précise, personnelle, avec les détails d'un praticien
-
-   2. VOUS COMPRENEZ CE QUE VOUS AVEZ FAIT
-      → Questions de compréhension : "Pourquoi ce choix ?"
-        "Qu'est-ce qui se serait passé si vous aviez fait Y ?"
-        Réponse attendue : justification technique et professionnelle
-
-   3. VOUS ÊTES CAPABLE D'ÉVOLUER
-      → Questions de réflexion : "Qu'auriez-vous fait différemment ?"
-        "Comment ce service pourrait-il être amélioré ?"
-        Réponse attendue : critique constructive de son propre travail
+⑧ Notification CNIL à 28h = dans les délais MAIS...
+  → Les personnes n'ont pas été notifiées immédiatement
+  → IBAN exposés = risque très élevé → Notification urgente requise
+═══════════════════════════════════════════════════════════════
 ```
 
 ---
 
-### II.D. Les Preuves — Ce qui Compte
+### Questions de l'Étude de Cas
 
-Les **preuves** (pièces jointes à la SPS) servent à crédibiliser votre réalisation. Elles doivent être :
+*À traiter individuellement (35 min)*
 
-| **Type de preuve** | **Exemples** | **Valeur** |
-|---|---|---|
-| **Captures d'écran** | Interface GLPI avec votre ticket, console OCS avec votre poste, fiche technique remplie | Moyenne — montre que c'est réel |
-| **Documents produits** | Fiche technique S2, PV de mise en service S7, SLA rédigé S7 | Élevée — prouve une démarche |
-| **Tickets GLPI** | Export PDF d'un ticket traité, avec votre nom comme technicien | Élevée — traçabilité |
-| **Schémas et DAT** | Architecture réseau SimIO, diagramme de flux | Très élevée — compétence technique |
-| **Scripts / Commandes** | Script PowerShell de collecte OCS, commandes icacls utilisées | Très élevée — compétence opérationnelle |
+---
 
-> ⚠️ **Ce qui ne vaut pas comme preuve :** Des captures du cours ou du TP tel qu'il était fourni. La preuve doit montrer VOTRE travail — pas le modèle de l'enseignant.
+#### PARTIE A — Qualification de la Violation (8 min)
 
+```
+A1. Identifiez les types de violation(s) subies par MédiaGroup SA.
+    Justifiez avec les faits du cas.
+──────────────────────────────────────────────────────────────────
+☐ Violation de CONFIDENTIALITÉ
+  Faits : ____________________________________________________
+
+☐ Violation de DISPONIBILITÉ
+  Faits : ____________________________________________________
+
+☐ Violation d'INTÉGRITÉ
+  Faits : ____________________________________________________
+
+A2. Quand démarre précisément le délai des 72 heures ?
+    Justifiez.
+──────────────────────────────────────────────────────────────────
+Le délai commence le : _____ novembre à ___h___ (heure précise)
+Car : _______________________________________________________
+
+Date/heure limite pour notifier la CNIL :
+Le : _____ novembre à ___h___
+
+A3. La notification CNIL envoyée mardi à 9h est-elle dans les délais ?
+──────────────────────────────────────────────────────────────────
+☐ Oui, dans les délais    ☐ Non, hors délai
+
+Calcul du délai réel : _______________________________________
+```
+
+---
+
+#### PARTIE B — Analyse des Données et Risques (10 min)
+
+```
+B1. Catégorisez les données exfiltrées.
+    Pour chaque catégorie, indiquez si ce sont des données
+    sensibles (Art. 9 RGPD) et le risque pour les personnes.
+──────────────────────────────────────────────────────────────────
+DONNÉES ABONNÉS (47 000 personnes)
+Données sensibles ? ☐ Oui  ☐ Non
+Si oui, lesquelles : ________________________________________
+Risques pour les personnes : ________________________________
+
+DONNÉES RH (23 dossiers salariés)
+Données sensibles ? ☐ Oui  ☐ Non
+Si oui, lesquelles : ________________________________________
+Risques pour les personnes : ________________________________
+
+ARTICLES NON PUBLIÉS (sources journalistiques)
+Type de risque particulier : ________________________________
+(Indice : Ce ne sont pas des données personnelles d'abonnés...)
+
+B2. Quel est le niveau de risque global pour les abonnés ?
+──────────────────────────────────────────────────────────────────
+☐ Faible    ☐ Élevé    ☐ Très élevé
+
+Justification (citez au moins 3 éléments factuels) :
+1. _________________________________________________________
+2. _________________________________________________________
+3. _________________________________________________________
+
+B3. Compte tenu de ce niveau de risque, les 47 000 abonnés
+    doivent-ils être notifiés personnellement ?
+──────────────────────────────────────────────────────────────────
+☐ Oui, immédiatement    ☐ Oui, mais peut attendre    ☐ Non
+
+Justification RGPD (citez l'article applicable) :
+_______________________________________________________________
+```
+
+---
+
+#### PARTIE C — Notification CNIL (10 min)
+
+```
+Rédigez les grandes lignes de la notification CNIL
+que doit envoyer Isabelle Renaud le mardi 19 novembre.
+──────────────────────────────────────────────────────────────────
+
+NOTIFICATION CNIL — MÉDIAGROUP SA
+═══════════════════════════════════════════════════════════════
+
+NATURE DE LA VIOLATION
+──────────────────────────────────────────────────────────────
+Types de violation (cocher) :
+☐ Confidentialité  ☐ Disponibilité  ☐ Intégrité
+
+Description factuelle (4-5 lignes) :
+_______________________________________________________________
+_______________________________________________________________
+_______________________________________________________________
+_______________________________________________________________
+
+DONNÉES ET PERSONNES CONCERNÉES
+──────────────────────────────────────────────────────────────
+Catégories de données :
+_______________________________________________________________
+
+Nombre de personnes concernées (total) : _____________________
+
+Données sensibles concernées ? ☐ Oui → Lesquelles : _________
+
+CONSÉQUENCES PROBABLES
+──────────────────────────────────────────────────────────────
+Risques identifiés pour les personnes :
+1. _________________________________________________________
+2. _________________________________________________________
+3. _________________________________________________________
+
+MESURES PRISES
+──────────────────────────────────────────────────────────────
+Mesures immédiates effectuées :
+1. _________________________________________________________
+2. _________________________________________________________
+
+Mesures correctives prévues :
+1. _________________________________________________________
+2. _________________________________________________________
+
+NOTIFICATION AUX PERSONNES PRÉVUE ?
+──────────────────────────────────────────────────────────────
+☐ Oui → Date prévue : _______________________________________
+☐ Non → Justification : _____________________________________
+
+═══════════════════════════════════════════════════════════════
+```
+
+---
+
+#### PARTIE D — Erreurs et Mesures Correctives (7 min)
+
+```
+D1. Identifiez au moins 4 erreurs ou manquements
+    commis par MédiaGroup SA AVANT et PENDANT l'incident.
+──────────────────────────────────────────────────────────────────
+AVANT L'INCIDENT (erreurs de prévention) :
+
+Erreur 1 : _________________________________________________
+Solution RGPD/sécurité : ____________________________________
+
+Erreur 2 : _________________________________________________
+Solution RGPD/sécurité : ____________________________________
+
+PENDANT L'INCIDENT (erreurs de réaction) :
+
+Erreur 3 : _________________________________________________
+Solution procédurale : ______________________________________
+
+Erreur 4 : _________________________________________________
+Solution procédurale : ______________________________________
+
+D2. Rédigez le message d'information à envoyer
+    aux 47 000 abonnés. (10 lignes maximum, ton professionnel)
+──────────────────────────────────────────────────────────────────
+Objet : ____________________________________________________
+
+Madame, Monsieur,
+
+_______________________________________________________________
+_______________________________________________________________
+_______________________________________________________________
+_______________________________________________________________
+_______________________________________________________________
+_______________________________________________________________
+_______________________________________________________________
+_______________________________________________________________
+_______________________________________________________________
+_______________________________________________________________
+
+L'équipe MédiaGroup SA
+```
