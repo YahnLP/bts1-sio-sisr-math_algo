@@ -1,36 +1,16 @@
 # 01 – Informations Générales
 
+## Informations Générales
+
 | **Champ** | **Détail** |
 |-----------|-----------|
-| **Semaine** | S20 — Année 1 (dernière semaine) |
-| **Bloc** | Bloc 1 — Support et mise à disposition de services informatiques |
+| **Semaine** | S20 — Année 1 — Dernière séance A1 Bloc 3 |
+| **Bloc** | Bloc 3 — Cybersécurité des services informatiques |
 | **Durée totale** | 4 heures |
-| **Public** | Apprentis BTS SIO SISR — vingtième semaine |
-| **Modalité** | Examen blanc individuel + bilan collectif |
-| **Prérequis** | Portfolio E4 avec minimum 2-3 situations (S15, S17-S18) |
+| **Public** | Apprentis BTS SIO SISR — fin d'année 1 |
+| **Modalité** | Présentiel — salle de cours (conditions d'examen) |
+| **Prérequis** | Bloc 3 complet S1 à S19 (hygiène numérique, RGPD, sécurité de base, audit de vulnérabilités) |
 
----
-
-## 🎯 Objectifs
-
-**Examen blanc E4 :**
-- ✅ Passer l'épreuve E4 en **conditions réelles** (40 minutes complètes)
-- ✅ Mobiliser toutes les **compétences BLOC 1** acquises en Année 1
-- ✅ Gérer le **stress** d'un examen
-- ✅ Recevoir un **feedback détaillé** avec grille officielle
-- ✅ Identifier précisément ses **points forts** et **axes d'amélioration**
-
-**Bilan portfolio :**
-- ✅ Vérifier la **complétude** du portfolio (minimum 2-3 situations)
-- ✅ Contrôler la **qualité** des fiches (structure, contenu, preuves)
-- ✅ S'assurer de la **diversité** des situations (différentes compétences)
-- ✅ Planifier les situations à **ajouter en Année 2**
-
-**Plan Année 2 :**
-- ✅ Faire le bilan de l'**Année 1** (acquis, difficultés, réussites)
-- ✅ Définir les **objectifs** pour l'Année 2
-- ✅ Identifier les compétences à **approfondir**
-- ✅ Préparer le **positionnement** en entreprise pour l'alternance
 
 ---
 
@@ -38,10 +18,12 @@
 
 | **Code** | **Intitulé de la compétence** | **Niveau visé** |
 |----------|-------------------------------|-----------------|
-| **Épreuve E4** | Support et mise à disposition de services informatiques | Évaluation sommative |
-| **Compétences transversales** | Préparation examen, gestion du stress, communication orale | Consolidation |
+| **B3.1** | Identifier les principales menaces de sécurité | Évaluation sommative |
+| **B3.2** | Mettre en œuvre les mesures de sécurité de base | Évaluation sommative |
+| **B3.3** | Participer à la protection des données personnelles | Évaluation sommative |
+| **B3.4** | Réaliser un audit de sécurité de base | Évaluation sommative |
 
-> 📌 **S20 BLOC 1 marque la FIN DE L'ANNÉE 1.** L'examen blanc E4 en conditions réelles permet d'évaluer le niveau de chaque apprenant et d'identifier les axes de progression pour l'Année 2. Le bilan portfolio assure que chaque apprenant dispose d'un socle solide pour l'épreuve finale en fin d'Année 2.
+> 📌 **S20 est la séance d'évaluation finale de l'année 1 du Bloc 3.** Elle prend la forme d'un **examen blanc de type E6** (étude de cas écrite) pour familiariser les apprenants avec les conditions et le format de l'épreuve réelle. Le créneau de 4h est découpé en 3 temps : préparation à l'épreuve, examen blanc (2h en conditions réelles), correction et retour.
 
 
 ---

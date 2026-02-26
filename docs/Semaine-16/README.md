@@ -3,36 +3,11 @@
 | **Champ** | **Détail** |
 |-----------|-----------|
 | **Semaine** | S16 — Année 1 |
-| **Bloc** | Bloc 1 — Support et mise à disposition de services informatiques |
+| **Bloc** | Bloc 3 — Cybersécurité des services informatiques |
 | **Durée totale** | 4 heures |
 | **Public** | Apprentis BTS SIO SISR — seizième semaine |
-| **Modalité** | Présentiel — salle TP |
-| **Prérequis** | Notions Linux (S8-S14), documentation procédures (S11), veille techno (S13) |
-
----
-
-## 🎯 Objectifs
-**Travail collaboratif :**
-- ✅ Expliquer les **enjeux** du travail collaboratif en IT
-- ✅ Identifier les **outils** adaptés selon les besoins (wiki, Git, cloud, ticketing)
-- ✅ Comprendre les **bonnes pratiques** de collaboration (nommage, versioning, communication)
-
-**Wiki technique :**
-- ✅ Définir ce qu'est un **wiki** et ses cas d'usage
-- ✅ Comparer les solutions de wiki (MediaWiki, DokuWiki, BookStack, Confluence)
-- ✅ Installer et configurer **DokuWiki**
-- ✅ Créer une **structure documentaire** pour une équipe IT
-- ✅ Rédiger des pages wiki en **syntaxe markdown/dokuwiki**
-
-**Git (introduction) :**
-- ✅ Comprendre le concept de **versioning** de fichiers
-- ✅ Expliquer à quoi sert **Git** (suivi modifications, collaboration)
-- ✅ Distinguer Git et GitHub
-- ✅ Effectuer les **commandes de base** (init, add, commit, log)
-
-**Partage documentaire :**
-- ✅ Comparer les solutions de partage (NAS, cloud, serveur fichiers)
-- ✅ Identifier les critères de choix (sécurité, coût, accessibilité)
+| **Modalité** | Présentiel — salle de cours + TP machines Windows/Linux |
+| **Prérequis** | Notions de base Windows et Linux · S1-S2 (gestion d'incidents ITIL) |
 
 ---
 
@@ -40,11 +15,37 @@
 
 | **Code** | **Intitulé de la compétence** | **Niveau visé** |
 |----------|-------------------------------|-----------------|
-| **B3.3** | Participer à la gestion et au suivi d'un projet | Maîtrise |
-| **B1.5** | Mettre à disposition des utilisateurs un service informatique | Acquisition |
-| **B3.4** | Mettre en œuvre une démarche de veille technologique | Application |
+| **B3.1** | Identifier les principales menaces de sécurité | Maîtrise |
+| **B3.3** | Gérer les incidents de sécurité | Maîtrise |
+| **B1.4** | Résoudre les incidents et les demandes d'assistance | Maîtrise |
+| **B1.2** | Appliquer les bonnes pratiques de gestion de service (ITIL) | Acquisition |
 
-> 📌 **S16 BLOC 1 marque l'entrée dans la Phase 4** (Projet de synthèse S16-S20). Elle pose les bases du travail collaboratif avant le Projet 1 (S17-S18) où les apprenants travailleront en équipe sur une infrastructure complète. Le wiki créé en S16 servira de documentation collective pour le projet.
+> 📌 **S16 BLOC 3 est LA séance qui transforme un technicien débutant en diagnosticien efficace.** Les logs sont la "boîte noire" de tout système informatique — 80% des incidents peuvent être diagnostiqués via l'analyse des logs. Un technicien SISR qui ne sait pas lire les logs est comme un mécanicien qui ne sait pas lire un diagnostic moteur. Cette compétence est fondamentale pour la gestion d'incidents ITIL et pour les épreuves E4 (où il faut documenter la résolution d'incidents).
 
 ---
+
+## 🎯 Objectifs
+
+**Logs Windows :**
+- ✅ Comprendre le rôle et l'importance des **logs système**
+- ✅ Naviguer dans l'**Observateur d'événements Windows**
+- ✅ Identifier les **types de logs** (Application, Sécurité, Système, Setup)
+- ✅ Comprendre les **niveaux de sévérité** (Information, Avertissement, Erreur, Critique)
+- ✅ Filtrer et rechercher des événements spécifiques
+- ✅ Interpréter les **Event ID** Windows courants
+
+**Logs Linux :**
+- ✅ Localiser et lire les fichiers de log dans **/var/log**
+- ✅ Comprendre **syslog** et les différents fichiers (auth.log, syslog, kern.log...)
+- ✅ Utiliser les commandes de consultation (tail, grep, less, journalctl)
+- ✅ Comprendre le **format des logs** (timestamp, niveau, service, message)
+
+**Analyse et Diagnostic :**
+- ✅ Établir une **méthodologie de diagnostic par les logs**
+- ✅ Corréler des événements entre plusieurs sources
+- ✅ Identifier les **patterns d'incidents** (tentatives d'intrusion, erreurs récurrentes)
+- ✅ Documenter un diagnostic pour la **base de connaissances ITIL**
+
+---
+
 

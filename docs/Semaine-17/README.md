@@ -2,50 +2,45 @@
 
 | **Champ** | **Détail** |
 |-----------|-----------|
-| **Semaine** | S17 — Année 1 |
-| **Bloc** | Bloc 1 — Support et mise à disposition de services informatiques |
-| **Durée totale** | 4 heures |
-| **Public** | Apprentis BTS SIO SISR — dix-septième semaine |
-| **Modalité** | Présentiel — salle TP + travail en équipe |
-| **Prérequis** | GLPI/OCS (S5-S6), ITIL (S3-S4), Wiki (S16), Active Directory (S11-S12 BLOC 2) |
+| **Semaines** | S17 + S18 — Année 1 |
+| **Bloc** | Bloc 3 — Cybersécurité |
+| **Durée totale** | 8 heures (2 séances de 4h) |
+| **Type** | PROJET en groupe (2-3 apprenants) |
+| **Modalité** | Présentiel — Travail autonome + Soutenance |
+| **Prérequis** | S1-S16 Bloc 3 complet |
 
 ---
 
 ## 🎯 Objectifs
 
-**Projet 1 (vue d'ensemble) :**
-- ✅ Comprendre la structure d'un **projet multi-blocs** (infrastructure + support + sécurité)
-- ✅ Collaborer en équipe sur un projet commun
-- ✅ Documenter son travail dans le wiki d'équipe (S16)
+**Connaissances** :
+- ✅ Comprendre l'architecture réseau en zones (LAN/DMZ/Internet)
+- ✅ Maîtriser les GPO Windows (stratégies de groupe)
+- ✅ Comprendre les droits NTFS et la matrice d'accès
+- ✅ Connaître la règle 3-2-1 des sauvegardes
+- ✅ Comprendre HTTPS et les certificats SSL/TLS
 
-**GLPI et OCS Inventory :**
-- ✅ Installer et configurer **GLPI** (version récente)
-- ✅ Installer et configurer **OCS Inventory Server**
-- ✅ Déployer l'**agent OCS** sur des postes clients
-- ✅ Synchroniser **OCS avec GLPI** (remontée automatique inventaire)
-- ✅ Vérifier la **remontée d'inventaire** matériel et logiciel
+**Savoir-faire** :
+- ✅ Concevoir un schéma réseau sécurisé (LAN/DMZ séparées)
+- ✅ Configurer des GPO de sécurité (mots de passe, verrouillage, pare-feu)
+- ✅ Définir une matrice de droits NTFS par service
+- ✅ Élaborer un plan de sauvegarde professionnel
+- ✅ Mettre en place HTTPS sur un serveur web
+- ✅ Documenter une infrastructure de manière professionnelle
+- ✅ Présenter oralement un projet technique
 
-**Catalogue de services :**
-- ✅ Créer un **catalogue de services IT** structuré dans GLPI
-- ✅ Définir des **catégories de services** (support, infrastructure, applications)
-- ✅ Rédiger des **fiches de service** (description, SLA, procédure de demande)
-
-**Support et tickets :**
-- ✅ Simuler la **création de tickets** d'incidents réalistes
-- ✅ Appliquer le **cycle de vie d'un ticket** (ouverture → diagnostic → résolution → clôture)
-- ✅ Documenter les **résolutions** dans la base de connaissances GLPI
 ---
 
 ## 🧠 Compétences travaillées
 
-| **Code** | **Intitulé de la compétence** | **Niveau visé** |
-|----------|-------------------------------|-----------------|
-| **B1.4** | Mettre en place et exploiter des outils de gestion de parc | Maîtrise |
-| **B1.5** | Mettre à disposition des utilisateurs un service informatique | Maîtrise |
-| **B1.2** | Exploiter des référentiels, normes et standards (ITIL) | Maîtrise |
-| **B3.3** | Participer à la gestion et au suivi d'un projet | Maîtrise |
 
-> 📌 **S17-S18 BLOC 1 constituent le PROJET 1** — un projet de synthèse multi-blocs étalé sur 2 semaines. S17 BLOC 1 pose les fondations du système de support (GLPI, OCS, catalogue de services) qui seront intégrées à l'infrastructure technique déployée par les autres blocs. C'est la **première expérience projet** des apprenants en Année 1.
+| **Code** | **Compétence** | **Niveau** |
+|----------|----------------|------------|
+| **B3.2** | Mettre en œuvre mesures sécurité de base | **Maîtrise** |
+| **B3.4** | Sécuriser les accès et les données | **Maîtrise** |
+| **B1.3** | Mettre en place infrastructure réseau | Acquisition |
+| **B2.3** | Appliquer politiques de sécurité | Maîtrise |
 
+> 📌 **S17-S18 = PROJET INTÉGRATEUR du BLOC 3**. Ce projet synthétise TOUTES les compétences vues depuis S1 : gestion incidents ITIL (S1-S2), pare-feu (S3), mots de passe (S4), RGPD (S5-S8), malwares (S9), droits d'accès (S10), cryptographie (S11-S14), identité numérique (S15), logs (S16). Les apprenants appliquent ces connaissances à un cas réel de sécurisation d'infrastructure.
 
 ---

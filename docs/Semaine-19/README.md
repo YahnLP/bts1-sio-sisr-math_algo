@@ -3,41 +3,45 @@
 | **Champ** | **Détail** |
 |-----------|-----------|
 | **Semaine** | S19 — Année 1 |
-| **Bloc** | Bloc 1 — Support et mise à disposition de services informatiques |
+| **Bloc** | Bloc 3 — Cybersécurité des services informatiques |
 | **Durée totale** | 4 heures |
-| **Public** | Apprentis BTS SIO SISR — dix-neuvième semaine |
-| **Modalité** | Présentiel — salle cours + oral individuel |
-| **Prérequis** | Portfolio E4 avec 3 situations (S15, S17-S18) |
-
----
-
-## 🎯 Objectifs
-
-**Entraînement E4 :**
-- ✅ Maîtriser la **structure** d'une présentation E4 (contexte → mission → réalisation → résultats)
-- ✅ Gérer le **temps** de présentation (20 min présentation + 20 min questions)
-- ✅ Répondre aux **questions du jury** de manière pertinente
-- ✅ Utiliser un **support visuel** efficace (slides, schémas, démo)
-- ✅ Gérer le **stress** de l'oral
-- ✅ Identifier ses **points forts** et **axes d'amélioration**
-
-**Bilan compétences BLOC 1 :**
-- ✅ Auto-évaluer son niveau sur **chaque compétence** du BLOC 1
-- ✅ Identifier les compétences **maîtrisées** et celles à **consolider**
-- ✅ Préparer un **plan de progression** pour l'Année 2
-- ✅ Relier les compétences aux **situations professionnelles** vécues
+| **Public** | Apprentis BTS SIO SISR — fin d'année 1 |
+| **Modalité** | Présentiel — salle de TP avec machines virtuelles |
+| **Prérequis** | S1 à S18 Bloc 3 (hygiène numérique, RGPD, pare-feu, VPN, chiffrement, sauvegardes) |
 
 ---
 
 ## 🧠 Compétences travaillées
 
+## Compétences RNCP Visées
+
 | **Code** | **Intitulé de la compétence** | **Niveau visé** |
 |----------|-------------------------------|-----------------|
-| **Épreuve E4** | Support et mise à disposition de services informatiques | Préparation intensive |
-| **B1.1 à B1.6** | Ensemble des compétences du BLOC 1 | Bilan et consolidation |
-| **Compétences transversales** | Communication orale, argumentation, gestion du stress | Entraînement |
+| **B3.1** | Identifier les principales menaces de sécurité | Consolidation |
+| **B3.2** | Mettre en œuvre les mesures de sécurité de base | Consolidation |
+| **B3.3** | Participer à la protection des données personnelles | Consolidation |
+| **B3.4** | Réaliser un audit de sécurité de base | Découverte / Application |
 
-> 📌 **S19 BLOC 1 est une séance de préparation intensive à l'épreuve E4.** Chaque apprenant passe un oral blanc individuel de 15 minutes, reçoit un feedback détaillé, puis effectue un bilan complet de ses compétences BLOC 1 acquises durant S1-S18. Cette séance marque la **fin de la Phase 4** avant l'examen blanc final en S20.
+> 📌 **S19 BLOC 3 est la séance de clôture de l'année 1.** Elle cumule deux objectifs distincts mais complémentaires : **découvrir les outils d'audit de vulnérabilités** (Nmap, analyse CVSS) et **synthétiser l'ensemble du Bloc 3 A1** (RGPD, hygiène numérique, sécurité de base). Cette séance prépare directement aux épreuves E4, E5 et E6.
 
 ---
+
+## 🎯 Objectifs
+
+**Audit de vulnérabilités — Découverte :**
+- ✅ Définir ce qu'est un **audit de vulnérabilités** et son rôle dans la gestion des services (ITIL)
+- ✅ Distinguer **scan de ports**, **scan de services** et **scan de vulnérabilités**
+- ✅ Utiliser les commandes **Nmap** de base pour identifier les hôtes et services exposés
+- ✅ Lire et interpréter un résultat de scan (ports ouverts, services détectés, versions)
+- ✅ Comprendre la **notation CVSS** (score de criticité 0 à 10)
+- ✅ Prioriser les actions correctives en fonction des résultats
+
+**Synthèse Bloc 3 A1 :**
+- ✅ Restituer les **principes fondamentaux du RGPD** (bases légales, droits, sanctions)
+- ✅ Récapituler les **mesures de sécurité de base** vues depuis S1 (mots de passe, MFA, mises à jour, sauvegardes, chiffrement, pare-feu, VPN)
+- ✅ Mettre en relation **menaces, mesures de protection et réglementation**
+- ✅ Identifier les points de faiblesse restants dans ses propres connaissances
+
+---
+
 
