@@ -1,4 +1,9 @@
-# Pack S16 - Aide-Mémoire
+---
+author: YLP
+title: 📖 Aide-Mémoire
+---
+
+# Aide-Mémoire
 ## Commandes et Event ID Essentiels
 
 ---

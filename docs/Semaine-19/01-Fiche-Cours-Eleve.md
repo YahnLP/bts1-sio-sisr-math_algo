@@ -1,4 +1,9 @@
-# Pack de Formation — Semaine 19 (S19) — BLOC 3
+---
+author: YLP
+title: 📖 FICHE DE COURS ÉLÈVE
+---
+
+# Semaine 19 — BLOC 3
 ## 📖 FICHE DE COURS ÉLÈVE
 ### Audit de Vulnérabilités (Introduction) · Scans Basiques · Interprétation des Résultats
 

@@ -1,4 +1,9 @@
-# Pack S17 - Fiche de Cours Élève
+---
+author: YLP
+title: 📖 Fiche de Cours Élève
+---
+
+# Fiche de Cours Élève
 ## Sécurisation Infrastructure : Zones Réseau · GPO · NTFS · Sauvegardes · HTTPS
 
 *BTS SIO SISR — Année 1 — Semaines 17-18*

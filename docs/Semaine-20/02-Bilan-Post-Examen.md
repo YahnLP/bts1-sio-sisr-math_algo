@@ -1,4 +1,8 @@
-# Pack de Formation — Semaine 20 (S20) — BLOC 3
+---
+author: YLP
+title: 🎓 BILAN POST-EXAMEN
+---
+
 ## 🎓 FICHE BILAN POST-EXAMEN
 ### Retour sur l'Examen Blanc E6 · Analyse des Erreurs · Conseils pour l'Année 2
 

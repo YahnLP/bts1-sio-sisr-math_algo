@@ -1,4 +1,9 @@
-# Pack S17 - Exemples & Modèles
+---
+author: YLP
+title: 📐 Exemples & Modèles
+---
+
+# Exemples & Modèles
 ## Templates pour le Projet
 
 ---

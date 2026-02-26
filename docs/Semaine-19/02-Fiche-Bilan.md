@@ -1,4 +1,10 @@
-# Pack de Formation — Semaine 19 (S19) — BLOC 3
+---
+author: YLP
+title: 🎓 BILAN
+
+---
+
+# Semaine 19 — BLOC 3
 ## 🎓 FICHE BILAN
 ### Synthèse Bloc 3 — Année 1 · Révision RGPD · Sécurité de Base · Perspectives Année 2
 

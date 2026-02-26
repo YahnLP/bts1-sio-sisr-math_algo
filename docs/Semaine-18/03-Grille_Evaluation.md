@@ -1,8 +1,9 @@
-# Pack S18 - Grille d'Évaluation E6
-
+---
+author: YLP
+title: 📊 GRILLE D'ÉVALUATION
 ---
 
-# 📊 GRILLE D'ÉVALUATION OFFICIELLE E6
+# 📊 GRILLE D'ÉVALUATION
 ## Étude de Cas TechServices
 
 **Total : 20 points**

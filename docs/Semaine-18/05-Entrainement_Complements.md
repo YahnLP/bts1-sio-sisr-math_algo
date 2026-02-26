@@ -1,5 +1,6 @@
-# Pack S18 - Entraînements Complémentaires
-
+---
+author: YLP
+title: 📚 ENTRAÎNEMENTS E6
 ---
 
 # 📚 ENTRAÎNEMENTS E6

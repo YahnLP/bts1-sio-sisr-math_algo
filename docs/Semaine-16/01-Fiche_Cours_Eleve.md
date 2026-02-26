@@ -1,4 +1,9 @@
-# Pack S16 - Fiche de Cours Élève
+---
+author: YLP
+title: 📖 Fiche de Cours Élève
+---
+
+# Fiche de Cours Élève
 ## Logs Système Windows et Linux
 
 *BTS SIO SISR — Année 1 — Semaine 16*

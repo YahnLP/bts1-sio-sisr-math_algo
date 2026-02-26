@@ -1,5 +1,6 @@
-# Pack S18 - Méthodologie E6
-
+---
+author: YLP
+title: 🎯 MÉTHODOLOGIE ÉPREUVE E6
 ---
 
 # 🎯 MÉTHODOLOGIE ÉPREUVE E6

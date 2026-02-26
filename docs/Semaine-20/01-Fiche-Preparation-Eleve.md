@@ -1,4 +1,9 @@
-# Pack de Formation — Semaine 20 (S20) — BLOC 3
+---
+author: YLP
+title: 📖 FICHE DE PRÉPARATION ÉLÈVE
+---
+
+# Semaine 20 — BLOC 3
 ## 📖 FICHE DE PRÉPARATION ÉLÈVE
 ### Comment Réussir l'Épreuve E6 — Méthodologie de l'Étude de Cas
 

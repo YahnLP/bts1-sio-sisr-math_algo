@@ -1,4 +1,7 @@
-# Pack S18 - Sujet Étude de Cas E6 #1
+---
+author: YLP
+title: 📝 ÉTUDE DE CAS - ÉPREUVE E6
+---
 
 ---
 
