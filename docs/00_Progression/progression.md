@@ -1,123 +1,137 @@
-# 🛣️ Progression 
-## BTS SIO SISR – BLOC 3
-### Année 1 – Cybersécurité (20 semaines – 400h)
+# 🛣️ Progression
+## BTS SIO SISR – MATHS / ALGO (U2)
+### Année 1 – Mathématiques informatiques contextualisées (20 semaines – 80h)
 
 ---
 
 ## 🎯 Objectif
 
-Construire les compétences fondamentales du **Bloc 3 – Cybersécurité** :
+Construire les compétences fondamentales **Maths / Algo (U2)** en lien direct avec les situations réelles d’un futur technicien SISR :
 
-- Identifier les menaces numériques courantes
-- Appliquer les bonnes pratiques d’hygiène informatique
-- Comprendre et appliquer le RGPD
-- Mettre en œuvre les premiers mécanismes de protection
-- Sécuriser les accès et les données
-- Analyser un incident de sécurité
-- Préparer progressivement l’épreuve E6 (analyse juridique et sécurité)
+- Maîtriser les **systèmes de numération** (binaire / hexa) utiles aux adresses IP/MAC et aux données
+- Comprendre et exploiter l’**algèbre de Boole** (logique, conditions, filtrage)
+- Réaliser les **calculs réseaux** indispensables : masques, CIDR, réseau/broadcast, plages, VLSM
+- Mettre en œuvre les bases de l’**algorithmique** : variables, conditions, boucles, fonctions
+- Manipuler des **structures de données** simples (listes, tableaux, chaînes, ensembles) appliquées à des cas IT
+- Introduire la **complexité** et les choix d’algorithmes (recherche / tri)
+- Se préparer progressivement à l'examen **CCF de Mathématiques (U2)** (exercices type, rigueur, justifications)
+
+> Cette progression reprend **strictement** l’organisation hebdomadaire A1 du plan de formation (S1→S20) et conserve la structure du modèle de progression. :contentReference[oaicite:0]{index=0} :contentReference[oaicite:1]{index=1}
 
 ---
 
 ## 🧩 Principes structurants
 
-- Logique constante :  
-  **Identifier la menace → Évaluer le risque → Mettre en place une mesure → Tester → Justifier**
-- Approche systématique par étude de cas
-- Lien constant entre technique et cadre légal
-- Documentation obligatoire des mesures de sécurité
-- Entraînement progressif à l’argumentation (E6)
+- Maths **100% contextualisées** : chaque notion est reliée à un problème informatique concret (adressage, règles de filtrage, logs, dimensionnement). :contentReference[oaicite:2]{index=2}
+- Progressivité renforcée : démarrage par les fondamentaux (numération + masques), puis algorithmique, puis synthèse et automatisation légère.
+- Spirale de compétences : le subnetting revient à plusieurs reprises (bases → VLSM → VLSM multi-sites + projet). :contentReference[oaicite:3]{index=3}
+- Rigueur attendue : méthode écrite (étapes), contrôle de cohérence, justification des résultats.
+- Préparation examen : entraînements réguliers + synthèses + simulation en S20. :contentReference[oaicite:4]{index=4}
 
 ---
 
 ## 🧾 Légende
 
-- 🔎 Sensibilisation / Analyse
-- 🛠️ TP (mise en situation professionnelle)
-- 🧭 Entraînement E6 (formalisation juridique et argumentée)
+- 🔎 Notions / Compréhension (cours + exercices guidés)
+- 🛠️ Entraînement appliqué (cas IT / mini-problèmes contextualisés)
+- 🧭 Préparation CCF (méthodo + sujets type)
 - ✅ Évaluation
-- ⭐ Projet intégré
+- ⭐ Projet intégré (liens directs avec le projet d’infrastructure A1)
 
 ---
 
-# 🔵 PHASE 1 – Hygiène numérique & menaces (S1 à S5)
+# 🔵 PHASE 1 – Numération & premiers calculs réseau (S1 à S5)
 
-| Semaine | Situation professionnelle | Compétences Bloc 3 | Statut | Livrable attendu |
-|----------|--------------------------|--------------------|:------:|------------------|
-| S1 | Une PME subit un ransomware médiatisé | Identifier menaces (phishing, ransomware) | 🔎 | Fiche analyse attaque |
-| S2 | Sécuriser un poste utilisateur | Comprendre malware + importance mises à jour | 🛠️ | Checklist sécurisation poste |
-| S3 | Mettre en place une politique MDP | Mots de passe robustes + MFA | 🛠️ | Politique MDP argumentée |
-| S4 | Mettre en place une stratégie sauvegarde | Sauvegardes + règle 3-2-1 | 🛠️ | Schéma stratégie sauvegarde |
-| S5 | Identifier données personnelles dans l’entreprise | Notion donnée perso + acteurs RGPD | 🔎 | Tableau données personnelles |
+| Semaine | Situation professionnelle | Compétences Maths/Algo (U2) | Statut | Livrable attendu |
+|----------|---------------------------|-----------------------------|:------:|------------------|
+| S1 | Décoder une adresse MAC et comprendre pourquoi le binaire est au cœur du numérique | Systèmes de numération (décimal/binaire/hexa) ; conversions guidées ; lien MAC/IP | 🔎 | Fiche “Conversions + usages (MAC/IP)” + série d’exercices corrigés |
+| S2 | Estimer une capacité disque et convertir des volumes pour une commande de matériel | Conversions approfondies ; unités (bit/octet/Ko/Mo/Go/To) ; calculs de capacité | 🛠️ | Mini-tableau de conversion + 10 calculs contextualisés (stockage) |
+| S3 | Comprendre une logique de filtrage “autoriser si…” (pare-feu) | Algèbre de Boole : AND/OR/NOT/XOR ; tables de vérité ; lecture de conditions | 🔎 | Table(s) de vérité + traduction d’une règle simple en logique |
+| S4 | Créer un plan d’adressage simple : réseau / broadcast / plage | Masques : décimal ↔ CIDR ; calcul réseau/broadcast/hôtes ; exercices pas à pas | 🛠️ | Fiche méthode “Subnetting base” + 6 exercices corrigés |
+| S5 | Découper un réseau pour 3 services (petite PME) | Introduction VLSM : découpage par tailles différentes ; plan d’adressage simple | 🛠️ | Plan d’adressage VLSM (3 services) + justification des choix |
 
----
-
-# 🟠 PHASE 2 – RGPD & droits d’accès (S6 à S10)
-
-| Semaine | Situation professionnelle | Compétences Bloc 3 | Statut | Livrable attendu |
-|----------|--------------------------|--------------------|:------:|------------------|
-| S6 | Concevoir un formulaire conforme RGPD | Collecte, consentement, transparence | 🛠️ | Formulaire conforme commenté |
-| S7 | Gérer durées de conservation | Durée, sécurisation, notification CNIL | 🛠️ | Tableau conservation |
-| S8 | Analyse d’un cas vidéosurveillance | RGPD travail + données salariés | 🧭 | Analyse juridique courte |
-| S9 | Étudier une violation de données | Obligation légale de sécurité | 🧭 | Rapport incident structuré |
-| S10 | Définir droits d’accès internes | Principe moindre privilège | ✅ | Matrice de droits validée |
+> Contenus alignés sur A1 S1→S5 du plan de formation. :contentReference[oaicite:5]{index=5}
 
 ---
 
-# 🟡 PHASE 3 – Cryptographie & sécurisation technique (S11 à S15)
+# 🟠 PHASE 2 – Algorithmique de base & subnetting opérationnel (S6 à S10)
 
-| Semaine | Situation professionnelle | Compétences Bloc 3 | Statut | Livrable attendu |
-|----------|--------------------------|--------------------|:------:|------------------|
-| S11 | Protéger un fichier sensible | Chiffrement symétrique (AES) | 🛠️ | Procédure chiffrement |
-| S12 | Évaluer un traitement de données | Méthode PIA (analyse d’impact) | 🛠️ | Mini-PIA rédigé |
-| S13 | Mettre en place un certificat | PKI, certificat X.509 | 🛠️ | Certificat généré + explication |
-| S14 | Sécuriser un accès distant | VPN concepts + asymétrique | 🔎 | Schéma tunnel sécurisé |
-| S15 | Protéger identité numérique | E-réputation + Secure Boot | 🔎 | Fiche sécurisation poste |
+| Semaine | Situation professionnelle | Compétences Maths/Algo (U2) | Statut | Livrable attendu |
+|----------|---------------------------|-----------------------------|:------:|------------------|
+| S6 | Écrire une procédure de contrôle qualité : “IP valide / non valide” | Intro algorithmique ; pseudo-code ; variables/types ; validation simple | 🛠️ | Pseudo-code “validation IPv4” + jeux de tests |
+| S7 | Vérifier si une IP appartient à un sous-réseau donné | Conditions (Si/Alors/Sinon) ; calcul d’appartenance à un sous-réseau ; méthode | 🛠️ | Procédure + 8 cas “appartient / n’appartient pas” |
+| S8 | Générer automatiquement les IP utilisables d’un sous-réseau | Boucles (Pour/Tant que) ; parcours ; génération de plages d’adresses | 🛠️ | Algo + tableau d’IPs générées (exemples) |
+| S9 | Calculer rapidement le nombre d’hôtes disponibles à partir d’un masque | Fonctions/procédures ; paramètres/retour ; calcul “nombre d’hôtes” depuis CIDR | 🛠️ | Fonction (pseudo-code) “nb_hotes(cidr)” + validation |
+| S10 | Préparer un mini-contrôle : subnetting + algo | Tableaux/listes (structures simples) ; synthèse subnetting + algo ; premières exigences CCF | ✅ | Éval formative 1 (subnetting + algo de base) |
+
+> Contenus alignés sur A1 S6→S10 du plan de formation. :contentReference[oaicite:6]{index=6}
 
 ---
 
-# 🟢 PHASE 4 – Analyse, audit & préparation E6 (S16 à S20)
+# 🟡 PHASE 3 – Manipulations, tri, logique avancée & complexité (S11 à S15)
 
-| Semaine | Situation professionnelle | Compétences Bloc 3 | Statut | Livrable attendu |
-|----------|--------------------------|--------------------|:------:|------------------|
-| S16 | Analyser un incident via logs | Lecture logs sécurité | 🛠️ | Diagnostic argumenté |
-| S17 | ⭐ PROJET 1 – Sécuriser infra PME | GPO, HTTPS, sauvegardes | ⭐ | Mesures sécurité documentées |
-| S18 | Étude de cas type E6 | Analyse contexte + propositions | 🧭 | Étude de cas 2h |
-| S19 | Réaliser mini audit vulnérabilités | Identifier failles + correctifs | 🛠️ | Rapport audit court |
-| S20 | Examen blanc E6 | Argumentation juridique sécurité | ✅ | Copie évaluée |
+| Semaine | Situation professionnelle | Compétences Maths/Algo (U2) | Statut | Livrable attendu |
+|----------|---------------------------|-----------------------------|:------:|------------------|
+| S11 | Trier une liste de serveurs par charge CPU pour prioriser une intervention | Algorithmes de tri : bulle, insertion (pseudo-code) ; critères de tri | 🛠️ | 2 tris en pseudo-code + comparaison (cas “serveurs”) |
+| S12 | Extraire des infos d’un log simple (date, IP, code erreur) | Chaînes de caractères : extraction/concaténation ; parsing simple | 🛠️ | Procédure “parser_log” + exemples d’entrées/sorties |
+| S13 | Raisonner sur des groupes AD (union/intersection) pour des droits | Ensembles/relations : appartenance, union, intersection ; modélisation | 🔎 | Schémas d’ensembles + exercices “groupes AD” |
+| S14 | Formaliser des règles de filtrage et vérifier leur cohérence | Logique du 1er ordre : prédicats/quantificateurs (niveau intuitif) ; règles | 🔎 | 6 règles de filtrage formalisées + test de cohérence |
+| S15 | Choisir une méthode de recherche adaptée (linéaire vs dichotomique) | Complexité intuitive : O(n), O(n²) ; comparaison recherche linéaire/dichotomique | 🧭 | Tableau comparatif + mini-sujet type CCF “choix d’algo” |
+
+> Contenus alignés sur A1 S11→S15 du plan de formation. :contentReference[oaicite:7]{index=7}
+
+---
+
+# 🟢 PHASE 4 – Synthèse, VLSM avancé, dimensionnement & CCF (S16 à S20)
+
+| Semaine | Situation professionnelle | Compétences Maths/Algo (U2) | Statut | Livrable attendu |
+|----------|---------------------------|-----------------------------|:------:|------------------|
+| S16 | Dimensionner un transfert (temps, débit, latence) et finaliser un VLSM multi-sites | Subnetting avancé : VLSM multi-sites ; calculs débit/latence/temps de transfert | 🛠️ | Feuille d’exercices “VLSM avancé + débit/latence” corrigée |
+| S17 | ⭐ Projet 1 : établir le plan d’adressage complet d’une PME (VLANs + services) | Application projet : plan d’adressage complet ; cohérence réseau/broadcast/plages ; justification | ⭐ | Dossier “Plan d’adressage Projet 1” (table + justification) |
+| S18 | Construire un diagnostic réseau structuré | Arbres de décision : représentation d’un diagnostic ; logique de test ; synthèse numération/subnetting | 🛠️ | Arbre de décision + cas “diagnostic ping/DNS/DHCP” |
+| S19 | Réviser efficacement en conditions type examen | Révisions : Boole, subnetting, algorithmique ; préparation CCF (exercices type) | 🧭 | Pack “Révisions générales + sujets type CCF” |
+| S20 | 📝 Examen blanc : simulation CCF Maths (U2) | Épreuve blanche CCF : méthode, rigueur, gestion du temps ; correction guidée | ✅ | Copie évaluée + grille de critères + axes de progrès |
+
+> Contenus alignés sur A1 S16→S20 du plan de formation. :contentReference[oaicite:8]{index=8}
 
 ---
 
 # 🏆 Attendus opérationnels fin Année 1
 
-## Compétences techniques
+## Compétences mathématiques & informatiques
 
-- Mettre en œuvre une politique de mots de passe
-- Appliquer une stratégie de sauvegarde
-- Comprendre et expliquer un chiffrement
-- Générer un certificat simple
-- Mettre en place une matrice de droits
-- Lire et interpréter des logs
-- Réaliser un mini audit sécurité
-
-## Compétences professionnelles
-
-- Identifier un risque juridique
-- Argumenter une mesure de sécurité
-- Rédiger un rapport d’incident
-- Justifier une décision technique
-- Structurer une réponse type E6
+- Convertir **décimal ↔ binaire ↔ hexadécimal** et interpréter une MAC / une IP
+- Manipuler les **unités** (bits/octets/Ko/Mo/Go/To) et réaliser des calculs de capacité
+- Utiliser l’**algèbre de Boole** pour comprendre/écrire une logique conditionnelle
+- Réaliser des calculs **CIDR / masque / réseau / broadcast / plage d’hôtes**
+- Concevoir un **plan d’adressage** simple puis **VLSM** (jusqu’au multi-sites niveau A1)
+- Écrire des algorithmes en pseudo-code : **variables, conditions, boucles, fonctions**
+- Manipuler **listes/tableaux/chaînes/ensembles** dans des situations IT
+- Choisir une méthode (recherche/tri) et justifier simplement par la **complexité** (intuitive)
+- Être prêt à une **simulation CCF** : méthode + exactitude + justification
 
 ---
 
-# 📋 Correspondance Référentiel Bloc 3 ↔ Progression Année 1
+# 📋 Correspondance (Plan de formation) ↔ Progression Maths/Algo A1
 
-| Compétence référentiel | Séquences concernées |
-|------------------------|----------------------|
-| Sensibilisation aux menaces | S1 à S4 |
-| Application RGPD | S5 à S9 |
-| Gestion des droits d’accès | S10 |
-| Mise en œuvre protection cryptographique | S11 à S14 |
-| Analyse incident & audit | S16 à S19 |
-| Argumentation juridique (E6) | S8, S9, S18, S20 |
+| Thème U2 (A1) | Semaines concernées |
+|--------------|---------------------|
+| Numération (binaire/hexa) + conversions + unités | S1, S2 |
+| Algèbre de Boole + tables de vérité | S3 |
+| Subnetting de base (masques/CIDR, réseau/broadcast, plages) | S4 |
+| VLSM (intro puis consolidation) | S5, S16, S17 |
+| Algorithmique : intro, types, conditions, boucles, fonctions | S6 à S9 |
+| Structures de données simples (listes/tableaux) | S10 |
+| Tri / insertion / bulle (pseudo-code) | S11 |
+| Chaînes (parsing log simple) | S12 |
+| Ensembles (analogie groupes AD) | S13 |
+| Logique du 1er ordre (appli filtrage) | S14 |
+| Complexité intuitive + choix d’algo | S15 |
+| Dimensionnement débit/latence/temps | S16, S17 |
+| Arbres de décision (diagnostic) | S18 |
+| Préparation CCF + révisions + simulation | S19, S20 |
+
+:contentReference[oaicite:9]{index=9} :contentReference[oaicite:10]{index=10}
 
 ---
+```
