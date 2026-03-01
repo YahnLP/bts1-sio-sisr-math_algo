@@ -14,7 +14,7 @@ Construire les compétences fondamentales **Maths / Algo (U2)** en lien direct a
 - Mettre en œuvre les bases de l’**algorithmique** : variables, conditions, boucles, fonctions
 - Manipuler des **structures de données** simples (listes, tableaux, chaînes, ensembles) appliquées à des cas IT
 - Introduire la **complexité** et les choix d’algorithmes (recherche / tri)
-- Se préparer progressivement à l'examen **CCF de Mathématiques (U2)** (exercices type, rigueur, justifications)
+- Se préparer progressivement à l'examen **de Mathématiques (U2)** (exercices type, rigueur, justifications)
 
 > Cette progression reprend **strictement** l’organisation hebdomadaire A1 du plan de formation (S1→S20) et conserve la structure du modèle de progression.
 ---
