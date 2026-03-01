@@ -1,4 +1,4 @@
-# BLOC 3 - Cybersécurité - BTS SIO1
+# Mathématiques pour l'informatique - BTS SIO1
 
 **SUP'ADOUR - MFR de Pontonx**
 
@@ -11,72 +11,75 @@
 Bienvenue sur l'espace de ressources du BTS Services Informatique aux organisations Spécialité SISR.
 
 # 🔐 BTS SIO – Option SISR  
-## Bloc 3 : Cybersécurité — Année 1
+## Mathématiques pour l'informatique — Année 1
 
-> 🛡️ *Comprendre les menaces, appliquer les bonnes pratiques, sécuriser les données et respecter le cadre légal (RGPD).*
+> 🧠 *Modéliser, calculer, raisonner et automatiser : les maths utiles pour comprendre les réseaux, les systèmes et coder proprement.*
 
 ---
 
-## 🎯 Objectifs de l’année 1 (Bloc 3)
+## 🎯 Objectifs de l’année 1 (Maths / Algo)
 
-En première année, l’objectif est de construire un **socle cybersécurité solide** :
+En première année, l’objectif est de construire un **socle solide en mathématiques pour l’informatique**, directement exploitable en SISR :
 
-- Adopter une **hygiène numérique** et des pratiques sûres (mots de passe, mises à jour, sauvegardes)
-- Comprendre les **menaces courantes** (malwares, phishing, ransomware…)
-- Maîtriser les **bases RGPD** : notions, acteurs, droits, obligations, violations
-- Développer une **culture sécurité** utile pour les projets d’infrastructure (réseau/systèmes) et les épreuves
+- Maîtriser les **systèmes de numération** (binaire / hexadécimal) et les **unités** (bit/octet, Ko/Mo/Go) utiles en informatique
+- Réaliser les **calculs réseaux** indispensables (CIDR, masques, réseau/broadcast, plages d’IP, VLSM)
+- Comprendre et utiliser la **logique** (tables de vérité, algèbre de Boole) pour les conditions, filtrages, règles
+- Développer des bases d’**algorithmique** (variables, conditions, boucles, fonctions) et une méthode de résolution
+- Manipuler des **structures de données simples** (listes/tableaux/chaînes/ensembles) dans des cas concrets IT
+- Introduire la **complexité** (choisir un tri/une recherche, comparer des solutions) et justifier un choix
+- S’entraîner à produire des solutions **rigoureuses** (méthode, justification, vérification), en vue des évaluations
 
-> Référentiel de progression utilisé : colonne **“BLOC 3 – Cybersécurité (4h)”** du plan Année 1 (S1 → S20). :contentReference[oaicite:0]{index=0}
+> Référentiel de progression utilisé : colonne “Maths/Algo (A1)” du plan Année 1 (S1 → S20).
 
 ---
 
 ## 🗓️ Déroulé de l’année (Année 1) — Progression par semaines
 
-> Le tableau ci-dessous reprend **toutes les séances S1 à S20** de l’Année 1 pour le Bloc 3 Cybersécurité. :contentReference[oaicite:1]{index=1}
+> Le tableau ci-dessous reprend **toutes les séances S1 à S20** de l’Année 1 pour le module **Maths / Algo**.
 
-| Phase | Sem. | Thèmes / notions (Bloc 3) | Activités / productions attendues |
-|------:|:----:|----------------------------|-----------------------------------|
-| **Phase 1 – Découverte & fondamentaux** | **S1** | **Hygiène numérique** : 10 règles essentielles (ANSSI grand public). **Exemples d’attaques** : ransomware, phishing (cas médiatisés). | Mini-débat + repérage des risques ; fiche “10 règles” personnalisée. |
-|  | **S2** | **Menaces courantes** : virus, ver, trojan, ransomware, spyware (définitions + exemples). **Mises à jour** : OS/logiciels/antivirus, enjeux. | Carte mentale “menaces” + check-list de mise à jour poste. |
-|  | **S3** | **Mots de passe** : bonnes pratiques, gestionnaires. **Authentification** : ce que je sais / ce que j’ai / ce que je suis, **MFA**. | Atelier : évaluer des mots de passe + scénario MFA (pro/contraintes). |
-|  | **S4** | **Sauvegardes** : complète, différentielle, incrémentielle — **règle 3-2-1**. **Supports amovibles** : risques et bonnes pratiques. | Schéma de stratégie de sauvegarde d’une PME + politique USB. |
-|  | **S5** | **RGPD – Début MOOC CNIL** : donnée personnelle, acteurs, obligations. | Quiz + exemples : données perso dans un SI (classement). |
-| **Phase 2 – Services réseau, administration & RGPD** | **S6** | **RGPD – Module 2** : collecte, consentement, transparence. **Droits** : accès, rectification, opposition, portabilité. | Cas pratique : formulaire de collecte conforme / non conforme. |
-|  | **S7** | **RGPD – Module 3** : durées de conservation, sécurisation des données. **Violations** : notification CNIL, exemples. | Tableau “durées de conservation” + procédure simplifiée de notification. |
-|  | **S8** | **RGPD – Module 4** : travail & données perso, vidéosurveillance. **Cisco Cyber (début)** : Introduction à la cybersécurité (modules + quiz). | Synthèse “travail & RGPD” + lancement parcours Cisco (score quiz). |
-|  | **S9** | **Cisco Cyber (suite)** : modules en ligne + quiz. **RGPD – Étude de cas** : analyser une violation de données (mini-cas). | Compte rendu d’incident : faits / risques / obligations / actions. |
-|  | **S10** | **Cisco Cyber (validation)** : passage certification (ou validation interne). **Droits d’accès** : moindre privilège, matrice de droits. | Matrice de droits (service/ressource) + bilan parcours Cisco. |
-| **Phase 3 – Windows Server, services avancés & scripting** | **S11** | **Cryptographie symétrique** : principe, clé secrète, **AES**. **TP** : chiffrer/déchiffrer un fichier (openssl ou GPG). | Fiche procédure + démonstration (preuve chiffrement/déchiffrement). |
-|  | **S12** | **RGPD – PIA** : méthode d’analyse d’impact. **TP** : mini-PIA sur cas fictif. | Mini-PIA structuré : contexte / risques / mesures. |
-|  | **S13** | **Certificats numériques** : PKI, autorité de certification, **X.509**. **TP** : générer certificat auto-signé (openssl). | Certificat + explication usages/limites (auto-signé vs CA). |
-|  | **S14** | **VPN – concepts** : tunnelisation, types (site-à-site, nomade). **Asymétrique** : clé publique/privée (principes). | Schémas comparatifs VPN + synthèse asymétrique (cas d’usage). |
-|  | **S15** | **Identité numérique** : e-réputation, droit à l’image, pseudonymat. **Sécurité BIOS/UEFI** : Secure Boot, MDP firmware. | Check-list “poste sécurisé” + étude de cas identité numérique. |
-| **Phase 4 – Projet, certification & préparation épreuves** | **S16** | **Logs** : fichiers système/applicatif, Observateur Windows, /var/log. **TP** : lire/interpréter des logs, diagnostiquer. | Fiche méthode d’analyse de logs + mini diagnostic argumenté. |
-|  | **S17** | **Projet 1 (sécuriser l’infra)** : GPO, droits NTFS, sauvegardes, HTTPS. **Zones réseau** : LAN/DMZ/Internet (théorie appliquée). | Dossier “mesures de sécu” du projet : justification + preuves. |
-|  | **S18** | **Étude de cas E6 #1** : analyse contexte + propositions. Correction : méthodologie rédaction E6. | Production type E6 (2h) + grille d’auto-correction. |
-|  | **S19** | **Audit de vulnérabilités (intro)** : scans basiques, interprétation résultats. **Synthèse Bloc 3 A1** : RGPD + sécurité de base. | Rapport court d’audit : constats / risques / correctifs prioritaires. |
-|  | **S20** | (Consolidation globale en examens blancs – articulation avec E4/E5/E6 selon planning) | Bilan compétences Bloc 3 + axes de progrès A2. |
+| Phase | Sem. | Thèmes / notions (Maths / Algo) | Activités / productions attendues |
+|------:|:----:|----------------------------------|-----------------------------------|
+| **Phase 1 – Fondamentaux numériques & réseaux** | **S1** | **Numération** : décimal ↔ binaire ↔ hexadécimal. Lecture d’octets, conversions rapides. | Exercices guidés de conversion + mini-fiche méthode “binaire/hexa” (à conserver). |
+|  | **S2** | **Unités informatiques** : bit/octet, KiB/MiB/GiB, débits (Mb/s) vs volumes (MB). | Problèmes contextualisés (stockage / transfert) + tableau de conversion + contrôles de cohérence. |
+|  | **S3** | **Logique & tables de vérité** : AND/OR/NOT, implication intuitive, conditions composées. | Construire et lire des tables de vérité + traduire des règles simples (“si… alors…”) en logique. |
+|  | **S4** | **Adressage IPv4 (1)** : masque, CIDR, réseau, broadcast, hôtes utilisables. | Fiche méthode “calcul réseau/broadcast” + 6 exercices corrigés (pas à pas). |
+|  | **S5** | **Adressage IPv4 (2)** : tailles de sous-réseaux, découpage simple. Introduction **VLSM** (niveau 1). | Mini-cas “PME 3 services” : plan d’adressage + justification + vérification (cohérence). |
+| **Phase 2 – Algorithmique de base appliquée à l’IT** | **S6** | **Introduction à l’algorithmique** : variables, types, entrées/sorties, pseudo-code propre. | Écrire une procédure “valider une IPv4” (forme algorithmique) + jeux de tests. |
+|  | **S7** | **Conditions** : Si / Alors / Sinon, conditions composées. Cas réseau : appartenance à un sous-réseau. | Exercices “appartient / n’appartient pas” + explication écrite de la méthode. |
+|  | **S8** | **Boucles** : Pour / Tant que. Parcours et génération de données (plages IP). | Algo : générer une plage IP utilisable + tableau d’exemples + tests sur 2 sous-réseaux. |
+|  | **S9** | **Fonctions / procédures** : paramètres, retour. Automatiser un calcul (hôtes, réseau). | Écrire 2 fonctions : `nb_hotes(cidr)` et `reseau(ip,cidr)` (pseudo-code) + validation sur cas. |
+|  | **S10** | **Synthèse (1)** : numération + subnetting + algo (bases). | Évaluation formative : conversions + subnetting + pseudo-code (méthode attendue + justification). |
+| **Phase 3 – Données, tri/recherche, logique avancée & complexité** | **S11** | **Listes / tableaux** : indices, parcours, agrégations (max/min/somme). Cas IT : inventaire matériel. | Algo : trouver le poste le plus “lourd” (RAM/CPU) + tableau d’inventaire + justification. |
+|  | **S12** | **Chaînes de caractères** : découper, extraire, nettoyer (parsing simple). Cas : logs. | Mini-parser de log (pseudo-code) + exemples entrée/sortie + règles de validation. |
+|  | **S13** | **Ensembles & relations** : appartenance, union, intersection, complément. Cas : groupes / droits. | Schémas d’ensembles + exercices “groupes AD” (qui a accès à quoi ?) + correction argumentée. |
+|  | **S14** | **Algèbre de Boole (approfond.)** : simplification intuitive, conditions de filtrage (règles). | Traduire 6 règles (pare-feu / ACL) en logique + vérifier cohérence (cas qui passe / bloque). |
+|  | **S15** | **Recherche & complexité** : linéaire vs dichotomique, tri (bulle/insertion) + coût intuitif. | Comparer 2 méthodes (vitesse/volume) + petit sujet “choisir la bonne méthode et justifier”. |
+| **Phase 4 – Consolidation, VLSM avancé & préparation évaluations** | **S16** | **VLSM avancé** : multi-sous-réseaux, multi-sites (niveau A1). + Calculs de débit/temps de transfert. | Cas complet : plan VLSM + dimensionnement simple (temps de copie) + contrôles de cohérence. |
+|  | **S17** | **Projet 1 (plan d’adressage)** : VLANs, services, cohérence globale. | Dossier “Plan d’adressage” : table complète + explications (choix CIDR, plages, réservations). |
+|  | **S18** | **Arbres de décision** : structurer un diagnostic (tests, branches, conclusions). | Construire un arbre “panne réseau” (DNS/DHCP/ping) + 2 scénarios résolus. |
+|  | **S19** | **Révisions guidées** : méthodes incontournables (subnetting, conversions, logique, algo). | Pack d’entraînement (exercices type) + auto-correction + axes de progrès personnels. |
+|  | **S20** | **Évaluation de synthèse** : situation professionnelle complète (réseau + algo + justification). | Examen blanc : calculs + pseudo-code + interprétation + grille de critères + correction détaillée. |
 
 ---
 
 ## 🧪 Évaluations (Année 1)
 
-- **Formatives** : quiz hygiène numérique, activités RGPD, productions (matrice de droits, mini-PIA, analyse de violation).
-- **Pratiques** : TP chiffrement (openssl/GPG), TP certificats (openssl), TP lecture de logs.
-- **Préparation E6** : **Étude de cas #1** + correction méthodologique (S18).
-- **Synthèse** : mini-audit de vulnérabilités + rapport (S19). :contentReference[oaicite:2]{index=2}
+- **Formatives** : conversions, unités, tables de vérité, exercices de subnetting, mini-algos (pseudo-code).
+- **Pratiques** : plans d’adressage (cas PME), VLSM, génération de plages IP, parsing simple de logs.
+- **Méthodologiques** : justification, vérification (cohérence réseau/broadcast/plage), rédaction claire des étapes.
+- **Synthèse** : examen blanc (S20) sur une situation complète “réseau + logique + algorithmique”.
 
 ---
 
 ## 🧰 Livrables attendus (à conserver pour le portfolio)
 
-- Fiche “Hygiène numérique” + plan d’actions poste
-- Matrice de droits (moindre privilège)
-- Mini-PIA (analyse d’impact)
-- Procédures : chiffrement/déchiffrement, création certificat auto-signé
-- Analyse d’incident RGPD (violation) + actions correctives
-- Méthode d’analyse de logs + mini diagnostic
-- Rapport court d’audit (scan + interprétation + correctifs)
+- Fiche méthode “Conversions binaire / hexa + unités”
+- Fiche méthode “Calcul réseau / broadcast / plage d’hôtes (CIDR)”
+- Plans d’adressage (cas PME + VLSM + projet VLANs)
+- Algorithmes en pseudo-code : validation IPv4, appartenance sous-réseau, génération de plage, fonctions de calcul
+- Schémas / tables : tables de vérité, ensembles (groupes/droits), règles logiques (filtrage)
+- Arbre de décision “diagnostic réseau”
+- Pack de révision (S19) + bilan personnel (axes de progrès)
 
 ---
 
@@ -84,10 +87,11 @@ En première année, l’objectif est de construire un **socle cybersécurité s
 
 | À faire régulièrement | Pourquoi |
 |---|---|
-| Appliquer hygiène numérique + mises à jour | Réduit fortement la surface d’attaque |
-| Documenter (procédures + preuves) | Indispensable en projet et pour les épreuves |
-| Raisonner “risque → mesure → justification” | Attendu en E6 (argumentation) |
-| Relier RGPD aux situations techniques | La conformité se prouve par des actions concrètes |
+| S’entraîner au **subnetting** (un peu chaque semaine) | C’est une compétence pivot en SISR (réseau, projets, dépannage) |
+| Écrire une **méthode** (étapes) avant de calculer | Réduit les erreurs et facilite la justification en évaluation |
+| Vérifier systématiquement (cohérence réseau/broadcast/plage) | Les erreurs “bêtes” coûtent cher ; la vérification est une compétence pro |
+| Faire le lien entre logique/conditions et cas IT (ACL, règles) | Rend l’algo plus naturel et utile pour filtrage/décision |
+| Documenter ses solutions (claires, propres, testées) | Attendu en entreprise et valorisable en portfolio |
 
 ---
 
@@ -104,5 +108,5 @@ Formation professionnalisante orientée expertise technique, autonomie et réuss
 <br>
 
 ✍️ YAHN LE PRETTRE
-
 </div>
+```
