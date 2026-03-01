@@ -134,4 +134,3 @@ Construire les compétences fondamentales **Maths / Algo (U2)** en lien direct a
 :contentReference[oaicite:9]{index=9} :contentReference[oaicite:10]{index=10}
 
 ---
-```
