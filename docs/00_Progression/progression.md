@@ -16,18 +16,16 @@ Construire les compétences fondamentales **Maths / Algo (U2)** en lien direct a
 - Introduire la **complexité** et les choix d’algorithmes (recherche / tri)
 - Se préparer progressivement à l'examen **CCF de Mathématiques (U2)** (exercices type, rigueur, justifications)
 
-> Cette progression reprend **strictement** l’organisation hebdomadaire A1 du plan de formation (S1→S20) et conserve la structure du modèle de progression. :contentReference[oaicite:0]{index=0} :contentReference[oaicite:1]{index=1}
-
+> Cette progression reprend **strictement** l’organisation hebdomadaire A1 du plan de formation (S1→S20) et conserve la structure du modèle de progression.
 ---
 
 ## 🧩 Principes structurants
 
-- Maths **100% contextualisées** : chaque notion est reliée à un problème informatique concret (adressage, règles de filtrage, logs, dimensionnement). :contentReference[oaicite:2]{index=2}
+- Maths **100% contextualisées** : chaque notion est reliée à un problème informatique concret (adressage, règles de filtrage, logs, dimensionnement).
 - Progressivité renforcée : démarrage par les fondamentaux (numération + masques), puis algorithmique, puis synthèse et automatisation légère.
-- Spirale de compétences : le subnetting revient à plusieurs reprises (bases → VLSM → VLSM multi-sites + projet). :contentReference[oaicite:3]{index=3}
+- Spirale de compétences : le subnetting revient à plusieurs reprises (bases → VLSM → VLSM multi-sites + projet).
 - Rigueur attendue : méthode écrite (étapes), contrôle de cohérence, justification des résultats.
-- Préparation examen : entraînements réguliers + synthèses + simulation en S20. :contentReference[oaicite:4]{index=4}
-
+- Préparation examen : entraînements réguliers + synthèses + simulation en S20.
 ---
 
 ## 🧾 Légende
@@ -50,8 +48,7 @@ Construire les compétences fondamentales **Maths / Algo (U2)** en lien direct a
 | S4 | Créer un plan d’adressage simple : réseau / broadcast / plage | Masques : décimal ↔ CIDR ; calcul réseau/broadcast/hôtes ; exercices pas à pas | 🛠️ | Fiche méthode “Subnetting base” + 6 exercices corrigés |
 | S5 | Découper un réseau pour 3 services (petite PME) | Introduction VLSM : découpage par tailles différentes ; plan d’adressage simple | 🛠️ | Plan d’adressage VLSM (3 services) + justification des choix |
 
-> Contenus alignés sur A1 S1→S5 du plan de formation. :contentReference[oaicite:5]{index=5}
-
+> Contenus alignés sur A1 S1→S5 du plan de formation.
 ---
 
 # 🟠 PHASE 2 – Algorithmique de base & subnetting opérationnel (S6 à S10)
@@ -64,7 +61,7 @@ Construire les compétences fondamentales **Maths / Algo (U2)** en lien direct a
 | S9 | Calculer rapidement le nombre d’hôtes disponibles à partir d’un masque | Fonctions/procédures ; paramètres/retour ; calcul “nombre d’hôtes” depuis CIDR | 🛠️ | Fonction (pseudo-code) “nb_hotes(cidr)” + validation |
 | S10 | Préparer un mini-contrôle : subnetting + algo | Tableaux/listes (structures simples) ; synthèse subnetting + algo ; premières exigences CCF | ✅ | Éval formative 1 (subnetting + algo de base) |
 
-> Contenus alignés sur A1 S6→S10 du plan de formation. :contentReference[oaicite:6]{index=6}
+> Contenus alignés sur A1 S6→S10 du plan de formation.
 
 ---
 
@@ -78,8 +75,7 @@ Construire les compétences fondamentales **Maths / Algo (U2)** en lien direct a
 | S14 | Formaliser des règles de filtrage et vérifier leur cohérence | Logique du 1er ordre : prédicats/quantificateurs (niveau intuitif) ; règles | 🔎 | 6 règles de filtrage formalisées + test de cohérence |
 | S15 | Choisir une méthode de recherche adaptée (linéaire vs dichotomique) | Complexité intuitive : O(n), O(n²) ; comparaison recherche linéaire/dichotomique | 🧭 | Tableau comparatif + mini-sujet type CCF “choix d’algo” |
 
-> Contenus alignés sur A1 S11→S15 du plan de formation. :contentReference[oaicite:7]{index=7}
-
+> Contenus alignés sur A1 S11→S15 du plan de formation.
 ---
 
 # 🟢 PHASE 4 – Synthèse, VLSM avancé, dimensionnement & CCF (S16 à S20)
@@ -92,7 +88,7 @@ Construire les compétences fondamentales **Maths / Algo (U2)** en lien direct a
 | S19 | Réviser efficacement en conditions type examen | Révisions : Boole, subnetting, algorithmique ; préparation CCF (exercices type) | 🧭 | Pack “Révisions générales + sujets type CCF” |
 | S20 | 📝 Examen blanc : simulation CCF Maths (U2) | Épreuve blanche CCF : méthode, rigueur, gestion du temps ; correction guidée | ✅ | Copie évaluée + grille de critères + axes de progrès |
 
-> Contenus alignés sur A1 S16→S20 du plan de formation. :contentReference[oaicite:8]{index=8}
+> Contenus alignés sur A1 S16→S20 du plan de formation.
 
 ---
 
@@ -108,7 +104,7 @@ Construire les compétences fondamentales **Maths / Algo (U2)** en lien direct a
 - Écrire des algorithmes en pseudo-code : **variables, conditions, boucles, fonctions**
 - Manipuler **listes/tableaux/chaînes/ensembles** dans des situations IT
 - Choisir une méthode (recherche/tri) et justifier simplement par la **complexité** (intuitive)
-- Être prêt à une **simulation CCF** : méthode + exactitude + justification
+- Être prêt à une **simulation examen** : méthode + exactitude + justification
 
 ---
 
@@ -130,7 +126,5 @@ Construire les compétences fondamentales **Maths / Algo (U2)** en lien direct a
 | Dimensionnement débit/latence/temps | S16, S17 |
 | Arbres de décision (diagnostic) | S18 |
 | Préparation CCF + révisions + simulation | S19, S20 |
-
-:contentReference[oaicite:9]{index=9} :contentReference[oaicite:10]{index=10}
 
 ---
