@@ -1,578 +1,728 @@
 ---
 author: YLP
-title: 📚 FICHE DE COURS
+title: 📖 FICHE DE COURS
 ---
 
-# 📚 FICHE DE COURS ÉLÈVE
-## "Identité Numérique · E-réputation · Droit à l'Image · Pseudonymat"
+# 📖 FICHE DE COURS
+## S15 — Complexité Algorithmique : O(n), O(n²), O(log n), Recherche Linéaire vs Dichotomique
 
-*BTS SIO SISR — Année 1 — Semaine 15 — Partie 1/2*
-
----
-
-## 🎯 Compétences Travaillées
-
-| **Code** | **Compétence RNCP** |
-|----------|---------------------|
-| **B3.1** | Identifier les principales menaces de sécurité |
-| **B2.1** | Comprendre les obligations légales (vie privée, image) |
+*BTS SIO SISR — Année 1 — Semaine 15*
 
 ---
 
-## I. L'Identité Numérique
+## 🎯 Objectifs de la Séance
 
-### I.A. Définition
+À la fin de cette séance, je serai capable de :
 
-**Identité numérique** = Ensemble des informations et des traces qu'une personne laisse sur Internet, volontairement ou involontairement, qui permettent de l'identifier.
-
-#### Les Deux Composantes
-
-**① IDENTITÉ DÉCLARATIVE** (ce que **vous** dites de vous)
-
-Informations que vous publiez volontairement :
-- Profils sur les réseaux sociaux (LinkedIn, Facebook, Instagram, X...)
-- CV en ligne, portfolios professionnels
-- Articles de blog, commentaires sur des forums
-- Photos et vidéos que vous postez
-- Biographie, centres d'intérêt affichés
-- Contributions techniques (GitHub, Stack Overflow, Wikipedia...)
-
-**② IDENTITÉ CALCULÉE** (ce que **les autres** disent de vous)
-
-Informations publiées par des tiers vous concernant :
-- Photos où vous êtes taggé par d'autres personnes
-- Mentions dans des articles, publications, sites web
-- Avis et commentaires sur vous (Google, réseaux sociaux)
-- Données collectées automatiquement par les sites (cookies, tracking)
-- Résultats de moteurs de recherche à votre sujet
-- Bases de données publiques (annuaires, registres d'entreprises...)
-
-![Schéma identité numérique déclarative vs calculée]
-*Légende illustration : Schéma en deux colonnes montrant à gauche "Identité déclarative" (icônes : profil LinkedIn, post blog, photo uploadée) avec flèche "Je contrôle" et à droite "Identité calculée" (icônes : photo taggée par ami, avis Google, article mentionnant mon nom) avec flèche "Je ne contrôle pas". Au centre, un personnage entouré de ces deux flux d'informations formant son identité numérique globale.*
+✅ Expliquer ce qu'est la **complexité algorithmique**  
+✅ Comprendre intuitivement les notations **O(1)**, **O(log n)**, **O(n)**, **O(n log n)**, **O(n²)**  
+✅ Distinguer le **meilleur cas**, **cas moyen**, et **pire cas**  
+✅ Implémenter une **recherche linéaire** en Python  
+✅ Implémenter une **recherche dichotomique** en Python  
+✅ Comprendre pourquoi la dichotomique nécessite un **tableau trié**  
+✅ **Mesurer et comparer** les temps d'exécution réels
 
 ---
 
-### I.B. Les 5 Types de Traces Numériques
+## 📚 Vocabulaire Clé à Maîtriser
 
-```
-TYPOLOGIE DES TRACES LAISSÉES EN LIGNE
-═══════════════════════════════════════════════════════════════
-
-① TRACES PROFILAIRES (profils et comptes)
-──────────────────────────────────────────────────────────────
-→ Comptes sur réseaux sociaux (Facebook, Instagram, X, TikTok...)
-→ Profils professionnels (LinkedIn, Viadeo)
-→ Comptes e-commerce (Amazon avec historique d'achats visible)
-→ Inscriptions à des newsletters, forums techniques
-→ Profils de jeux en ligne, communautés Discord/Reddit
-
-② TRACES NAVIGATIONNELLES (comportement de navigation)
-──────────────────────────────────────────────────────────────
-→ Cookies tiers (tracking publicitaire entre sites)
-→ Historique de recherche Google (conservé si connecté)
-→ Pages visitées (logs serveurs conservés 1 an minimum)
-→ Temps passé sur chaque page (analytics)
-→ Parcours de navigation (d'où vous venez, où vous allez)
-
-③ TRACES INSCRIPTIBLES (contenus créés)
-──────────────────────────────────────────────────────────────
-→ Publications (posts, tweets, stories, réels)
-→ Commentaires sur des articles, vidéos YouTube, forums
-→ Avis et notes (Google Maps, TripAdvisor, Amazon)
-→ Code source publié (GitHub, GitLab, Stack Overflow)
-→ Photos et vidéos uploadées
-→ Documents partagés publiquement (SlideShare, Scribd)
-
-④ TRACES RELATIONNELLES (interactions sociales)
-──────────────────────────────────────────────────────────────
-→ Liste d'amis / abonnés / abonnements (réseau social visible)
-→ Likes, réactions, cœurs sur des contenus
-→ Partages et retweets (amplifient la visibilité)
-→ Messages (souvent privés mais pas toujours chiffrés !)
-→ Groupes et communautés rejoints (publics ou privés)
-
-⑤ MÉTADONNÉES (données sur les données)
-──────────────────────────────────────────────────────────────
-→ Données EXIF des photos (GPS de la prise de vue, date/heure,
-  modèle d'appareil photo, parfois nom du photographe)
-→ Adresse IP lors des publications (géolocalisation approximative)
-→ Empreinte digitale du navigateur (browser fingerprinting)
-→ Langue, fuseau horaire, résolution d'écran
-→ Système d'exploitation, version du navigateur, plugins installés
-```
-
-**Exemple concret — Photo Instagram :**
-
-Vous postez une photo de vacances sur Instagram. Ce qui est enregistré :
-- **Trace inscriptible** : La photo elle-même + légende
-- **Trace relationnelle** : Qui like, commente, partage
-- **Métadonnées EXIF** : Où et quand la photo a été prise (GPS)
-- **Métadonnées plateforme** : Depuis quel appareil, quelle IP, quelle heure
+| **Terme** | **Définition** | **Exemple** |
+|-----------|----------------|-------------|
+| **Complexité algorithmique** | Mesure du temps d'exécution d'un algorithme en fonction de la taille des données | O(n), O(n²) |
+| **Big-O (notation)** | Notation mathématique pour exprimer la complexité dans le pire cas | O(n) = linéaire |
+| **n** | Taille des données (nombre d'éléments) | n = 1000 utilisateurs |
+| **O(1)** | Complexité constante (temps fixe, indépendant de n) | Accéder à `liste[0]` |
+| **O(log n)** | Complexité logarithmique (croissance très lente) | Recherche dichotomique |
+| **O(n)** | Complexité linéaire (proportionnelle à n) | Recherche linéaire, parcours de liste |
+| **O(n log n)** | Complexité quasi-linéaire | Tri fusion, tri rapide |
+| **O(n²)** | Complexité quadratique (croissance rapide) | Double boucle imbriquée |
+| **Pire cas** | Scénario où l'algorithme prend le maximum de temps | Élément en dernière position |
+| **Meilleur cas** | Scénario où l'algorithme prend le minimum de temps | Élément en première position |
 
 ---
 
-### I.C. La Permanence : "Internet N'oublie Jamais"
+## 1️⃣ Qu'est-ce que la Complexité Algorithmique ?
 
-**Trois mécanismes de permanence :**
+### Définition
 
-**① Indexation par les moteurs de recherche**
+La **complexité algorithmique** mesure **combien de temps** (ou d'opérations) un algorithme prend pour s'exécuter en fonction de la **taille des données** (notée **n**).
 
-Google indexe des milliards de pages web et les conserve dans ses serveurs.
-- Une publication de 2015 peut ressurgir en 2025 dans les résultats
-- Même si vous supprimez le contenu, le cache Google peut le conserver temporairement
+**Important :** On ne mesure pas le temps en secondes (ça dépend de l'ordinateur), mais en **nombre d'opérations**.
 
-**② Archive Internet (Internet Archive / Wayback Machine)**
+### Pourquoi C'est Important ?
 
-Site : https://archive.org/web/
-- Archive automatique des pages web depuis 1996
-- **735 milliards de pages** sauvegardées à ce jour
-- Même si vous supprimez une page de votre site, elle peut rester archivée
-- Utilisable pour retrouver d'anciennes versions de sites
-
-**③ Copies et partages incontrôlables**
-
-- Les contenus sont copiés, téléchargés, screenshot, partagés
-- Les autres utilisateurs sauvegardent vos photos/vidéos
-- Les sites miroirs ou agrégateurs dupliquent les contenus
-
-**L'effet Streisand :**
-
-Tenter activement de supprimer ou censurer une information en ligne → Attire l'attention → L'information devient encore plus visible et partagée.
-
-Origine : En 2003, la chanteuse Barbra Streisand tente de faire retirer une photo aérienne de sa maison (protection vie privée). Résultat : la photo devient virale, vue par des millions de personnes.
-
-**⚠️ RÈGLE D'OR**
-
-> *Avant de publier QUOI QUE CE SOIT en ligne, posez-vous :*
-> 
-> *"Serais-je à l'aise si mon futur employeur, mes parents, ou mes enfants voient ceci dans 10 ans ?"*
-> 
-> **Si la réponse est NON → Ne publiez pas.**
-
----
-
-## II. L'E-réputation
-
-### II.A. Définition et Enjeux
-
-**E-réputation** (ou réputation numérique) = Image véhiculée par une personne sur Internet, résultant de l'ensemble des informations disponibles en ligne à son sujet.
-
-**Différence avec l'identité numérique :**
-- **Identité numérique** = Les données brutes (ce qui existe sur vous en ligne)
-- **E-réputation** = L'image, la perception qui se dégage de ces données
-
-#### Enjeux Personnels
-
-| **Domaine** | **Impact de l'e-réputation** |
-|-------------|------------------------------|
-| **Recherche d'emploi** | 70% des recruteurs googlient les candidats **avant** l'entretien |
-| **Carrière professionnelle** | Influence les promotions, la crédibilité professionnelle |
-| **Relations personnelles** | Rencontres amoureuses, amicales (les gens vous recherchent) |
-| **Sécurité** | Vol d'identité, harcèlement, usurpation facilitée par infos publiques |
-
-**Statistique clé (CareerBuilder 2018) :**
-- **54%** des recruteurs ont écarté un candidat à cause de son profil sur les réseaux sociaux
-- **57%** sont moins enclins à interviewer quelqu'un **sans** présence en ligne
-
----
-
-### II.B. Ce Qui Impacte Votre E-réputation
-
-**✅ ÉLÉMENTS POSITIFS** (à cultiver)
-
-- **Profil LinkedIn** complet et professionnel (photo, expériences, recommandations)
-- **Contributions techniques** visibles (GitHub avec projets soignés, Stack Overflow)
-- **Articles de blog** techniques sur vos apprentissages (Medium, Dev.to)
-- **Certifications** affichées (Cisco CCNA, CNIL MOOC, AWS, Microsoft...)
-- **Recommandations** de collègues, professeurs, managers
-- **Participation** à des événements professionnels, conférences
-
-**❌ ÉLÉMENTS NÉGATIFS** (à éviter ou nettoyer)
-
-- Photos de soirées, fêtes, comportements inappropriés
-- Commentaires agressifs, injurieux, trolling
-- Fake news ou contenus conspirationnistes partagés
-- Fautes d'orthographe répétées (manque de professionnalisme)
-- Prises de position extrêmes (politique, religion) sans nuance
-- Pseudonymes douteux ou puérils (xX_DarkSlayer666_Xx)
-- **Absence totale** de présence en ligne (suspect pour un profil tech)
-
----
-
-### II.C. Maîtriser son E-réputation : 5 Bonnes Pratiques
-
-**① Créer du contenu de qualité**
-
-- LinkedIn à jour avec expériences, compétences, projets
-- GitHub avec projets soignés (README.md complet, code commenté, licence)
-- Blog technique partageant vos apprentissages
-- Contributions à des projets open source (même petites)
-
-**② Paramétrer la confidentialité**
-
-| **Plateforme** | **Paramétrage recommandé** |
-|----------------|----------------------------|
-| Facebook / Instagram | **Privé** (amis uniquement) |
-| LinkedIn | **Public** (c'est fait pour être vu professionnellement) |
-| Twitter / X | Selon usage : Pro = Public / Perso = Privé |
-| TikTok | **Privé** si contenu personnel/loisirs |
-| GitHub | Public pour projets professionnels, privé pour brouillons |
-
-**Principe de séparation** : Avoir 2 comptes si nécessaire (un pro, un perso)
-
-**③ Surveiller son nom (veille active)**
-
-- **Google Alerts** : Créer une alerte sur "Prénom Nom" → Email automatique dès qu'une nouvelle page vous mentionne
-- **Recherche mensuelle** : "Prénom Nom" + "Prénom Nom" + ville
-- **Vérifier les images** : Google Images, recherche inversée d'image
-- **Vérifier les réseaux sociaux** : Qui parle de vous, vous mentionne ?
-
-**④ Nettoyer les contenus négatifs**
-
-- Supprimer vos anciennes publications embarrassantes (scroll back sur vos profils)
-- Demander à vos amis de retirer des photos de vous (droit à l'image)
-- Exercer vos **droits RGPD** (droit à l'effacement — Art. 17) auprès des sites
-- Si refus : **Droit au déréférencement Google** (formulaire CNIL)
-
-**⑤ Utiliser des pseudonymes cohérents**
-
-- Éviter les pseudos enfantins ou embarrassants
-- Préférer **Prénom.Nom** ou **PrénomN** (professionnel, facile à retenir)
-- Rester cohérent entre plateformes (facilite le personal branding)
-- Utiliser des pseudos **différents** pour vie pro (identité réelle) et vie perso (pseudo)
-
----
-
-## III. Le Droit à l'Image
-
-### III.A. Cadre Légal Français
-
-**Fondement juridique** : **Article 9 du Code Civil**
-
-> *"Chacun a droit au respect de sa vie privée."*
-
-**Principe :** L'image d'une personne est un **attribut de sa personnalité**. Toute diffusion de l'image d'une personne nécessite son **consentement**.
-
-#### Quand le consentement est-il requis ?
-
-**✅ Consentement OBLIGATOIRE dans ces cas :**
-
-- Photo ou vidéo où vous êtes **identifiable** (visage visible, tatouage distinctif...)
-- Diffusion sur Internet (Facebook, Instagram, site web, blog...)
-- Utilisation à des **fins commerciales** (publicité, marketing)
-- Si vous êtes le **sujet principal** de la photo (même en groupe)
-
-#### Caractéristiques du consentement valide
-
-Le consentement doit être :
-- **EXPLICITE** : Oral ou écrit (écrit fortement recommandé pour preuve)
-- **INFORMÉ** : La personne sait où et comment la photo sera diffusée
-- **SPÉCIFIQUE** : Pour une utilisation précise (pas un blanc-seing général)
-- **RÉVOCABLE** : On peut retirer son consentement à tout moment
-
-**⚠️ Attention** : Être dans un lieu public ≠ Consentement automatique à être photographié et diffusé.
-
----
-
-### III.B. Exceptions au Droit à l'Image
-
-**Dans ces cas, le consentement n'est PAS requis :**
-
-| **Exception** | **Conditions** |
-|---------------|----------------|
-| **Foule anonyme** | Vous n'êtes pas le sujet principal (manifestation, concert, match de foot dans les tribunes) |
-| **Personnalité publique** | Dans l'exercice de sa fonction publique (homme politique en meeting, artiste sur scène) |
-| **Œuvre d'art** | Sous conditions strictes (pas d'atteinte à la dignité) |
-| **Actualité / Information** | Droit légitime du public à l'information (cadre journalistique) |
-
-**Mais attention** : Même une personnalité publique a droit au respect de sa vie privée en dehors de sa fonction.
-
----
-
-### III.C. Sanctions en Cas de Violation
-
-**Plan civil** :
-- Dommages et intérêts pour préjudice moral
-- Obligation de retrait de la photo sous astreinte
-
-**Plan pénal** :
-- **Article 226-1 du Code Pénal** (atteinte à la vie privée)
-- **1 an d'emprisonnement** + **45 000 € d'amende**
-
----
-
-### III.D. Cas Pratiques
-
-**CAS 1 : Photo de groupe lors d'une soirée**
-
-Votre ami poste sur Instagram une photo de groupe où vous êtes clairement identifiable. Vous n'avez pas donné votre accord.
-
-→ **Votre droit** : Demander le retrait (message privé amical d'abord, puis formel si refus)
-→ **Si refus persistant** : Signaler à Instagram (violation vie privée) + Mise en demeure écrite
-→ **Si préjudice** : Action en justice possible (tribunal judiciaire)
-
----
-
-**CAS 2 : Photo professionnelle sur le site de l'entreprise**
-
-Votre entreprise publie votre photo sur son site web "Rencontrez notre équipe".
-
-→ **Consentement requis** : OUI (doit être demandé à l'embauche ou spécifiquement)
-→ **Durée** : Pendant la durée du contrat de travail
-→ **À votre départ** : L'entreprise **doit** retirer votre photo (délai raisonnable : 1 mois)
-→ **Si refus** : Mise en demeure puis saisine des prud'hommes ou tribunal
-
----
-
-**CAS 3 : Événement public filmé (conférence technique)**
-
-Vous participez à une conférence. L'organisateur filme et publie sur YouTube.
-
-→ **Si vous n'êtes PAS le sujet principal** (plan large de la salle) : Pas de consentement requis
-→ **Si vous êtes interviewé face caméra** : Consentement explicite requis
-→ **Bonne pratique organisateur** : Afficher "Événement filmé" à l'entrée + Opt-out possible
-
----
-
-## IV. Anonymat et Pseudonymat
-
-### IV.A. Définitions
-
-**ANONYMAT COMPLET** (théorique)
-
-Aucune donnée technique ou comportementale ne permet de remonter à votre identité réelle.
-
-Exemples de tentatives d'anonymat :
-- Naviguer avec **Tor** (réseau anonyme) + VPN + carte SIM prépayée anonyme
-- Utiliser une adresse email jetable sans nom ni numéro de téléphone
-- Poster sur un forum sans création de compte, via VPN
-
-**⚠️ Difficulté** : Presque **impossible** en pratique sans précautions extrêmes, et même ainsi, pas de garantie absolue (métadonnées, erreurs humaines, recoupements)
-
----
-
-**PSEUDONYMAT** (courant)
-
-Vous utilisez un **pseudonyme** à la place de votre vrai nom, MAIS des métadonnées permettent potentiellement de vous identifier.
-
-Exemples :
-- Compte Twitter avec pseudo + email Gmail à votre nom → **Lien possible**
-- Forum avec pseudo mais IP non masquée → **Géolocalisation + logs**
-- Même pseudo sur plusieurs sites → **Recoupement facile**
-
-**Risques du pseudonymat :**
-- **Recoupement d'informations** : Vous parlez de votre ville + votre métier + votre école → Identification
-- **Adresse IP** : Les serveurs conservent les logs IP (1 an minimum en France)
-- **Métadonnées** : Fuseau horaire, langue, résolution d'écran → Empreinte unique
-- **Style d'écriture** : Analyse linguistique peut identifier un auteur
-- **Réutilisation du pseudo** : Même pseudo sur 5 sites → On retrouve vos autres profils
-
----
-
-**IDENTITÉ RÉELLE** (assumée)
-
-Vous utilisez votre vrai nom et prénom.
-
-Exemples : LinkedIn, CV publié en ligne, profils professionnels, interventions publiques
-
-→ Assume pleinement votre identité et votre e-réputation
-→ Nécessaire pour la vie professionnelle
-
----
-
-### IV.B. Le Mythe de l'Anonymat sur Internet
-
-**Pourquoi l'anonymat complet est illusoire**
-
-**① Les métadonnées sont omniprésentes**
-
-Même sans donner votre nom, vous laissez une **empreinte numérique unique** :
-
-| **Métadonnée** | **Information révélée** |
-|----------------|-------------------------|
-| Adresse IP | Géolocalisation approximative (ville, FAI) |
-| User-Agent | Système d'exploitation, navigateur, version |
-| Résolution d'écran | Taille de votre écran (combinaison souvent unique) |
-| Fuseau horaire | Région du monde où vous êtes |
-| Langue navigateur | Langue système, préférences linguistiques |
-| Plugins installés | Liste des extensions (AdBlock, VPN...) |
-| Fonts installées | Polices de caractères sur votre système |
-| Canvas fingerprinting | Technique créant une empreinte quasi-unique de votre navigateur |
-
-**Testez votre navigateur** : https://panopticlick.eff.org
-→ Résultat habituel : "Votre navigateur a une empreinte unique parmi des millions"
-
-**② Recoupements d'informations**
+**Deux algorithmes peuvent donner le même résultat mais avec des performances RADICALEMENT différentes.**
 
 **Exemple concret :**
 
-Vous postez sous le pseudo "TechGuru2024" sur un forum :
-- "Je travaille dans une PME de 50 personnes à Lyon"
-- "Je suis développeur Python spécialisé en IA"
-- "Mon entreprise fait du conseil bancaire"
+| **Tâche** | **Algorithme lent (O(n²))** | **Algorithme rapide (O(n log n))** |
+|-----------|------------------------------|-------------------------------------|
+| Trier 1 000 éléments | 1 000 000 opérations | 10 000 opérations |
+| Trier 10 000 éléments | 100 000 000 opérations | 130 000 opérations |
+| Trier 100 000 éléments | 10 000 000 000 opérations | 1 700 000 opérations |
 
-→ Recherche LinkedIn : *"Développeur Python Lyon banque"*
-→ Résultat : **3 profils seulement** → Vous êtes identifié
+**Impact réel :**
+- Algorithme lent : **5 heures** de calcul
+- Algorithme rapide : **2 secondes** de calcul
 
-**③ Obligations légales des plateformes**
-
-En France (Loi pour la Confiance dans l'Économie Numérique — LCEN) :
-
-Les hébergeurs et fournisseurs de services en ligne **doivent conserver** pendant **1 an** :
-- Identifiant de connexion de l'utilisateur
-- Adresses IP utilisées
-- Dates et heures de connexion
-
-→ Sur **réquisition judiciaire** : Communication obligatoire aux autorités (police, justice)
-
-**Conclusion :**
-- Vous êtes **anonyme pour les autres utilisateurs**
-- Vous n'êtes **PAS anonyme pour la plateforme**
-- Vous n'êtes **PAS anonyme pour la justice**
+**Sur un serveur qui traite 10 000 requêtes/jour, un mauvais algorithme = serveur surchargé = coûts d'infrastructure explosés.**
 
 ---
 
-### IV.C. Protection Raisonnable de la Vie Privée
+## 2️⃣ La Notation Big-O
 
-**Pour la vie personnelle (pseudonymat maîtrisé) :**
+### Principe
 
-✅ Pseudonymes **différents** sur chaque plateforme sensible
-✅ Email dédié pour les inscriptions (pas votre email professionnel)
-✅ Ne jamais donner votre **ville exacte** (seulement le département ou la région)
-✅ Ne jamais mélanger vie pro (identité réelle) et pseudonymes perso
-✅ VPN pour masquer l'IP (NordVPN, ProtonVPN...) si besoin de confidentialité
-✅ Bloquer les cookies tiers (extensions : uBlock Origin, Privacy Badger)
+**Big-O décrit comment le temps d'exécution CROÎT quand n augmente.**
 
-**Pour la vie professionnelle (identité réelle assumée) :**
+**Notation :** `O(expression)`
 
-✅ Profil **LinkedIn** complet, photo professionnelle, CV à jour
-✅ **GitHub** avec projets publics de qualité (bon pour la carrière)
-✅ Contributions techniques visibles et valorisantes
-✅ Email professionnel : **prenom.nom@domaine.fr**
-✅ Séparer **clairement** vie pro (publique) et vie perso (privée)
+**Exemples :**
+- `O(1)` : Temps constant (peu importe n)
+- `O(n)` : Temps proportionnel à n
+- `O(n²)` : Temps proportionnel au carré de n
 
-**RÈGLE D'OR DE SÉPARATION**
+### Règles de Simplification
 
+**Big-O ignore les constantes et les termes de faible ordre.**
+
+**Exemples :**
 ```
-VIE PROFESSIONNELLE = Identité réelle
-→ LinkedIn, CV, GitHub, conférences, articles techniques
-→ Visibilité assumée et valorisée
-
-VIE PERSONNELLE = Pseudonymat
-→ Gaming, forums non-pro, loisirs, réseaux sociaux perso
-→ Jamais de lien entre les deux identités
+2n + 5        →  O(n)      (on garde le terme dominant)
+3n² + 10n + 7 →  O(n²)     (n² domine n et 7)
+5             →  O(1)      (constante)
 ```
 
----
+**Pourquoi ignorer les constantes ?**
 
-## V. Exercer ses Droits RGPD sur son Identité Numérique
+Parce que Big-O s'intéresse à la **croissance asymptotique** (quand n devient très grand).
 
-### V.A. Les Droits Applicables
-
-**① Droit d'accès (Article 15 RGPD)**
-
-Demander à une plateforme : *"Quelles données avez-vous sur moi ?"*
-
-Outils pratiques :
-- **Google Takeout** : https://takeout.google.com → Exporter TOUTES vos données Google
-- **Facebook** : Paramètres → Vos informations → Télécharger vos informations
-- **X (Twitter)** : Paramètres → Votre compte → Télécharger une archive de vos données
+Quand n = 1 000 000 :
+- `2n = 2 000 000`
+- `n = 1 000 000`
+- Différence : facteur 2 (négligeable comparé à O(n) vs O(n²))
 
 ---
 
-**② Droit de rectification (Article 16)**
+## 3️⃣ Les 5 Complexités Essentielles
 
-Corriger des informations **erronées** ou **obsolètes** vous concernant.
+### Tableau Récapitulatif
 
-Exemple : Votre ancien employeur affiche encore votre poste actuel sur son site alors que vous êtes parti → Demande de rectification
+| **Notation** | **Nom** | **Exemple** | **n=10** | **n=100** | **n=1000** | **n=1M** |
+|--------------|---------|-------------|----------|-----------|------------|----------|
+| **O(1)** | Constante | Accès liste[5] | 1 | 1 | 1 | 1 |
+| **O(log n)** | Logarithmique | Recherche dichotomique | 3 | 7 | 10 | 20 |
+| **O(n)** | Linéaire | Recherche linéaire | 10 | 100 | 1000 | 1M |
+| **O(n log n)** | Quasi-linéaire | Tri fusion | 33 | 664 | 10 000 | 20M |
+| **O(n²)** | Quadratique | Tri à bulles | 100 | 10 000 | 1M | 1T |
 
----
-
-**③ Droit à l'effacement / "Droit à l'oubli" (Article 17)**
-
-Demander la **suppression définitive** de vos données personnelles.
-
-**Conditions d'application** :
-- Les données ne sont plus nécessaires au regard des finalités
-- Vous retirez votre consentement (si c'était la base légale)
-- Vous vous opposez au traitement (si base légale = intérêt légitime)
-- Les données ont été collectées illicitement
-
-**Limites** (le droit à l'effacement ne s'applique PAS si) :
-- Liberté d'expression et d'information (articles de presse)
-- Obligation légale de conservation (factures, données comptables)
-- Constatation, exercice ou défense de droits en justice
+**Légende :** Nombre approximatif d'opérations
 
 ---
 
-**Modèle de demande d'effacement** :
+### A. O(1) — Complexité Constante
 
+**Définition :** Le temps d'exécution ne dépend **PAS** de n.
+
+**Exemples :**
+```python
+# Accéder à un élément par son index
+element = liste[5]  # O(1)
+
+# Ajouter à la fin d'une liste Python
+liste.append(42)  # O(1) en moyenne
+
+# Vérifier l'appartenance dans un set
+if "alice" in users_set:  # O(1) en moyenne
+    print("Trouvé")
 ```
-Objet : Demande d'effacement de mes données personnelles (Art. 17 RGPD)
 
-Madame, Monsieur,
-
-Conformément à l'article 17 du Règlement Général sur la Protection
-des Données (RGPD), je vous demande de procéder à la suppression
-de l'intégralité de mes données personnelles associées au compte
-suivant : [indiquer email ou identifiant].
-
-Je retire mon consentement au traitement de mes données et vous
-demande leur suppression définitive dans un délai d'un mois à
-compter de la réception de cette demande.
-
-Je vous prie de me confirmer par écrit la suppression effective
-de mes données.
-
-Cordialement,
-[Votre nom]
-[Date]
+**Graphique :**
+```
+Temps
+  |
+  |  ────────────────────────  O(1)
+  |
+  +─────────────────────────────→ n
 ```
 
 ---
 
-**④ Droit au déréférencement (Google)**
+### B. O(log n) — Complexité Logarithmique
 
-Demander à **Google** de retirer des **résultats de recherche** des liens vers des pages vous concernant.
+**Définition :** Le temps croît **très lentement**. Diviser par 2 à chaque étape.
 
-**⚠️ Important** :
-- Le déréférencement retire le lien des résultats Google
-- Mais la page existe toujours sur le site d'origine
-- Ce n'est PAS une suppression du contenu
+**Exemple :** Recherche dichotomique
 
-**Procédure** :
+**Intuition :**
+- n = 1 000 → 10 étapes (log₂(1000) ≈ 10)
+- n = 1 000 000 → 20 étapes (log₂(1M) ≈ 20)
 
-1. Formulaire Google : https://www.google.com/webmasters/tools/legal-removal-request
-2. Google examine la demande (balance **vie privée** vs **intérêt public**)
-3. **Si accepté** : Le lien n'apparaît plus dans Google.fr (mais peut rester sur Google.com)
-4. **Si refusé** : Recours possible auprès de la CNIL
+**Si n × 1000, le temps × 2 seulement !**
 
-**Conditions d'acceptation** :
-- Informations obsolètes, non pertinentes, excessives
-- Atteinte disproportionnée à la vie privée
-- Pas d'intérêt public prépondérant
+**Graphique :**
+```
+Temps
+  |
+  |        ╱──────────────  O(log n)
+  |      ╱
+  |    ╱
+  |  ╱
+  +─────────────────────────────→ n
+```
 
 ---
 
-## VI. Vocabulaire Clé à Maîtriser
+### C. O(n) — Complexité Linéaire
 
-| **Terme** | **Définition** |
-|-----------|----------------|
-| **Identité numérique** | Ensemble des informations et traces laissées en ligne permettant d'identifier une personne |
-| **Identité déclarative** | Informations que vous publiez volontairement vous concernant |
-| **Identité calculée** | Informations publiées par des tiers vous concernant (que vous ne contrôlez pas) |
-| **E-réputation** | Image véhiculée par une personne sur Internet (perception globale) |
-| **Droit à l'image** | Droit de toute personne de s'opposer à la diffusion de son image sans consentement (Art. 9 Code Civil) |
-| **Consentement explicite** | Accord clair et non ambigu pour l'utilisation de son image ou de ses données |
-| **Pseudonymat** | Usage d'un pseudonyme masquant le nom réel (mais traçable via métadonnées) |
-| **Anonymat** | Absence totale de données permettant l'identification (quasi impossible en pratique) |
-| **Traces numériques** | Données laissées lors de la navigation ou de l'utilisation d'Internet (5 types) |
-| **Métadonnées** | Données sur les données (EXIF photo, IP, User-Agent, fingerprint navigateur) |
-| **Permanence** | Caractère durable et difficile à effacer des contenus publiés en ligne |
-| **Effet Streisand** | Tenter de censurer une info → Attire l'attention → Info devient virale |
-| **RGPD Art. 17** | Droit à l'effacement ("droit à l'oubli") — demande de suppression de ses données |
-| **Déréférencement** | Retrait d'un lien des résultats de recherche Google (page reste en ligne) |
-| **Google Alerts** | Service gratuit envoyant un email dès qu'une nouvelle page mentionne un mot-clé |
-| **Canvas fingerprinting** | Technique créant une empreinte quasi-unique d'un navigateur via métadonnées |
+**Définition :** Le temps est **proportionnel** à n.
+
+**Exemples :**
+```python
+# Parcourir une liste
+for user in users:
+    print(user)  # O(n)
+
+# Recherche linéaire
+for user in users:
+    if user == "Martin":
+        return user  # O(n) dans le pire cas
+
+# Compter les occurrences
+count = texte.count("error")  # O(n)
+```
+
+**Si n × 2, le temps × 2.**
+
+**Graphique :**
+```
+Temps
+  |                       ╱
+  |                     ╱
+  |                   ╱
+  |                 ╱  O(n)
+  |               ╱
+  |             ╱
+  +─────────────────────────────→ n
+```
+
+---
+
+### D. O(n log n) — Complexité Quasi-Linéaire
+
+**Définition :** Un peu plus que linéaire, mais bien meilleur que quadratique.
+
+**Exemples :**
+```python
+# Tri fusion (merge sort)
+liste_triee = sorted(liste)  # O(n log n)
+
+# Tri rapide (quick sort)
+liste.sort()  # O(n log n) en moyenne
+```
+
+**C'est la meilleure complexité possible pour trier par comparaison.**
+
+**Graphique :**
+```
+Temps
+  |                         ╱
+  |                       ╱ O(n log n)
+  |                     ╱
+  |                   ╱  O(n)
+  |                 ╱ ╱
+  |               ╱ ╱
+  +─────────────────────────────→ n
+```
+
+---
+
+### E. O(n²) — Complexité Quadratique
+
+**Définition :** Le temps croît au **carré** de n.
+
+**Exemples :**
+```python
+# Double boucle imbriquée
+for i in range(n):
+    for j in range(n):
+        print(i, j)  # O(n²)
+
+# Tri à bulles (bubble sort)
+# Compare chaque élément avec tous les autres
+for i in range(n):
+    for j in range(n-i-1):
+        if liste[j] > liste[j+1]:
+            # Échanger
+            ...
+```
+
+**Si n × 2, le temps × 4. Si n × 10, le temps × 100.**
+
+**⚠️ DANGER : Devient impraticable au-delà de n = 10 000.**
+
+**Graphique :**
+```
+Temps
+  |                               
+  |                              ╱ O(n²)
+  |                            ╱
+  |                          ╱
+  |                      ╱╱ O(n log n)
+  |               ╱╱╱ ╱ O(n)
+  |       ╱╱╱╱ ╱ ╱
+  +─────────────────────────────→ n
+```
+
+**[ILLUSTRATION 1 : Graphique comparatif des 5 complexités]**  
+*Légende : Graphique avec 5 courbes de couleurs différentes montrant la croissance de O(1) (ligne plate), O(log n) (très lente), O(n) (linéaire), O(n log n) (quasi-linéaire), et O(n²) (exponentielle)*
+
+---
+
+## 4️⃣ Meilleur Cas, Cas Moyen, Pire Cas
+
+### Définitions
+
+| **Cas** | **Définition** | **Exemple (recherche linéaire)** |
+|---------|----------------|----------------------------------|
+| **Meilleur cas** | Scénario optimal | Élément en première position → O(1) |
+| **Cas moyen** | Scénario typique | Élément au milieu → O(n/2) = O(n) |
+| **Pire cas** | Scénario catastrophe | Élément en dernière position ou absent → O(n) |
+
+**Par défaut, Big-O décrit le PIRE CAS.**
+
+### Exemple : Recherche Linéaire
+
+**Liste :** `["alice", "bob", "charlie", "diane", "eve"]`
+
+**Chercher "bob" :**
+
+| **Cas** | **Position de "bob"** | **Nombre de comparaisons** |
+|---------|------------------------|----------------------------|
+| Meilleur cas | Indice 0 (1ère position) | 1 |
+| Cas moyen | Indice 2 (milieu) | 3 |
+| Pire cas | Indice 4 (dernière) ou absent | 5 |
+
+**Complexité :**
+- Meilleur cas : O(1)
+- Cas moyen : O(n/2) = O(n)
+- Pire cas : O(n)
+
+**On dit que la recherche linéaire est O(n) car on analyse le PIRE CAS.**
+
+---
+
+## 5️⃣ Recherche Linéaire — O(n)
+
+### Principe
+
+**Parcourir la liste élément par élément jusqu'à trouver la cible.**
+
+**Avantages :**
+- Simple à implémenter
+- Fonctionne sur une liste **non triée**
+
+**Inconvénients :**
+- Lent sur de grandes listes
+- O(n) : proportionnel à la taille
+
+### Algorithme en Pseudo-Code
+
+```
+FONCTION recherche_lineaire(liste, cible):
+    POUR chaque élément dans liste:
+        SI élément == cible:
+            RETOURNER position
+    RETOURNER "Non trouvé"
+```
+
+### Implémentation Python
+
+```python
+def recherche_lineaire(liste, cible):
+    """
+    Recherche linéaire : parcourt la liste de gauche à droite
+    Complexité : O(n) dans le pire cas
+    """
+    for i in range(len(liste)):
+        if liste[i] == cible:
+            return i  # Position trouvée
+    return -1  # Non trouvé
+
+# Exemple d'utilisation
+users = ["alice", "bob", "charlie", "diane", "eve"]
+position = recherche_lineaire(users, "charlie")
+print(f"Position : {position}")  # Position : 2
+```
+
+### Analyse de Complexité
+
+**Pire cas :** Parcourir toute la liste → **n comparaisons** → **O(n)**
+
+**Nombre d'opérations en fonction de n :**
+- n = 10 → 10 comparaisons max
+- n = 1 000 → 1 000 comparaisons max
+- n = 1 000 000 → 1 000 000 comparaisons max
+
+---
+
+## 6️⃣ Recherche Dichotomique — O(log n)
+
+### Principe
+
+**Diviser la liste par 2 à chaque étape.**
+
+**Prérequis OBLIGATOIRE :** La liste DOIT être **triée**.
+
+**Algorithme :**
+1. Regarder l'élément du **milieu**
+2. Si c'est la cible → trouvé !
+3. Si la cible est **avant** → chercher dans la **première moitié**
+4. Si la cible est **après** → chercher dans la **deuxième moitié**
+5. Répéter jusqu'à trouver ou épuiser les possibilités
+
+### Exemple Visuel
+
+**Rechercher 42 dans :** `[5, 12, 18, 23, 31, 42, 56, 67, 89, 91]`
+
+```
+Étape 1 : Liste [5, 12, 18, 23, 31, 42, 56, 67, 89, 91]
+          Milieu = 31 (indice 4)
+          42 > 31 → Chercher dans [42, 56, 67, 89, 91]
+
+Étape 2 : Liste [42, 56, 67, 89, 91]
+          Milieu = 67 (indice 2 relatif)
+          42 < 67 → Chercher dans [42, 56]
+
+Étape 3 : Liste [42, 56]
+          Milieu = 42 (indice 0 relatif)
+          42 == 42 → TROUVÉ !
+
+Total : 3 comparaisons pour 10 éléments
+```
+
+**Avec recherche linéaire, il aurait fallu 6 comparaisons.**
+
+### Algorithme en Pseudo-Code
+
+```
+FONCTION recherche_dichotomique(liste_triee, cible):
+    debut = 0
+    fin = longueur(liste) - 1
+    
+    TANT QUE debut <= fin:
+        milieu = (debut + fin) // 2
+        
+        SI liste[milieu] == cible:
+            RETOURNER milieu
+        SINON SI liste[milieu] < cible:
+            debut = milieu + 1
+        SINON:
+            fin = milieu - 1
+    
+    RETOURNER "Non trouvé"
+```
+
+### Implémentation Python
+
+```python
+def recherche_dichotomique(liste_triee, cible):
+    """
+    Recherche dichotomique : divise la liste par 2 à chaque étape
+    Prérequis : la liste DOIT être triée
+    Complexité : O(log n)
+    """
+    debut = 0
+    fin = len(liste_triee) - 1
+    
+    while debut <= fin:
+        milieu = (debut + fin) // 2
+        
+        if liste_triee[milieu] == cible:
+            return milieu  # Trouvé
+        elif liste_triee[milieu] < cible:
+            debut = milieu + 1  # Chercher dans la moitié droite
+        else:
+            fin = milieu - 1  # Chercher dans la moitié gauche
+    
+    return -1  # Non trouvé
+
+# Exemple d'utilisation
+users_tries = ["alice", "bob", "charlie", "diane", "eve"]  # DÉJÀ TRIÉ
+position = recherche_dichotomique(users_tries, "diane")
+print(f"Position : {position}")  # Position : 3
+```
+
+### Analyse de Complexité
+
+**Pire cas :** Diviser par 2 jusqu'à avoir 1 élément → **log₂(n) comparaisons** → **O(log n)**
+
+**Nombre d'opérations en fonction de n :**
+- n = 10 → 4 comparaisons max (log₂(10) ≈ 3.3)
+- n = 1 000 → 10 comparaisons max
+- n = 1 000 000 → 20 comparaisons max
+
+**⚠️ ATTENTION : Nécessite un tri préalable (O(n log n)).**
+
+**[ILLUSTRATION 2 : Schéma de la recherche dichotomique]**  
+*Légende : Diagramme montrant un tableau avec flèches indiquant comment on divise par 2 à chaque étape (gauche/droite) jusqu'à trouver l'élément*
+
+---
+
+## 7️⃣ Comparaison : Linéaire vs Dichotomique
+
+### Tableau Comparatif
+
+| **Critère** | **Recherche Linéaire** | **Recherche Dichotomique** |
+|-------------|------------------------|----------------------------|
+| **Complexité** | O(n) | O(log n) |
+| **Prérequis** | Aucun | Liste TRIÉE |
+| **Implémentation** | Simple | Un peu plus complexe |
+| **Performance (n=1000)** | 1 000 comparaisons max | 10 comparaisons max |
+| **Performance (n=1M)** | 1 000 000 comparaisons max | 20 comparaisons max |
+| **Quand l'utiliser ?** | Petites listes, listes non triées | Grandes listes triées |
+
+### Quand Utiliser Chaque Algorithme ?
+
+**Recherche linéaire :**
+- ✅ Liste non triée
+- ✅ Petite liste (< 100 éléments)
+- ✅ Une seule recherche
+
+**Recherche dichotomique :**
+- ✅ Liste déjà triée
+- ✅ Grande liste (> 1 000 éléments)
+- ✅ Plusieurs recherches (le tri devient rentable)
+
+### Calcul du Seuil de Rentabilité
+
+**Question :** À partir de combien de recherches le tri devient-il rentable ?
+
+**Données :**
+- Trier : O(n log n) — par exemple, 10 000 opérations pour n=1000
+- Recherche linéaire : O(n) — 1 000 opérations par recherche
+- Recherche dichotomique : O(log n) — 10 opérations par recherche
+
+**Calcul :**
+```
+Coût sans tri : k × 1000 (k = nombre de recherches)
+Coût avec tri : 10 000 + k × 10
+
+Seuil : 10 000 + k × 10 = k × 1000
+        10 000 = k × 990
+        k ≈ 10
+
+→ Dès la 10e recherche, trier devient rentable
+```
+
+---
+
+## 8️⃣ Mesurer les Temps d'Exécution en Python
+
+### Utiliser le Module `time`
+
+```python
+import time
+
+# Créer une grande liste
+import random
+users = [f"user_{i:06d}" for i in range(100000)]
+random.shuffle(users)  # Mélanger
+
+# Mesurer la recherche linéaire
+debut = time.time()
+position = recherche_lineaire(users, "user_099999")  # Pire cas (dernier)
+fin = time.time()
+temps_lineaire = fin - debut
+
+print(f"Recherche linéaire : {temps_lineaire:.4f} secondes")
+# Résultat : ~0.0050 secondes
+
+# Trier la liste pour la dichotomique
+users_tries = sorted(users)
+
+# Mesurer la recherche dichotomique
+debut = time.time()
+position = recherche_dichotomique(users_tries, "user_099999")
+fin = time.time()
+temps_dichotomique = fin - debut
+
+print(f"Recherche dichotomique : {temps_dichotomique:.6f} secondes")
+# Résultat : ~0.000015 secondes
+
+# Comparaison
+ratio = temps_lineaire / temps_dichotomique
+print(f"Gain : {ratio:.0f}x plus rapide")
+# Résultat : ~333x plus rapide
+```
+
+### Générer un Tableau de Comparaison
+
+```python
+import time
+
+def comparer_algorithmes(tailles):
+    """Compare les deux algorithmes sur différentes tailles de données"""
+    print("╔═══════════════════════════════════════════════════════════╗")
+    print("║     COMPARAISON RECHERCHE LINÉAIRE VS DICHOTOMIQUE        ║")
+    print("╠═══════════════════════════════════════════════════════════╣")
+    print("║ Taille │ Linéaire (ms) │ Dichotomique (ms) │ Gain (x)    ║")
+    print("╠════════╪═══════════════╪═══════════════════╪═════════════╣")
+    
+    for n in tailles:
+        # Créer liste
+        liste = list(range(n))
+        cible = n - 1  # Pire cas (dernier élément)
+        
+        # Mesurer linéaire
+        debut = time.time()
+        recherche_lineaire(liste, cible)
+        temps_lin = (time.time() - debut) * 1000  # Convertir en ms
+        
+        # Mesurer dichotomique
+        debut = time.time()
+        recherche_dichotomique(liste, cible)
+        temps_dicho = (time.time() - debut) * 1000  # Convertir en ms
+        
+        gain = temps_lin / temps_dicho if temps_dicho > 0 else 0
+        
+        print(f"║ {n:6} │ {temps_lin:13.4f} │ {temps_dicho:17.6f} │ {gain:11.0f} ║")
+    
+    print("╚═══════════════════════════════════════════════════════════╝")
+
+# Exécuter la comparaison
+comparer_algorithmes([100, 1000, 10000, 100000])
+```
+
+**Résultat typique :**
+```
+╔═══════════════════════════════════════════════════════════╗
+║     COMPARAISON RECHERCHE LINÉAIRE VS DICHOTOMIQUE        ║
+╠═══════════════════════════════════════════════════════════╣
+║ Taille │ Linéaire (ms) │ Dichotomique (ms) │ Gain (x)    ║
+╠════════╪═══════════════╪═══════════════════╪═════════════╣
+║    100 │        0.0018 │           0.000002 │         900 ║
+║   1000 │        0.0215 │           0.000003 │        7167 ║
+║  10000 │        0.2854 │           0.000004 │       71350 ║
+║ 100000 │        3.1247 │           0.000005 │      624940 ║
+╚═══════════════════════════════════════════════════════════╝
+```
+
+**Observation :** Plus n augmente, plus le gain de la dichotomique explose.
+
+---
+
+## 9️⃣ Application : Recherche dans un Annuaire AD
+
+### Contexte
+
+**Entreprise avec 10 000 employés. Script qui vérifie si un utilisateur existe.**
+
+### Script Naïf (O(n))
+
+```python
+# Charger les utilisateurs depuis AD (simplifié)
+import pyad  # Bibliothèque Python pour AD
+
+def verifier_utilisateur_v1(username):
+    """Version lente : O(n)"""
+    users = pyad.adquery.get_all_users()  # 10 000 utilisateurs
+    
+    for user in users:
+        if user.samAccountName == username:
+            return True
+    return False
+
+# Mesure
+import time
+debut = time.time()
+existe = verifier_utilisateur_v1("martin.jean")
+print(f"Temps : {time.time() - debut:.3f}s")
+# Résultat : ~0.500 secondes (500 ms)
+```
+
+### Script Optimisé (O(log n))
+
+```python
+def verifier_utilisateur_v2(username):
+    """Version rapide : O(log n) avec cache trié"""
+    # 1. Charger et trier UNE FOIS (au démarrage du script)
+    if not hasattr(verifier_utilisateur_v2, 'cache'):
+        users = pyad.adquery.get_all_users()
+        verifier_utilisateur_v2.cache = sorted(
+            [u.samAccountName for u in users]
+        )
+    
+    # 2. Recherche dichotomique dans le cache
+    return recherche_dichotomique(
+        verifier_utilisateur_v2.cache, 
+        username
+    ) != -1
+
+# Mesure
+debut = time.time()
+existe = verifier_utilisateur_v2("martin.jean")
+print(f"Temps : {time.time() - debut:.6f}s")
+# Résultat : ~0.000015 secondes (0.015 ms)
+```
+
+**Gain : 33 000 fois plus rapide !**
+
+**Impact :** Le script peut gérer 100 000 requêtes/seconde au lieu de 3 requêtes/seconde.
+
+---
+
+## 📝 Fiche Récapitulative (À Garder)
+
+### Les 5 Complexités
+
+| **Big-O** | **Nom** | **Croissance** | **Exemple** |
+|-----------|---------|----------------|-------------|
+| O(1) | Constante | Plate | Accès `liste[i]` |
+| O(log n) | Logarithmique | Très lente | Recherche dichotomique |
+| O(n) | Linéaire | Proportionnelle | Recherche linéaire |
+| O(n log n) | Quasi-linéaire | Un peu plus que linéaire | Tri fusion |
+| O(n²) | Quadratique | Exponentielle | Double boucle |
+
+### Recherche Linéaire vs Dichotomique
+
+| | **Linéaire** | **Dichotomique** |
+|---|---|---|
+| **Code** | `for x in liste: if x == cible` | `while debut <= fin: milieu = ...` |
+| **Prérequis** | Aucun | Liste TRIÉE |
+| **Complexité** | O(n) | O(log n) |
+| **n=1000** | 1 000 ops | 10 ops |
+| **n=1M** | 1 000 000 ops | 20 ops |
+
+### Mesure de Performance
+
+```python
+import time
+
+# Chronomètre
+debut = time.time()
+# ... code à mesurer ...
+temps = time.time() - debut
+print(f"Temps : {temps:.6f}s")
+```
+
+---
+
+## 🎯 Compétences Travaillées (Référentiel RNCP)
+
+| **Code** | **Compétence** | **Application dans cette séance** |
+|----------|----------------|-----------------------------------|
+| **B2.1** | Concevoir une solution applicative | Choisir le bon algorithme selon le contexte |
+| **B2.2** | Assurer la sécurité d'un système | Éviter les algorithmes lents (DoS) |
+| **B3.3** | Optimiser les performances | Mesurer et comparer les temps d'exécution |
+
+---
+
+## 💡 Pour Aller Plus Loin
+
+- **Interpolation search** : O(log log n) si données uniformément distribuées
+- **Complexité spatiale** : Mémoire utilisée (en plus du temps)
+- **Amortized complexity** : Complexité moyenne sur plusieurs opérations
+- **NP-complet** : Problèmes pour lesquels aucun algorithme polynomial n'est connu
 
 ---

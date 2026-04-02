@@ -6,11 +6,11 @@
 | **Champ** | **Détail** |
 |-----------|-----------|
 | **Semaine** | S6 — Année 1 |
-| **Bloc** | Bloc 2 — Volet juridique RGPD |
+| **Module** | Mathématiques pour l'Informatique — Algorithmique |
 | **Durée totale** | 4 heures |
-| **Public** | Apprentis BTS SIO SISR — sixième semaine |
-| **Modalité** | Présentiel — salle de cours avec accès internet |
-| **Prérequis** | S5 BLOC 2 (définitions RGPD, acteurs, 6 principes) |
+| **Public** | Apprentis BTS SIO SISR — sixième semaine du module |
+| **Modalité** | Présentiel — salle de cours avec tableau blanc |
+| **Prérequis** | S1–S5 — binaire, unités, Boole, algorithme de sous-réseau, VLSM |
 
 ---
 
@@ -18,11 +18,11 @@
 
 | **Code** | **Intitulé de la compétence** | **Niveau visé** |
 |----------|-------------------------------|-----------------|
-| **B2.1** | Comprendre les obligations légales liées au traitement de données personnelles | Maîtrise |
-| **B2.2** | Identifier les acteurs de la protection des données | Maîtrise |
-| **B2.3** | Appliquer les principes du RGPD dans un contexte professionnel | Acquisition |
+| **B1.1** | Recenser et caractériser les composants d'une infrastructure | Fondement logique |
+| **B2.1** | Exploiter des serveurs Windows et Linux (scripting) | Fondement |
+| **B2.2** | Exploiter des équipements réseau (automatisation, validation) | Application |
 
-> 📌 **S6 BLOC 2 approfondit les mécanismes opérationnels du RGPD.** Après les fondamentaux de S5 (définitions, acteurs), on passe à la **pratique** : comment collecter des données légalement ? Qu'est-ce qu'un consentement valide ? Comment un technicien IT implémente-t-il la transparence ? Et comment traiter les demandes de droits des personnes ?
+> 📌 Les séances S1–S5 ont fourni les briques mathématiques. S6 introduit le cadre formel qui permet de **transformer un raisonnement en instructions exécutables** — le pseudo-code. C'est la passerelle directe vers les modules de scripting Bash et Python.
 
 ---
 
@@ -30,14 +30,21 @@
 
 À l'issue de cette séance, l'apprenant sera capable de :
 
-**Collecte et bases légales :**
-- ✅ Détailler les **6 bases légales** du traitement (focus consentement et intérêt légitime)
-- ✅ Définir un **consentement valide** (libre, spécifique, éclairé, univoque)
-- ✅ Identifier les **formes de consentement** valides et invalides
-- ✅ Comprendre l'obligation de **transparence** (mentions d'information)
+**Algorithmique — Fondements :**
+- ✅ Définir un **algorithme** (suite finie, non ambiguë, correcte)
+- ✅ Distinguer algorithme (pensée), pseudo-code (écriture lisible), programme (exécution machine)
+- ✅ Maîtriser les trois **structures de contrôle** : séquence, condition (SI/SINON), boucle (POUR/TANT QUE)
+- ✅ Écrire un algorithme complet en pseudo-code cohérent et indenté
 
-**Droits des personnes :**
-- ✅ Maîtriser les **4 droits principaux** : accès, rectification, opposition, portabilité
-- ✅ Connaître les **délais** de réponse et les procédures
-- ✅ Savoir **traiter techniquement** une demande de droit (export, suppression, correction)
-- ✅ Identifier les **exceptions** légales aux droits
+**Variables et types :**
+- ✅ Définir variable, constante, affectation
+- ✅ Maîtriser les **4 types fondamentaux** : ENTIER, RÉEL, CHAÎNE, BOOLÉEN
+- ✅ Relier les types à leur **représentation binaire** (lien S1/S2/S3)
+- ✅ Effectuer opérations de base sur chaque type
+
+**Exercice de synthèse :**
+- ✅ **Décomposer** le problème de validation IPv4 en sous-problèmes indépendants
+- ✅ Écrire l'algorithme de validation complet en pseudo-code
+- ✅ Tester l'algorithme sur des **cas limites** (adresses frontière, entrées malformées)
+
+---

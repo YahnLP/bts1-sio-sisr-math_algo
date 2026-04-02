@@ -1,532 +1,422 @@
 ---
 author: YLP
-title: 🖥️ CISCO CYBER — CHAPITRES 3-4-5
+title: 📖 FICHE DE COURS
 ---
 
-# 🖥️ CISCO CYBER — CHAPITRES 3-4-5 (AUTONOME GUIDÉ)
+# 📖 FICHE DE COURS ÉLÈVE
+## Fonctions · Procédures · Modularité · Paramètres · Valeur de Retour
 
 *Durée : 1h25 — Individuel avec checkpoints collectifs*
+> **Prérequis :** S6–S8 — pseudo-code, types, SI/SINON, boucles, utilisation de `ValiderIPv4`, `IP_VERS_ENTIER`, `AppartientAuSousReseau`
 
 ---
 
-## 📚 ANNEXE 1 — Fiches de Prise de Notes (Ch.3-4-5)
+## Partie 1 — Du Programme Monolithique au Programme Modulaire
 
----
+### 1.1 Le Problème du Code Dupliqué
 
-### Chapitre 3 — Protection des Données et de la Vie Privée
-
-*Objectif : Comprendre comment les organisations protègent les données*
+Imaginez que dans trois programmes différents, vous ayez besoin de calculer le nombre d'hôtes d'un sous-réseau. Sans fonctions, vous réécrivez à chaque fois les mêmes lignes :
 
 ```
-CHAPITRE 3 — MES NOTES
-═══════════════════════════════════════════════════════════════
+  // Dans GenererIPsReseau (S8) :
+  nb_hotes ← PUISSANCE(2, 32 - cidr) - 2
 
-SECTION 3.1 — TYPES DE DONNÉES ORGANISATIONNELLES
-──────────────────────────────────────────────────────────────
-Les 3 états des données selon Cisco :
-1. _________________________ (données en cours d'utilisation)
-2. _________________________ (données stockées)
-3. _________________________ (données en transit réseau)
+  // Dans ClassifierSegment (S7) :
+  nb_hotes ← PUISSANCE(2, 32 - cidr) - 2    // même chose, copiée
 
-Exemple d'attaque sur chaque état :
-En cours : _________________ Au repos : _________________
-En transit : _______________
-
-SECTION 3.2 — MÉTHODES DE PROTECTION
-──────────────────────────────────────────────────────────────
-Définition de chaque terme :
-
-Chiffrement : _______________________________________________
-Authentification : __________________________________________
-Contrôle d'accès : __________________________________________
-
-SECTION 3.3 — DESTRUCTION DES DONNÉES
-──────────────────────────────────────────────────────────────
-Pourquoi la simple suppression ne suffit pas ?
-_______________________________________________________________
-
-3 méthodes de destruction sécurisée des données :
-1. _______________________ 2. _______________________ 3. _______________________
-
-SECTION 3.4 — TECHNOLOGIES DE PROTECTION
-──────────────────────────────────────────────────────────────
-Qu'est-ce qu'un VPN ? (selon Cisco)
-_______________________________________________________________
-
-Rôle d'un pare-feu :
-_______________________________________________________________
-
-QUIZ CHAPITRE 3
-──────────────────────────────────────────────────────────────
-Score obtenu : _____ %
-Questions manquées : ________________________________________
-À revoir : __________________________________________________
-═══════════════════════════════════════════════════════════════
+  // Dans AuditReseau (S8) :
+  nb_hotes ← PUISSANCE(2, 32 - cidr) - 2    // copiée encore
 ```
+
+Cette duplication a trois conséquences désastreuses. Si la formule contient une erreur, vous devez corriger trois endroits — et vous en oublierez certainement un. Si vous voulez ajouter une validation (cidr entre 0 et 30), vous devez l'ajouter trois fois. Et si quelqu'un lit votre code, il doit comprendre la même formule trois fois au lieu d'une.
+
+**La solution :** écrire la formule **une seule fois**, dans une fonction nommée, et l'appeler depuis les trois programmes.
+
+### 1.2 Avant et Après — La Même Logique, Deux Formes
+
+```
+  ┌─────────────────────────────────────────────────────────┐
+  │  AVANT (code dupliqué)   │  APRÈS (code modulaire)      │
+  ├─────────────────────────────────────────────────────────┤
+  │  ...                     │  nb_hotes ← NombreHotes(cidr)│
+  │  nb_hotes ←              │  ...                         │
+  │    PUISSANCE(2,32-cidr)-2│                              │
+  │  ...                     │  // L'algorithme est défini  │
+  │                          │  // une seule fois ailleurs  │
+  └─────────────────────────────────────────────────────────┘
+```
+
+*[Illustration : Deux schémas côte à côte. À gauche, trois blocs de programme contenant chacun le même calcul mis en évidence en rouge. À droite, les trois mêmes blocs dont le calcul est remplacé par un simple appel de fonction, et une unique définition de la fonction au-dessus. Des flèches pointent des trois appels vers la définition unique.]*
 
 ---
 
-### Checkpoint Ch.3 (5 min — Collectif)
+## Partie 2 — Anatomie d'une Fonction
 
-L'enseignant demande à un apprenant :
+### 2.1 La Structure Complète
 
-> *"En une phrase : Quels sont les 3 états des données selon Cisco et pourquoi cette distinction est-elle importante pour la sécurité ?"*
-
-**Réponse attendue :**
-- **En cours d'utilisation** (RAM, processeur) — Attaques mémoire
-- **Au repos** (disque, BDD) — Vol physique, intrusion
-- **En transit** (réseau) — Interception, MITM
-
-**Concept clé à retenir :** *Chaque état appelle des mesures de protection différentes.*
-
----
-
-### Chapitre 4 — Protection de l'Organisation
-
-*Objectif : Comprendre les mécanismes de défense systémiques*
+Une fonction se compose de cinq éléments obligatoires :
 
 ```
-CHAPITRE 4 — MES NOTES
-═══════════════════════════════════════════════════════════════
-
-SECTION 4.1 — LE PARE-FEU
-──────────────────────────────────────────────────────────────
-Rôle du pare-feu :
-_______________________________________________________________
-
-Différence pare-feu réseau vs pare-feu hôte (personnel) :
-Réseau : ____________________________________________________
-Hôte :   ____________________________________________________
-
-SECTION 4.2 — DÉTECTION D'INTRUSION (IDS / IPS)
-──────────────────────────────────────────────────────────────
-IDS = __________________ → Rôle : ___________________________
-IPS = __________________ → Rôle : ___________________________
-Différence entre les deux :
-_______________________________________________________________
-
-SECTION 4.3 — SÉCURITÉ EN TEMPS RÉEL
-──────────────────────────────────────────────────────────────
-Qu'est-ce qu'un SIEM ?
-_______________________________________________________________
-
-Qu'est-ce que la threat intelligence ?
-_______________________________________________________________
-
-SECTION 4.4 — GESTION DES VULNÉRABILITÉS
-──────────────────────────────────────────────────────────────
-Qu'est-ce qu'un test de pénétration (pentest) ?
-_______________________________________________________________
-
-Pourquoi faire des audits de sécurité réguliers ?
-_______________________________________________________________
-
-QUIZ CHAPITRE 4
-──────────────────────────────────────────────────────────────
-Score obtenu : _____ %
-Questions manquées : ________________________________________
-═══════════════════════════════════════════════════════════════
+  FONCTION NomDeLaFonction(param1 : TYPE1, param2 : TYPE2, ...) → TYPE_RETOUR
+  // Documentation : ce que fait la fonction, ce qu'elle attend, ce qu'elle retourne
+  DÉBUT
+      // Corps de la fonction — instructions locales
+      // Obligatoirement au moins un RETOURNER
+      RETOURNER valeur_resultat
+  FIN FONCTION
 ```
 
----
-
-### Checkpoint Ch.4 (5 min — Collectif)
-
-L'enseignant demande :
-
-> *"Quelle est la différence entre IDS et IPS ? Donnez un exemple concret pour chacun."*
-
-**Réponse attendue :**
-- **IDS** (Intrusion Detection System) : Détecte et alerte — *"Quelqu'un essaie d'entrer par la fenêtre → Alarme"*
-- **IPS** (Intrusion Prevention System) : Détecte ET bloque — *"Quelqu'un essaie d'entrer → Porte automatique claquée"*
-
----
-
-### Chapitre 5 — Votre Futur en Cybersécurité
-
-*Objectif : Découvrir les métiers et parcours de carrière*
+Voyons ces cinq éléments sur un exemple concret :
 
 ```
-CHAPITRE 5 — MES NOTES
-═══════════════════════════════════════════════════════════════
-
-SECTION 5.1 — MÉTIERS DE LA CYBERSÉCURITÉ
-──────────────────────────────────────────────────────────────
-Notez 5 métiers cités et leur description :
-
-1. ___________________________ :  ___________________________
-2. ___________________________ :  ___________________________
-3. ___________________________ :  ___________________________
-4. ___________________________ :  ___________________________
-5. ___________________________ :  ___________________________
-
-Quel métier vous intéresse le plus ? Pourquoi ?
-_______________________________________________________________
-
-SECTION 5.2 — CERTIFICATIONS
-──────────────────────────────────────────────────────────────
-Certifications citées par Cisco (en plus de celle-ci) :
-
-Niveau débutant : ___________________________________________
-Niveau intermédiaire : ______________________________________
-Niveau avancé : _____________________________________________
-
-SECTION 5.3 — CONSEILS CISCO POUR DÉBUTER
-──────────────────────────────────────────────────────────────
-3 conseils pratiques retenus du module :
-1. _________________________________________________________
-2. _________________________________________________________
-3. _________________________________________________________
-
-QUIZ CHAPITRE 5
-──────────────────────────────────────────────────────────────
-Score obtenu : _____ %
-
-TABLEAU DE PROGRESSION GLOBAL (à remettre à l'enseignant)
-──────────────────────────────────────────────────────────────
-Ch.1 : ___ %  Ch.2 : ___ %  Ch.3 : ___ %
-Ch.4 : ___ %  Ch.5 : ___ %
-
-Prêt pour l'examen final ? ☐ Oui  ☐ Pas encore (Ch. à retravailler : ___)
-═══════════════════════════════════════════════════════════════
+  FONCTION NombreHotes(cidr : ENTIER) → ENTIER
+  // Calcule le nombre d'adresses hôtes utilisables pour un masque /cidr.
+  // Précondition  : cidr doit être entre 0 et 30 inclus.
+  // Retourne      : 2^(32-cidr) - 2, ou -1 si cidr est invalide.
+  DÉBUT
+      SI cidr < 0 OU cidr > 30 ALORS
+          RETOURNER -1          // valeur sentinelle : signale l'erreur
+      FIN SI
+      bits_hote ← 32 - cidr    // variable locale — n'existe que ici
+      RETOURNER PUISSANCE(2, bits_hote) - 2
+  FIN FONCTION
 ```
 
----
-
-### Checkpoint Ch.5 (10 min — Collectif)
-
-L'enseignant anime un **tour de table rapide** :
-
-> *"Quel métier de la cybersécurité vous a le plus surpris ou intéressé ? En une phrase."*
-
-**Objectif pédagogique :** Connecter la formation à leur projet professionnel. Montrer que la cybersécurité offre des débouchés variés (pas seulement hacker ou analyste).
-
-**Métiers à connaître pour le BTS SIO SISR :**
-
-| **Métier** | **Description** | **Salaire débutant** |
+| **Élément** | **Dans l'exemple** | **Rôle** |
 |---|---|---|
-| Analyste SOC (N1) | Surveille les alertes de sécurité en temps réel | 28-35 K€ |
-| Pentesteur | Teste les défenses d'une organisation | 35-45 K€ |
-| RSSI | Responsable de la stratégie sécurité | 60-90 K€ |
-| Ingénieur cybersécurité | Conçoit et implémente les défenses | 40-60 K€ |
-| Répondant à incidents | Gère les crises de sécurité | 38-55 K€ |
-| DPO | Conformité RGPD | 45-75 K€ |
-| Forensics / Investigation | Analyse post-incident | 35-50 K€ |
+| Mot-clé `FONCTION` | `FONCTION` | Annonce qu'on définit une fonction |
+| Nom | `NombreHotes` | Identifiant réutilisable à l'appel |
+| Paramètre formel | `cidr : ENTIER` | Variable locale qui reçoit l'argument |
+| Type de retour | `→ ENTIER` | Type de la valeur que la fonction produit |
+| `RETOURNER` | Deux occurrences | Fournit la valeur résultat et arrête la fonction |
 
----
+### 2.2 Appeler une Fonction — L'Argument
 
----
-
-# ⚖️ ÉTUDE DE CAS RGPD — ANALYSE COMPLÈTE D'UNE VIOLATION
-
-## ANNEXE 2 — DOSSIER ÉTUDIANT
-
-*Durée : 35 min individuel + 20 min délibération collective*
-
----
-
-## LE CAS : "MÉDIAGROUP SA"
-
-### Présentation de l'Organisation
-
-**MédiaGroup SA** est un groupe de presse régionale français :
-- 180 salariés répartis sur 3 sites (Lyon, Grenoble, Clermont-Ferrand)
-- Activités : Presse papier + Site web d'information + Application mobile
-- Données traitées :
-  - **Abonnés numériques :** 47 000 personnes (nom, prénom, email, adresse, IBAN pour prélèvement, historique de lecture)
-  - **Salariés :** 180 dossiers RH complets (données de santé pour certains)
-  - **Annonceurs :** 1 200 entreprises clientes (données contacts)
-  - **Données sensibles :** Articles en cours de rédaction (sources journalistiques protégées)
-- DPO désigné : Mme Isabelle Renaud (interne, juriste)
-- Hébergeur : OVHcloud (France)
-
----
-
-### Chronologie de l'Incident
+À l'appel, on fournit un **argument** (une valeur concrète) à la place du paramètre formel :
 
 ```
-CHRONOLOGIE DÉTAILLÉE
-═══════════════════════════════════════════════════════════════
+  // À l'appel, l'argument est 24 — la valeur est copiée dans cidr
+  nb ← NombreHotes(24)       // nb vaut 254
 
-LUNDI 18 NOVEMBRE — JOUR DE L'INCIDENT
+  // L'argument peut être une variable
+  mon_cidr ← 26
+  nb ← NombreHotes(mon_cidr) // nb vaut 62
 
-04h37   Alerte automatique du système de monitoring :
-        Trafic réseau anormal depuis le serveur de BDD principal
-        → Connexion inhabituelle depuis une IP roumaine (185.234.XX.XX)
-        → Export massif en cours (2,3 Go de données transférées)
+  // L'argument peut être une expression
+  nb ← NombreHotes(32 - 8)   // équivaut à NombreHotes(24)
+```
 
-        ⚠️ L'alerte est envoyée par email à l'administrateur IT,
-        Marc Lefebvre. Marc ne lit pas ses emails professionnels
-        la nuit.
+> ⚠️ **Paramètre formel ≠ argument.** `cidr` dans la définition est le paramètre formel — c'est un nom local à la fonction. `mon_cidr` à l'appel est l'argument — c'est la variable du programme appelant. Les deux sont des entités distinctes. Modifier `cidr` à l'intérieur de la fonction ne modifie **jamais** `mon_cidr` à l'extérieur.
 
-05h15   La connexion cesse. 2,3 Go ont été exfiltrés.
+### 2.3 `RETOURNER` Arrête Tout
 
-08h45   Marc Lefebvre arrive au bureau. Lit l'alerte de 4h37.
-        Il analyse les logs : L'attaquant a utilisé un compte
-        administrateur valide (admin_legacy) avec mot de passe
-        "Admin2019!" — Ce compte était inutilisé depuis 2021
-        mais jamais supprimé.
+Le mot-clé `RETOURNER` est définitif : dès qu'il est exécuté, la fonction se termine immédiatement. Les instructions suivantes ne s'exécutent pas :
 
-09h30   Marc isole le serveur de BDD et change tous les mots
-        de passe administrateurs.
+```
+  FONCTION ExempleRetour(n : ENTIER) → CHAÎNE
+  DÉBUT
+      SI n < 0 ALORS
+          RETOURNER "négatif"   // ← la fonction s'arrête ici si n < 0
+      FIN SI
+      RETOURNER "positif ou nul" // ← atteint seulement si n >= 0
+      AFFICHER "Cette ligne ne s'exécute JAMAIS"  // code mort
+  FIN FONCTION
+```
 
-10h15   Marc informe sa responsable, la Directrice Technique,
-        Laurène Moreau.
+Cette propriété permet d'écrire des **sorties anticipées** (early return) pour traiter les cas d'erreur en début de fonction, ce qui simplifie la lecture du cas nominal.
 
-11h00   Laurène Moreau contacte Isabelle Renaud (DPO).
-        Première réunion de crise.
+---
 
-11h30   Analyse des données exfiltrées :
-        → Base complète des abonnés numériques (47 000 personnes)
-          Noms, prénoms, emails, adresses postales, IBAN,
-          dates de naissance, historique de lecture des articles
-        → 23 dossiers RH de salariés malades (arrêts maladie,
-          diagnostics partiels transmis par erreur au serveur BDD)
-        → Articles en cours de rédaction non publiés
-          (sources journalistiques potentiellement identifiables)
+## Partie 3 — Fonction vs. Procédure
 
-13h00   Le DPO Isabelle Renaud prépare la notification CNIL.
-        Elle se demande si elle a le temps d'attendre mardi matin
-        pour avoir plus d'informations.
+Une **procédure** produit un effet sans retourner de valeur utilisable. Elle peut afficher, modifier un état global, ou déclencher une action — mais on ne peut pas écrire `x ← MaProcedure(...)`.
 
-MARDI 19 NOVEMBRE
+```
+  PROCÉDURE AfficherEnTeteReseau(reseau : CHAÎNE, cidr : ENTIER)
+  // Affiche l'en-tête informatif d'un sous-réseau — aucune valeur retournée.
+  DÉBUT
+      AFFICHER "══════════════════════════════"
+      AFFICHER "Réseau   : " + reseau + "/" + cidr
+      AFFICHER "Hôtes    : " + NombreHotes(cidr)   // appel de fonction dans une procédure
+      AFFICHER "══════════════════════════════"
+  FIN PROCÉDURE
+```
 
-09h00   Isabelle Renaud envoie la notification CNIL.
-        (28 heures après la prise de connaissance par Marc)
+La règle pratique pour distinguer les deux : **si vous pouvez écrire `x ← ...` ou `SI ...` devant l'appel, c'est une fonction. Sinon, c'est une procédure.**
 
-10h00   Un journaliste du concurrent "Le Quotidien du Rhône"
-        appelle MédiaGroup : Des données d'abonnés circulent
-        sur un forum du dark web depuis ce matin.
-
-14h00   Confirmation : Les 47 000 dossiers abonnés sont en ligne
-        sur un forum cybercriminel. Prix : 0,03 € par enregistrement.
-        Les IBAN sont clairement visibles.
-
-MERCREDI 20 NOVEMBRE
-
-09h00   Plusieurs abonnés appellent le service client :
-        Ils ont reçu des emails de phishing très ciblés utilisant
-        leurs données précises (nom, dernier article lu, abonnement exact).
-
-═══════════════════════════════════════════════════════════════
+```
+  nb ← NombreHotes(24)              // ✓ fonction — retourne une valeur
+  SI ValiderIPv4(ip) ALORS ...       // ✓ fonction — retourne un booléen
+  AfficherEnTeteReseau("10.0.0.0", 8) // procédure — appel seul, sans récupérer de valeur
 ```
 
 ---
 
-### Erreurs Commises (À identifier par les apprenants)
+## Partie 4 — La Portée Locale
 
-*L'enseignant ne les révèle pas à ce stade — Les apprenants doivent les trouver.*
+### 4.1 Chaque Fonction Vit dans Son Propre Espace
 
-```
-ERREURS À IDENTIFIER DANS LE CAS
-═══════════════════════════════════════════════════════════════
-(Liste pour l'enseignant — NE PAS DISTRIBUER)
-
-① Compte admin_legacy jamais supprimé malgré inactivité depuis 2021
-  → Violation principe de moindre privilège + revue périodique des comptes
-
-② Mot de passe faible "Admin2019!" sur compte admin
-  → Violation politique de mots de passe robustes
-
-③ Alertes de sécurité uniquement par email (non lues la nuit)
-  → Procédure d'astreinte inexistante
-
-④ Données RH (diagnostics) stockées sur même serveur que BDD abonnés
-  → Violation de cloisonnement des données + données sensibles santé
-
-⑤ Données RH contenant "diagnostics partiels" = données de santé
-  → Ne devaient PAS être sur ce serveur (violation Art. 9 RGPD)
-
-⑥ Laurène Moreau attend 2h avant de contacter le DPO
-  → Procédure de remontée d'incident non définie / non respectée
-
-⑦ Isabelle Renaud envisage d'attendre le lendemain matin
-  → Le délai 72h ne se met pas en pause la nuit !
-
-⑧ Notification CNIL à 28h = dans les délais MAIS...
-  → Les personnes n'ont pas été notifiées immédiatement
-  → IBAN exposés = risque très élevé → Notification urgente requise
-═══════════════════════════════════════════════════════════════
-```
-
----
-
-### Questions de l'Étude de Cas
-
-*À traiter individuellement (35 min)*
-
----
-
-#### PARTIE A — Qualification de la Violation (8 min)
+Les variables déclarées ou reçues à l'intérieur d'une fonction n'existent que pendant son exécution. Ce concept s'appelle la **portée locale** (ou scope local).
 
 ```
-A1. Identifiez les types de violation(s) subies par MédiaGroup SA.
-    Justifiez avec les faits du cas.
-──────────────────────────────────────────────────────────────────
-☐ Violation de CONFIDENTIALITÉ
-  Faits : ____________________________________________________
+  ALGORITHME ProgrammePrincipal
+  DÉBUT
+      cidr_principal ← 24
+      resultat ← NombreHotes(cidr_principal)
+      // ici, la variable "bits_hote" n'existe pas — elle est locale à NombreHotes
+      AFFICHER resultat   // 254
+  FIN
 
-☐ Violation de DISPONIBILITÉ
-  Faits : ____________________________________________________
+  FONCTION NombreHotes(cidr : ENTIER) → ENTIER
+  DÉBUT
+      bits_hote ← 32 - cidr   // bits_hote : variable locale, visible ici seulement
+      RETOURNER PUISSANCE(2, bits_hote) - 2
+      // quand la fonction se termine, bits_hote disparaît
+  FIN FONCTION
+```
 
-☐ Violation d'INTÉGRITÉ
-  Faits : ____________________________________________________
+*[Illustration : Deux boîtes rectangulaires côte à côte avec une ligne de séparation. La boîte gauche (Programme Principal) contient les variables `cidr_principal` et `resultat`. La boîte droite (NombreHotes) contient les variables `cidr` (paramètre) et `bits_hote` (locale). Des étiquettes "invisible de là-bas" pointent depuis chaque boîte vers les variables de l'autre. Une flèche nommée "appel avec 24" va de la gauche vers la droite, et une flèche nommée "retour : 254" revient de la droite vers la gauche.]*
 
-A2. Quand démarre précisément le délai des 72 heures ?
-    Justifiez.
-──────────────────────────────────────────────────────────────────
-Le délai commence le : _____ novembre à ___h___ (heure précise)
-Car : _______________________________________________________
+### 4.2 La Conséquence Pratique : La Liberté de Nommage
 
-Date/heure limite pour notifier la CNIL :
-Le : _____ novembre à ___h___
+Deux fonctions peuvent avoir des variables locales portant le même nom — elles ne s'interfèrent pas :
 
-A3. La notification CNIL envoyée mardi à 9h est-elle dans les délais ?
-──────────────────────────────────────────────────────────────────
-☐ Oui, dans les délais    ☐ Non, hors délai
+```
+  FONCTION NombreHotes(cidr : ENTIER) → ENTIER
+  DÉBUT
+      bits_hote ← 32 - cidr   // ce "bits_hote" est local à NombreHotes
+      ...
+  FIN FONCTION
 
-Calcul du délai réel : _______________________________________
+  FONCTION AutreFonction(n : ENTIER) → ENTIER
+  DÉBUT
+      bits_hote ← n * 2       // ce "bits_hote" est local à AutreFonction
+      ...                      // les deux ne s'interfèrent jamais
+  FIN FONCTION
 ```
 
 ---
 
-#### PARTIE B — Analyse des Données et Risques (10 min)
+## Partie 5 — La Valeur Sentinelle : Gérer les Erreurs Proprement
+
+Quand une fonction reçoit une entrée invalide, deux options existent : afficher un message d'erreur (effet de bord — transforme la fonction en procédure hybride, ce qui est peu élégant), ou **retourner une valeur convenue** qui signale l'erreur à l'appelant. Cette valeur convenue s'appelle une **valeur sentinelle**.
+
+Par convention, les fonctions qui retournent un nombre positif utilisent souvent **−1** comme sentinelle d'erreur :
 
 ```
-B1. Catégorisez les données exfiltrées.
-    Pour chaque catégorie, indiquez si ce sont des données
-    sensibles (Art. 9 RGPD) et le risque pour les personnes.
-──────────────────────────────────────────────────────────────────
-DONNÉES ABONNÉS (47 000 personnes)
-Données sensibles ? ☐ Oui  ☐ Non
-Si oui, lesquelles : ________________________________________
-Risques pour les personnes : ________________________________
+  FONCTION NombreHotes(cidr : ENTIER) → ENTIER
+  // Retourne -1 si cidr est invalide (hors 0–30).
+  DÉBUT
+      SI cidr < 0 OU cidr > 30 ALORS
+          RETOURNER -1          // sentinelle
+      FIN SI
+      RETOURNER PUISSANCE(2, 32 - cidr) - 2
+  FIN FONCTION
+```
 
-DONNÉES RH (23 dossiers salariés)
-Données sensibles ? ☐ Oui  ☐ Non
-Si oui, lesquelles : ________________________________________
-Risques pour les personnes : ________________________________
+L'appelant a la responsabilité de tester la sentinelle avant d'utiliser le résultat :
 
-ARTICLES NON PUBLIÉS (sources journalistiques)
-Type de risque particulier : ________________________________
-(Indice : Ce ne sont pas des données personnelles d'abonnés...)
+```
+  nb ← NombreHotes(mon_cidr)
+  SI nb = -1 ALORS
+      AFFICHER "Masque invalide — calcul impossible"
+  SINON
+      AFFICHER "Hôtes disponibles : " + nb
+  FIN SI
+```
 
-B2. Quel est le niveau de risque global pour les abonnés ?
-──────────────────────────────────────────────────────────────────
-☐ Faible    ☐ Élevé    ☐ Très élevé
+> 💡 **Le contrat d'une fonction.** Lorsque vous écrivez une fonction, vous établissez un contrat : "si tu m'appelles avec une entrée valide, je te retourne le bon résultat ; si tu m'appelles avec une entrée invalide, je te retourne −1". Ce contrat doit toujours être documenté. C'est la même notion que les préconditions vues en S7 — formalisée ici dans la signature de la fonction.
 
-Justification (citez au moins 3 éléments factuels) :
-1. _________________________________________________________
-2. _________________________________________________________
-3. _________________________________________________________
+---
 
-B3. Compte tenu de ce niveau de risque, les 47 000 abonnés
-    doivent-ils être notifiés personnellement ?
-──────────────────────────────────────────────────────────────────
-☐ Oui, immédiatement    ☐ Oui, mais peut attendre    ☐ Non
+## Partie 6 — Écrire la Bibliothèque Réseau Complète
 
-Justification RGPD (citez l'article applicable) :
-_______________________________________________________________
+### 6.1 `NombreHotes(cidr)` — La Fonction Exercice
+
+```
+  FONCTION NombreHotes(cidr : ENTIER) → ENTIER
+  // Retourne le nombre d'adresses hôtes utilisables dans un sous-réseau /cidr.
+  // Précondition : 0 ≤ cidr ≤ 30.
+  // Retourne -1 si cidr est hors de cette plage.
+  DÉBUT
+      SI cidr < 0 OU cidr > 30 ALORS
+          RETOURNER -1
+      FIN SI
+      RETOURNER PUISSANCE(2, 32 - cidr) - 2
+  FIN FONCTION
+```
+
+**Table de vérification :**
+
+| `cidr` | `32 − cidr` | `2^(32−cidr)` | `− 2` | **Résultat** |
+|---|---|---|---|---|
+| 30 | 2 | 4 | −2 | **2** (lien point-à-point) |
+| 28 | 4 | 16 | −2 | **14** |
+| 24 | 8 | 256 | −2 | **254** |
+| 20 | 12 | 4 096 | −2 | **4 094** |
+| 16 | 16 | 65 536 | −2 | **65 534** |
+| 8 | 24 | 16 777 216 | −2 | **16 777 214** |
+| 31 | — | — | — | **−1** (sentinelle) |
+
+### 6.2 `CalculerBroadcast(ip, cidr)` — Composition de Fonctions Existantes
+
+Cette fonction illustre la composition : elle s'appuie sur `AND_BINAIRE` et `NOT_BINAIRE` pour produire son résultat.
+
+```
+  FONCTION CalculerBroadcast(ip : CHAÎNE, cidr : ENTIER) → CHAÎNE
+  // Retourne l'adresse broadcast d'un sous-réseau.
+  // Utilise AND_BINAIRE pour l'adresse réseau, NOT_BINAIRE pour le wildcard.
+  // Retourne "" (chaîne vide) si ip invalide ou cidr hors plage.
+  DÉBUT
+      SI NON ValiderIPv4(ip) ALORS
+          RETOURNER ""
+      FIN SI
+      SI cidr < 0 OU cidr > 32 ALORS
+          RETOURNER ""
+      FIN SI
+
+      reseau   ← AND_BINAIRE(ip, cidr)       // adresse réseau (S4)
+      wildcard ← NOT_BINAIRE(cidr)           // masque inversé (S4)
+      RETOURNER OR_BINAIRE(reseau, wildcard) // broadcast = réseau OR wildcard
+  FIN FONCTION
+```
+
+> 💡 **Observer la composition :** `CalculerBroadcast` ne contient aucun calcul binaire direct — elle délègue entièrement aux fonctions `AND_BINAIRE`, `NOT_BINAIRE` et `OR_BINAIRE`. C'est la modularité à l'œuvre : chaque fonction fait une seule chose bien, et les fonctions complexes se construisent par assemblage des fonctions simples.
+
+### 6.3 Refactoriser `GenererIPsReseau` — Avant et Après
+
+**Avant (S8) — calculs inline, moins lisible :**
+
+```
+  // Extrait de GenererIPsReseau (S8)
+  nb_bits_hote ← 32 - cidr
+  nb_hotes     ← PUISSANCE(2, nb_bits_hote) - 2    // calcul dupliqué
+  broadcast    ← OR_BINAIRE(reseau, NOT_BINAIRE(cidr))  // calcul inline
+```
+
+**Après (S9) — délégation aux fonctions, plus lisible :**
+
+```
+  // Même section refactorisée avec les nouvelles fonctions
+  nb_hotes  ← NombreHotes(cidr)              // délégation
+  broadcast ← CalculerBroadcast(ip_ref, cidr) // délégation
+```
+
+Le comportement est identique. Mais la version refactorisée se lit comme un texte : "le nombre d'hôtes est calculé par NombreHotes, le broadcast est calculé par CalculerBroadcast". Un technicien qui découvre ce code comprend instantanément l'intention, sans déchiffrer la formule.
+
+### 6.4 La Bibliothèque Réseau Complète
+
+```
+  // ═══════════════════════════════════════════════════════════════
+  // BIBLIOTHÈQUE RÉSEAU — BTS SIO SISR Année 1
+  // À utiliser dans tous vos programmes d'analyse réseau
+  // ═══════════════════════════════════════════════════════════════
+
+  FONCTION ValiderIPv4(ip : CHAÎNE) → BOOLÉEN          // [S6]
+  FONCTION AND_BINAIRE(ip : CHAÎNE, cidr : ENTIER) → CHAÎNE    // [S4/S7]
+  FONCTION NOT_BINAIRE(cidr : ENTIER) → CHAÎNE                 // [S4]
+  FONCTION OR_BINAIRE(a : CHAÎNE, b : CHAÎNE) → CHAÎNE         // [S4]
+  FONCTION IP_VERS_ENTIER(ip : CHAÎNE) → ENTIER               // [S8]
+  FONCTION ENTIER_VERS_IP(n : ENTIER) → CHAÎNE                 // [S8]
+  FONCTION AppartientAuSousReseau(a, b : CHAÎNE,
+                                  cidr : ENTIER) → BOOLÉEN     // [S7]
+  FONCTION NombreHotes(cidr : ENTIER) → ENTIER                 // [S9] ✓ NOUVEAU
+  FONCTION CalculerBroadcast(ip : CHAÎNE,
+                             cidr : ENTIER) → CHAÎNE           // [S9] ✓ NOUVEAU
+
+  // ═══════════════════════════════════════════════════════════════
+  // PROGRAMME PRINCIPAL — utilise toutes les fonctions ci-dessus
+  // ═══════════════════════════════════════════════════════════════
+
+  ALGORITHME AnalyserSousReseau
+  DÉBUT
+      LIRE ip_saisie
+      LIRE cidr_saisi
+
+      SI NON ValiderIPv4(ip_saisie) ALORS
+          AFFICHER "IP invalide"
+          RETOURNER
+      FIN SI
+
+      reseau    ← AND_BINAIRE(ip_saisie, cidr_saisi)
+      broadcast ← CalculerBroadcast(ip_saisie, cidr_saisi)
+      nb_hotes  ← NombreHotes(cidr_saisi)
+
+      AFFICHER "Réseau    : " + reseau + "/" + cidr_saisi
+      AFFICHER "Broadcast : " + broadcast
+      AFFICHER "Hôtes     : " + nb_hotes
+      AFFICHER "Première  : " + ENTIER_VERS_IP(IP_VERS_ENTIER(reseau) + 1)
+      AFFICHER "Dernière  : " + ENTIER_VERS_IP(IP_VERS_ENTIER(broadcast) - 1)
+  FIN
 ```
 
 ---
 
-#### PARTIE C — Notification CNIL (10 min)
+## Partie 7 — Documenter une Fonction
+
+Une fonction sans documentation est une boîte noire illisible. La convention minimale à respecter dans ce module :
 
 ```
-Rédigez les grandes lignes de la notification CNIL
-que doit envoyer Isabelle Renaud le mardi 19 novembre.
-──────────────────────────────────────────────────────────────────
-
-NOTIFICATION CNIL — MÉDIAGROUP SA
-═══════════════════════════════════════════════════════════════
-
-NATURE DE LA VIOLATION
-──────────────────────────────────────────────────────────────
-Types de violation (cocher) :
-☐ Confidentialité  ☐ Disponibilité  ☐ Intégrité
-
-Description factuelle (4-5 lignes) :
-_______________________________________________________________
-_______________________________________________________________
-_______________________________________________________________
-_______________________________________________________________
-
-DONNÉES ET PERSONNES CONCERNÉES
-──────────────────────────────────────────────────────────────
-Catégories de données :
-_______________________________________________________________
-
-Nombre de personnes concernées (total) : _____________________
-
-Données sensibles concernées ? ☐ Oui → Lesquelles : _________
-
-CONSÉQUENCES PROBABLES
-──────────────────────────────────────────────────────────────
-Risques identifiés pour les personnes :
-1. _________________________________________________________
-2. _________________________________________________________
-3. _________________________________________________________
-
-MESURES PRISES
-──────────────────────────────────────────────────────────────
-Mesures immédiates effectuées :
-1. _________________________________________________________
-2. _________________________________________________________
-
-Mesures correctives prévues :
-1. _________________________________________________________
-2. _________________________________________________________
-
-NOTIFICATION AUX PERSONNES PRÉVUE ?
-──────────────────────────────────────────────────────────────
-☐ Oui → Date prévue : _______________________________________
-☐ Non → Justification : _____________________________________
-
-═══════════════════════════════════════════════════════════════
+  FONCTION MaFonction(param : TYPE) → TYPE_RETOUR
+  // DESCRIPTION : Ce que fait la fonction en une phrase.
+  // PARAMÈTRES  : param — description et contraintes (ex : entre 0 et 32)
+  // RETOURNE    : description de la valeur retournée dans le cas normal
+  //               et de la valeur sentinelle dans le cas d'erreur
+  // EXEMPLES    : MaFonction(24) → 254
+  //               MaFonction(99) → -1 (invalide)
+  DÉBUT
+      ...
+  FIN FONCTION
 ```
 
 ---
 
-#### PARTIE D — Erreurs et Mesures Correctives (7 min)
+## Partie 8 — Exercices Guidés
+
+**Exercice 1.1 — Lire une fonction**
+Analysez la fonction suivante et répondez aux questions sans l'exécuter : quel est son type de retour ? Que retourne-t-elle si `cidr = 24` ? Si `cidr = 0` ? Quel problème contient-elle ?
 
 ```
-D1. Identifiez au moins 4 erreurs ou manquements
-    commis par MédiaGroup SA AVANT et PENDANT l'incident.
-──────────────────────────────────────────────────────────────────
-AVANT L'INCIDENT (erreurs de prévention) :
-
-Erreur 1 : _________________________________________________
-Solution RGPD/sécurité : ____________________________________
-
-Erreur 2 : _________________________________________________
-Solution RGPD/sécurité : ____________________________________
-
-PENDANT L'INCIDENT (erreurs de réaction) :
-
-Erreur 3 : _________________________________________________
-Solution procédurale : ______________________________________
-
-Erreur 4 : _________________________________________________
-Solution procédurale : ______________________________________
-
-D2. Rédigez le message d'information à envoyer
-    aux 47 000 abonnés. (10 lignes maximum, ton professionnel)
-──────────────────────────────────────────────────────────────────
-Objet : ____________________________________________________
-
-Madame, Monsieur,
-
-_______________________________________________________________
-_______________________________________________________________
-_______________________________________________________________
-_______________________________________________________________
-_______________________________________________________________
-_______________________________________________________________
-_______________________________________________________________
-_______________________________________________________________
-_______________________________________________________________
-_______________________________________________________________
-
-L'équipe MédiaGroup SA
+  FONCTION TailleReseau(cidr : ENTIER) → ENTIER
+  DÉBUT
+      RETOURNER PUISSANCE(2, 32 - cidr)
+  FIN FONCTION
 ```
+
+**Exercice 1.2 — Compléter une signature**
+La définition suivante est incomplète. Identifiez ce qui manque et complétez-la :
+
+```
+  ??? EstAdresseReseau(ip : CHAÎNE, cidr : ENTIER)
+  DÉBUT
+      reseau ← AND_BINAIRE(ip, cidr)
+      RETOURNER (ip = reseau)
+  FIN ???
+```
+
+**Exercice 1.3 — Écrire `MasqueDecimal(cidr)`**
+Écrire la fonction `MasqueDecimal(cidr)` qui retourne le masque sous-réseau en notation décimale pointée (ex : `MasqueDecimal(24)` → `"255.255.255.0"`). Utiliser la logique binaire pour construire les 4 octets, ou la table des 9 valeurs possibles par tranche de 8 bits.
+
+**Exercice 1.4 — Refactoriser**
+Reprendre l'algorithme `AuditReseau` de S8 et remplacer tous les calculs inline par des appels aux fonctions de la bibliothèque. La logique ne doit pas changer, seule la forme.
+
+---
+
+## Vocabulaire Clé à Maîtriser pour l'Examen
+
+| **Terme** | **Définition** |
+|---|---|
+| **Fonction** | Sous-programme qui prend des paramètres en entrée et retourne une valeur utilisable dans une expression ou un test |
+| **Procédure** | Sous-programme qui produit un effet (affichage, action) sans retourner de valeur exploitable |
+| **Paramètre formel** | Variable locale définie dans la signature de la fonction — reçoit la valeur de l'argument à l'appel |
+| **Argument** | Valeur (ou variable) fournie à l'appel d'une fonction — copiée dans le paramètre formel |
+| **`RETOURNER`** | Instruction qui fournit le résultat d'une fonction et arrête son exécution immédiatement |
+| **Portée locale** | Espace de visibilité des variables — une variable locale n'existe qu'à l'intérieur de la fonction qui la déclare |
+| **Valeur sentinelle** | Valeur conventionnelle (souvent −1 ou `""`) retournée par une fonction pour signaler une entrée invalide ou une condition d'erreur |
+| **Modularité** | Principe de décomposition d'un programme en sous-unités indépendantes et réutilisables (fonctions, procédures) |
+| **Bibliothèque** | Ensemble de fonctions réutilisables organisées thématiquement — les fonctions réseau de ce module en sont un exemple |
+| **Composition** | Appel d'une fonction depuis l'intérieur d'une autre — `CalculerBroadcast` compose `AND_BINAIRE`, `NOT_BINAIRE` et `OR_BINAIRE` |
+| **Refactorisation** | Réécriture d'un algorithme existant pour améliorer sa structure (modularité, lisibilité) sans changer son comportement |
+| **Contrat d'une fonction** | Accord implicite entre l'auteur et l'utilisateur : entrées valides → résultat garanti, entrées invalides → sentinelle définie |
+
+---

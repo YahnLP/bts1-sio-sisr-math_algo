@@ -5,38 +5,41 @@
 | **Champ** | **Détail** |
 |-----------|-----------|
 | **Semaine** | S10 — Année 1 |
-| **Bloc** | Bloc 3 — Cybersécurité des services informatiques |
+| **Module** | Mathématiques pour l'informatique et algorithmique |
 | **Durée totale** | 4 heures |
-| **Public** | Apprentis BTS SIO SISR — dixième semaine |
-| **Modalité** | Présentiel — salle de cours avec accès internet |
-| **Prérequis** | S8-S9 BLOC 3 (Cisco Cyber Ch.1 à Ch.5 complétés) |
+| **Public** | Apprentis BTS SIO SISR |
+| **Modalité** | Présentiel — salle informatique |
+| **Prérequis** | Algorithmique de base (S6-S9), Subnetting (S7-S8) |
 
 ---
 
-## Compétences RNCP Visées
+## Compétences Visées
 
 | **Code** | **Intitulé de la compétence** | **Niveau visé** |
 |----------|-------------------------------|-----------------|
-| **B3.1** | Identifier les principales menaces de sécurité | Maîtrise |
-| **B3.2** | Mettre en œuvre les mesures de sécurité de base | Maîtrise |
-| **B3.4** | Gérer les accès et les droits des utilisateurs | Acquisition |
+| **B1.1** | Gérer le patrimoine informatique | Application |
+| **B1.2** | Répondre aux incidents et aux demandes d'assistance | Application |
+| **B2.1** | Administrer les systèmes et les services informatiques | Maîtrise |
 
-> 📌 **S10 BLOC 3 est une séance double accomplissement.** La matinée est dédiée à la **validation officielle de la certification Cisco** — moment fort et motivant. L'après-midi introduit la **gestion des droits d'accès**, compétence technique concrète que les apprenants mettront en œuvre dès leur première alternance : qui a le droit de faire quoi, sur quoi, et pourquoi.
+> 📌 L'introduction aux structures de données (tableaux et listes) qui sont fondamentales pour la programmation et l'automatisation des tâches SISR.
 
 ---
 
 ## Objectifs Pédagogiques
 
-**Cisco Cyber — Examen Final :**
-- ✅ Réviser les **concepts clés** des 5 chapitres
-- ✅ Passer l'**examen final** avec un score ≥ 70%
-- ✅ Obtenir le **badge Credly** officiel Cisco
-- ✅ Publier le badge sur **LinkedIn**
+**Structures de données :**
+- ✅ Comprendre la notion de **structure de données**
+- ✅ Différencier **tableau** (array) et **liste** (list)
+- ✅ Manipuler des tableaux : création, accès, modification
+- ✅ Manipuler des listes : ajout, suppression, parcours
+- ✅ Identifier les cas d'usage appropriés pour chaque structure
 
-**Droits d'accès :**
-- ✅ Définir le **principe du moindre privilège** (Least Privilege)
-- ✅ Distinguer **authentification** et **autorisation**
-- ✅ Comprendre les **modèles de contrôle d'accès** (DAC, MAC, RBAC)
-- ✅ Construire et lire une **matrice de droits** (ACL)
-- ✅ Implémenter techniquement les droits sur **Windows AD** et **Linux**
-- ✅ Identifier les **risques** d'une mauvaise gestion des accès
+**Algorithmique appliquée :**
+- ✅ Écrire des algorithmes utilisant tableaux et listes
+- ✅ Comprendre la notion d'**indice** (index) et d'**itération**
+- ✅ Résoudre des problèmes concrets SISR avec ces structures
+
+**Évaluation formative :**
+- ✅ Vérifier la maîtrise du **subnetting** (S7-S8)
+- ✅ Vérifier la maîtrise de l'**algorithmique de base** (S6-S9)
+- ✅ Identifier les lacunes pour remédiation ciblée

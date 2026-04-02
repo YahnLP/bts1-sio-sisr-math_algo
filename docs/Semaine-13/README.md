@@ -8,11 +8,11 @@
 | **Champ** | **Détail** |
 |-----------|-----------|
 | **Semaine** | S13 — Année 1 |
-| **Bloc** | Bloc 3 — Cybersécurité des services informatiques |
+| **Module** | Mathématiques pour l'informatique et algorithmique |
 | **Durée totale** | 4 heures |
-| **Public** | Apprentis BTS SIO SISR — treizième semaine |
-| **Modalité** | Présentiel — salle de cours + TP machines Linux/Windows |
-| **Prérequis** | S11 (cryptographie symétrique, AES, OpenSSL) · Notions de réseaux (HTTPS, TLS) |
+| **Public** | Apprentis BTS SIO SISR — profils hétérogènes |
+| **Modalité** | Présentiel — salle informatique |
+| **Prérequis** | S1-S12 : Variables, listes, boucles, fonctions, chaînes |
 
 ---
 
@@ -20,29 +20,33 @@
 
 | **Code** | **Intitulé de la compétence** | **Niveau visé** |
 |----------|-------------------------------|-----------------|
-| **B3.2** | Mettre en œuvre les mesures de sécurité de base | Maîtrise |
-| **B3.5** | Mettre en œuvre des mécanismes de chiffrement | Maîtrise |
-| **B3.6** | Administrer une infrastructure à clés publiques | Acquisition |
+| **B1.3** | Mettre à disposition des utilisateurs un service informatique | Application |
+| **B2.2** | Assurer la sécurité et le suivi d'un système informatique | Application |
+| **B2.3** | Gérer le patrimoine informatique | Application |
 
-> 📌 **S13 est la séance qui fait enfin comprendre pourquoi le cadenas HTTPS apparaît dans un navigateur.** La PKI (Public Key Infrastructure) est l'une des infrastructures les plus fondamentales d'Internet — et pourtant l'une des moins comprises. Un technicien SISR qui ne maîtrise pas les certificats X.509 ne peut pas administrer un serveur web sécurisé, configurer un VPN, déployer de la messagerie chiffrée, ou gérer une CA d'entreprise. S13 donne les clés théoriques ET pratiques.
+> 📌 **S13 relie les mathématiques à l'administration système** en montrant que les **groupes Active Directory** sont des **ensembles mathématiques**. Cette séance sera **concrète et pratique**, car les opérations sur les ensembles (union, intersection, différence) répondent à des questions métier réelles : "Qui peut accéder à quoi ?" "Qui a perdu ses droits ?" "Qui doit être dans quel groupe ?"
 
 ---
 
 ## Objectifs Pédagogiques
 
-**Certificats et PKI — Théorie :**
-- ✅ Comprendre le **problème de confiance** que résout la PKI
-- ✅ Définir un **certificat numérique** et ses composants
-- ✅ Maîtriser le **standard X.509** (champs, structure, extensions)
-- ✅ Comprendre la **chaîne de confiance** (Root CA → Intermediate CA → Leaf)
-- ✅ Distinguer les **types de certificats** (DV, OV, EV, wildcard, client)
-- ✅ Comprendre le **cycle de vie** d'un certificat (demande, signature, révocation)
-- ✅ Connaître les **mécanismes de révocation** (CRL, OCSP)
+**Théorie des ensembles :**
+- ✅ Définir un **ensemble** et ses propriétés
+- ✅ Maîtriser la notation mathématique : `{a, b, c}`, `∈`, `∉`, `⊂`, `⊃`
+- ✅ Comprendre les opérations : **union** (∪), **intersection** (∩), **différence** (\\), **complément**
+- ✅ Visualiser les ensembles avec des **diagrammes de Venn**
 
-**TP OpenSSL :**
-- ✅ Créer une **clé privée RSA** et **EC** avec OpenSSL
-- ✅ Générer une **CSR** (Certificate Signing Request)
-- ✅ Créer un **certificat auto-signé** (pour serveur de test)
-- ✅ Créer une **mini-CA locale** (Root CA + certificat signé)
-- ✅ **Inspecter** un certificat (lire les champs X.509)
-- ✅ Déployer un certificat sur un **serveur HTTPS minimal**
+**Relations d'appartenance et d'inclusion :**
+- ✅ Distinguer **appartenance** (élément ∈ ensemble) et **inclusion** (sous-ensemble ⊂ ensemble)
+- ✅ Déterminer si un élément appartient à un ensemble
+- ✅ Vérifier si un ensemble est inclus dans un autre
+
+**Application aux groupes Active Directory :**
+- ✅ Modéliser les **groupes AD** comme des ensembles d'utilisateurs
+- ✅ Résoudre des problèmes d'**accès et de permissions** avec les opérations ensemblistes
+- ✅ Automatiser l'analyse de groupes avec **Python** (`set()`)
+
+**Posture ITIL :**
+- ✅ Comprendre la **gestion des identités et des accès** (IAM)
+- ✅ Appliquer le principe du **moindre privilège**
+- ✅ Documenter les **permissions et appartenances** aux groupes

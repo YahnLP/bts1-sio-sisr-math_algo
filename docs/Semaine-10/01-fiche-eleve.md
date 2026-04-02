@@ -5,7 +5,7 @@ title: 📚 FICHE DE COURS
 
 
 # 📚 FICHE DE COURS ÉLÈVE
-## "Droits d'Accès · Principe du Moindre Privilège · Modèles d'Accès"
+## Tableaux et Listes : Structures de Données Simples
 
 *Version 1.0 — BTS SIO SISR — Année 1 — Semaine 10*
 
@@ -14,560 +14,434 @@ title: 📚 FICHE DE COURS
 ## 🎯 Compétences Travaillées
 
 | **Code** | **Compétence** |
-|----------|---------------|
-| **B3.2** | Mettre en œuvre les mesures de sécurité de base |
-| **B3.4** | Gérer les accès et les droits des utilisateurs |
+|----------|----------------|
+| **B1.1** | Gérer le patrimoine informatique |
+| **B1.2** | Répondre aux incidents et aux demandes d'assistance |
+| **B2.1** | Administrer les systèmes et les services informatiques |
 
 ---
 
-## PARTIE I — Authentification vs Autorisation
+## 📖 I. Introduction : Pourquoi des Structures de Données ?
 
-### I.A. Deux Concepts Distincts
+### Le Problème
 
-```
-   AUTHENTIFICATION vs AUTORISATION
-   ═══════════════════════════════════════════════════════════════
+En tant que technicien SISR, vous devrez souvent **manipuler plusieurs valeurs** :
+- 📊 Les 254 adresses IP d'un réseau /24
+- 🖥️ La liste des postes du parc informatique
+- 📋 Les logs de connexion d'un serveur
+- ⚙️ La configuration des 48 ports d'un switch
 
-   AUTHENTIFICATION (Qui êtes-vous ?)
-   ──────────────────────────────────────────────────────────────
-   Vérifier l'IDENTITÉ d'un utilisateur
+**Question :** Comment stocker ces informations de façon efficace en programmation ?
 
-   Méthodes :
-   • Mot de passe (ce que je sais)
-   • Badge / clé (ce que j'ai)
-   • Empreinte / Face ID (ce que je suis)
-   • MFA = Combinaison de plusieurs facteurs
+### La Solution : Les Structures de Données
 
-   Analogie : Montrer sa CARTE D'IDENTITÉ à l'entrée
+Une **structure de données** est une façon d'organiser et de stocker des données pour pouvoir les utiliser efficacement.
 
-   Résultat : L'utilisateur est reconnu → Session ouverte
-
-
-   AUTORISATION (Que pouvez-vous faire ?)
-   ──────────────────────────────────────────────────────────────
-   Vérifier les DROITS d'un utilisateur authentifié
-
-   Questions posées par le système :
-   • L'utilisateur peut-il LIRE ce fichier ?
-   • L'utilisateur peut-il MODIFIER cette base de données ?
-   • L'utilisateur peut-il SUPPRIMER cet enregistrement ?
-   • L'utilisateur peut-il EXÉCUTER ce programme ?
-
-   Analogie : Votre badge d'entrée OUVRE certaines portes
-              mais PAS d'autres (même si vous êtes identifié)
-
-   Résultat : Accès accordé ou refusé selon les droits
-
-   ──────────────────────────────────────────────────────────────
-   ORDRE OBLIGATOIRE : Authentification → PUIS → Autorisation
-   ──────────────────────────────────────────────────────────────
-```
+**Les deux structures de base :**
+1. **Tableau** (array)
+2. **Liste** (list)
 
 ---
 
-## PARTIE II — Le Principe du Moindre Privilège
+## 📊 II. Les Tableaux (Arrays)
 
-### II.A. Définition
+### Définition
 
-**Principe du Moindre Privilège** (Least Privilege Principle) :
+> Un **tableau** est une structure de données qui stocke une **collection d'éléments** de même type, organisés de manière **séquentielle** et **numérotés**.
 
-> *Un utilisateur, un programme ou un processus ne doit disposer que des droits strictement nécessaires à l'accomplissement de sa mission, ni plus, ni moins.*
+### Analogie Physique
 
-**Origine :** Principe fondateur de la sécurité informatique, formulé par Jerome Saltzer et Michael Schroeder (MIT, 1975). Toujours d'actualité 50 ans après.
+![Illustration : Une armoire avec 5 tiroirs numérotés de 0 à 4, chaque tiroir contient un objet]
+*Légende : Un tableau est comme une armoire à tiroirs numérotés. Chaque tiroir (case) a un numéro fixe (indice) et contient une valeur.*
+
+**Caractéristiques de l'armoire :**
+- 🔢 Chaque tiroir a un **numéro** (l'indice)
+- 📦 Tous les tiroirs sont **créés en même temps**
+- 🚫 On ne peut **pas ajouter** de tiroir entre le 3 et le 4
+- ⚡ Pour accéder au tiroir 5, on y va **directement**
+
+### Syntaxe en Python
+
+#### Création d'un Tableau
+
+```python
+# Tableau d'adresses IP
+ips = ["192.168.1.10", "192.168.1.11", "192.168.1.12", "192.168.1.13"]
+
+# Tableau de RAM (en Go)
+rams = [8, 16, 8, 32, 16]
+
+# Tableau de ports
+ports = [1, 2, 3, 4, 5, 6, 7, 8]
+```
+
+#### Accès aux Éléments
+
+**⚠️ IMPORTANT : En informatique, on compte à partir de 0 !**
+
+![Illustration : Tableau avec 5 cases contenant des valeurs, indices 0 à 4 affichés en dessous]
+*Légende : Les indices d'un tableau commencent toujours à 0. Le 1er élément est à l'indice 0.*
+
+```python
+ips = ["192.168.1.10", "192.168.1.11", "192.168.1.12", "192.168.1.13"]
+
+# Accéder au PREMIER élément (indice 0)
+print(ips[0])  # Affiche : 192.168.1.10
+
+# Accéder au TROISIÈME élément (indice 2)
+print(ips[2])  # Affiche : 192.168.1.12
+
+# Accéder au DERNIER élément
+print(ips[-1])  # Affiche : 192.168.1.13
+```
+
+#### Modification d'un Élément
+
+```python
+ips = ["192.168.1.10", "192.168.1.11", "192.168.1.12"]
+
+# Modifier le 2ème élément (indice 1)
+ips[1] = "192.168.1.20"
+
+print(ips)  # Affiche : ['192.168.1.10', '192.168.1.20', '192.168.1.12']
+```
+
+#### Parcourir un Tableau
+
+```python
+ips = ["192.168.1.10", "192.168.1.11", "192.168.1.12"]
+
+# Méthode 1 : Parcours par élément
+for ip in ips:
+    print(ip)
+
+# Méthode 2 : Parcours par indice
+for i in range(len(ips)):
+    print(f"Indice {i} : {ips[i]}")
+```
+
+### Opérations Courantes sur les Tableaux
+
+| **Opération** | **Syntaxe Python** | **Exemple** |
+|---|---|---|
+| Longueur du tableau | `len(tableau)` | `len(ips)` → 3 |
+| Accès par indice | `tableau[indice]` | `ips[0]` → "192.168.1.10" |
+| Modification | `tableau[indice] = valeur` | `ips[1] = "192.168.1.20"` |
+| Dernier élément | `tableau[-1]` | `ips[-1]` → "192.168.1.12" |
+
+### Cas d'Usage SISR
+
+**✅ Utiliser un tableau quand :**
+- Le nombre d'éléments est **fixe** ou **prévisible**
+- Vous devez accéder fréquemment aux éléments par leur **position**
+- La **performance** d'accès est critique
+
+**Exemples concrets :**
+- 📊 Les 254 adresses IP d'un /24 (nombre fixe)
+- ⚙️ Les 48 ports d'un switch (nombre fixe)
+- 📅 Les jours de la semaine (nombre fixe)
 
 ---
 
-### II.B. Pourquoi ce Principe est-il Critique ?
+## 📚 III. Les Listes (Lists)
 
-```
-   SCÉNARIO SANS MOINDRE PRIVILÈGE
-   ═══════════════════════════════════════════════════════════════
+### Définition
 
-   Entreprise de 50 personnes.
-   Tous les salariés ont un accès "Administrateur" sur leur PC
-   (plus pratique pour installer des logiciels...)
+> Une **liste** est une structure de données qui stocke une **collection d'éléments** de manière **séquentielle** et **dynamique** (taille variable).
 
-   MARDI 14H : Le comptable ouvre un email de phishing.
-   ──────────────────────────────────────────────────────────────
-   → Il clique sur la pièce jointe
-   → Le malware s'exécute... avec les droits ADMINISTRATEUR
-   → Le malware peut :
-     • S'installer dans les dossiers système (C:\Windows\System32)
-     • Désactiver l'antivirus
-     • Modifier les paramètres système
-     • Se propager sur le réseau avec les droits admin
-     • Chiffrer TOUS les fichiers accessibles (ransomware)
+### Analogie Physique
 
-   AVEC MOINDRE PRIVILÈGE :
-   ──────────────────────────────────────────────────────────────
-   → Le comptable a des droits LIMITÉS (utilisateur standard)
-   → Le malware s'exécute avec les droits limités du comptable
-   → Il NE PEUT PAS :
-     • S'installer dans les dossiers système
-     • Désactiver l'antivirus (droits insuffisants)
-     • Modifier les paramètres système
-   → Impact CONTENU au profil de l'utilisateur uniquement
-   → Pas de propagation (pas de droits réseau admin)
+![Illustration : Une pile de livres sur une étagère, avec des flèches montrant qu'on peut ajouter/retirer des livres]
+*Légende : Une liste est comme une pile de livres. On peut facilement ajouter ou retirer des livres n'importe où dans la pile.*
+
+**Caractéristiques de la pile :**
+- 📚 On peut **ajouter** un livre en haut, au milieu, ou en bas
+- 📚 On peut **retirer** un livre facilement
+- 📏 La pile peut **grandir ou rétrécir** sans limite
+- 🐢 Pour accéder au 10ème livre, il faut parfois compter depuis le début
+
+### Syntaxe en Python
+
+**Note :** En Python, les **listes** sont en fait des **tableaux dynamiques**. La syntaxe est identique aux tableaux vus précédemment, mais avec des méthodes supplémentaires pour ajouter/supprimer des éléments.
+
+#### Création d'une Liste
+
+```python
+# Liste de logs de connexion (commence vide)
+logs = []
+
+# Liste de tickets d'incidents
+tickets = ["#001", "#002", "#003"]
 ```
 
-**La règle d'or :**
+#### Ajouter des Éléments
 
+```python
+logs = []
+
+# Ajouter à la FIN de la liste
+logs.append("2025-02-20 10:15 - Connexion utilisateur A")
+logs.append("2025-02-20 10:20 - Connexion utilisateur B")
+
+print(logs)
+# Affiche : ['2025-02-20 10:15 - Connexion utilisateur A', 
+#            '2025-02-20 10:20 - Connexion utilisateur B']
+
+# Ajouter à une POSITION SPÉCIFIQUE
+logs.insert(1, "2025-02-20 10:17 - Tentative de connexion échouée")
+
+print(logs)
+# Affiche : ['2025-02-20 10:15 - Connexion utilisateur A', 
+#            '2025-02-20 10:17 - Tentative de connexion échouée',
+#            '2025-02-20 10:20 - Connexion utilisateur B']
 ```
-   DROITS = BESOIN MÉTIER RÉEL (ni plus, ni moins)
-   ═══════════════════════════════════════════════════════════════
 
-   ❌ "Il vaut mieux lui donner trop de droits que pas assez"
-      → C'est l'erreur la plus commune et la plus dangereuse
+#### Supprimer des Éléments
 
-   ✅ "Il obtient exactement les droits dont il a besoin"
-      → Si besoin de droits supplémentaires → Demande formelle
+```python
+tickets = ["#001", "#002", "#003", "#004"]
 
-   ❌ "Il était admin avant, autant le laisser admin"
-      → Les droits doivent évoluer avec le poste
+# Supprimer un élément PAR VALEUR
+tickets.remove("#002")
+print(tickets)  # Affiche : ['#001', '#003', '#004']
 
-   ✅ "Il a changé de poste → Revue et adaptation des droits"
+# Supprimer un élément PAR INDICE
+del tickets[0]
+print(tickets)  # Affiche : ['#003', '#004']
+
+# Supprimer le DERNIER élément et le récupérer
+dernier = tickets.pop()
+print(dernier)   # Affiche : #004
+print(tickets)   # Affiche : ['#003']
 ```
+
+### Opérations Courantes sur les Listes
+
+| **Opération** | **Syntaxe Python** | **Exemple** |
+|---|---|---|
+| Ajouter à la fin | `liste.append(element)` | `logs.append("log1")` |
+| Ajouter à une position | `liste.insert(indice, element)` | `logs.insert(0, "log0")` |
+| Supprimer par valeur | `liste.remove(element)` | `logs.remove("log1")` |
+| Supprimer par indice | `del liste[indice]` | `del logs[0]` |
+| Supprimer et récupérer | `liste.pop()` | `dernier = logs.pop()` |
+| Vider la liste | `liste.clear()` | `logs.clear()` |
+| Trier | `liste.sort()` | `nombres.sort()` |
+| Inverser | `liste.reverse()` | `logs.reverse()` |
+
+### Cas d'Usage SISR
+
+**✅ Utiliser une liste quand :**
+- Le nombre d'éléments est **variable** et **imprévisible**
+- Vous devez fréquemment **ajouter ou supprimer** des éléments
+- L'ordre d'insertion est important
+
+**Exemples concrets :**
+- 📋 Les logs de connexion (nombre croissant au fil du temps)
+- 🎫 Une file d'attente de tickets d'incident
+- 👥 La liste des utilisateurs connectés (change constamment)
+- 🔄 Un historique de commandes (on ajoute en permanence)
 
 ---
 
-### II.C. Applications Concrètes du Moindre Privilège
+## ⚖️ IV. Tableau vs Liste : Tableau Comparatif
 
-```
-   EXEMPLES PAR RÔLE EN ENTREPRISE
-   ═══════════════════════════════════════════════════════════════
+| **Critère** | **Tableau (Array)** | **Liste (List)** |
+|---|---|---|
+| **Taille** | Fixe (définie à la création) | Dynamique (peut grandir/rétrécir) |
+| **Ajout d'élément** | ❌ Impossible (taille fixe) | ✅ Facile (`.append()`, `.insert()`) |
+| **Suppression** | ❌ Difficile | ✅ Facile (`.remove()`, `.pop()`) |
+| **Accès par indice** | ⚡ Très rapide (O(1)) | ⚡ Très rapide (O(1)) |
+| **Utilisation mémoire** | 📦 Compact (bloc contigu) | 📦 Plus gourmand (pointeurs) |
+| **Cas d'usage** | Données fixes (config, constantes) | Données variables (logs, files) |
 
-   RÔLE                 │ DROITS APPROPRIÉS
-   ─────────────────────┼──────────────────────────────────────────
-   Commercial           │ Lecture/Écriture sur /Clients/
-                        │ Lecture sur /Produits/
-                        │ ❌ Pas /Comptabilité/ ni /RH/
-
-   Comptable            │ Lecture/Écriture sur /Comptabilité/
-                        │ Lecture sur /Clients/ (facturation)
-                        │ ❌ Pas /RH/ ni /Développement/
-
-   Développeur          │ Lecture/Écriture sur /Dev/ (projet assigné)
-                        │ Lecture sur /Dev/ (autres projets)
-                        │ ❌ Pas /Comptabilité/ ni /Production/
-
-   DRH                  │ Lecture/Écriture sur /RH/
-                        │ ❌ Pas /Comptabilité/ ni /Dev/
-
-   Technicien IT        │ Admin système (installation, config)
-                        │ Lecture logs sur tous les serveurs
-                        │ ❌ Pas de lecture /RH/ ni /Comptabilité/
-                        │ (sauf incident documenté)
-
-   Stagiaire            │ Lecture uniquement sur dossier projet
-                        │ ❌ Rien d'autre
-
-   PRINCIPES ASSOCIÉS
-   ──────────────────────────────────────────────────────────────
-   • Séparation des tâches : Deux personnes pour valider une action
-     sensible (ex : comptable saisit, directeur approuve)
-   • Rotation des rôles : Éviter qu'une personne accumule les droits
-   • Révocation immédiate : Départ salarié = désactivation le jour J
-```
+![Illustration : Deux colonnes côte à côte, à gauche un tableau fixe avec 5 cases numérotées, à droite une liste avec des cases reliées par des flèches et un signe + pour ajouter]
+*Légende : Différence visuelle entre un tableau (taille fixe) et une liste (taille variable).*
 
 ---
 
-## PARTIE III — Les Modèles de Contrôle d'Accès
+## 💡 V. Exemples Concrets SISR
 
-### III.A. DAC — Discretionary Access Control
+### Exemple 1 : Gestion d'Adresses IP
 
-**Contrôle d'accès discrétionnaire**
+```python
+# Tableau : Les 5 serveurs du réseau (nombre fixe)
+serveurs = ["192.168.1.10", "192.168.1.11", "192.168.1.12", 
+            "192.168.1.13", "192.168.1.14"]
 
-```
-   DAC — PRINCIPE
-   ═══════════════════════════════════════════════════════════════
+# Accès au serveur 3
+print(f"Serveur 3 : {serveurs[2]}")  # Indice 2 = 3ème élément
 
-   Le PROPRIÉTAIRE du fichier décide qui peut y accéder.
-
-   Fonctionnement :
-   → Sophie crée un fichier → Sophie est propriétaire
-   → Sophie choisit : "Marc peut lire, Julie peut lire et écrire"
-   → Marc et Julie ont accès selon le choix de Sophie
-
-   IMPLÉMENTATION
-   ──────────────────────────────────────────────────────────────
-   Windows NTFS (clic droit → Propriétés → Sécurité)
-   Linux : chmod / chown
-
-   AVANTAGES                    INCONVÉNIENTS
-   ──────────────────────       ──────────────────────────────
-   ✅ Simple et flexible         ❌ Peu adapté aux grandes structures
-   ✅ L'utilisateur contrôle     ❌ Difficile à auditer globalement
-   ✅ Pas besoin d'admin         ❌ Risque : Utilisateur peut accorder
-      pour chaque modification     des droits à n'importe qui
-
-   USAGE TYPIQUE
-   ──────────────────────────────────────────────────────────────
-   • PME simple
-   • Partages de fichiers entre collègues de confiance
-   • Environnements peu réglementés
+# Modifier l'IP du serveur 1
+serveurs[0] = "192.168.1.20"
 ```
 
----
+### Exemple 2 : File d'Attente de Tickets
 
-### III.B. MAC — Mandatory Access Control
+```python
+# Liste : File d'attente de tickets (nombre variable)
+tickets = []
 
-**Contrôle d'accès obligatoire**
+# Un nouveau ticket arrive
+tickets.append("#001 - Imprimante en panne")
+tickets.append("#002 - Mot de passe oublié")
+tickets.append("#003 - PC ne démarre pas")
 
-```
-   MAC — PRINCIPE
-   ═══════════════════════════════════════════════════════════════
+# Traiter le premier ticket
+print(f"Traitement du ticket : {tickets[0]}")
+tickets.pop(0)  # Supprimer le ticket traité
 
-   L'ADMINISTRATEUR (ou le système) définit centralement les droits.
-   Les utilisateurs NE PEUVENT PAS modifier les permissions.
-
-   Fonctionnement basé sur des NIVEAUX DE CLASSIFICATION :
-   ────────────────────────────────────────────────────────
-   NIVEAU 4 : TOP SECRET     → Accès : Directeurs uniquement
-   NIVEAU 3 : SECRET         → Accès : Cadres + Directeurs
-   NIVEAU 2 : CONFIDENTIEL   → Accès : Tous les employés permanents
-   NIVEAU 1 : PUBLIC         → Accès : Tous (y compris stagiaires)
-
-   Règle : Un utilisateur de niveau N peut accéder
-           aux données de niveau ≤ N
-           (Pas d'accès aux données de niveau supérieur)
-
-   AVANTAGES                    INCONVÉNIENTS
-   ──────────────────────       ──────────────────────────────
-   ✅ Très sécurisé              ❌ Rigide et complexe à gérer
-   ✅ Contrôle centralisé        ❌ Déploiement coûteux
-   ✅ Audit simplifié            ❌ Peu adapté au secteur privé
-
-   USAGE TYPIQUE
-   ──────────────────────────────────────────────────────────────
-   • Défense nationale / renseignement
-   • Secteur militaire
-   • Environnements haute sécurité (nucléaire)
-   • OS : SELinux (Linux), Trusted Solaris
+# Afficher les tickets restants
+print(f"Tickets en attente : {len(tickets)}")
 ```
 
----
+### Exemple 3 : Audit de RAM
 
-### III.C. RBAC — Role-Based Access Control ⭐
+```python
+# Tableau : RAM de chaque poste (50 postes)
+rams = [8, 16, 8, 8, 32, 16, 8, 16, 8, 8,
+        16, 8, 8, 32, 16, 8, 8, 16, 8, 32,
+        8, 16, 8, 8, 16, 32, 8, 8, 16, 8,
+        16, 8, 32, 8, 16, 8, 8, 16, 32, 8,
+        8, 16, 8, 32, 16, 8, 8, 16, 8, 8]
 
-**Contrôle d'accès basé sur les rôles**
+# Trouver tous les postes avec moins de 8 Go de RAM
+postes_a_upgrader = []
+for i in range(len(rams)):
+    if rams[i] < 8:
+        postes_a_upgrader.append(i+1)  # +1 car les postes sont numérotés de 1 à 50
 
-> Le modèle **le plus utilisé en entreprise**. C'est celui que les apprenants configureront en alternance.
-
-```
-   RBAC — PRINCIPE
-   ═══════════════════════════════════════════════════════════════
-
-   Les droits sont attribués à des RÔLES.
-   Les utilisateurs reçoivent un ou plusieurs RÔLES.
-   → Modification de rôle = Modification automatique des droits
-
-   STRUCTURE
-   ──────────────────────────────────────────────────────────────
-
-   RÔLES (définissent les droits)
-   ├── Rôle "Commercial"      → /Clients/ L+E, /Produits/ L
-   ├── Rôle "Comptable"       → /Comptabilité/ L+E, /Clients/ L
-   ├── Rôle "DRH"             → /RH/ L+E
-   ├── Rôle "Développeur"     → /Dev/ L+E
-   └── Rôle "Admin IT"        → Tout en administration
-
-   UTILISATEURS (reçoivent des rôles)
-   ├── Sophie MARTIN    → Rôle "Commercial"
-   ├── Marc DUPONT      → Rôle "Comptable"
-   ├── Julie BERNARD    → Rôle "DRH"
-   └── Pierre LEFEBVRE  → Rôle "Développeur" + "Commercial"
-                          (double mission → double rôle)
-
-   AVANTAGES                    INCONVÉNIENTS
-   ──────────────────────       ──────────────────────────────
-   ✅ Facile à gérer             ❌ Risque "role explosion"
-      (modifier le rôle =           (trop de rôles différents)
-      modifier tous les users)
-   ✅ Auditabilité claire        ❌ Droits individuels limités
-   ✅ Onboarding rapide
-   ✅ Scalable (1 → 10 000)
-
-   IMPLÉMENTATION
-   ──────────────────────────────────────────────────────────────
-   Windows Active Directory :
-   → Groupes de sécurité AD = Rôles RBAC
-   → Utilisateur rejoint le groupe → Droits automatiques
-
-   Linux :
-   → Groupes Linux (addgroup, usermod -aG)
-
-   Applications web :
-   → Table roles + Table user_roles en base de données
-```
-
----
-
-## PARTIE IV — La Matrice de Droits (ACL)
-
-### IV.A. Définition et Structure
-
-**Matrice de droits** (ou **matrice d'habilitation** ou **ACL — Access Control List**) :
-
-> Tableau à double entrée listant les **utilisateurs** (ou groupes) en ligne et les **ressources** (ou fonctionnalités) en colonne, avec le **niveau d'accès** à l'intersection.
-
-```
-   STRUCTURE DE BASE
-   ═══════════════════════════════════════════════════════════════
-
-   CODES D'ACCÈS STANDARDS
-   ──────────────────────────────────────────────────────────────
-   — (tiret)  : Aucun accès
-   L          : Lecture seule (Read)
-   L+E        : Lecture + Écriture (Read + Write)
-   L+E+S      : Lecture + Écriture + Suppression (Full Write)
-   A          : Accès total (Admin/Full Control)
-   X          : Exécution uniquement (scripts, programmes)
-
-   EXEMPLE DE MATRICE SIMPLE
-   ──────────────────────────────────────────────────────────────
-
-                  │/Clients/│/Compta/│/RH/ │/Dev/│/Système/
-   ───────────────┼─────────┼────────┼─────┼─────┼─────────
-   G_Commercial   │  L+E    │   —    │  —  │  —  │   —
-   G_Comptable    │   L     │  L+E   │  —  │  —  │   —
-   G_DRH          │   —     │   —    │ L+E │  —  │   —
-   G_Dev          │   —     │   —    │  —  │ L+E │   —
-   G_Directeur    │   L     │   L    │  L  │  L  │   —
-   G_Admin_IT     │   —     │   —    │  —  │  —  │   A
-   G_Tous         │   —     │   —    │  —  │  —  │   —
-   ───────────────┴─────────┴────────┴─────┴─────┴─────────
-
-   → G_Directeur a L sur tous (vision globale sans modification)
-   → G_Admin_IT a A sur /Système/ mais PAS sur les données métier
-     (Technicien IT NE LIT PAS les salaires ou données clients)
-   → G_Tous = Aucun droit (droits explicites obligatoires)
+print(f"Postes à upgrader : {postes_a_upgrader}")
 ```
 
 ---
 
-### IV.B. Matrice Complète avec Niveaux Fins
-
-```
-   MATRICE DE DROITS — EXEMPLE PME COMPLET
-   ═══════════════════════════════════════════════════════════════
-
-   LÉGENDE :
-   — = Aucun accès
-   L = Lecture
-   E = Écriture
-   S = Suppression
-   A = Administration (tous droits)
-   Les cellules combinées : L+E = Lecture ET Écriture
-
-                     │ Clients │ Compta │ Paie  │  RH   │  Dev  │ Sauv. │ Logs
-   ──────────────────┼─────────┼────────┼───────┼───────┼───────┼───────┼──────
-   G_Direction       │   L     │   L    │   L   │   L   │   —   │   —   │  —
-   G_Commercial      │  L+E    │   —    │   —   │   —   │   —   │   —   │  —
-   G_Comptable       │   L     │  L+E+S │  L+E  │   —   │   —   │   —   │  —
-   G_DRH             │   —     │   —    │  L+E  │  L+E+S│   —   │   —   │  —
-   G_Dev_Senior      │   —     │   —    │   —   │   —   │  L+E+S│   —   │  —
-   G_Dev_Junior      │   —     │   —    │   —   │   —   │  L+E  │   —   │  —
-   G_Stagiaire       │   —     │   —    │   —   │   —   │   L   │   —   │  —
-   G_Admin_IT        │   —     │   —    │   —   │   —   │   —   │   A   │  L+E
-   G_RSSI            │   —     │   —    │   —   │   —   │   L   │   L   │  L+E+S
-   ──────────────────┴─────────┴────────┴───────┴───────┴───────┴───────┴──────
-
-   POINTS CLÉS DE CETTE MATRICE :
-   ──────────────────────────────────────────────────────────────
-   → G_Dev_Junior : L+E mais PAS Suppression (pas de droit détruire)
-   → G_Dev_Senior : L+E+S (peut gérer la suppression du code)
-   → G_Stagiaire : Lecture uniquement sur /Dev/ (pas d'écriture)
-   → G_Admin_IT : Admin sauvegardes ET logs, mais ZÉRO accès données
-   → G_RSSI : Lecture sur tout (audit) mais NE MODIFIE RIEN
-   → G_DRH : Accès paie ET RH (les deux dossiers liés)
-   → G_Direction : Lecture seule sur tout (vision stratégique)
-```
-
----
-
-### IV.C. Revue Périodique des Droits
-
-**La matrice de droits est un document VIVANT.**
-
-```
-   CYCLE DE GESTION DES DROITS
-   ═══════════════════════════════════════════════════════════════
-
-   ÉVÉNEMENTS DÉCLENCHEURS DE MODIFICATION
-   ──────────────────────────────────────────────────────────────
-   ① ARRIVÉE (Onboarding)
-   → Créer le compte, assigner les groupes selon le rôle
-   → Fiche d'arrivée signée par le manager (liste des accès requis)
-
-   ② CHANGEMENT DE POSTE
-   → Retirer les anciens droits (rôle précédent)
-   → Ajouter les nouveaux droits (nouveau rôle)
-   → Principe : Jamais d'accumulation de droits
-
-   ③ DÉPART (Offboarding) — CRITIQUE
-   → DÉSACTIVER le compte LE JOUR DU DÉPART (pas "la semaine prochaine")
-   → Révoquer tous les accès (VPN, email, apps cloud, AD)
-   → Transférer les données si nécessaire
-   → Conserver le compte désactivé 30 jours puis supprimer
-
-   ④ REVUE PÉRIODIQUE (tous les 6 mois)
-   → Parcourir la matrice avec les managers
-   → "Untel a-t-il encore besoin de ce droit ?"
-   → Supprimer les droits inutilisés (audit des logs d'accès)
-   → Documenter la revue (date, participants, actions)
-
-   INDICATEUR ROUGE : DROIT JAMAIS UTILISÉ
-   ──────────────────────────────────────────────────────────────
-   Si un utilisateur a le droit de lire /Comptabilité/ mais
-   n'y a jamais accédé en 6 mois → Supprimer ce droit
-   → Logs d'accès : Requête SQL sur la table d'audit
-     SELECT user, resource, COUNT(*) as nb_acces
-     FROM access_log
-     WHERE date > DATE_SUB(NOW(), INTERVAL 6 MONTH)
-     GROUP BY user, resource
-     ORDER BY nb_acces ASC
-```
-
----
-
-## PARTIE V — Implémentation Technique
-
-### V.A. Windows Active Directory (RBAC avec Groupes)
-
-```
-   IMPLÉMENTATION AD — RBAC PAR GROUPES DE SÉCURITÉ
-   ═══════════════════════════════════════════════════════════════
-
-   ÉTAPE 1 — Créer les groupes (= Rôles RBAC)
-   ──────────────────────────────────────────────────────────────
-   Dans Active Directory Users and Computers (ADUC) :
-
-   Créer dans l'OU "Groupes_Securite" :
-   • GS_Commercial
-   • GS_Comptable
-   • GS_DRH
-   • GS_Dev_Junior
-   • GS_Dev_Senior
-   • GS_Admin_IT
-
-   PowerShell :
-   New-ADGroup -Name "GS_Commercial" `
-     -GroupScope Global `
-     -GroupCategory Security `
-     -Path "OU=Groupes_Securite,DC=entreprise,DC=local"
-
-   ÉTAPE 2 — Ajouter les utilisateurs aux groupes
-   ──────────────────────────────────────────────────────────────
-   PowerShell :
-   Add-ADGroupMember -Identity "GS_Commercial" `
-     -Members "s.martin", "j.dubois", "a.petit"
-
-   ÉTAPE 3 — Configurer les droits NTFS sur les dossiers partagés
-   ──────────────────────────────────────────────────────────────
-   PowerShell :
-   # Dossier /Clients/ — GS_Commercial : Modifier (L+E)
-   $acl = Get-Acl "\\SERVEUR\Données\Clients"
-   $rule = New-Object System.Security.AccessControl.FileSystemAccessRule(
-     "ENTREPRISE\GS_Commercial",
-     "Modify",      # Lecture + Écriture (pas Suppression)
-     "ContainerInherit,ObjectInherit",
-     "None",
-     "Allow"
-   )
-   $acl.SetAccessRule($rule)
-   Set-Acl "\\SERVEUR\Données\Clients" $acl
-
-   NIVEAUX NTFS COURANTS
-   ──────────────────────────────────────────────────────────────
-   • FullControl     = L+E+S + Droits (Admin complet)
-   • Modify          = L+E + Suppression des propres fichiers
-   • ReadAndExecute  = Lecture + Exécution (pas d'écriture)
-   • Write           = Écriture seulement (pas lecture !)
-   • Read            = Lecture seule
-   • ListDirectory   = Voir le contenu du dossier uniquement
-
-   ÉTAPE 4 — Désactiver un compte lors d'un départ
-   ──────────────────────────────────────────────────────────────
-   PowerShell :
-   Disable-ADAccount -Identity "prenom.nom"
-   Move-ADObject -Identity "CN=Prenom Nom,OU=Utilisateurs,..." `
-     -TargetPath "OU=Comptes_Desactives,DC=entreprise,DC=local"
-```
-
----
-
-### V.B. Linux (Permissions et Groupes)
-
-```
-   IMPLÉMENTATION LINUX — DROITS ET GROUPES
-   ═══════════════════════════════════════════════════════════════
-
-   RAPPEL PERMISSIONS LINUX
-   ──────────────────────────────────────────────────────────────
-   -rwxr-xr-- 1 sophie comptable 1024 mars 15 fichier.txt
-    │││││││││
-    ││││││└└└─ Autres (r = lecture, - = pas écriture, - = pas exéc.)
-    │││└└└──── Groupe (r = lecture, - = pas écriture, x = exéc.)
-    └└└──────── Propriétaire (r+w+x = lecture, écriture, exécution)
-
-   CODES NUMÉRIQUES (chmod)
-   ──────────────────────────────────────────────────────────────
-   4 = Lecture (r)
-   2 = Écriture (w)
-   1 = Exécution (x)
-   0 = Aucun droit (-)
-
-   chmod 750 dossier → Propriétaire: 7(r+w+x), Groupe: 5(r+x), Autres: 0
-
-   GESTION DES GROUPES
-   ──────────────────────────────────────────────────────────────
-   # Créer un groupe
-   groupadd gs_commercial
-
-   # Créer un utilisateur et l'assigner au groupe
-   useradd -m -G gs_commercial sophie.martin
-   usermod -aG gs_commercial jean.durand
-
-   # Appliquer les droits sur un dossier
-   chown -R :gs_commercial /data/clients/
-   chmod -R 770 /data/clients/
-   # 770 → Propriétaire: rwx, Groupe: rwx, Autres: ---
-
-   # Vérifier les membres d'un groupe
-   getent group gs_commercial
-
-   # Supprimer un utilisateur d'un groupe (départ)
-   gpasswd -d prenom.nom gs_commercial
-
-   SUDO — ACCÈS ADMINISTRATEUR CONTRÔLÉ
-   ──────────────────────────────────────────────────────────────
-   # /etc/sudoers — Donner des droits ciblés sans accès root total
-   # Technicien IT peut redémarrer les services Apache uniquement :
-   technicien_it ALL=(root) NOPASSWD: /usr/bin/systemctl restart apache2
-
-   # Comptable peut lire les logs uniquement :
-   comptable_user ALL=(root) NOPASSWD: /usr/bin/journalctl -u mysql
-```
-
----
-
-## VI. Vocabulaire Clé
+## 🔑 VI. Vocabulaire Clé à Maîtriser
 
 | **Terme** | **Définition** |
-|-----------|---------------|
-| **Authentification** | Vérification de l'identité d'un utilisateur (Qui êtes-vous ?) |
-| **Autorisation** | Vérification des droits d'un utilisateur authentifié (Que pouvez-vous faire ?) |
-| **Moindre privilège** | Principe : Donner uniquement les droits strictement nécessaires à la mission |
-| **DAC** | Discretionary Access Control — Le propriétaire définit les droits |
-| **MAC** | Mandatory Access Control — Le système définit des niveaux de classification |
-| **RBAC** | Role-Based Access Control — Les droits sont liés à des rôles, pas à des individus |
-| **Matrice de droits** | Tableau croisant utilisateurs/groupes et ressources avec le niveau d'accès |
-| **ACL** | Access Control List — Liste de contrôle d'accès implémentant la matrice |
-| **NTFS** | New Technology File System — Système de fichiers Windows permettant les ACL |
-| **Groupe de sécurité AD** | Objet Active Directory regroupant des utilisateurs pour leur attribuer des droits |
-| **Onboarding** | Processus d'arrivée d'un collaborateur, incluant la création de son compte et droits |
-| **Offboarding** | Processus de départ d'un collaborateur, incluant la désactivation immédiate du compte |
-| **Revue des droits** | Audit périodique (6 mois) vérifiant que chaque droit est toujours nécessaire |
-| **Séparation des tâches** | Principe : Deux personnes pour valider une action sensible (éviter fraude interne) |
+|---|---|
+| **Structure de données** | Façon d'organiser et de stocker des données |
+| **Tableau (Array)** | Structure de taille fixe avec accès par indice |
+| **Liste (List)** | Structure de taille variable avec méthodes d'ajout/suppression |
+| **Indice (Index)** | Position numérique d'un élément dans un tableau/liste (commence à 0) |
+| **Élément** | Une valeur stockée dans un tableau ou une liste |
+| **Parcours** | Action de passer en revue tous les éléments d'une structure |
+| **Itération** | Une étape d'un parcours (une "boucle") |
+| **Longueur** | Nombre d'éléments dans un tableau/liste |
+| **Append** | Ajouter un élément à la fin d'une liste |
+| **Pop** | Retirer et récupérer le dernier élément d'une liste |
+
+---
+
+## 🎯 VII. Points Clés à Retenir
+
+### ✅ Les 5 Règles d'Or
+
+1. **Les indices commencent à 0** : Le 1er élément est à l'indice 0, le 2ème à l'indice 1, etc.
+
+2. **Tableau = taille fixe** : Une fois créé, on ne peut pas facilement ajouter/supprimer des éléments.
+
+3. **Liste = taille variable** : On peut ajouter/supprimer des éléments avec `.append()`, `.remove()`, `.pop()`.
+
+4. **Parcours avec `for`** : Pour traiter tous les éléments, on utilise une boucle `for`.
+
+5. **Choisir selon le besoin** : Tableau pour données fixes, Liste pour données variables.
+
+### ⚠️ Erreurs Fréquentes
+
+❌ **Erreur 1 : Oublier que les indices commencent à 0**
+```python
+ips = ["192.168.1.10", "192.168.1.11"]
+print(ips[1])  # Affiche le 2ème élément, pas le 1er !
+```
+
+❌ **Erreur 2 : Dépasser la taille du tableau**
+```python
+ips = ["192.168.1.10", "192.168.1.11"]
+print(ips[5])  # ERREUR : IndexError (il n'y a que 2 éléments)
+```
+
+❌ **Erreur 3 : Confondre `.remove()` et `del`**
+```python
+tickets = ["#001", "#002", "#003"]
+
+tickets.remove("#002")  # Supprime la VALEUR "#002"
+del tickets[0]          # Supprime l'élément à l'INDICE 0
+```
+
+---
+
+## 📝 Fiche de Référence Python (Aide-Mémoire)
+
+**À garder sous les yeux pendant les exercices :**
+
+```python
+# ═══════════════════════════════════════════════════════════════
+# TABLEAUX ET LISTES - AIDE-MÉMOIRE PYTHON
+# ═══════════════════════════════════════════════════════════════
+
+# --- CRÉATION ---
+tableau = [1, 2, 3, 4, 5]
+liste_vide = []
+
+# --- ACCÈS ---
+premier = tableau[0]       # Premier élément (indice 0)
+dernier = tableau[-1]      # Dernier élément
+longueur = len(tableau)    # Nombre d'éléments
+
+# --- MODIFICATION ---
+tableau[0] = 10            # Changer le 1er élément
+
+# --- AJOUT (listes) ---
+liste.append(6)            # Ajouter à la fin
+liste.insert(0, 0)         # Ajouter à l'indice 0
+
+# --- SUPPRESSION (listes) ---
+liste.remove(3)            # Supprimer la valeur 3
+del liste[0]               # Supprimer l'indice 0
+dernier = liste.pop()      # Supprimer et récupérer le dernier
+
+# --- PARCOURS ---
+for element in tableau:
+    print(element)
+
+for i in range(len(tableau)):
+    print(f"Indice {i} : {tableau[i]}")
+
+# ═══════════════════════════════════════════════════════════════
+```
+
+---
+
+## 📊 Préparation pour l'Évaluation Formative
+
+### Ce que vous devez savoir faire
+
+**Partie Algorithmique :**
+- ✅ Créer un tableau ou une liste
+- ✅ Accéder à un élément par son indice
+- ✅ Modifier un élément
+- ✅ Parcourir une structure avec une boucle `for`
+- ✅ Ajouter/supprimer des éléments d'une liste
+- ✅ Résoudre un problème simple avec ces structures
+
+**Partie Subnetting (révision S7-S8) :**
+- ✅ Calculer le nombre d'hôtes dans un réseau
+- ✅ Déterminer le masque à partir du CIDR
+- ✅ Identifier la plage d'adresses IP d'un sous-réseau
+- ✅ Calculer l'adresse réseau et l'adresse de broadcast
+
+### Conseils de Révision
+
+**📅 Avant l'évaluation :**
+1. Relire les fiches de S7-S8 (subnetting)
+2. Refaire les exercices d'algorithmique de S6-S9
+3. Pratiquer la syntaxe Python des tableaux et listes
+4. Vérifier que vous comprenez la différence entre indice et valeur
+
+**⏰ Pendant l'évaluation :**
+1. Lire TOUTES les consignes avant de commencer
+2. Gérer son temps : 40 min pour le subnetting, 40 min pour l'algorithmique
+3. Si vous bloquez, passer à la question suivante et revenir après
+4. Vérifier vos réponses si vous avez du temps
 
 ---

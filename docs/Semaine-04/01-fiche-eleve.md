@@ -1,526 +1,526 @@
 ---
 author: YLP
-title: 📚 FICHE DE COURS
+title: 📖 FICHE DE COURS
 ---
 
-# 📚 FICHE DE COURS ÉLÈVE
-## "Stratégies de Sauvegarde · Types · Comparaison"
+# 📖 FICHE DE COURS ÉLÈVE
+## Masques de Sous-réseau · CIDR · Adresse Réseau · Broadcast · Plage d'Hôtes
 
 *Version 1.0 — BTS SIO SISR — Année 1 — Semaine 4*
+> **Prérequis :** S1 (binaire), S2 (octets), S3 (AND, NOT, OR bit à bit)
 
 ---
 
-## 🎯 Compétences Travaillées
+## Partie 1 — Pourquoi un Masque de Sous-réseau ?
 
-| **Code** | **Compétence** |
-|----------|---------------|
-| **B3.2** | Mettre en œuvre les mesures de sécurité de base |
-| **B1.7** | Assurer la disponibilité des services informatiques |
+### 1.1 Le Problème : Comment Savoir si Deux Machines Sont "Voisines" ?
+
+Une adresse IPv4 est un nombre de **32 bits** divisé en deux parties :
+- La **partie réseau** : identifie le réseau auquel appartient la machine
+- La **partie hôte** : identifie la machine individuelle au sein de ce réseau
+
+```
+┌────────────────────────────────────────────────────────────────────┐
+│             UNE ADRESSE IP = DEUX INFORMATIONS                     │
+│                                                                    │
+│   192  .  168  .   1   .  42                                       │
+│   ─────────────────────   ──                                       │
+│       Partie réseau       Partie hôte                              │
+│   (identifie le réseau)  (identifie la machine)                    │
+│                                                                    │
+│   Mais la frontière n'est pas forcément après le 3ème octet !      │
+│   C'est le MASQUE qui dit où elle est.                             │
+└────────────────────────────────────────────────────────────────────┘
+```
+*[Illustration : Une adresse IP complète de 32 bits représentée comme une barre horizontale. La partie gauche (en bleu) est annotée "Partie réseau = fixe pour toutes les machines du réseau". La partie droite (en vert) est annotée "Partie hôte = unique pour chaque machine". Une flèche verticale entre les deux parties indique "Le masque définit où passe la frontière".]*
+
+### 1.2 Le Masque : Un Nombre Binaire Avec des 1 Puis des 0
+
+Un masque de sous-réseau est un nombre de **32 bits** qui respecte une règle stricte :
+
+```
+╔══════════════════════════════════════════════════════════════════╗
+║  RÈGLE FONDAMENTALE DU MASQUE                                    ║
+║                                                                  ║
+║  Le masque commence toujours par des 1 consécutifs,             ║
+║  suivis de 0 consécutifs.                                        ║
+║                                                                  ║
+║  1111...1110000...000                                            ║
+║  ↑ n bits à 1     ↑ (32−n) bits à 0                             ║
+║                                                                  ║
+║  Les bits à 1 = partie RÉSEAU (fixe, commune à toutes            ║
+║                 les machines du réseau)                          ║
+║  Les bits à 0 = partie HÔTE (variable, propre à chaque          ║
+║                 machine)                                         ║
+╚══════════════════════════════════════════════════════════════════╝
+```
+
+> ⚠️ **Un masque INVALIDE ne peut jamais avoir un 0 avant un 1** : `11110111` est illégal comme masque. Les bits à 1 forment toujours un bloc continu et ininterrompu, à gauche.
 
 ---
 
-## PARTIE I — Pourquoi Sauvegarder ?
+## Partie 2 — Les Deux Notations du Masque
 
-### I.A. Les 5 Causes de Perte de Données
+### 2.1 Notation Décimale Pointée
+
+Chaque groupe de 8 bits du masque est converti en décimal. Les seules valeurs possibles pour un octet de masque sont donc celles qui s'obtiennent avec des 1 consécutifs suivis de 0 consécutifs :
 
 ```
-   CAUSES DE PERTE DE DONNÉES (Statistiques 2023)
-   ═══════════════════════════════════════════════════════════════
-   
-   ① PANNE MATÉRIELLE (40%)
-   ──────────────────────────────────────────────────────────────
-   • Disque dur qui casse (têtes de lecture, moteur)
-   • SSD qui meurt (usure des cellules NAND)
-   • Serveur qui grille (alimentation, surtension)
-   
-   Espérance de vie :
-   • Disque dur (HDD) : 5-10 ans
-   • SSD : 5-7 ans (selon usage)
-   • Serveur : 5-8 ans
-   
-   ② RANSOMWARE / CYBERATTAQUE (30%)
-   ──────────────────────────────────────────────────────────────
-   • Fichiers chiffrés par ransomware (WannaCry, Ryuk...)
-   • Serveurs détruits par malware
-   • Base de données corrompue par attaque
-   
-   ③ ERREUR HUMAINE (20%)
-   ──────────────────────────────────────────────────────────────
-   • Suppression accidentelle (Shift+Delete)
-   • Formatage du mauvais disque
-   • Écrasement de fichiers
-   • Mauvaise manipulation (DROP TABLE users;)
-   
-   ④ CATASTROPHE NATURELLE (8%)
-   ──────────────────────────────────────────────────────────────
-   • Incendie (bureau détruit)
-   • Inondation (serveurs noyés)
-   • Foudre (surtension, grillage matériel)
-   
-   ⑤ VOL / PERTE (2%)
-   ──────────────────────────────────────────────────────────────
-   • Ordinateur portable volé
-   • Disque dur externe perdu
-   • Serveur volé lors d'un cambriolage
+╔══════════════════════════════════════════════════════════════════╗
+║          LES 9 VALEURS POSSIBLES D'UN OCTET DE MASQUE            ║
+╠══════════════╦═══════════╦═════════╦═════════════════════════════╣
+║ Binaire      ║ Décimal   ║ Bits à 1║ Commentaire                 ║
+╠══════════════╬═══════════╬═════════╬═════════════════════════════╣
+║ 00000000     ║    0      ║    0    ║ Octet "hôte" complet        ║
+║ 10000000     ║  128      ║    1    ║                             ║
+║ 11000000     ║  192      ║    2    ║ Vu dans la paire 3 (/26)   ║
+║ 11100000     ║  224      ║    3    ║                             ║
+║ 11110000     ║  240      ║    4    ║                             ║
+║ 11111000     ║  248      ║    5    ║                             ║
+║ 11111100     ║  252      ║    6    ║ Lien point-à-point (/30)   ║
+║ 11111110     ║  254      ║    7    ║                             ║
+║ 11111111     ║  255      ║    8    ║ Octet "réseau" complet      ║
+╚══════════════╩═══════════╩═════════╩═════════════════════════════╝
+```
+*[Illustration : Le même tableau avec, pour chaque ligne, une représentation visuelle des 8 cases binaires : les cases à 1 sont remplies en bleu, les cases à 0 sont vides. Permet de voir visuellement le "glissement" du bloc de 1.]*
+
+> 💡 **Astuce :** Un masque en décimal pointé ne peut contenir que des octets valant 0, 128, 192, 224, 240, 248, 252, 254 ou 255. Si vous voyez 241 ou 200 dans un masque, c'est une erreur de configuration.
+
+### 2.2 Notation CIDR *(Classless Inter-Domain Routing)*
+
+La notation **CIDR** est beaucoup plus simple : c'est juste le **nombre de bits à 1** dans le masque, précédé d'un `/`.
+
+```
+  /24 = 24 bits à 1 = 11111111.11111111.11111111.00000000
+                    = 255.255.255.0
+
+  /26 = 26 bits à 1 = 11111111.11111111.11111111.11000000
+                    = 255.255.255.192
+
+  /20 = 20 bits à 1 = 11111111.11111111.11110000.00000000
+                    = 255.255.240.0
 ```
 
-**Conclusion :** Toutes les entreprises subiront **au moins une** de ces causes.
+**Conversion CIDR → Décimal :**
 
-> *"Ce n'est pas SI vous perdrez des données, c'est QUAND."*
+1. Placer `n` bits à 1 suivis de `(32 − n)` bits à 0
+2. Convertir chaque octet de 8 bits en décimal
+
+**Conversion Décimal → CIDR :**
+
+1. Convertir chaque octet en binaire
+2. Compter le nombre total de bits à 1
 
 ---
 
-### I.B. Impact de la Perte de Données
+### 2.3 Table des Masques Courants — À Connaître par Cœur
 
-```
-   COÛT D'UNE PERTE DE DONNÉES (PME)
-   ═══════════════════════════════════════════════════════════════
-   
-   FINANCIER
-   ──────────────────────────────────────────────────────────────
-   • Perte d'activité : 10 000-100 000 € par jour
-   • Récupération données : 1 000-10 000 €
-   • Reconstruction : 5 000-50 000 €
-   
-   RÉPUTATIONNEL
-   ──────────────────────────────────────────────────────────────
-   • Clients perdent confiance
-   • Mauvaise publicité
-   • Action en justice possible (RGPD)
-   
-   OPÉRATIONNEL
-   ──────────────────────────────────────────────────────────────
-   • Impossibilité de travailler
-   • Retard dans les projets
-   • Perte de productivité
-   
-   STATISTIQUE CHOC
-   ──────────────────────────────────────────────────────────────
-   60% des PME qui perdent leurs données
-   FERMENT dans les 6 mois
-   (Source : National Cyber Security Alliance, 2023)
-```
+| **CIDR** | **Décimal pointé** | **Bits réseau** | **Bits hôte** | **Nb hôtes max** | **Usage typique** |
+|---|---|---|---|---|---|
+| **/8** | 255.0.0.0 | 8 | 24 | 16 777 214 | Plages privées (10.x.x.x) |
+| **/16** | 255.255.0.0 | 16 | 16 | 65 534 | Plages privées (172.16.x.x) |
+| **/24** | 255.255.255.0 | 24 | 8 | 254 | Réseau de PME courant |
+| **/25** | 255.255.255.128 | 25 | 7 | 126 | Division d'un /24 en 2 |
+| **/26** | 255.255.255.192 | 26 | 6 | 62 | Division d'un /24 en 4 |
+| **/27** | 255.255.255.224 | 27 | 5 | 30 | Petit segment |
+| **/28** | 255.255.255.240 | 28 | 4 | 14 | Très petit segment |
+| **/29** | 255.255.255.248 | 29 | 3 | 6 | Lien entre quelques hôtes |
+| **/30** | 255.255.255.252 | 30 | 2 | **2** | Lien point-à-point (routeurs) |
 
 ---
 
-## PARTIE II — Les 3 Types de Sauvegardes
+## Partie 3 — L'Algorithme de Calcul de Sous-réseau
 
-### II.A. Sauvegarde Complète (Full Backup)
-
-**Définition :** Copie **intégrale** de toutes les données, chaque fois.
+### 3.1 Présentation Formelle
 
 ```
-   SAUVEGARDE COMPLÈTE
-   ═══════════════════════════════════════════════════════════════
-   
-   LUNDI : Sauvegarde complète (100 Go)
-   ──────────────────────────────────────────────────────────────
-   Tous les fichiers : A, B, C, D, E, F, G, H, I, J
-   Espace utilisé : 100 Go
-   
-   MARDI : Sauvegarde complète (100 Go)
-   ──────────────────────────────────────────────────────────────
-   Tous les fichiers : A, B, C, D, E, F, G, H, I, J
-   (même si certains n'ont pas changé)
-   Espace utilisé : 100 Go
-   
-   MERCREDI : Sauvegarde complète (100 Go)
-   ──────────────────────────────────────────────────────────────
-   Tous les fichiers : A, B, C, D, E, F, G, H, I, J
-   Espace utilisé : 100 Go
-   
-   TOTAL ESPACE : 300 Go (3 × 100 Go)
+╔══════════════════════════════════════════════════════════════════╗
+║         ALGORITHME DE CALCUL DE SOUS-RÉSEAU                      ║
+║                                                                  ║
+║  ENTRÉE : adresse IP (32 bits), masque (CIDR ou décimal)         ║
+║                                                                  ║
+║  ÉTAPE 1 : Convertir IP et masque en binaire (32 bits)           ║
+║                                                                  ║
+║  ÉTAPE 2 : AND bit à bit → Adresse réseau                        ║
+║            IP AND masque = adresse_réseau                        ║
+║                                                                  ║
+║  ÉTAPE 3 : NOT bit à bit du masque → Wildcard (masque inversé)   ║
+║            NOT(masque) = wildcard                                ║
+║                                                                  ║
+║  ÉTAPE 4 : OR bit à bit → Adresse broadcast                      ║
+║            adresse_réseau OR wildcard = broadcast                ║
+║                                                                  ║
+║  ÉTAPE 5 : Calculer la plage et le nombre d'hôtes                ║
+║            Première IP hôte = adresse_réseau + 1                 ║
+║            Dernière IP hôte = broadcast − 1                      ║
+║            Nombre d'hôtes   = 2ⁿ − 2  (n = bits hôte)          ║
+║                                                                  ║
+║  SORTIE : réseau, broadcast, première IP, dernière IP, nb hôtes  ║
+╚══════════════════════════════════════════════════════════════════╝
 ```
 
-**Avantages :**
-- ✅ **Restauration simple et rapide** (1 seule sauvegarde à restaurer)
-- ✅ **Fiabilité maximale** (chaque sauvegarde est autonome)
-- ✅ **Facilité de gestion** (pas de dépendances entre sauvegardes)
+### 3.2 Lien Avec S3 — Rappel des Opérations Booléennes Bit à Bit
 
-**Inconvénients :**
-- ❌ **Espace disque énorme** (copie tout à chaque fois)
-- ❌ **Temps de sauvegarde long** (plusieurs heures pour To de données)
-- ❌ **Bande passante réseau importante** (si sauvegarde distante)
+En S3, vous avez appris AND, OR, NOT sur des variables booléennes (0 ou 1). Ici, on applique **les mêmes opérations sur 32 bits simultanément**, position par position :
 
-**Usage typique :**
-- Sauvegarde hebdomadaire (dimanche soir)
-- PME avec peu de données (< 500 Go)
-- Avant mise à jour majeure d'un système
+```
+  AND bit à bit de deux octets :
+  IP     : 1 1 0 0 0 0 0 1
+  Masque : 1 1 1 1 1 1 1 1
+  AND    : 1 1 0 0 0 0 0 1   ← chaque position : 1 AND 1 = 1, 0 AND 1 = 0
+
+  NOT bit à bit d'un octet de masque :
+  Masque : 1 1 1 1 0 0 0 0
+  NOT    : 0 0 0 0 1 1 1 1   ← chaque bit est inversé
+```
+
+> 💡 **C'est exactement la même logique booléenne que la porte logique vue en S3 — appliquée 32 fois en parallèle.** Le processeur de votre machine exécute précisément cette opération lors du calcul de sous-réseau.
 
 ---
 
-### II.B. Sauvegarde Différentielle (Differential Backup)
+## Partie 4 — Exemple Complet Guidé Pas à Pas
 
-**Définition :** Sauvegarde complète initiale, puis sauvegardes des fichiers **modifiés depuis la dernière complète**.
+### Exemple 1 — IP : 192.168.1.74 / 24
+
+**Étape 1 — Conversion en binaire :**
 
 ```
-   SAUVEGARDE DIFFÉRENTIELLE
-   ═══════════════════════════════════════════════════════════════
-   
-   LUNDI : Sauvegarde complète (100 Go)
-   ──────────────────────────────────────────────────────────────
-   Tous les fichiers : A, B, C, D, E, F, G, H, I, J
-   Espace utilisé : 100 Go
-   
-   MARDI : Sauvegarde différentielle (5 Go)
-   ──────────────────────────────────────────────────────────────
-   Fichiers modifiés depuis LUNDI : B, E
-   Espace utilisé : 5 Go
-   
-   MERCREDI : Sauvegarde différentielle (8 Go)
-   ──────────────────────────────────────────────────────────────
-   Fichiers modifiés depuis LUNDI : B, E, C
-   Espace utilisé : 8 Go (5 + 3)
-   ↑ Cumule les changements depuis la complète
-   
-   JEUDI : Sauvegarde différentielle (12 Go)
-   ──────────────────────────────────────────────────────────────
-   Fichiers modifiés depuis LUNDI : B, E, C, F
-   Espace utilisé : 12 Go (5 + 3 + 4)
-   ↑ Continue de cumuler
-   
-   TOTAL ESPACE : 125 Go (100 + 5 + 8 + 12)
+  IP     : 192      . 168      .   1      .  74
+  Binaire: 11000000 . 10101000 . 00000001 . 01001010
+
+  Masque /24 → 24 bits à 1 :
+  Binaire: 11111111 . 11111111 . 11111111 . 00000000
+  Décimal: 255      . 255      . 255      .   0
 ```
 
-**Caractéristique clé :** Chaque sauvegarde différentielle **cumule** tous les changements depuis la dernière complète.
+**Étape 2 — AND bit à bit → Adresse réseau :**
 
-**Avantages :**
-- ✅ **Restauration simple** (2 sauvegardes : complète + dernière différentielle)
-- ✅ **Espace modéré** (moins que complète, plus qu'incrémentielle)
+```
+  IP     : 11000000 . 10101000 . 00000001 . 01001010
+  Masque : 11111111 . 11111111 . 11111111 . 00000000
+  AND    : 11000000 . 10101000 . 00000001 . 00000000
+         = 192      . 168      .   1      .   0
+  → Adresse réseau : 192.168.1.0
+```
 
-**Inconvénients :**
-- ❌ **Espace croissant** (chaque diff grossit jour après jour)
-- ❌ **Nécessite complète récente** (si complète corrompue → toutes les diff inutiles)
+> 💡 **Observation :** Pour les 3 premiers octets, masque = 11111111 → AND donne toujours l'IP d'origine. Seul le dernier octet avec masque = 00000000 → AND donne 0. C'est pourquoi les /24 semblent simples : seul le dernier octet change.
 
-**Usage typique :**
-- Complète le dimanche, différentielle lundi-samedi
-- PME avec sauvegarde quotidienne
+**Étape 3 — NOT(masque) → Wildcard :**
+
+```
+  Masque  : 11111111 . 11111111 . 11111111 . 00000000
+  NOT     : 00000000 . 00000000 . 00000000 . 11111111
+  Décimal :    0     .    0     .    0     .   255
+  → Wildcard : 0.0.0.255
+```
+
+**Étape 4 — OR bit à bit → Broadcast :**
+
+```
+  Réseau : 11000000 . 10101000 . 00000001 . 00000000
+  Wildcard:00000000 . 00000000 . 00000000 . 11111111
+  OR     : 11000000 . 10101000 . 00000001 . 11111111
+         = 192      . 168      .   1      .   255
+  → Broadcast : 192.168.1.255
+```
+
+**Étape 5 — Plage d'hôtes et nombre d'hôtes :**
+
+```
+  Bits hôte : 32 − 24 = 8 bits
+  Nombre d'hôtes = 2⁸ − 2 = 256 − 2 = 254 hôtes
+
+  Première IP hôte : 192.168.1.0 + 1 = 192.168.1.1
+  Dernière IP hôte : 192.168.1.255 − 1 = 192.168.1.254
+```
+
+**Récapitulatif :**
+
+| **Élément** | **Valeur** |
+|---|---|
+| Adresse IP | 192.168.1.74 |
+| Masque | 255.255.255.0 (/24) |
+| **Adresse réseau** | **192.168.1.0** |
+| **Broadcast** | **192.168.1.255** |
+| **Première IP hôte** | **192.168.1.1** |
+| **Dernière IP hôte** | **192.168.1.254** |
+| **Nombre d'hôtes** | **254** |
 
 ---
 
-### II.C. Sauvegarde Incrémentielle (Incremental Backup)
+### Exemple 2 — IP : 172.16.50.130 / 26 *(masque non-standard)*
 
-**Définition :** Sauvegarde complète initiale, puis sauvegardes des fichiers **modifiés depuis la dernière sauvegarde** (quelle qu'elle soit).
+**Étape 1 — Conversion en binaire :**
 
 ```
-   SAUVEGARDE INCRÉMENTIELLE
-   ═══════════════════════════════════════════════════════════════
-   
-   LUNDI : Sauvegarde complète (100 Go)
-   ──────────────────────────────────────────────────────────────
-   Tous les fichiers : A, B, C, D, E, F, G, H, I, J
-   Espace utilisé : 100 Go
-   
-   MARDI : Sauvegarde incrémentielle (5 Go)
-   ──────────────────────────────────────────────────────────────
-   Fichiers modifiés depuis LUNDI : B, E
-   Espace utilisé : 5 Go
-   
-   MERCREDI : Sauvegarde incrémentielle (3 Go)
-   ──────────────────────────────────────────────────────────────
-   Fichiers modifiés depuis MARDI : C
-   Espace utilisé : 3 Go
-   ↑ Seulement les nouveaux changements depuis hier
-   
-   JEUDI : Sauvegarde incrémentielle (4 Go)
-   ──────────────────────────────────────────────────────────────
-   Fichiers modifiés depuis MERCREDI : F
-   Espace utilisé : 4 Go
-   ↑ Seulement les nouveaux changements depuis hier
-   
-   TOTAL ESPACE : 112 Go (100 + 5 + 3 + 4)
+  IP     : 172      . 16       .  50      .  130
+  Binaire: 10101100 . 00010000 . 00110010 . 10000010
+
+  Masque /26 → 26 bits à 1, 6 bits à 0 :
+  Binaire: 11111111 . 11111111 . 11111111 . 11000000
+  Décimal: 255      . 255      . 255      .  192
 ```
 
-**Caractéristique clé :** Chaque sauvegarde incrémentielle ne prend que les **nouveaux changements** depuis la veille.
+**Étape 2 — AND bit à bit (seul le 4ème octet diffère) :**
 
-**Avantages :**
-- ✅ **Espace minimal** (le plus efficace en stockage)
-- ✅ **Temps de sauvegarde rapide** (peu de données à copier)
-- ✅ **Bande passante faible** (idéal pour sauvegarde distante)
+```
+  4ème octet IP     : 1 0 0 0 0 0 1 0  (= 130)
+  4ème octet masque : 1 1 0 0 0 0 0 0  (= 192)
+  AND               : 1 0 0 0 0 0 0 0  (= 128)
 
-**Inconvénients :**
-- ❌ **Restauration complexe et lente** (besoin de TOUTES les sauvegardes)
-  ```
-  Pour restaurer jeudi :
-  1. Restaurer complète lundi
-  2. Restaurer incrémentielle mardi
-  3. Restaurer incrémentielle mercredi
-  4. Restaurer incrémentielle jeudi
-  → 4 étapes
-  ```
-- ❌ **Risque accru** (si une incrémentielle est corrompue → chaîne brisée)
+  → Adresse réseau : 172.16.50.128
+```
 
-**Usage typique :**
-- Grandes entreprises avec To de données
-- Sauvegarde quotidienne + complète mensuelle
-- Environnements avec sauvegarde continue (toutes les heures)
+> ⚠️ **Ce n'est PAS .0 !** Avec un /26, le réseau commence à .128, pas à .0. C'est pourquoi l'intuition échoue ici.
+
+**Étape 3 — NOT(masque) → Wildcard :**
+
+```
+  4ème octet masque : 1 1 0 0 0 0 0 0  (= 192)
+  NOT               : 0 0 1 1 1 1 1 1  (= 63)
+  → Wildcard : 0.0.0.63
+```
+
+**Étape 4 — OR bit à bit → Broadcast :**
+
+```
+  4ème octet réseau   : 1 0 0 0 0 0 0 0  (= 128)
+  4ème octet wildcard : 0 0 1 1 1 1 1 1  (= 63)
+  OR                  : 1 0 1 1 1 1 1 1  (= 191)
+
+  → Broadcast : 172.16.50.191
+```
+
+**Étape 5 — Plage d'hôtes :**
+
+```
+  Bits hôte = 32 − 26 = 6 bits
+  Nombre d'hôtes = 2⁶ − 2 = 64 − 2 = 62 hôtes
+
+  Première IP : 172.16.50.129
+  Dernière IP : 172.16.50.190
+```
+
+**Récapitulatif :**
+
+| **Élément** | **Valeur** |
+|---|---|
+| Adresse IP | 172.16.50.130 |
+| Masque | 255.255.255.192 (/26) |
+| **Adresse réseau** | **172.16.50.128** |
+| **Broadcast** | **172.16.50.191** |
+| **Première IP hôte** | **172.16.50.129** |
+| **Dernière IP hôte** | **172.16.50.190** |
+| **Nombre d'hôtes** | **62** |
 
 ---
 
-### II.D. Tableau Comparatif Récapitulatif
+### Exemple 3 — IP : 10.0.4.200 / 20 *(masque traversant le 3ème octet)*
 
-| **Critère** | **Complète** | **Différentielle** | **Incrémentielle** |
-|---|---|---|---|
-| **Espace disque** | ❌ Maximum | 🟡 Moyen (croissant) | ✅ Minimum |
-| **Temps sauvegarde** | ❌ Long | 🟡 Moyen (croissant) | ✅ Court |
-| **Temps restauration** | ✅ Rapide (1 étape) | 🟡 Moyen (2 étapes) | ❌ Lent (N étapes) |
-| **Complexité** | ✅ Simple | 🟡 Moyenne | ❌ Complexe |
-| **Fiabilité** | ✅ Maximum | 🟡 Bonne | 🟡 Moyenne (chaîne) |
-| **Usage typique** | Hebdomadaire | Quotidienne | Horaire/Continue |
-
----
-
-### II.E. Stratégie Combinée (Recommandée)
-
-**Principe :** Combiner les 3 types pour optimiser espace ET restauration.
+**Étape 1 — Conversion en binaire :**
 
 ```
-   STRATÉGIE GRAND-PÈRE-PÈRE-FILS (GFS)
-   ═══════════════════════════════════════════════════════════════
-   
-   FILS (quotidien) : Incrémentielle
-   ──────────────────────────────────────────────────────────────
-   Lundi → Dimanche : Sauvegarde incrémentielle chaque soir
-   Rétention : 7 jours (1 semaine)
-   
-   PÈRE (hebdomadaire) : Différentielle ou Complète
-   ──────────────────────────────────────────────────────────────
-   Chaque dimanche : Sauvegarde complète
-   Rétention : 4 semaines (1 mois)
-   
-   GRAND-PÈRE (mensuel) : Complète
-   ──────────────────────────────────────────────────────────────
-   Premier dimanche du mois : Sauvegarde complète archivée
-   Rétention : 12 mois (1 an) ou plus
-   
-   AVANTAGES
-   ──────────────────────────────────────────────────────────────
-   ✅ Optimisation espace (incrémentielle quotidienne)
-   ✅ Restauration rapide récente (complète hebdomadaire)
-   ✅ Historique long terme (complète mensuelle)
+  IP     : 10       .   0      .   4      .  200
+  Binaire: 00001010 . 00000000 . 00000100 . 11001000
+
+  Masque /20 → 20 bits à 1, 12 bits à 0 :
+  Bits :   [11111111] [11111111] [11110000] [00000000]
+  Décimal:    255        255        240         0
 ```
 
----
+> ⚠️ **La frontière réseau/hôte passe à l'intérieur du 3ème octet.** Le 3ème octet du masque est 240 = 11110000 — les 4 premiers bits sont réseau, les 4 derniers sont hôte.
 
-## PARTIE III — La Règle 3-2-1 (Approfondie)
-
-### III.A. Rappel de la Règle
+**Étape 2 — AND bit à bit :**
 
 ```
-   RÈGLE 3-2-1
-   ═══════════════════════════════════════════════════════════════
-   
-   3 COPIES de vos données
-   ├── 1 copie de production (données actives sur le serveur)
-   ├── 1 copie de sauvegarde locale (disque externe, NAS)
-   └── 1 copie de sauvegarde distante (cloud, site distant)
-   
-   2 SUPPORTS DIFFÉRENTS
-   ├── Support 1 : Disque dur (local)
-   └── Support 2 : Cloud / Bande magnétique / SSD (distant)
-   
-   1 COPIE HORS SITE (off-site)
-   └── Cloud (AWS, Azure, Backblaze) OU datacenter distant
+  3ème octet IP     : 0 0 0 0 0 1 0 0  (=  4)
+  3ème octet masque : 1 1 1 1 0 0 0 0  (= 240)
+  AND               : 0 0 0 0 0 0 0 0  (=  0)
+
+  4ème octet IP     : 1 1 0 0 1 0 0 0  (= 200)
+  4ème octet masque : 0 0 0 0 0 0 0 0  (=   0)
+  AND               : 0 0 0 0 0 0 0 0  (=   0)
+
+  → Adresse réseau : 10.0.0.0
 ```
 
----
-
-### III.B. Pourquoi 3 Copies ?
+**Étape 3 — Wildcard :**
 
 ```
-   SCÉNARIO : Incendie dans les locaux
-   ═══════════════════════════════════════════════════════════════
-   
-   AVEC 1 SEULE COPIE (serveur)
-   ──────────────────────────────────────────────────────────────
-   Serveur détruit → Données PERDUES
-   
-   AVEC 2 COPIES (serveur + disque externe à côté)
-   ──────────────────────────────────────────────────────────────
-   Serveur détruit + disque externe détruit → Données PERDUES
-   (même lieu = même risque)
-   
-   AVEC 3 COPIES (serveur + disque externe + cloud)
-   ──────────────────────────────────────────────────────────────
-   Serveur détruit + disque externe détruit
-   → Cloud intact → Données SAUVÉES ✅
+  NOT(masque) : 00000000 . 00000000 . 00001111 . 11111111
+  Décimal     :    0     .    0     .    15    .   255
+  → Wildcard : 0.0.15.255
 ```
 
----
-
-### III.C. Pourquoi 2 Supports Différents ?
-
-**Risque de défaillance corrélée :**
-
-Si vous utilisez 2 disques durs de **même marque** et **même modèle** achetés **en même temps** :
-- Ils ont été fabriqués dans le **même lot**
-- Ils ont les **mêmes défauts de fabrication**
-- Ils mourront **en même temps** (espérance de vie similaire)
-
-**Solution :** Diversifier les supports.
+**Étape 4 — Broadcast :**
 
 ```
-   EXEMPLES DE COMBINAISONS
-   ═══════════════════════════════════════════════════════════════
-   
-   ✅ BONNE COMBINAISON
-   ──────────────────────────────────────────────────────────────
-   • Support 1 : Disque dur HDD (Seagate)
-   • Support 2 : SSD (Samsung) + Cloud (Backblaze)
-   
-   ✅ BONNE COMBINAISON (entreprise)
-   ──────────────────────────────────────────────────────────────
-   • Support 1 : NAS local (RAID 5)
-   • Support 2 : Bande magnétique (LTO) stockée hors site
-   
-   ❌ MAUVAISE COMBINAISON
-   ──────────────────────────────────────────────────────────────
-   • Support 1 : Disque dur WD Blue 2 To
-   • Support 2 : Disque dur WD Blue 2 To (même modèle, même lot)
+  3ème octet réseau   : 0 0 0 0 0 0 0 0  (=  0)
+  3ème octet wildcard : 0 0 0 0 1 1 1 1  (= 15)
+  OR                  : 0 0 0 0 1 1 1 1  (= 15)
+
+  4ème octet : 0 OR 11111111 = 11111111 = 255
+
+  → Broadcast : 10.0.15.255
+```
+
+**Étape 5 — Plage d'hôtes :**
+
+```
+  Bits hôte = 32 − 20 = 12 bits
+  Nombre d'hôtes = 2¹² − 2 = 4096 − 2 = 4094 hôtes
+
+  Première IP : 10.0.0.1
+  Dernière IP : 10.0.15.254
 ```
 
 ---
 
-### III.D. Pourquoi 1 Copie Hors Site ?
+## Partie 5 — Algorithme de Comparaison : "Même Réseau ou Pas ?"
 
-**Protection contre les sinistres locaux :**
+Pour déterminer si deux hôtes sont sur le même sous-réseau, il suffit de comparer leurs adresses réseau :
 
 ```
-   SINISTRES LOCAUX
-   ═══════════════════════════════════════════════════════════════
-   
-   • Incendie (bureau détruit)
-   • Inondation (sous-sol inondé)
-   • Cambriolage (serveur + disque externe volés)
-   • Foudre (surtension grille tout le matériel)
-   • Catastrophe naturelle (tremblement de terre, ouragan)
-   
-   → TOUTES les sauvegardes sur place sont PERDUES
-   
-   SOLUTION : Copie hors site (différent bâtiment, ville, pays)
+╔══════════════════════════════════════════════════════════════════╗
+║     ALGORITHME DE COMPARAISON DE SOUS-RÉSEAUX                    ║
+║                                                                  ║
+║  ENTRÉE : IP_A, IP_B, masque commun                              ║
+║                                                                  ║
+║  ÉTAPE 1 : réseau_A = IP_A AND masque                            ║
+║  ÉTAPE 2 : réseau_B = IP_B AND masque                            ║
+║  ÉTAPE 3 : Si réseau_A = réseau_B → MÊME RÉSEAU (pas de routeur) ║
+║            Si réseau_A ≠ réseau_B → RÉSEAUX DIFFÉRENTS (routeur) ║
+║                                                                  ║
+║  SORTIE : OUI / NON + adresse réseau de chaque hôte              ║
+╚══════════════════════════════════════════════════════════════════╝
 ```
 
-**Options hors site :**
-
-| **Option** | **Coût** | **Facilité** | **Sécurité** | **Usage** |
-|---|---|---|---|---|
-| **Cloud** (AWS, Azure, Backblaze) | 5-20 €/mois/To | ★★★★★ | ★★★★☆ | PME, particuliers |
-| **Datacenter distant** | 100-500 €/mois | ★★☆☆☆ | ★★★★★ | Grandes entreprises |
-| **Maison / Bureau distant** | Gratuit | ★★★☆☆ | ★★☆☆☆ | Petites structures |
-| **Coffre-fort bancaire** | 50-200 €/an | ★★☆☆☆ | ★★★★★ | Sauvegardes critiques (bande, disque) |
+**Optimisation pratique :** Pour les /24 et les masques qui tombent sur des octets entiers, la comparaison peut se faire octet par octet en décimal, sans passer par le binaire. Mais **dès qu'un octet de masque est ni 0 ni 255**, il faut obligatoirement passer par le binaire pour cet octet.
 
 ---
 
-## PARTIE IV — Politique de Sauvegarde
+## Partie 6 — Exercices Guidés
 
-### IV.A. Fréquence de Sauvegarde
-
-**Question clé :** *"Combien de temps de données êtes-vous prêt à perdre ?"*
+### Grille de Calcul Vierge — À Utiliser Pour Chaque Exercice
 
 ```
-   RPO (Recovery Point Objective)
-   ═══════════════════════════════════════════════════════════════
-   
-   Objectif de Point de Restauration = Perte de données maximale
-   acceptable
-   
-   EXEMPLES
-   ──────────────────────────────────────────────────────────────
-   RPO = 24 heures → Sauvegarde quotidienne
-   (Perte max : 1 jour de données)
-   
-   RPO = 1 heure → Sauvegarde horaire
-   (Perte max : 1 heure de données)
-   
-   RPO = 0 (zéro) → Réplication en temps réel
-   (Aucune perte acceptable)
-   
-   SECTEURS ET RPO TYPIQUES
-   ──────────────────────────────────────────────────────────────
-   • PME bureautique : RPO = 24h (sauvegarde nocturne)
-   • E-commerce : RPO = 1h (sauvegarde continue)
-   • Banque : RPO = 0 (réplication synchrone)
-   • Hôpital : RPO = 15 min (vies en jeu)
+═══════════════════════════════════════════════════════════════════
+EXERCICE N° ___
+IP : ___.___.___.___  /___   Masque décimal : ___.___.___.___ 
+═══════════════════════════════════════════════════════════════════
+
+ÉTAPE 1 — CONVERSION EN BINAIRE
+────────────────────────────────────────────────────────────────
+IP     : [________] [________] [________] [________]
+Masque : [________] [________] [________] [________]
+
+ÉTAPE 2 — AND BIT À BIT (adresse réseau)
+────────────────────────────────────────────────────────────────
+IP     : [________] [________] [________] [________]
+Masque : [________] [________] [________] [________]
+AND    : [________] [________] [________] [________]
+Réseau décimal : ___ . ___ . ___ . ___
+
+ÉTAPE 3 — NOT(masque) → wildcard
+────────────────────────────────────────────────────────────────
+NOT masque : [________] [________] [________] [________]
+Wildcard décimal : ___ . ___ . ___ . ___
+
+ÉTAPE 4 — OR BIT À BIT (broadcast)
+────────────────────────────────────────────────────────────────
+Réseau   : [________] [________] [________] [________]
+Wildcard : [________] [________] [________] [________]
+OR       : [________] [________] [________] [________]
+Broadcast décimal : ___ . ___ . ___ . ___
+
+ÉTAPE 5 — RÉSULTATS
+────────────────────────────────────────────────────────────────
+Bits hôte          : 32 − ___ = ___ bits
+Nombre d'hôtes     : 2^___ − 2 = ___ hôtes
+Première IP hôte   : ___ . ___ . ___ . ___
+Dernière IP hôte   : ___ . ___ . ___ . ___
+═══════════════════════════════════════════════════════════════════
 ```
+
+### Série 1 — Exercices Progressifs
+
+**Exercice 1.1** — `10.0.0.50 / 8`
+*(Guidage : le masque est 255.0.0.0 — seul le premier octet est réseau)*
+
+**Exercice 1.2** — `172.16.200.14 / 16`
+*(Guidage : le masque est 255.255.0.0 — les deux premiers octets sont réseau)*
+
+**Exercice 1.3** — `192.168.5.200 / 24`
+*(Guidage : masque classique 255.255.255.0)*
+
+**Exercice 1.4** — `192.168.1.100 / 25`
+*(Attention : la frontière passe dans le dernier octet !)*
+
+**Exercice 1.5** — `192.168.10.67 / 28`
+*(Contre-exemple de l'activité découverte — vérifier le résultat de la paire 4)*
+
+**Exercice 1.6** — `10.10.0.150 / 20`
+*(La frontière réseau/hôte passe dans le 3ème octet)*
+
+### Série 2 — Comparaisons de Sous-réseaux
+
+Pour chaque paire, déterminez si les deux machines sont sur le même réseau. Montrez le calcul.
+
+**Exercice 2.1** — `192.168.1.50/24` et `192.168.1.200/24`
+
+**Exercice 2.2** — `192.168.10.65/26` et `192.168.10.130/26`
+*(La paire 3 de l'activité — vérifier le résultat intuitif)*
+
+**Exercice 2.3** — `10.10.0.1/20` et `10.10.15.200/20`
+
+**Exercice 2.4** — `172.16.0.50/28` et `172.16.0.60/28`
 
 ---
 
-### IV.B. Rétention des Sauvegardes
-
-**Question clé :** *"Pendant combien de temps garder les anciennes sauvegardes ?"*
-
-```
-   STRATÉGIE DE RÉTENTION TYPE
-   ═══════════════════════════════════════════════════════════════
-   
-   QUOTIDIENNE : 7 jours (1 semaine)
-   ──────────────────────────────────────────────────────────────
-   Lundi, Mardi, Mercredi, Jeudi, Vendredi, Samedi, Dimanche
-   → Après 7 jours, suppression de la plus ancienne
-   
-   HEBDOMADAIRE : 4 semaines (1 mois)
-   ──────────────────────────────────────────────────────────────
-   Semaine 1, Semaine 2, Semaine 3, Semaine 4
-   → Après 1 mois, suppression de la plus ancienne
-   
-   MENSUELLE : 12 mois (1 an)
-   ──────────────────────────────────────────────────────────────
-   Janvier, Février, Mars... Décembre
-   → Après 1 an, suppression de la plus ancienne
-   
-   ANNUELLE : 3-7 ans (selon obligations légales)
-   ──────────────────────────────────────────────────────────────
-   2024, 2023, 2022... (archives long terme)
-   → Selon RGPD et obligations comptables
-```
-
-**Obligations légales (France) :**
-- Comptabilité : **10 ans**
-- Documents fiscaux : **6 ans**
-- Contrats : **5 ans**
-- Données personnelles (RGPD) : Durée nécessaire uniquement
-
----
-
-### IV.C. Tests de Restauration
-
-**Règle d'or :**
-> *"Une sauvegarde jamais testée est une sauvegarde qui n'existe pas."*
-
-```
-   STATISTIQUE CHOC
-   ═══════════════════════════════════════════════════════════════
-   
-   34% des entreprises découvrent que leurs sauvegardes
-   ne fonctionnent PAS quand elles essaient de restaurer
-   en situation de crise.
-   
-   (Source : Veeam Data Protection Report 2023)
-```
-
-**Plan de tests :**
-
-| **Fréquence** | **Type de test** | **Objectif** |
-|---|---|---|
-| **Mensuel** | Restauration fichier | Vérifier intégrité fichiers |
-| **Trimestriel** | Restauration complète VM | Vérifier restauration serveur |
-| **Annuel** | Exercice PRA complet | Simulation catastrophe totale |
-
----
-
-## V. Vocabulaire Clé
+## Vocabulaire Clé à Maîtriser pour l'Examen
 
 | **Terme** | **Définition** |
-|-----------|---------------|
-| **Sauvegarde complète** | Copie intégrale de toutes les données |
-| **Sauvegarde différentielle** | Fichiers modifiés depuis la dernière complète |
-| **Sauvegarde incrémentielle** | Fichiers modifiés depuis la dernière sauvegarde (quelle qu'elle soit) |
-| **Règle 3-2-1** | 3 copies, 2 supports, 1 hors site |
-| **RPO** | Recovery Point Objective — perte de données max acceptable |
-| **RTO** | Recovery Time Objective — temps max de restauration acceptable |
-| **GFS** | Grand-père Père Fils — stratégie combinée de sauvegarde |
-| **Rétention** | Durée de conservation des sauvegardes |
-| **Hors site (off-site)** | Sauvegarde stockée dans un lieu géographiquement distinct |
+|---|---|
+| **Masque de sous-réseau** | Nombre de 32 bits composé de 1 continus puis de 0 continus, définissant la frontière réseau/hôte dans une adresse IP |
+| **Notation CIDR** | Nombre de bits à 1 du masque, précédé de `/` (ex : /24) |
+| **Adresse réseau** | Résultat du AND bit à bit entre l'IP et le masque — premier identifiant du sous-réseau (non attribuable à un hôte) |
+| **Broadcast** | Adresse de diffusion — résultat du OR entre l'adresse réseau et le wildcard (non attribuable à un hôte) |
+| **Wildcard (masque inversé)** | NOT du masque — bits à 1 indiquant la partie hôte |
+| **Plage d'hôtes** | Ensemble des adresses entre réseau+1 et broadcast−1 |
+| **Nombre d'hôtes** | 2ⁿ − 2, où n = nombre de bits hôte (−2 pour réseau et broadcast) |
+| **AND bit à bit** | Opération booléenne AND appliquée position par position sur deux nombres binaires de 32 bits |
+| **Lien point-à-point** | Connexion directe entre deux routeurs — utilise /30 (2 hôtes utilisables) |
+| **RFC 1918** | Standard définissant les plages d'adresses IP privées : 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16 |
+
+---
+
+## ANNEXE A — Grille Binaire 32 Cases
+
+```
+   IP      [ ][ ][ ][ ][ ][ ][ ][ ] . [ ][ ][ ][ ][ ][ ][ ][ ] . [ ][ ][ ][ ][ ][ ][ ][ ] . [ ][ ][ ][ ][ ][ ][ ][ ]
+            ←─── octet 1 ──────────→   ←─── octet 2 ──────────→   ←─── octet 3 ──────────→   ←─── octet 4 ──────────→
+   Masque  [ ][ ][ ][ ][ ][ ][ ][ ] . [ ][ ][ ][ ][ ][ ][ ][ ] . [ ][ ][ ][ ][ ][ ][ ][ ] . [ ][ ][ ][ ][ ][ ][ ][ ]
+   AND     [ ][ ][ ][ ][ ][ ][ ][ ] . [ ][ ][ ][ ][ ][ ][ ][ ] . [ ][ ][ ][ ][ ][ ][ ][ ] . [ ][ ][ ][ ][ ][ ][ ][ ]
+   NOT(M)  [ ][ ][ ][ ][ ][ ][ ][ ] . [ ][ ][ ][ ][ ][ ][ ][ ] . [ ][ ][ ][ ][ ][ ][ ][ ] . [ ][ ][ ][ ][ ][ ][ ][ ]
+   OR      [ ][ ][ ][ ][ ][ ][ ][ ] . [ ][ ][ ][ ][ ][ ][ ][ ] . [ ][ ][ ][ ][ ][ ][ ][ ] . [ ][ ][ ][ ][ ][ ][ ][ ]
+```
+
+---
+
+## ANNEXE B — Valeurs Binaires des Octets de Masque Courants
+
+| **Décimal** | **Binaire** | **Correspond à** |
+|---|---|---|
+| 0 | `00000000` | Octet entièrement hôte |
+| 128 | `10000000` | 1 bit réseau dans l'octet |
+| 192 | `11000000` | 2 bits réseau dans l'octet |
+| 224 | `11100000` | 3 bits réseau dans l'octet |
+| 240 | `11110000` | 4 bits réseau dans l'octet |
+| 248 | `11111000` | 5 bits réseau dans l'octet |
+| 252 | `11111100` | 6 bits réseau dans l'octet |
+| 254 | `11111110` | 7 bits réseau dans l'octet |
+| 255 | `11111111` | Octet entièrement réseau |
+
 
 ---
 

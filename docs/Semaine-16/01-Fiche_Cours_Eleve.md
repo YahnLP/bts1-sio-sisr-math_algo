@@ -1,188 +1,312 @@
 ---
 author: YLP
-title: 📖 Fiche de Cours Élève
+title: 📖 Fiche de Cours
 ---
 
-# Fiche de Cours Élève
-## Logs Système Windows et Linux
+# 📖 FICHE DE COURS
+## S16 — Subnetting VLSM et Calculs de Débit : Approche Mathématique et Algorithmique
 
 *BTS SIO SISR — Année 1 — Semaine 16*
 
 ---
 
-## 🎯 Compétences RNCP
+## 🎯 Objectifs
 
-| Code | Compétence |
-|------|------------|
-| B3.1 | Identifier les principales menaces de sécurité |
-| B3.3 | Gérer les incidents de sécurité |
-| B1.4 | Résoudre les incidents et les demandes d'assistance |
-
----
-
-# PARTIE I — LOGS WINDOWS
-
-## 1. Qu'est-ce qu'un Log ?
-
-**Log/Journal** = Fichier texte enregistrant chronologiquement tous les événements système.
-
-**Rôle** : Diagnostic incidents (80% résolubles via logs), détection intrusions, conformité RGPD, analyse performance, base de connaissances ITIL.
-
-## 2. Observateur d'Événements Windows
-
-**Accès** : `Windows+R` → `eventvwr.msc`
-
-**4 Journaux principaux** :
-- **Application** : Événements applications (crashes, services app)
-- **Sécurité** : Authentification, accès fichiers, tentatives intrusion
-- **Installation** : Windows Updates, installations
-- **Système** : OS, services Windows, pilotes, matériel
-
-**5 Niveaux de sévérité** :
-- 🔴 **Critique** : Panne majeure, action immédiate
-- ❌ **Erreur** : Problème significatif, action rapide
-- ⚠️ **Avertissement** : Problème potentiel, surveillance
-- ℹ️ **Information** : Événement normal
-- 🔍 **Audit** : Réussite/Échec sécurité
-
-## 3. Event ID Windows Essentiels
-
-**Système** :
-- **7000** : Service n'a pas démarré
-- **7001** : Service dépend d'un autre non démarré
-- **6008** : Arrêt inattendu (crash)
-- **41** : Kernel-Power (BSOD, crash matériel)
-
-**Sécurité** :
-- **4624** : Connexion réussie
-- **4625** : Échec connexion (si répété = attaque brute force)
-- **4672** : Privilèges admin assignés
-
-## 4. Filtrer les Logs
-
-Clic droit journal → Filtrer :
-- Par niveau (Critique + Erreur uniquement)
-- Par plage horaire (±15 min autour incident)
-- Par Event ID spécifique
-- Recherche texte
+✅ Maîtriser les puissances de 2 et le binaire  
+✅ Calculer des masques de sous-réseau  
+✅ Implémenter l'algorithme VLSM en Python  
+✅ Utiliser les formules de débit  
+✅ Convertir bits ↔ octets et Ko/Mo/Go
 
 ---
 
-# PARTIE II — LOGS LINUX
+## 📚 Partie 1 : Mathématiques du Subnetting VLSM
 
-## 1. Architecture /var/log
+### 1.1 Les Puissances de 2
 
-**Fichiers principaux** :
-- **/var/log/syslog** : Log système général (tous services)
-- **/var/log/auth.log** : Authentification (SSH, sudo, login)
-- **/var/log/kern.log** : Noyau Linux, drivers, matériel
-- **/var/log/apache2/** : Logs serveur web
-- **/var/log/mysql/** : Logs base de données
+**Tableau à mémoriser :**
 
-## 2. Niveaux Syslog (0-7)
+| n | 2^n | Masque | Hôtes disponibles |
+|---|-----|--------|-------------------|
+| 3 | 8 | /29 | 6 |
+| 4 | 16 | /28 | 14 |
+| 5 | 32 | /27 | 30 |
+| 6 | 64 | /26 | 62 |
+| 7 | 128 | /25 | 126 |
+| 8 | 256 | /24 | 254 |
 
-0=emerg, 1=alert, 2=crit, 3=err, 4=warning, 5=notice, 6=info, 7=debug
+**Formule :** Hôtes = 2^n - 2 (réseau et broadcast exclus)
 
-## 3. Commandes Essentielles
+---
 
-```bash
-# Afficher fin fichier
-tail -n 50 /var/log/syslog
+### 1.2 Calcul de Masque
 
-# Suivre en temps réel
-tail -f /var/log/syslog
+**Problème :** J'ai besoin de 50 hôtes. Quel masque choisir ?
 
-# Filtrer par mot-clé
-grep "error" /var/log/syslog
-grep "Failed" /var/log/auth.log
+**Méthode :**
+1. Ajouter 2 pour réseau + broadcast : 50 + 2 = 52
+2. Trouver 2^n ≥ 52 : 2^6 = 64 ✅
+3. Masque : /26
 
-# Compter occurrences
-grep -c "Failed" /var/log/auth.log
+**En Python :**
+```python
+import math
 
-# Logs systemd
-journalctl -u ssh.service -p err --since "1 hour ago"
-```
+def calculer_masque(nb_hotes):
+    """Calcule le masque pour un nombre d'hôtes"""
+    nb_adresses = nb_hotes + 2  # +2 pour réseau et broadcast
+    n = math.ceil(math.log2(nb_adresses))  # Arrondi supérieur
+    masque = 32 - n
+    return masque
 
-## 4. Format Ligne Log Linux
-
-```
-Feb 18 10:23:45 srv01 sshd[1234]: Failed password for alice from 192.168.1.50
-│           │    │     │       │                │
-Timestamp   Host Service[PID]  Message          IP source
+# Exemple
+print(calculer_masque(50))  # Retourne 26 (/26)
 ```
 
 ---
 
-# PARTIE III — MÉTHODOLOGIE DIAGNOSTIC
+### 1.3 L'Algorithme VLSM
 
-## 1. Les 6 Étapes
+**Problème d'optimisation :** Répartir une plage IP pour minimiser le gaspillage.
 
-① **COLLECTER** : Quoi, Quand, Qui, Où
-② **FENÊTRE TEMPORELLE** : ±15 min autour incident
-③ **CONSULTER LOGS** : Windows (Observateur) / Linux (/var/log)
-④ **FILTRER** : Critique + Erreur uniquement
-⑤ **CORRÉLER** : Trouver cause racine (pas symptôme)
-⑥ **DOCUMENTER** : Fiche KEDB pour base connaissances
+**Algorithme (glouton) :**
 
-## 2. Corrélation d'Événements
+```python
+def vlsm_optimal(besoins):
+    """
+    Calcule le plan VLSM optimal
+    besoins : liste des nombres d'hôtes par site
+    """
+    # Étape 1 : Trier par ordre décroissant
+    besoins_tries = sorted(besoins, reverse=True)
+    
+    plan = []
+    adresse_actuelle = 0
+    
+    # Étape 2 : Pour chaque besoin
+    for nb_hotes in besoins_tries:
+        # Calculer le masque
+        masque = calculer_masque(nb_hotes)
+        taille = 2 ** (32 - masque)
+        
+        # Assigner
+        plan.append({
+            'hotes': nb_hotes,
+            'masque': masque,
+            'taille': taille,
+            'adresse': adresse_actuelle
+        })
+        
+        # Passer au suivant
+        adresse_actuelle += taille
+    
+    return plan
 
-**Exemple** :
+# Exemple
+besoins = [100, 30, 10, 5]
+plan = vlsm_optimal(besoins)
+for sous_reseau in plan:
+    print(f"{sous_reseau['hotes']} hôtes → /{sous_reseau['masque']} ({sous_reseau['taille']} adresses)")
 ```
-10:12 → Disque plein (98%)
-  ↓
-10:13 → SQL ne peut plus écrire
-  ↓
-10:15 → IIS dépend de SQL → IIS plante
-  ↓
-SYMPTÔME : Site web inaccessible
-CAUSE RACINE : Disque plein
-```
 
-## 3. Patterns Courants
-
-**Attaque brute force SSH** :
-```
-45 tentatives "Failed password" même IP en 2 min
-→ Bloquer IP au firewall
-```
-
-**Service ne démarre pas** :
-```
-Event 7001 : Dépend service X non démarré
-→ Démarrer service X d'abord
-```
-
-## 4. Documentation ITIL (Fiche KEDB)
-
-Modèle :
-- Ticket, Date, Technicien
-- **SYMPTÔME** : Description utilisateur
-- **DIAGNOSTIC** : Logs consultés, Event ID
-- **CAUSE RACINE** : Explication technique
-- **SOLUTION** : Actions effectuées
-- **PRÉVENTION** : Mesures futures
-- **MOTS-CLÉS** : Pour recherche
+**Complexité :** O(n log n) à cause du tri
 
 ---
 
-# VOCABULAIRE CLÉ
+### 1.4 Conversion Décimal ↔ Binaire
 
-| Terme | Définition |
-|-------|------------|
-| **Log/Journal** | Fichier enregistrement chronologique événements |
-| **Observateur événements** | Outil Windows `eventvwr.msc` |
-| **Event ID** | Code unique identifiant type événement Windows |
-| **/var/log** | Répertoire Linux contenant tous les logs |
-| **syslog** | Système standard journalisation Linux |
-| **auth.log** | Log authentifications Linux |
-| **tail -f** | Suivre fichier log en temps réel |
-| **grep** | Filtrer lignes contenant mot-clé |
-| **journalctl** | Consulter logs systemd |
-| **Corrélation** | Identification relations cause-effet |
-| **Cause racine** | Cause originelle (≠ symptôme) |
-| **KEDB** | Known Error Database (base connaissances ITIL) |
-| **Pattern** | Motif récurrent indiquant type incident |
+**Décimal → Binaire :**
+```python
+decimal = 192
+binaire = bin(decimal)[2:]  # [2:] pour enlever '0b'
+print(binaire)  # '11000000'
+```
+
+**Binaire → Décimal :**
+```python
+binaire = '11000000'
+decimal = int(binaire, 2)
+print(decimal)  # 192
+```
 
 ---
 
-*Fiche de Cours S16 BLOC 3 — BTS SIO SISR*
+## 📚 Partie 2 : Mathématiques du Débit
+
+### 2.1 Formule Fondamentale
+
+```
+Temps (secondes) = Taille (octets) ÷ Débit (octets/s)
+```
+
+**Exemple :**
+- Fichier : 500 Mo
+- Débit : 12.5 Mo/s
+- Temps : 500 ÷ 12.5 = 40 secondes
+
+---
+
+### 2.2 Conversion Bits ↔ Octets
+
+**Règle :** 1 octet = 8 bits
+
+**Formules :**
+- Mbps → Mo/s : **÷ 8**
+- Mo/s → Mbps : **× 8**
+
+**Exemples :**
+- 100 Mbps = 100 ÷ 8 = 12.5 Mo/s
+- 10 Mo/s = 10 × 8 = 80 Mbps
+
+**En Python :**
+```python
+def mbps_to_mos(mbps):
+    """Convertit Mbps en Mo/s"""
+    return mbps / 8
+
+def mos_to_mbps(mos):
+    """Convertit Mo/s en Mbps"""
+    return mos * 8
+
+print(mbps_to_mos(100))  # 12.5 Mo/s
+```
+
+---
+
+### 2.3 Conversions d'Unités
+
+| Unité | Valeur |
+|-------|--------|
+| 1 Ko | 1 024 octets |
+| 1 Mo | 1 024 Ko = 1 048 576 octets |
+| 1 Go | 1 024 Mo |
+| 1 To | 1 024 Go |
+
+**En Python :**
+```python
+def convertir_en_mo(taille, unite):
+    """Convertit une taille en Mo"""
+    facteurs = {
+        'o': 1 / (1024 ** 2),
+        'Ko': 1 / 1024,
+        'Mo': 1,
+        'Go': 1024,
+        'To': 1024 ** 2
+    }
+    return taille * facteurs[unite]
+
+# Exemple
+print(convertir_en_mo(2, 'Go'))  # 2048 Mo
+```
+
+---
+
+### 2.4 Calcul du Temps de Transfert
+
+**Fonction complète :**
+
+```python
+def calculer_temps_transfert(taille_mo, debit_mbps):
+    """
+    Calcule le temps de transfert
+    taille_mo : taille du fichier en Mo
+    debit_mbps : débit en Mbps
+    Retourne : temps en secondes
+    """
+    # Conversion Mbps → Mo/s
+    debit_mos = debit_mbps / 8
+    
+    # Calcul du temps
+    temps_secondes = taille_mo / debit_mos
+    
+    return temps_secondes
+
+# Exemple
+fichier = 500  # Mo
+lien = 100  # Mbps
+temps = calculer_temps_transfert(fichier, lien)
+print(f"Temps : {temps:.1f} secondes = {temps/60:.1f} minutes")
+```
+
+---
+
+### 2.5 Impact de la Latence
+
+**Latence** = Temps incompressible pour qu'un paquet fasse l'aller-retour (RTT)
+
+**Formule avec latence :**
+```
+Temps total = Temps transfert + Latence
+```
+
+**En Python :**
+```python
+def calculer_temps_total(taille_mo, debit_mbps, latence_ms):
+    """Calcule le temps total avec latence"""
+    temps_transfert = calculer_temps_transfert(taille_mo, debit_mbps)
+    latence_s = latence_ms / 1000  # Convertir ms en s
+    return temps_transfert + latence_s
+
+# Exemple
+temps = calculer_temps_total(500, 100, 50)
+print(f"Temps total : {temps:.1f}s")
+```
+
+**Note :** Pour les gros fichiers, la latence est négligeable. Pour les petits paquets (VoIP, gaming), elle est critique.
+
+---
+
+## 📝 Exercices d'Entraînement
+
+### Exercice 1 : Calcul de Masque
+
+**Données :** 80 hôtes nécessaires
+
+**Questions :**
+1. Combien d'adresses au total ? (80 + 2 = 82)
+2. Quelle puissance de 2 ? (2^7 = 128)
+3. Quel masque ? (/25)
+
+---
+
+### Exercice 2 : VLSM
+
+**Données :** 192.168.0.0/24 à découper pour 3 sites : 50, 20, 10 hôtes
+
+**Algorithme :**
+1. Trier : [50, 20, 10]
+2. Calculer masques : /26, /27, /28
+3. Assigner : 192.168.0.0/26, 192.168.0.64/27, 192.168.0.96/28
+
+---
+
+### Exercice 3 : Calcul de Débit
+
+**Données :**
+- Fichier : 1 Go
+- Lien : 50 Mbps
+
+**Calculs :**
+1. Conversion : 1 Go = 1024 Mo
+2. Débit : 50 Mbps ÷ 8 = 6.25 Mo/s
+3. Temps : 1024 ÷ 6.25 = 163.8 secondes ≈ 2.7 minutes
+
+---
+
+## 🎯 Récapitulatif
+
+**Formules à retenir :**
+
+| Formule | Utilité |
+|---------|---------|
+| Hôtes = 2^n - 2 | Nombre d'hôtes disponibles |
+| Masque = 32 - n | Calcul du masque CIDR |
+| Temps = Taille ÷ Débit | Temps de transfert |
+| Mo/s = Mbps ÷ 8 | Conversion bits → octets |
+
+**Algorithme VLSM :**
+1. Trier (décroissant)
+2. Pour chaque besoin : trouver 2^n supérieur
+3. Assigner les adresses séquentiellement
+
+---

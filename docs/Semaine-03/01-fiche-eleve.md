@@ -1,459 +1,489 @@
 ---
 author: YLP
-title: 📚 FICHE DE COURS
+title: 📖 FICHE DE COURS ÉLÈVE
 ---
 
-# 📚 FICHE DE COURS ÉLÈVE
-## "Mots de Passe Robustes · Science et Bonnes Pratiques"
+# 📖 FICHE DE COURS ÉLÈVE
+## Algèbre de Boole · AND · OR · NOT · XOR · Tables de Vérité · Logique Pare-feu
 
 *Version 1.0 — BTS SIO SISR — Année 1 — Semaine 3*
 
 ---
 
-## 🎯 Compétences Travaillées
+# Partie 1 — Variables Booléennes et Fondements
 
-| **Code** | **Compétence** |
-|----------|---------------|
-| **B3.2** | Mettre en œuvre les mesures de sécurité de base |
-| **B3.1** | Identifier les principales menaces de sécurité (attaques) |
+### 1.1 Qu'est-ce qu'une Variable Booléenne ?
 
----
-
-## PARTIE I — L'Entropie (Force Mathématique)
-
-### I.A. Définition
-
-L'**entropie** d'un mot de passe mesure le nombre de **combinaisons possibles** qu'un attaquant doit tester pour le deviner.
+Une **variable booléenne** ne peut prendre que **deux valeurs** :
 
 ```
-   FORMULE DE L'ENTROPIE
-   ═══════════════════════════════════════════════════════════════
-   
-   Nombre de combinaisons = Taille de l'alphabet ^ Longueur
-   
-   Exemples :
-   
-   ① PIN de 4 chiffres (0-9)
-   ──────────────────────────────────────────────────────────────
-   Alphabet : 10 chiffres (0, 1, 2... 9)
-   Longueur : 4 caractères
-   Combinaisons : 10^4 = 10 000 possibilités
-   
-   ② Mot de passe de 8 minuscules (a-z)
-   ──────────────────────────────────────────────────────────────
-   Alphabet : 26 lettres
-   Longueur : 8 caractères
-   Combinaisons : 26^8 = 208 milliards
-   
-   ③ Mot de passe de 12 caractères (a-Z, 0-9, symboles)
-   ──────────────────────────────────────────────────────────────
-   Alphabet : 26 + 26 + 10 + 33 = 95 caractères
-   Longueur : 12 caractères
-   Combinaisons : 95^12 = 5,4 × 10^23 (540 000 Md de Md)
+┌─────────────────────────────────────────────────────────────┐
+│              LES DEUX VALEURS BOOLÉENNES                    │
+│                                                             │
+│    VRAI  =  1  =  TRUE  =  état "activé"                    │
+│    FAUX  =  0  =  FALSE =  état "désactivé"                 │
+│                                                             │
+│    Exemples :                                               │
+│    • Le port 443 est-il ouvert ?       → OUI (1) ou NON (0) │
+│    • L'IP est-elle dans le réseau ?    → OUI (1) ou NON (0) │
+│    • Le protocole est-il TCP ?         → OUI (1) ou NON (0) │
+│    • L'utilisateur est-il authentifié? → OUI (1) ou NON (0) │
+└─────────────────────────────────────────────────────────────┘
 ```
+*[Illustration : Un interrupteur lumineux en deux états côte à côte. À gauche : interrupteur OFF, ampoule éteinte, label "FAUX = 0". À droite : interrupteur ON, ampoule allumée, label "VRAI = 1". Sous les deux images, la légende : "C'est le même principe que le transistor vu en S1."]*
 
----
+> 💡 **Lien avec S1 :** Un transistor est une variable booléenne physique. Ouvert = 0, fermé = 1. Tout ce que nous allons faire ici se déroule au niveau des transistors dans votre CPU.
 
-### I.B. Temps de Craquage
+### 1.2 Notations — Mathématique vs. Informatique
 
-Le temps nécessaire pour craquer un mot de passe dépend de :
-1. **Nombre de combinaisons** (entropie)
-2. **Vitesse de l'attaquant** (essais par seconde)
+Les opérateurs booléens s'écrivent différemment selon le contexte :
 
-```
-   PUISSANCE DE CALCUL MODERNE
-   ═══════════════════════════════════════════════════════════════
-   
-   ① PC GRAND PUBLIC (carte graphique RTX 4090)
-   ──────────────────────────────────────────────────────────────
-   100 milliards de hash MD5 par seconde
-   (utilisé pour craquer des mots de passe stockés)
-   
-   ② SUPERORDINATEUR / BOTNET
-   ──────────────────────────────────────────────────────────────
-   1 000 milliards d'essais par seconde
-   
-   ③ SERVICE EN LIGNE (Gmail, Facebook...)
-   ──────────────────────────────────────────────────────────────
-   10-100 essais par seconde (limitation intentionnelle)
-   → Impossible de craquer par brute force directement
-```
-
-**Calcul du temps :**
-
-```
-Temps = Nombre de combinaisons ÷ Vitesse d'essais
-
-Exemple : Mot de passe "password" (8 minuscules)
-─────────────────────────────────────────────────────────────
-Combinaisons : 26^8 = 208 milliards
-Vitesse : 100 milliards/seconde
-Temps : 208 Md ÷ 100 Md/s = 2 secondes
-
-Exemple : Mot de passe "P@ssW0rd!" (9 caractères complexes)
-─────────────────────────────────────────────────────────────
-Combinaisons : 95^9 = 6,3 × 10^17
-Vitesse : 100 milliards/seconde
-Temps : 6,3 × 10^17 ÷ 10^11/s = 6,3 millions de secondes
-                                = 73 jours
-```
-
----
-
-## PARTIE II — Les Attaques sur Mots de Passe
-
-### II.A. Brute Force (Force Brute)
-
-**Principe :** Tester **toutes les combinaisons possibles** jusqu'à trouver le bon mot de passe.
-
-```
-   ATTAQUE BRUTE FORCE
-   ═══════════════════════════════════════════════════════════════
-   
-   ÉTAPE 1 : Essayer "aaaaaaa"
-   ÉTAPE 2 : Essayer "aaaaaab"
-   ÉTAPE 3 : Essayer "aaaaaac"
-   ...
-   ÉTAPE N : Essayer "zzzzzzz"
-   
-   Si le mot de passe est "marmotte" :
-   → L'attaquant le trouvera après des milliards d'essais
-   
-   TEMPS :
-   Dépend uniquement de la longueur et de la complexité
-   (voir tableau temps de craquage)
-```
-
-**Protection :**
-- Utiliser des mots de passe longs (16+ caractères)
-- Les services en ligne limitent le nombre de tentatives (10 essais → compte bloqué temporairement)
-
----
-
-### II.B. Attaque par Dictionnaire
-
-**Principe :** Tester des **mots courants** et des **combinaisons prévisibles** au lieu de toutes les combinaisons.
-
-```
-   DICTIONNAIRE D'ATTAQUE
-   ═══════════════════════════════════════════════════════════════
-   
-   ① MOTS DU DICTIONNAIRE (français, anglais, espagnol...)
-   ──────────────────────────────────────────────────────────────
-   password, motdepasse, 123456, admin, root, soleil, dragon...
-   
-   ② VARIANTES PRÉVISIBLES
-   ──────────────────────────────────────────────────────────────
-   Password1, P@ssword, p@ssw0rd, Password123!, Motdepasse2024
-   
-   ③ INFORMATIONS PERSONNELLES
-   ──────────────────────────────────────────────────────────────
-   prenom+datedenaissance : Sophie1990, Marc2005
-   prenom+ville : ParisPierre, ToulouseJulie
-   
-   ④ MOTS DE PASSE LEAKÉS (bases de données volées)
-   ──────────────────────────────────────────────────────────────
-   Fichiers de millions de mots de passe réels récupérés
-   lors de fuites (LinkedIn, Adobe, Yahoo...)
-```
-
-**Liste rockyou.txt :**
-- Base de données de **14 millions** de mots de passe réels
-- Provient d'une fuite de la société RockYou en 2009
-- Utilisée par tous les hackers pour des attaques par dictionnaire
-
-**Top 10 des mots de passe les plus utilisés (2023) :**
-```
-1. 123456           6. password
-2. password         7. 12345678
-3. 123456789        8. qwerty
-4. 12345            9. 123123
-5. qwerty123       10. 1q2w3e4r
-```
-
-> ⚠️ **Ces mots de passe sont craqués en < 1 seconde.**
-
-**Protection :**
-- Ne JAMAIS utiliser de mots du dictionnaire
-- Ne PAS utiliser d'informations personnelles
-- Utiliser des phrases de passe aléatoires
-
----
-
-### II.C. Rainbow Tables (Tables Arc-en-ciel)
-
-**Contexte :** Quand les mots de passe sont **stockés**, ils sont **hachés** (transformés en empreinte).
-
-```
-   HASH (Fonction de Hachage)
-   ═══════════════════════════════════════════════════════════════
-   
-   Mot de passe : "password"
-   │
-   ↓ Fonction de hachage (MD5, SHA-256, bcrypt...)
-   │
-   Hash : "5f4dcc3b5aa765d61d8327deb882cf99"
-   
-   Propriétés :
-   • Impossible de retrouver "password" à partir du hash
-     (fonction à sens unique)
-   • Le même mot de passe donne toujours le même hash
-   • Un changement minime change complètement le hash
-```
-
-**Attaque par Rainbow Table :**
-
-Au lieu de hacher chaque tentative (lent), l'attaquant utilise des **tables pré-calculées** :
-
-```
-   RAINBOW TABLE
-   ═══════════════════════════════════════════════════════════════
-   
-   Mot de passe   │ Hash MD5
-   ───────────────┼─────────────────────────────────────────────
-   password       │ 5f4dcc3b5aa765d61d8327deb882cf99
-   123456         │ e10adc3949ba59abbe56e057f20f883e
-   qwerty         │ d8578edf8458ce06fbc5bb76a58c5ca4
-   admin          │ 21232f297a57a5a743894a0e4a801fc3
-   ...            │ ...
-   (Millions)     │ (Millions)
-```
-
-**Fonctionnement :**
-1. L'attaquant récupère un fichier de hash (base de données volée)
-2. Il compare chaque hash à sa rainbow table
-3. Si match → mot de passe trouvé instantanément
-
-**Protection :**
-- **Salting** : Ajouter une chaîne aléatoire unique à chaque mot de passe avant hachage
-  ```
-  Mot de passe : "password"
-  Salt : "x8K$mP2@"
-  Hash : SHA-256("passwordx8K$mP2@") = ...différent pour chaque utilisateur
-  → Les rainbow tables ne fonctionnent plus
-  ```
-
----
-
-## PARTIE III — Bonnes Pratiques
-
-### III.A. Longueur AVANT Complexité
-
-**Principe démontré :**
-
-```
-   COMPARAISON
-   ═══════════════════════════════════════════════════════════════
-   
-   Mot de passe A : "Tr0ubl€@" (8 caractères, très complexe)
-   ──────────────────────────────────────────────────────────────
-   Temps de craquage : 8 mois
-   Facilité à retenir : ★☆☆☆☆ (difficile)
-   
-   Mot de passe B : "jadore-les-croissants-au-chocolat"
-                    (37 caractères, minuscules + tirets uniquement)
-   ──────────────────────────────────────────────────────────────
-   Temps de craquage : Plusieurs milliards d'années
-   Facilité à retenir : ★★★★★ (très facile)
-   
-   → Mot de passe B est INFINIMENT plus sûr ET plus facile
-```
-
-**Recommandations :**
-- **Minimum absolu :** 12 caractères
-- **Recommandé :** 16+ caractères
-- **Idéal :** 20+ caractères (phrase de passe)
-
----
-
-### III.B. Méthodes de Création
-
-**① PHRASE DE PASSE (Passphrase)**
-
-Utiliser une phrase complète, facile à retenir.
-
-```
-✅ BONS EXEMPLES
-─────────────────────────────────────────────────────────────
-"J'aime manger 3 croissants au chocolat le matin !"
-→ 53 caractères, facile à retenir, impossible à craquer
-
-"Mon chat s'appelle Moustache et il a 7 ans"
-→ 44 caractères
-
-"Le ciel est bleu, l'herbe est verte, je suis heureux"
-→ 53 caractères
-```
-
-**② MÉTHODE DICEWARE**
-
-Tirer des mots aléatoires avec des dés (ou générateur).
-
-```
-DICEWARE
-─────────────────────────────────────────────────────────────
-Liste de 7 776 mots (1 à 6 sur 5 dés)
-
-Exemple : Lancer 5 dés = 4-3-6-2-1 → Mot "plage"
-          Lancer 5 dés = 2-5-1-4-3 → Mot "orange"
-          ...
-
-Résultat : "plage-orange-nuage-piano-soleil-tigre"
-→ 6 mots aléatoires, 42 caractères
-→ Facile à retenir (visualiser une histoire)
-→ Impossible à deviner (aléatoire)
-```
-
-**③ GÉNÉRATEUR ALÉATOIRE (Gestionnaire de Mots de Passe)**
-
-Laisser le gestionnaire générer un mot de passe complètement aléatoire.
-
-```
-✅ EXEMPLE GÉNÉRÉ PAR BITWARDEN
-─────────────────────────────────────────────────────────────
-9Xk$mP2@vL4#Qw7!pN3Tz&5uI0
-
-→ 26 caractères aléatoires
-→ Impossible à retenir (mais stocké dans le gestionnaire)
-→ Impossible à craquer
-```
-
----
-
-### III.C. Unicité ABSOLUE
-
-**Règle d'or :** **1 site = 1 mot de passe unique**
-
-```
-   POURQUOI L'UNICITÉ EST CRITIQUE
-   ═══════════════════════════════════════════════════════════════
-   
-   SCÉNARIO : Vous utilisez le même mot de passe partout
-   ──────────────────────────────────────────────────────────────
-   Email : jean.dupont@gmail.com
-   Mot de passe : "MonSuperMDP123!"
-   
-   Comptes avec ce MDP :
-   • Gmail
-   • Facebook
-   • LinkedIn
-   • Site e-commerce XYZ
-   • Forum ABC
-   
-   JANVIER 2024 : Le site e-commerce XYZ est piraté
-   ──────────────────────────────────────────────────────────────
-   → Base de données volée : 2 millions d'emails + mots de passe
-   → Votre email + MDP publié sur le dark web
-   
-   FÉVRIER 2024 : Des hackers testent les identifiants volés
-   ──────────────────────────────────────────────────────────────
-   → Ils essaient jean.dupont@gmail.com + MonSuperMDP123!
-     sur Gmail → ✅ Succès ! Accès à votre boîte email
-   → Ils essaient sur Facebook → ✅ Succès !
-   → Ils essaient sur LinkedIn → ✅ Succès !
-   → Ils essaient sur PayPal → ✅ Succès !
-   
-   RÉSULTAT : TOUS VOS COMPTES SONT COMPROMIS
-   ──────────────────────────────────────────────────────────────
-   À cause d'UNE SEULE fuite sur UN SEUL site
-```
-
-**Vérifier si vos comptes ont été compromis :**
-- Site : https://haveibeenpwned.com
-- Saisir votre email → Voir les fuites connues
-
-**Solution :** Utiliser un gestionnaire de mots de passe qui génère des mots de passe **uniques** pour chaque site.
-
----
-
-## PARTIE IV — Gestionnaires de Mots de Passe
-
-### IV.A. Pourquoi Utiliser un Gestionnaire ?
-
-**Le problème humain :**
-- Impossible de retenir 50+ mots de passe complexes et uniques
-- Les utilisateurs réutilisent les mêmes mots de passe (dangereux)
-- Ou utilisent des variations prévisibles (Gmail123!, Facebook123!)
-
-**La solution : Gestionnaire de mots de passe**
-
-```
-   FONCTIONNEMENT
-   ═══════════════════════════════════════════════════════════════
-   
-   ① VOUS RETENEZ : 1 seul mot de passe maître (très robuste)
-   
-   ② LE GESTIONNAIRE RETIENT : Tous vos autres mots de passe
-   
-   ③ AVANTAGES
-   ──────────────────────────────────────────────────────────────
-   • Génère des mots de passe aléatoires uniques
-   • Les stocke de manière chiffrée
-   • Auto-remplissage sur les sites web
-   • Synchronisation multi-appareils
-   • Alerte si un site a été piraté
-```
-
----
-
-### IV.B. Comparatif des Gestionnaires
-
-| **Gestionnaire** | **Type** | **Prix** | **Points forts** | **Inconvénients** |
+| **Opérateur** | **Nom** | **Notation math.** | **Notation info.** | **En langage naturel** |
 |---|---|---|---|---|
-| **Bitwarden** | Cloud + Auto-hébergeable | Gratuit / 10 $/an | Open source, audité, gratuit complet | Interface moins moderne |
-| **1Password** | Cloud | 36 $/an | Interface excellente, support pro | Payant, pas open source |
-| **KeePass** | Local (fichier) | Gratuit | 100% local, open source | Pas de synchro cloud native |
-| **Dashlane** | Cloud | 60 $/an | Interface moderne, VPN inclus | Cher |
-| **LastPass** | Cloud | Gratuit / 36 $/an | Populaire | Failles sécurité passées, gratuit limité |
+| AND | ET logique | A ∧ B | `A && B` ou `A AND B` | "A **et** B" |
+| OR | OU logique | A ∨ B | `A \|\| B` ou `A OR B` | "A **ou** B" |
+| NOT | NON logique | ¬A ou Ā | `!A` ou `NOT A` | "**non** A" |
+| XOR | OU exclusif | A ⊕ B | `A ^ B` ou `A XOR B` | "A **ou** B, **pas les deux**" |
 
-**Recommandation pour débutants :** **Bitwarden**
-- Gratuit et complet
-- Open source (code auditable)
-- Extension navigateur + app mobile
-- Synchronisation automatique
-- Générateur de mots de passe intégré
+> ⚠️ **Attention à la notation `^` :** En Python et en C, `^` signifie XOR. En Bash, `**` signifie la puissance. Vérifiez toujours le langage utilisé.
 
 ---
 
-### IV.C. Sécurité d'un Gestionnaire
+## Partie 2 — Les Quatre Opérateurs Fondamentaux
 
-**Question fréquente :** *"Si mon gestionnaire est piraté, tous mes mots de passe sont volés ?"*
+### 2.1 AND — Le ET Logique
 
-**Réponse :** Non, grâce au **chiffrement zero-knowledge**.
+**Définition :** AND renvoie VRAI uniquement si **toutes** les entrées sont VRAIES.
 
 ```
-   CHIFFREMENT ZERO-KNOWLEDGE
-   ═══════════════════════════════════════════════════════════════
-   
-   ① SUR VOTRE APPAREIL
-   ──────────────────────────────────────────────────────────────
-   Mot de passe maître : "MonPhraseDePasse!"
-   │
-   ↓ Dérivation de clé (PBKDF2, 100 000 itérations)
-   │
-   Clé de chiffrement : [256 bits aléatoires]
-   │
-   ↓ Chiffrement AES-256
-   │
-   Base de données chiffrée → Envoi au cloud
-   
-   ② SUR LES SERVEURS BITWARDEN
-   ──────────────────────────────────────────────────────────────
-   Stockage : Base de données CHIFFRÉE uniquement
-   
-   ⚠️ Bitwarden NE CONNAÎT PAS votre mot de passe maître
-   ⚠️ Bitwarden NE PEUT PAS déchiffrer vos données
-   
-   ③ SI BITWARDEN EST PIRATÉ
-   ──────────────────────────────────────────────────────────────
-   Les attaquants récupèrent : Bases de données chiffrées
-   Ils NE PEUVENT PAS les déchiffrer (sans votre mot de passe maître)
-   
-   → Vos mots de passe restent en sécurité
+  Symbole électronique :          A ──┐
+                                      ├──[AND]── S
+                                  B ──┘
+
+  Règle mnémotechnique : "AND = le maillon le plus faible"
+  → Il suffit d'UN seul FAUX pour que le résultat soit FAUX.
+```
+*[Illustration : Schéma d'une porte AND (forme en D arrondi à droite) avec deux entrées A et B à gauche et une sortie S à droite. Sous le schéma, le symbole électronique standard IEC (rectangle avec le label "&").]*
+
+**Table de vérité AND :**
+
+| **A** | **B** | **A AND B** |
+|---|---|---|
+| 0 | 0 | **0** |
+| 0 | 1 | **0** |
+| 1 | 0 | **0** |
+| 1 | 1 | **1** ← seul cas VRAI |
+
+> 💡 **Application pare-feu :** `ACCEPT si proto=TCP AND port=443` → il faut les DEUX conditions vraies. Si le protocole est UDP, le paquet est refusé même si le port est 443.
+
+---
+
+### 2.2 OR — Le OU Logique (Inclusif)
+
+**Définition :** OR renvoie VRAI si **au moins une** entrée est VRAIE.
+
+```
+  Symbole électronique :          A ──┐
+                                      ├──[OR]── S
+                                  B ──┘
+
+  Règle mnémotechnique : "OR = le maillon le plus fort"
+  → Il suffit d'UN seul VRAI pour que le résultat soit VRAI.
+```
+*[Illustration : Schéma d'une porte OR (forme en croissant pointu à droite) avec deux entrées A et B et une sortie S. Sous le schéma, le symbole IEC (rectangle avec le label "≥1").]*
+
+**Table de vérité OR :**
+
+| **A** | **B** | **A OR B** |
+|---|---|---|
+| 0 | 0 | **0** ← seul cas FAUX |
+| 0 | 1 | **1** |
+| 1 | 0 | **1** |
+| 1 | 1 | **1** |
+
+> ⚠️ **OR est inclusif :** Si A=1 ET B=1, OR donne 1. Les deux peuvent être vrais simultanément. C'est différent du "ou" courant en français qui est souvent exclusif.
+
+> 💡 **Application pare-feu :** `ACCEPT si port=80 OR port=443` → accepter le trafic web HTTP ou HTTPS. Un paquet sur le port 80 passe, sur le port 443 passe, les deux passent.
+
+---
+
+### 2.3 NOT — Le NON Logique (Inverseur)
+
+**Définition :** NOT **inverse** la valeur de son entrée.
+
+```
+  Symbole électronique :    A ──[NOT]──○── S
+                                       ↑
+                                 cercle = inversion
+
+  Règle mnémotechnique : "NOT = le miroir"
+  → VRAI devient FAUX. FAUX devient VRAI.
+```
+*[Illustration : Schéma d'un inverseur (triangle pointé vers la droite avec un petit cercle à la sortie). À gauche de la porte : entrée A. À droite du cercle : sortie S = Ā. Symbole IEC : rectangle avec label "1" et cercle à la sortie.]*
+
+**Table de vérité NOT :**
+
+| **A** | **NOT A (Ā)** |
+|---|---|
+| 0 | **1** |
+| 1 | **0** |
+
+> 💡 **Application pare-feu :** `BLOCK si NOT(proto=TCP)` → bloquer tout ce qui n'est pas TCP. Équivaut à "autoriser TCP uniquement".
+
+---
+
+### 2.4 XOR — Le OU Exclusif
+
+**Définition :** XOR renvoie VRAI si les entrées sont **différentes** (exactement l'une est vraie, pas les deux).
+
+```
+  Symbole électronique :          A ──┐
+                                      ├──[XOR]── S
+                                  B ──┘
+
+  Règle mnémotechnique : "XOR = différence"
+  → Vrai si A ≠ B. Faux si A = B (tous les deux pareils).
+```
+*[Illustration : Schéma d'une porte XOR (comme OR mais avec une ligne incurvée supplémentaire à l'entrée). Symbole IEC : rectangle avec label "=1".]*
+
+**Table de vérité XOR :**
+
+| **A** | **B** | **A XOR B** |
+|---|---|---|
+| 0 | 0 | **0** ← même (tous les deux faux) |
+| 0 | 1 | **1** ← différents |
+| 1 | 0 | **1** ← différents |
+| 1 | 1 | **0** ← même (tous les deux vrais) |
+
+> 💡 **Usage informatique du XOR :** Le XOR est très utilisé en cryptographie (chiffrement de flux) et en contrôle d'erreurs (checksum, parité). Si `A XOR A = 0` toujours, alors XOR avec la même clé deux fois donne le message original — principe du chiffrement symétrique basique.
+
+---
+
+### 2.5 Tableau Récapitulatif — Les 4 Opérateurs
+
+```
+╔═══════╦═══════╦═══════╦════════╦═══════╦═════════╗
+║   A   ║   B   ║  AND  ║   OR   ║  XOR  ║  NOT A  ║
+╠═══════╬═══════╬═══════╬════════╬═══════╬═════════╣
+║   0   ║   0   ║   0   ║   0    ║   0   ║    1    ║
+║   0   ║   1   ║   0   ║   1    ║   1   ║    1    ║
+║   1   ║   0   ║   0   ║   1    ║   1   ║    0    ║
+║   1   ║   1   ║   1   ║   1    ║   0   ║    0    ║
+╚═══════╩═══════╩═══════╩════════╩═══════╩═════════╝
+
+  AND : 1 seul cas à 1  (ligne 4)
+  OR  : 1 seul cas à 0  (ligne 1)
+  XOR : les cas "différents" sont à 1 (lignes 2 et 3)
+  NOT : inverse A (indépendant de B)
+```
+*[Illustration : Ce tableau récapitulatif avec chaque colonne dans une couleur différente : AND en rouge (peu de VRAI), OR en vert (beaucoup de VRAI), XOR en orange (en diagonale), NOT en bleu (simple inversion).]*
+
+---
+
+## Partie 3 — Construire une Table de Vérité : La Méthode
+
+### 3.1 Méthode Colonne par Colonne
+
+Pour une expression composée, **ne jamais calculer tout en une fois**. Procéder par étapes :
+
+```
+  EXPRESSION : S = (A AND B) OR (NOT A)
+
+  ÉTAPE 1 — Créer les colonnes nécessaires :
+  | A | B | NOT A | A AND B | (A AND B) OR (NOT A) |
+
+  ÉTAPE 2 — Remplir les colonnes d'entrée (toutes les combinaisons)
+  Pour 2 variables : 2² = 4 lignes (00, 01, 10, 11)
+  Pour 3 variables : 2³ = 8 lignes (000, 001, 010, 011, 100, 101, 110, 111)
+
+  ÉTAPE 3 — Calculer NOT A :
+  | A | B | NOT A |
+  | 0 | 0 |   1   |
+  | 0 | 1 |   1   |
+  | 1 | 0 |   0   |
+  | 1 | 1 |   0   |
+
+  ÉTAPE 4 — Calculer A AND B :
+  | A | B | NOT A | A AND B |
+  | 0 | 0 |   1   |    0    |
+  | 0 | 1 |   1   |    0    |
+  | 1 | 0 |   0   |    0    |
+  | 1 | 1 |   0   |    1    |
+
+  ÉTAPE 5 — Calculer le résultat final (OR des deux colonnes) :
+  | A | B | NOT A | A AND B | S = (A AND B) OR (NOT A) |
+  | 0 | 0 |   1   |    0    |          1               |
+  | 0 | 1 |   1   |    0    |          1               |
+  | 1 | 0 |   0   |    0    |          0               |
+  | 1 | 1 |   0   |    1    |          1               |
 ```
 
-**Risque réel :** Si vous **oubliez** votre mot de passe maître → Perte totale (irréversible)
+> 💡 **Règle du nombre de lignes :** n variables → 2ⁿ lignes dans la table.
+> 1 variable : 2 lignes / 2 variables : 4 lignes / 3 variables : 8 lignes / 4 variables : 16 lignes
 
-**Solution :** Utiliser une **phrase de passe longue et mémorable**, écrite sur papier et stockée dans un lieu sûr (coffre-fort physique).
+### 3.2 Comment Énumérer Toutes les Combinaisons
+
+La méthode infaillible : **compter en binaire** de 0 jusqu'à 2ⁿ - 1.
+
+```
+  Pour 3 variables A, B, C :
+
+  | A | B | C |   ← lire chaque ligne comme un nombre binaire
+  | 0 | 0 | 0 |   ← 000 = 0
+  | 0 | 0 | 1 |   ← 001 = 1
+  | 0 | 1 | 0 |   ← 010 = 2
+  | 0 | 1 | 1 |   ← 011 = 3
+  | 1 | 0 | 0 |   ← 100 = 4
+  | 1 | 0 | 1 |   ← 101 = 5
+  | 1 | 1 | 0 |   ← 110 = 6
+  | 1 | 1 | 1 |   ← 111 = 7
+
+  → La dernière colonne (C) alterne 0,1,0,1,0,1,0,1
+  → La colonne du milieu (B) alterne 0,0,1,1,0,0,1,1
+  → La première colonne (A) alterne 0,0,0,0,1,1,1,1
+```
+
+---
+
+## Partie 4 — Lois Fondamentales de Boole
+
+### 4.1 Les Lois Simples
+
+| **Loi** | **AND** | **OR** |
+|---|---|---|
+| **Identité** | A AND 1 = A | A OR 0 = A |
+| **Domination** | A AND 0 = 0 | A OR 1 = 1 |
+| **Idempotence** | A AND A = A | A OR A = A |
+| **Complémentation** | A AND (NOT A) = 0 | A OR (NOT A) = 1 |
+| **Double négation** | NOT(NOT A) = A | — |
+| **Commutativité** | A AND B = B AND A | A OR B = B OR A |
+
+> 💡 **Intérêt pratique :** Ces lois permettent de **simplifier des expressions** pour écrire des règles pare-feu plus concises ou des conditions de script plus lisibles.
+
+### 4.2 Les Lois de De Morgan — Incontournables
+
+```
+╔════════════════════════════════════════════════════════════════╗
+║              LOIS DE DE MORGAN                                 ║
+╠════════════════════════════════════════════════════════════════╣
+║                                                                ║
+║  NOT (A AND B)  =  (NOT A) OR  (NOT B)                        ║
+║                                                                ║
+║  NOT (A OR  B)  =  (NOT A) AND (NOT B)                        ║
+║                                                                ║
+║  En résumé : quand on "entre" un NOT dans une parenthèse,     ║
+║  AND devient OR et OR devient AND.                            ║
+╚════════════════════════════════════════════════════════════════╝
+```
+
+**Vérification par table de vérité :**
+
+| **A** | **B** | **A AND B** | **NOT(A AND B)** | **NOT A** | **NOT B** | **(NOT A) OR (NOT B)** |
+|---|---|---|---|---|---|---|
+| 0 | 0 | 0 | **1** | 1 | 1 | **1** |
+| 0 | 1 | 0 | **1** | 1 | 0 | **1** |
+| 1 | 0 | 0 | **1** | 0 | 1 | **1** |
+| 1 | 1 | 1 | **0** | 0 | 0 | **0** |
+
+Les colonnes `NOT(A AND B)` et `(NOT A) OR (NOT B)` sont identiques → la loi est vérifiée. ✓
+
+**Application directe en pare-feu :**
+
+```
+  Règle originale :
+  BLOCK si NOT(proto=TCP AND port=443)
+
+  Par De Morgan :
+  BLOCK si (NOT proto=TCP) OR (NOT port=443)
+  = BLOCK si proto≠TCP  OU  port≠443
+
+  Les deux formulations sont logiquement équivalentes.
+  La deuxième est souvent plus lisible dans un outil de configuration.
+```
+
+---
+
+## Partie 5 — Application : La Logique d'un Pare-feu
+
+### 5.1 Rappel : Qu'est-ce qu'un Pare-feu ?
+
+Un **pare-feu** (firewall) est un système qui filtre les paquets réseau selon des règles. Chaque règle est fondamentalement une **expression booléenne** : si les conditions sont vraies, le paquet est accepté (ACCEPT) ou rejeté (DROP/REJECT).
+
+### 5.2 Structure d'une Règle de Pare-feu
+
+```
+┌────────────────────────────────────────────────────────────────────┐
+│              ANATOMIE D'UNE RÈGLE DE PARE-FEU                      │
+│                                                                    │
+│  ACTION  si  CONDITION_1  ET/OU  CONDITION_2  ET/OU  CONDITION_N   │
+│                                                                    │
+│  Exemple iptables :                                                │
+│  iptables -A INPUT -p tcp --dport 443 -s 192.168.1.0/24 -j ACCEPT  │
+│           │        │       │           │                  │        │
+│         Règle    proto   port        source            Action      │
+│         entrée   TCP     443       réseau autorisé    ACCEPTER     │
+│                                                                    │
+│  Traduction booléenne :                                            │
+│  S = (proto = TCP) AND (port_dest = 443) AND (IP ∈ 192.168.1.0/24) │
+│  Si S = 1 → ACCEPT                                                 │
+│  Si S = 0 → règle suivante (ou DROP par défaut)                    │
+└────────────────────────────────────────────────────────────────────┘
+```
+*[Illustration : La commande iptables décomposée avec des accolades colorées sous chaque paramètre : en bleu le protocole, en vert le port, en orange l'adresse source, en rouge l'action. Sous la commande, l'expression booléenne équivalente avec les mêmes couleurs.]*
+
+### 5.3 Le Principe "DENY by Default"
+
+La règle d'or de la sécurité réseau est :
+
+```
+╔══════════════════════════════════════════════════════════════════╗
+║           TOUT CE QUI N'EST PAS EXPLICITEMENT AUTORISÉ          ║
+║                       EST INTERDIT                               ║
+╚══════════════════════════════════════════════════════════════════╝
+
+  En Boole :
+  Résultat_final = Règle_1 OR Règle_2 OR Règle_3 OR ... OR Règle_N
+  Si Résultat_final = 0 → DROP (par défaut)
+
+  Ou plus précisément : on parcourt les règles dans l'ordre.
+  La PREMIÈRE règle qui correspond (=1) s'applique.
+  Si AUCUNE règle ne correspond → politique par défaut = DROP.
+```
+
+### 5.4 Exemple Complet — Politique de Filtrage d'un Serveur Web
+
+**Scénario :** Un serveur web doit :
+- Accepter les connexions HTTPS (TCP/443) depuis n'importe quelle IP
+- Accepter les connexions SSH (TCP/22) uniquement depuis le réseau d'administration (192.168.10.0/24)
+- Refuser tout le reste
+
+**Variables :**
+- P = protocole est TCP (1=oui, 0=non)
+- H = port destination est 443 (HTTPS)
+- S = port destination est 22 (SSH)
+- R = IP source appartient à 192.168.10.0/24 (réseau admin)
+
+**Règles en booléen :**
+```
+  Règle 1 — HTTPS public   : R1 = P AND H
+  Règle 2 — SSH admin      : R2 = P AND S AND R
+  Politique finale         : ACCEPT = R1 OR R2
+  (si ACCEPT = 0 → DROP)
+```
+
+**Table de vérité pour quelques cas représentatifs :**
+
+| **Paquet** | **P** | **H** | **S** | **R** | **R1=P∧H** | **R2=P∧S∧R** | **ACCEPT=R1∨R2** | **Action** |
+|---|---|---|---|---|---|---|---|---|
+| HTTPS depuis Internet | 1 | 1 | 0 | 0 | **1** | 0 | **1** | ✅ ACCEPT |
+| SSH depuis admin | 1 | 0 | 1 | 1 | 0 | **1** | **1** | ✅ ACCEPT |
+| SSH depuis Internet | 1 | 0 | 1 | 0 | 0 | 0 | **0** | ❌ DROP |
+| HTTP (port 80) | 1 | 0 | 0 | 0 | 0 | 0 | **0** | ❌ DROP |
+| UDP depuis admin | 0 | 0 | 0 | 1 | 0 | 0 | **0** | ❌ DROP |
+
+> 💡 **Lecture de la table :** Le cas "SSH depuis Internet" est DROP malgré un protocole TCP et un port SSH valides — parce que R=0 (IP non autorisée). C'est exactement la logique AND : toutes les conditions doivent être vraies.
+
+### 5.5 Écriture en iptables — Correspondance Booléenne
+
+```bash
+# Règle 1 : HTTPS depuis n'importe quelle IP
+# Booléen : P=1 AND H=1
+iptables -A INPUT -p tcp --dport 443 -j ACCEPT
+
+# Règle 2 : SSH depuis réseau admin uniquement
+# Booléen : P=1 AND S=1 AND R=1
+iptables -A INPUT -p tcp --dport 22 -s 192.168.10.0/24 -j ACCEPT
+
+# Politique par défaut : tout refuser (DENY by default)
+# Booléen : si aucune règle précédente n'a matché → DROP
+iptables -P INPUT DROP
+```
+
+---
+
+## Partie 6 — Exercices Guidés
+
+### Série 1 — Tables Simples à Compléter
+
+**Exercice 1.1 — Expression : S = A AND (NOT B)**
+
+| **A** | **B** | **NOT B** | **S = A AND (NOT B)** |
+|---|---|---|---|
+| 0 | 0 | | |
+| 0 | 1 | | |
+| 1 | 0 | | |
+| 1 | 1 | | |
+
+**Exercice 1.2 — Expression : S = (NOT A) OR B**
+
+| **A** | **B** | **NOT A** | **S = (NOT A) OR B** |
+|---|---|---|---|
+| 0 | 0 | | |
+| 0 | 1 | | |
+| 1 | 0 | | |
+| 1 | 1 | | |
+
+**Exercice 1.3 — Expression : S = A XOR (NOT B)**
+
+| **A** | **B** | **NOT B** | **S = A XOR (NOT B)** |
+|---|---|---|---|
+| 0 | 0 | | |
+| 0 | 1 | | |
+| 1 | 0 | | |
+| 1 | 1 | | |
+
+---
+
+### Série 2 — Expressions Composées à 3 Variables
+
+**Exercice 2.1 — Expression : S = (A AND B) AND (NOT C)**
+*(représente : accepter si TCP ET port correct ET pas sur liste noire)*
+
+| **A** | **B** | **C** | **A AND B** | **NOT C** | **S** |
+|---|---|---|---|---|---|
+| 0 | 0 | 0 | | | |
+| 0 | 0 | 1 | | | |
+| 0 | 1 | 0 | | | |
+| 0 | 1 | 1 | | | |
+| 1 | 0 | 0 | | | |
+| 1 | 0 | 1 | | | |
+| 1 | 1 | 0 | | | |
+| 1 | 1 | 1 | | | |
+
+**Exercice 2.2 — Traduction d'une règle réseau**
+
+Traduisez cette règle pare-feu en expression booléenne, puis construisez sa table de vérité pour les combinaisons données :
+
+> *"ACCEPTER si le protocole est TCP ET (le port est 80 OU le port est 443)"*
+
+Variables : T = protocole TCP, H = port 80 (HTTP), S = port 443 (HTTPS)
+
+| **T (TCP ?)** | **H (port 80 ?)** | **S (port 443 ?)** | **Expression (à écrire)** | **Action** |
+|---|---|---|---|---|
+| 1 | 1 | 0 | | |
+| 1 | 0 | 1 | | |
+| 1 | 0 | 0 | | |
+| 0 | 1 | 0 | | |
+| 0 | 0 | 0 | | |
+
+---
+
+## Vocabulaire Clé à Maîtriser pour l'Examen
+
+| **Terme** | **Définition** |
+|---|---|
+| **Variable booléenne** | Variable ne pouvant prendre que les valeurs 0 (FAUX) ou 1 (VRAI) |
+| **AND (∧, &&)** | Opérateur ET logique — VRAI uniquement si toutes les entrées sont VRAIES |
+| **OR (∨, \|\|)** | Opérateur OU logique inclusif — VRAI si au moins une entrée est VRAIE |
+| **NOT (¬, !)** | Opérateur NON — inverse la valeur de son entrée |
+| **XOR (⊕, ^)** | Opérateur OU exclusif — VRAI si les entrées sont différentes |
+| **Table de vérité** | Tableau listant tous les résultats possibles d'une expression pour toutes les combinaisons d'entrées |
+| **Porte logique** | Composant électronique réalisant physiquement un opérateur booléen |
+| **Loi de De Morgan** | NOT(A AND B) = (NOT A) OR (NOT B) — et son symétrique avec OR |
+| **DENY by default** | Politique de sécurité : tout trafic non explicitement autorisé est rejeté |
+| **ACL** | Access Control List — liste de règles définissant les autorisations d'accès réseau |
+| **iptables** | Outil Linux de configuration du pare-feu netfilter — basé sur des règles booléennes |
+| **Idempotence** | A AND A = A — appliquer deux fois le même opérateur donne le même résultat |
+
 
 ---

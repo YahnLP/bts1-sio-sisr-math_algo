@@ -1,30 +1,42 @@
 # 01 – Informations Générales
 
-## Informations Générales
-
 | **Champ** | **Détail** |
 |-----------|-----------|
-| **Semaine** | S20 — Année 1 — Dernière séance A1 Bloc 3 |
-| **Bloc** | Bloc 3 — Cybersécurité des services informatiques |
+| **Semaine** | S20 — Année 1 |
+| **Module** | Mathématiques pour l'informatique et algorithmique |
 | **Durée totale** | 4 heures |
-| **Public** | Apprentis BTS SIO SISR — fin d'année 1 |
-| **Modalité** | Présentiel — salle de cours (conditions d'examen) |
-| **Prérequis** | Bloc 3 complet S1 à S19 (hygiène numérique, RGPD, sécurité de base, audit de vulnérabilités) |
-
+| **Public** | Apprentis BTS SIO SISR — profils hétérogènes |
+| **Modalité** | Examen individuel en conditions réelles |
+| **Prérequis** | S1-S19 : Tous les concepts vus depuis septembre |
 
 ---
 
 ## 🧠 Compétences travaillées
 
+## Compétences RNCP Visées
+
 | **Code** | **Intitulé de la compétence** | **Niveau visé** |
 |----------|-------------------------------|-----------------|
-| **B3.1** | Identifier les principales menaces de sécurité | Évaluation sommative |
-| **B3.2** | Mettre en œuvre les mesures de sécurité de base | Évaluation sommative |
-| **B3.3** | Participer à la protection des données personnelles | Évaluation sommative |
-| **B3.4** | Réaliser un audit de sécurité de base | Évaluation sommative |
+| **B2.1** | Concevoir et développer une solution applicative | Évaluation |
+| **B2.2** | Assurer la sécurité d'un système informatique | Évaluation |
+| **B3.3** | Optimiser les performances d'un système | Évaluation |
 
-> 📌 **S20 est la séance d'évaluation finale de l'année 1 du Bloc 3.** Elle prend la forme d'un **examen blanc de type E6** (étude de cas écrite) pour familiariser les apprenants avec les conditions et le format de l'épreuve réelle. Le créneau de 4h est découpé en 3 temps : préparation à l'épreuve, examen blanc (2h en conditions réelles), correction et retour.
-
+> 📌 **S20 est un EXAMEN BLANC en conditions réelles**. L'objectif est d'évaluer les acquis de l'année et d'identifier les dernières lacunes avant l'épreuve finale. 
 
 ---
 
+## 🎯 Objectifs
+
+**Pour vous :**
+- ✅ Se confronter aux conditions réelles d'examen
+- ✅ Gérer son temps sur 2 heures
+- ✅ Identifier ses points forts et faibles
+- ✅ Recevoir un feedback détaillé
+
+**Pour l'enseignant :**
+- ✅ Évaluer le niveau de la classe
+- ✅ Identifier les concepts mal maîtrisés
+- ✅ Adapter les dernières séances avant l'épreuve finale
+- ✅ Rassurer ou alerter individuellement
+
+---

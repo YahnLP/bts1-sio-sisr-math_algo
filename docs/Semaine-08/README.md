@@ -8,11 +8,11 @@
 | **Champ** | **Détail** |
 |-----------|-----------|
 | **Semaine** | S8 — Année 1 |
-| **Bloc** | Bloc 3 — Cybersécurité des services informatiques |
+| **Module** | Mathématiques pour l'Informatique — Algorithmique |
 | **Durée totale** | 4 heures |
-| **Public** | Apprentis BTS SIO SISR — huitième semaine |
-| **Modalité** | Présentiel — salle de cours avec accès internet |
-| **Prérequis** | S5-S7 BLOC 3 (RGPD fondamentaux, acteurs, droits, violations) |
+| **Public** | Apprentis BTS SIO SISR — huitième semaine du module |
+| **Modalité** | Présentiel — salle de cours avec tableau blanc |
+| **Prérequis** | S1–S7 complets — binaire, AND bit à bit, masques, VLSM, pseudo-code, types, SI/SINON, AppartientAuSousReseau |
 
 ---
 
@@ -20,11 +20,11 @@
 
 | **Code** | **Intitulé de la compétence** | **Niveau visé** |
 |----------|-------------------------------|-----------------|
-| **B3.1** | Identifier les principales menaces de sécurité | Maîtrise |
-| **B3.2** | Mettre en œuvre les mesures de sécurité de base | Maîtrise |
-| **B3.3** | Gérer les incidents de sécurité | Acquisition |
+| **B2.1** | Exploiter des serveurs Windows et Linux (scripting, automatisation) | Application avancée |
+| **B2.2** | Exploiter des équipements réseau (audit, inventaire automatisé) | Application |
+| **B3.2** | Mettre en œuvre les mesures de sécurité de base (scan, inventaire de surface d'attaque) | Application |
 
-> 📌 **S8 BLOC 3 est une séance double pivôt.** Elle clôture le volet RGPD (Module 4 — le plus "terrain" avec le monde du travail et la vidéosurveillance) et amorce le parcours **Cisco Networking Academy** avec la certification *Introduction to Cybersecurity* — certification officielle valorisable sur le CV des apprenants.
+> 📌 **S8 complète la triade fondamentale de l'algorithmique : séquence (S6), condition (S7), boucle (S8).** Avec ces trois structures, tout algorithme calculable peut s'écrire — c'est le théorème de Böhm-Jacopini, qu'il n'est pas nécessaire de nommer mais dont l'essence mérite d'être soulignée. 
 
 ---
 
@@ -32,16 +32,21 @@
 
 à la fin du cours, les étudiants seront capables de :
 
-**RGPD Module 4 — Travail et données personnelles :**
-- ✅ Identifier les données personnelles collectées dans un contexte **RH**
-- ✅ Comprendre les limites légales de la **surveillance des salariés**
-- ✅ Appliquer les règles RGPD à la **messagerie professionnelle**
-- ✅ Connaître le cadre légal de la **vidéosurveillance** (30 jours, affichage obligatoire, zones interdites)
-- ✅ Distinguer **vidéosurveillance** et **vidéoprotection**
+**Boucles — Maîtrise des deux structures :**
+- ✅ Maîtriser la boucle **POUR** — itérations en nombre connu, parcours d'une plage numérique
+- ✅ Maîtriser la boucle **TANT QUE** — itérations conditionnelles, arrêt sur critère
+- ✅ Choisir la bonne structure selon le contexte — savoir **quand** utiliser l'une ou l'autre
+- ✅ Identifier et éviter les **boucles infinies** et les **boucles ne s'exécutant jamais**
+- ✅ Maîtriser les **motifs récurrents** : accumulateur, compteur, drapeau booléen
 
-**Cisco Cyber — Introduction à la cybersécurité :**
-- ✅ Présenter la certification **Cisco Introduction to Cybersecurity** et ses débouchés
-- ✅ Comprendre les **enjeux mondiaux** de la cybersécurité (statistiques, tendances)
-- ✅ Identifier les **types de données** (données personnelles, organisationnelles, confidentielles)
-- ✅ Comprendre la notion de **guerre cybernétique** (cyberwar, espionnage, sabotage)
-- ✅ Démarrer le **Module 1** du cours Cisco Networking Academy
+**Parcours de listes et génération :**
+- ✅ Parcourir une liste avec un indice (accès positionnel)
+- ✅ Construire une liste en itérant (génération par accumulation)
+- ✅ Utiliser une **représentation entière** d'une IP (32 bits = 1 entier) pour simplifier les boucles sur des plages d'adresses
+
+**Exercice de synthèse :**
+- ✅ Écrire l'algorithme de **génération de toutes les IPs hôtes** d'un sous-réseau
+- ✅ Comprendre pourquoi la conversion IP ↔ entier 32 bits est l'approche la plus élégante
+- ✅ Tester l'algorithme sur des cas de taille et de masque variés
+
+---

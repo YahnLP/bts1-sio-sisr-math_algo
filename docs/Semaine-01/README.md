@@ -3,39 +3,40 @@
 | **Champ** | **Détail** |
 |-----------|-----------|
 | **Semaine** | S1 — Année 1 |
-| **Bloc** | Bloc 3 — Cybersécurité des services informatiques |
+| **Module** | Mathématiques pour l'Informatique (Maths Info) |
 | **Durée totale** | 4 heures |
-| **Public** | Apprentis BTS SIO SISR — première semaine |
-| **Modalité** | Présentiel — salle de cours |
-| **Prérequis** | Aucun (séance d'introduction au BLOC 3) |
+| **Public** | Apprentis BTS SIO SISR — première semaine du module |
+| **Modalité** | Présentiel — salle de cours (tableau + machines disponibles) |
+| **Prérequis** | Aucun prérequis formel — niveau collège en mathématiques suffisant |
 ---
 
 ## 🎯 Objectifs
 
-**Hygiène numérique :**
-- ✅ Définir l'**hygiène numérique** et son importance
-- ✅ Connaître et appliquer les **10 règles essentielles** du guide ANSSI
-- ✅ Identifier les **risques** liés aux mauvaises pratiques
+**Systèmes de numération :**
+- ✅ Comprendre **pourquoi les ordinateurs utilisent le binaire** (logique physique des transistors)
+- ✅ Définir et distinguer les bases **décimale (base 10)**, **binaire (base 2)** et **hexadécimale (base 16)**
+- ✅ Connaître le **vocabulaire fondamental** : bit, octet, nibble, MSB, LSB, poids fort, poids faible
 
-**Menaces et attaques :**
-- ✅ Définir le **ransomware** et comprendre son mode opératoire
-- ✅ Définir le **phishing** (hameçonnage) et ses variantes
-- ✅ Analyser des **cas concrets** d'attaques médiatisées
-- ✅ Identifier les **signaux d'alerte** d'une tentative d'attaque
+**Conversions :**
+- ✅ Convertir un nombre **décimal → binaire** (méthode des divisions successives)
+- ✅ Convertir un nombre **binaire → décimal** (méthode des puissances de 2)
+- ✅ Convertir un nombre **binaire ↔ hexadécimal** (méthode des groupes de 4 bits)
+- ✅ Convertir un nombre **décimal → hexadécimal**
 
-**Posture sécurité :**
-- ✅ Adopter une **attitude critique** face aux emails et liens suspects
-- ✅ Comprendre le rôle du **facteur humain** dans la sécurité
+**Lien informatique :**
+- ✅ Lire et décomposer une **adresse MAC en hexadécimal**
+- ✅ Comprendre pourquoi une **adresse IP est représentée en binaire** (masques, CIDR)
+- ✅ Identifier l'utilité concrète de ces bases dans le métier de technicien SISR
+
 ---
 
 ## 🧠 Compétences travaillées
 
 | **Code** | **Intitulé de la compétence** | **Niveau visé** |
 |----------|-------------------------------|-----------------|
-| **B3.1** | Identifier les principales menaces de sécurité | Sensibilisation |
-| **B3.2** | Mettre en œuvre les mesures de sécurité de base | Sensibilisation |
-
-> 📌 **S1 BLOC 3 est la séance d'introduction à la cybersécurité.** Elle pose les bases de l'hygiène numérique et sensibilise aux menaces réelles (ransomware, phishing) par des cas concrets médiatisés. Cette première séance doit être **percutante et accessible** pour capter l'attention des apprenants, même ceux sans background sécurité.
+| **B1.1** | Recenser et caractériser les composants matériels d'une infrastructure | Fondement théorique |
+| **B2.1** | Exploiter des serveurs Windows et Linux (adressage réseau) | Fondement théorique |
+| **B2.2** | Exploiter des équipements réseau (adressage MAC, protocoles) | Fondement théorique |
 
 ---
 

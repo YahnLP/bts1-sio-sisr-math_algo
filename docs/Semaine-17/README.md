@@ -2,45 +2,53 @@
 
 | **Champ** | **Détail** |
 |-----------|-----------|
-| **Semaines** | S17 + S18 — Année 1 |
-| **Bloc** | Bloc 3 — Cybersécurité |
-| **Durée totale** | 8 heures (2 séances de 4h) |
-| **Type** | PROJET en groupe (2-3 apprenants) |
-| **Modalité** | Présentiel — Travail autonome + Soutenance |
-| **Prérequis** | S1-S16 Bloc 3 complet |
+| **Semaine** | S17 — Année 1 |
+| **Module** | Mathématiques pour l'informatique et algorithmique |
+| **Durée totale** | 4 heures |
+| **Public** | Apprentis BTS SIO SISR |
+| **Modalité** | Présentiel — salle informatique |
+| **Prérequis** | Subnetting (S7-S8), Calculs (S1-S5), Algorithmique (S6-S11) |
 
 ---
 
 ## 🎯 Objectifs
 
-**Connaissances** :
-- ✅ Comprendre l'architecture réseau en zones (LAN/DMZ/Internet)
-- ✅ Maîtriser les GPO Windows (stratégies de groupe)
-- ✅ Comprendre les droits NTFS et la matrice d'accès
-- ✅ Connaître la règle 3-2-1 des sauvegardes
-- ✅ Comprendre HTTPS et les certificats SSL/TLS
+**Dimensionnement réseau :**
+- ✅ Analyser les **besoins d'une PME** (utilisateurs, services, croissance)
+- ✅ Concevoir un **plan d'adressage IP complet** avec VLAN
+- ✅ Calculer le **nombre de sous-réseaux** nécessaires
+- ✅ Dimensionner chaque sous-réseau selon les besoins actuels et futurs
 
-**Savoir-faire** :
-- ✅ Concevoir un schéma réseau sécurisé (LAN/DMZ séparées)
-- ✅ Configurer des GPO de sécurité (mots de passe, verrouillage, pare-feu)
-- ✅ Définir une matrice de droits NTFS par service
-- ✅ Élaborer un plan de sauvegarde professionnel
-- ✅ Mettre en place HTTPS sur un serveur web
-- ✅ Documenter une infrastructure de manière professionnelle
-- ✅ Présenter oralement un projet technique
+**Calculs de bande passante :**
+- ✅ Identifier les **applications critiques** et leurs débits
+- ✅ Calculer la **bande passante nécessaire** par VLAN
+- ✅ Estimer la **charge réseau totale** (pic et moyenne)
+- ✅ Dimensionner la **connexion Internet** de l'entreprise
+
+**Calculs de stockage :**
+- ✅ Estimer les **besoins en stockage** par service
+- ✅ Calculer les **quotas utilisateurs** (mail, fichiers, home)
+- ✅ Dimensionner l'infrastructure de **sauvegarde** (3-2-1)
+- ✅ Calculer les **coûts de stockage** (local vs cloud)
+
+**Livrables professionnels :**
+- ✅ Produire un **document de synthèse** technique
+- ✅ Présenter le projet de façon **claire et structurée**
+- ✅ Justifier les choix techniques par des **calculs rigoureux**
+- ✅ Anticiper l'**évolution future** (scalabilité)
 
 ---
 
 ## 🧠 Compétences travaillées
 
 
-| **Code** | **Compétence** | **Niveau** |
-|----------|----------------|------------|
-| **B3.2** | Mettre en œuvre mesures sécurité de base | **Maîtrise** |
-| **B3.4** | Sécuriser les accès et les données | **Maîtrise** |
-| **B1.3** | Mettre en place infrastructure réseau | Acquisition |
-| **B2.3** | Appliquer politiques de sécurité | Maîtrise |
+| **Code** | **Intitulé de la compétence** | **Niveau visé** |
+|----------|-------------------------------|-----------------|
+| **B1.1** | Gérer le patrimoine informatique | Maîtrise |
+| **B2.1** | Administrer les systèmes et les services informatiques | Maîtrise |
+| **B2.3** | Proposer des améliorations d'un service | Application |
+| **B3.1** | Protéger les données à caractère personnel | Application |
 
-> 📌 **S17-S18 = PROJET INTÉGRATEUR du BLOC 3**. Ce projet synthétise TOUTES les compétences vues depuis S1 : gestion incidents ITIL (S1-S2), pare-feu (S3), mots de passe (S4), RGPD (S5-S8), malwares (S9), droits d'accès (S10), cryptographie (S11-S14), identité numérique (S15), logs (S16). Les apprenants appliquent ces connaissances à un cas réel de sécurisation d'infrastructure.
+> 📌 **S17 est un projet de synthèse** qui mobilise de nombreuses compétences acquises depuis le début de l'année : subnetting, calculs, algorithmique, rigueur logique. C'est une **mise en situation professionnelle complète** qui génère des livrables directs exploitable pour le portfolio E4/E5.
 
 ---

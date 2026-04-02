@@ -3,45 +3,49 @@
 | **Champ** | **Détail** |
 |-----------|-----------|
 | **Semaine** | S19 — Année 1 |
-| **Bloc** | Bloc 3 — Cybersécurité des services informatiques |
+| **Module** | Mathématiques pour l'informatique et algorithmique |
 | **Durée totale** | 4 heures |
-| **Public** | Apprentis BTS SIO SISR — fin d'année 1 |
-| **Modalité** | Présentiel — salle de TP avec machines virtuelles |
-| **Prérequis** | S1 à S18 Bloc 3 (hygiène numérique, RGPD, pare-feu, VPN, chiffrement, sauvegardes) |
+| **Public** | Apprentis BTS SIO SISR — profils hétérogènes |
+| **Modalité** | Présentiel — salle informatique |
+| **Prérequis** | S1-S18 : Tous les concepts vus depuis le début d'année |
 
 ---
 
 ## 🧠 Compétences travaillées
 
-## Compétences RNCP Visées
-
 | **Code** | **Intitulé de la compétence** | **Niveau visé** |
 |----------|-------------------------------|-----------------|
-| **B3.1** | Identifier les principales menaces de sécurité | Consolidation |
-| **B3.2** | Mettre en œuvre les mesures de sécurité de base | Consolidation |
-| **B3.3** | Participer à la protection des données personnelles | Consolidation |
-| **B3.4** | Réaliser un audit de sécurité de base | Découverte / Application |
+| **B2.1** | Concevoir et développer une solution applicative | Révision |
+| **B2.2** | Assurer la sécurité d'un système informatique | Révision |
+| **B3.3** | Optimiser les performances d'un système | Révision |
 
-> 📌 **S19 BLOC 3 est la séance de clôture de l'année 1.** Elle cumule deux objectifs distincts mais complémentaires : **découvrir les outils d'audit de vulnérabilités** (Nmap, analyse CVSS) et **synthétiser l'ensemble du Bloc 3 A1** (RGPD, hygiène numérique, sécurité de base). Cette séance prépare directement aux épreuves E4, E5 et E6.
+> 📌 **S19 est une séance de CONSOLIDATION avant l'examen blanc final**. L'objectif est de réviser les 3 grands blocs mathématiques vus depuis septembre : **algèbre de Boole**, **subnetting/VLSM**, et **algorithmique**. Cette séance doit vous permettre d'identifier vos lacunes et renforcer les fondamentaux.
 
 ---
 
 ## 🎯 Objectifs
 
-**Audit de vulnérabilités — Découverte :**
-- ✅ Définir ce qu'est un **audit de vulnérabilités** et son rôle dans la gestion des services (ITIL)
-- ✅ Distinguer **scan de ports**, **scan de services** et **scan de vulnérabilités**
-- ✅ Utiliser les commandes **Nmap** de base pour identifier les hôtes et services exposés
-- ✅ Lire et interpréter un résultat de scan (ports ouverts, services détectés, versions)
-- ✅ Comprendre la **notation CVSS** (score de criticité 0 à 10)
-- ✅ Prioriser les actions correctives en fonction des résultats
+**Bloc 1 : Algèbre de Boole**
+- ✅ Réviser les opérateurs logiques (AND, OR, NOT, XOR)
+- ✅ Construire des tables de vérité
+- ✅ Simplifier des expressions booléennes
+- ✅ Appliquer les lois de De Morgan
 
-**Synthèse Bloc 3 A1 :**
-- ✅ Restituer les **principes fondamentaux du RGPD** (bases légales, droits, sanctions)
-- ✅ Récapituler les **mesures de sécurité de base** vues depuis S1 (mots de passe, MFA, mises à jour, sauvegardes, chiffrement, pare-feu, VPN)
-- ✅ Mettre en relation **menaces, mesures de protection et réglementation**
-- ✅ Identifier les points de faiblesse restants dans ses propres connaissances
+**Bloc 2 : Subnetting et VLSM**
+- ✅ Convertir décimal ↔ binaire
+- ✅ Calculer des masques de sous-réseau
+- ✅ Appliquer l'algorithme VLSM
+- ✅ Optimiser un plan d'adressage
+
+**Bloc 3 : Algorithmique**
+- ✅ Analyser la complexité (O(1), O(log n), O(n), O(n²))
+- ✅ Implémenter recherche linéaire et dichotomique
+- ✅ Manipuler ensembles et listes
+- ✅ Calculer temps de transfert et débit
+
+**Préparation examen**
+- ✅ Gérer son temps (exercices chronométrés)
+- ✅ Identifier les types de questions
+- ✅ Éviter les erreurs classiques
 
 ---
-
-

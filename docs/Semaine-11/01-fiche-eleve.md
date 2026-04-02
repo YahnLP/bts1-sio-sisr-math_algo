@@ -5,7 +5,7 @@ title: 📚 FICHE DE COURS
 
 
 # 📚 FICHE DE COURS ÉLÈVE
-## "Cryptographie Symétrique · Objectifs · Principe · AES"
+## Algorithmes de Tri : Tri à Bulles et Tri par Insertion
 
 *Version 1.0 — BTS SIO SISR — Année 1 — Semaine 11*
 
@@ -14,497 +14,581 @@ title: 📚 FICHE DE COURS
 ## 🎯 Compétences Travaillées
 
 | **Code** | **Compétence** |
-|----------|---------------|
-| **B3.2** | Mettre en œuvre les mesures de sécurité de base |
-| **B3.5** | Mettre en œuvre des mécanismes de chiffrement |
+|----------|----------------|
+| **B1.1** | Gérer le patrimoine informatique |
+| **B1.2** | Répondre aux incidents et aux demandes d'assistance |
+| **B2.1** | Administrer les systèmes et les services informatiques |
+
 
 ---
 
-## PARTIE I — Cryptographie : Définitions et Objectifs
+## 📖 I. Introduction : Pourquoi Trier ?
 
-### I.A. Définitions
+### Le Problème
 
-```
-   VOCABULAIRE FONDAMENTAL
-   ═══════════════════════════════════════════════════════════════
+En tant que technicien SISR, vous manipulez constamment des données qui doivent être **organisées** :
+- 📋 Trier les tickets d'incidents par priorité
+- 🖥️ Trier les serveurs par charge CPU
+- 📊 Trier les logs par timestamp
+- 📈 Trier les utilisateurs par ordre alphabétique
+- 💾 Trier les sauvegardes par date
 
-   CRYPTOGRAPHIE
-   ──────────────────────────────────────────────────────────────
-   Science de la protection de l'information par transformation
-   mathématique.
+**Question :** Comment organiser efficacement ces données ?
 
-   Du grec : kruptos (caché) + graphein (écrire)
-   → "L'art d'écrire de manière cachée"
+### La Solution : Les Algorithmes de Tri
 
-   CHIFFREMENT (Encryption)
-   ──────────────────────────────────────────────────────────────
-   Transformation d'un message lisible (clair) en message illisible
-   (chiffré) à l'aide d'un algorithme et d'une clé.
+Un **algorithme de tri** est une séquence d'instructions qui permet de réorganiser une collection d'éléments dans un ordre spécifique (croissant, décroissant, alphabétique, etc.).
 
-   Texte clair (plaintext)  + Clé → Texte chiffré (ciphertext)
-
-   DÉCHIFFREMENT (Decryption)
-   ──────────────────────────────────────────────────────────────
-   Opération inverse : Retrouver le texte clair à partir du
-   texte chiffré en utilisant la clé appropriée.
-
-   ⚠️ NE PAS CONFONDRE :
-   ──────────────────────────────────────────────────────────────
-   CHIFFREMENT   : Transformation avec clé (réversible avec clé)
-   HACHAGE       : Empreinte numérique SANS clé (irréversible)
-   ENCODAGE      : Représentation alternative (Base64, UTF-8)
-                   → PAS de sécurité ! (réversible sans clé)
-
-   Exemples :
-   Base64 de "Bonjour" = "Qm9uam91cg==" → Décodable par n'importe qui
-   SHA-256 de "Bonjour" = "58bdf..." → Impossible à inverser
-   AES-256 de "Bonjour" = "x4Kp..." → Réversible avec la bonne clé
-```
+**Les deux algorithmes étudiés :**
+1. **Tri à bulles** (Bubble Sort) — simple mais lent
+2. **Tri par insertion** (Insertion Sort) — plus efficace
 
 ---
 
-### I.B. Les 4 Objectifs de la Cryptographie
+## 🫧 II. Le Tri à Bulles (Bubble Sort)
+
+### Principe Général
+
+> Le **tri à bulles** consiste à **comparer des éléments adjacents** et à les **échanger** s'ils sont dans le mauvais ordre. On répète cette opération jusqu'à ce que tout soit trié.
+
+### Analogie Physique
+
+![Illustration : Des bulles d'air dans l'eau qui remontent progressivement vers la surface]
+*Légende : Le tri à bulles tire son nom des bulles d'air qui remontent dans l'eau. Les éléments "lourds" descendent et les "légers" remontent, comme des bulles.*
+
+**Métaphore :**
+Imaginez des bulles d'air dans un verre d'eau. Les plus grosses bulles (valeurs grandes) remontent naturellement vers le haut, tandis que les plus petites restent en bas.
+
+### Fonctionnement Détaillé
+
+**Exemple : Trier le tableau [5, 2, 8, 1, 9] par ordre croissant**
+
+#### 🔄 Premier Passage
+
+On parcourt le tableau et on compare chaque élément avec son voisin de droite :
 
 ```
-   LES 4 SERVICES DE SÉCURITÉ CRYPTOGRAPHIQUES
-   ═══════════════════════════════════════════════════════════════
+Étape 1 : Comparer 5 et 2
+[5, 2, 8, 1, 9]  →  5 > 2 ? OUI → ÉCHANGER
+[2, 5, 8, 1, 9]
 
-   ① CONFIDENTIALITÉ
-   ──────────────────────────────────────────────────────────────
-   Garantir que seules les personnes autorisées peuvent lire
-   les données.
+Étape 2 : Comparer 5 et 8
+[2, 5, 8, 1, 9]  →  5 > 8 ? NON → PAS D'ÉCHANGE
+[2, 5, 8, 1, 9]
 
-   Outil : Chiffrement (AES, RSA...)
-   Exemple : Vos messages WhatsApp sont chiffrés de bout en bout
-             → Meta/Facebook NE PEUT PAS les lire
+Étape 3 : Comparer 8 et 1
+[2, 5, 8, 1, 9]  →  8 > 1 ? OUI → ÉCHANGER
+[2, 5, 1, 8, 9]
 
-   ② INTÉGRITÉ
-   ──────────────────────────────────────────────────────────────
-   Garantir que les données n'ont pas été modifiées (ni par
-   erreur, ni malicieusement).
-
-   Outil : Fonctions de hachage (SHA-256, SHA-3)
-   Exemple : Télécharger Ubuntu et vérifier le hash SHA-256
-             → Si le hash correspond → Fichier non altéré
-
-   ③ AUTHENTICITÉ (Non-répudiation)
-   ──────────────────────────────────────────────────────────────
-   Garantir l'identité de l'émetteur et qu'il ne peut pas
-   nier avoir envoyé le message.
-
-   Outil : Signature numérique (RSA + Hash)
-   Exemple : Un email signé numériquement prouve que c'est
-             bien Jean Dupont qui l'a envoyé
-
-   ④ DISPONIBILITÉ
-   ──────────────────────────────────────────────────────────────
-   Garantir l'accès aux données quand on en a besoin.
-   → Lié aux clés : Si la clé est perdue → Données inaccessibles
-   → C'est pourquoi la gestion des clés est critique
+Étape 4 : Comparer 8 et 9
+[2, 5, 1, 8, 9]  →  8 > 9 ? NON → PAS D'ÉCHANGE
+[2, 5, 1, 8, 9]
 ```
+
+**Résultat après le 1er passage :** `[2, 5, 1, 8, 9]`
+
+➡️ **Observation :** Le plus grand élément (9) est maintenant à sa place finale !
+
+![Illustration : Tableau de 5 cases avec des flèches montrant les comparaisons successives entre cases adjacentes]
+*Légende : Visualisation du premier passage du tri à bulles avec les comparaisons et échanges.*
+
+#### 🔄 Deuxième Passage
+
+On recommence, mais on peut ignorer le dernier élément (déjà trié) :
+
+```
+Étape 1 : Comparer 2 et 5
+[2, 5, 1, 8, 9]  →  2 > 5 ? NON → PAS D'ÉCHANGE
+
+Étape 2 : Comparer 5 et 1
+[2, 5, 1, 8, 9]  →  5 > 1 ? OUI → ÉCHANGER
+[2, 1, 5, 8, 9]
+
+Étape 3 : Comparer 5 et 8
+[2, 1, 5, 8, 9]  →  5 > 8 ? NON → PAS D'ÉCHANGE
+[2, 1, 5, 8, 9]
+```
+
+**Résultat après le 2ème passage :** `[2, 1, 5, 8, 9]`
+
+➡️ Le deuxième plus grand (8) est maintenant à sa place !
+
+#### 🔄 Troisième Passage
+
+```
+Étape 1 : Comparer 2 et 1
+[2, 1, 5, 8, 9]  →  2 > 1 ? OUI → ÉCHANGER
+[1, 2, 5, 8, 9]
+
+Étape 2 : Comparer 2 et 5
+[1, 2, 5, 8, 9]  →  2 > 5 ? NON → PAS D'ÉCHANGE
+[1, 2, 5, 8, 9]
+```
+
+**Résultat après le 3ème passage :** `[1, 2, 5, 8, 9]`
+
+✅ **Le tableau est maintenant complètement trié !**
+
+### Pseudo-Code du Tri à Bulles
+
+```
+ALGORITHME TriABulles
+VARIABLES
+    tableau : TABLEAU d'entiers
+    n : entier (taille du tableau)
+    i, j : entiers (indices)
+    temp : entier (variable temporaire pour l'échange)
+
+DÉBUT
+    n ← longueur(tableau)
+    
+    // Boucle externe : nombre de passages
+    POUR i DE 0 À n-2 FAIRE
+        
+        // Boucle interne : comparaisons dans un passage
+        POUR j DE 0 À n-2-i FAIRE
+            
+            // Si deux éléments adjacents sont dans le mauvais ordre
+            SI tableau[j] > tableau[j+1] ALORS
+                // Les échanger
+                temp ← tableau[j]
+                tableau[j] ← tableau[j+1]
+                tableau[j+1] ← temp
+            FIN SI
+            
+        FIN POUR
+        
+    FIN POUR
+    
+FIN
+```
+
+### Code Python du Tri à Bulles
+
+```python
+def tri_a_bulles(tableau):
+    """
+    Trie un tableau par ordre croissant en utilisant le tri à bulles.
+    """
+    n = len(tableau)
+    
+    # Boucle externe : nombre de passages
+    for i in range(n - 1):
+        
+        # Boucle interne : comparaisons dans un passage
+        for j in range(n - 1 - i):
+            
+            # Si deux éléments adjacents sont dans le mauvais ordre
+            if tableau[j] > tableau[j + 1]:
+                # Les échanger
+                tableau[j], tableau[j + 1] = tableau[j + 1], tableau[j]
+    
+    return tableau
+
+# Exemple d'utilisation
+serveurs = [5, 2, 8, 1, 9]
+print("Avant tri :", serveurs)
+tri_a_bulles(serveurs)
+print("Après tri :", serveurs)
+```
+
+### Avantages et Inconvénients du Tri à Bulles
+
+| **Avantages** | **Inconvénients** |
+|---|---|
+| ✅ Très simple à comprendre | ❌ Très lent sur de grandes données |
+| ✅ Facile à coder | ❌ Beaucoup de comparaisons inutiles |
+| ✅ Ne nécessite pas de mémoire supplémentaire | ❌ Inefficace même sur des données presque triées |
+
+**🎓 À retenir :** Le tri à bulles est excellent pour **apprendre** les algorithmes de tri, mais on ne l'utilise **jamais en production** car il est trop lent.
 
 ---
 
-## PARTIE II — Le Chiffrement Symétrique
+## 📥 III. Le Tri par Insertion (Insertion Sort)
 
-### II.A. Principe Fondamental
+### Principe Général
+
+> Le **tri par insertion** consiste à construire progressivement une **partie triée** du tableau en insérant chaque nouvel élément à sa bonne place dans cette partie triée.
+
+### Analogie Physique
+
+![Illustration : Une main qui tient des cartes triées et insère une nouvelle carte au bon endroit]
+*Légende : Le tri par insertion fonctionne comme lorsqu'on trie des cartes dans sa main : on insère chaque nouvelle carte à sa place dans la partie déjà triée.*
+
+**Métaphore :**
+Imaginez que vous triez des cartes à jouer dans votre main :
+1. Vous prenez la première carte (elle est déjà "triée")
+2. Vous prenez la deuxième carte et l'insérez au bon endroit par rapport à la première
+3. Vous prenez la troisième carte et l'insérez au bon endroit dans les deux déjà triées
+4. Et ainsi de suite...
+
+### Fonctionnement Détaillé
+
+**Exemple : Trier le tableau [5, 2, 8, 1, 9] par ordre croissant**
+
+#### 🔄 Étape 1 : Le premier élément est déjà "trié"
 
 ```
-   CHIFFREMENT SYMÉTRIQUE
-   ═══════════════════════════════════════════════════════════════
-
-   DÉFINITION
-   ──────────────────────────────────────────────────────────────
-   La MÊME clé secrète sert à chiffrer ET à déchiffrer.
-
-   SCHÉMA
-   ──────────────────────────────────────────────────────────────
-
-   Alice                               Bob
-     │                                   │
-     │   Texte clair : "Réunion 14h"     │
-     │                                   │
-     │   Clé secrète : "X7k#P2mQ"       │
-     │         ↓                         │
-     │   [AES-256]                       │
-     │         ↓                         │
-     │   Chiffré : "Kx9pL3vR..."        │
-     │                                   │
-     │ ══════ Canal non sécurisé ══════► │
-     │         (Internet, email...)      │
-     │                                   │
-     │                             Clé secrète : "X7k#P2mQ"
-     │                                   │
-     │                             [AES-256 inverse]
-     │                                   │
-     │                             "Réunion 14h" ✅
-
-   CONDITION : Alice et Bob DOIVENT avoir la même clé
-   PROBLÈME : Comment se transmettre la clé de façon sécurisée ?
-              → C'est le "problème de l'échange de clé"
-              → Résolu par la cryptographie asymétrique (S12)
+[5 | 2, 8, 1, 9]
+ ↑
+Partie triée
 ```
+
+#### 🔄 Étape 2 : Insérer 2 dans la partie triée
+
+```
+On prend 2 et on le compare avec 5
+2 < 5 ? OUI → On insère 2 avant 5
+
+[2, 5 | 8, 1, 9]
+    ↑
+Partie triée
+```
+
+#### 🔄 Étape 3 : Insérer 8 dans la partie triée
+
+```
+On prend 8 et on le compare avec 5
+8 > 5 ? OUI → 8 reste à sa place
+
+[2, 5, 8 | 1, 9]
+       ↑
+Partie triée
+```
+
+#### 🔄 Étape 4 : Insérer 1 dans la partie triée
+
+```
+On prend 1 et on le compare avec 8, puis 5, puis 2
+1 < 2 ? OUI → On insère 1 avant tout
+
+[1, 2, 5, 8 | 9]
+          ↑
+Partie triée
+```
+
+#### 🔄 Étape 5 : Insérer 9 dans la partie triée
+
+```
+On prend 9 et on le compare avec 8
+9 > 8 ? OUI → 9 reste à sa place
+
+[1, 2, 5, 8, 9]
+             ↑
+Tout est trié !
+```
+
+![Illustration : 5 étapes montrant la progression de la partie triée (en vert) et non triée (en gris)]
+*Légende : Visualisation du tri par insertion : la partie triée (à gauche) grandit progressivement.*
+
+### Pseudo-Code du Tri par Insertion
+
+```
+ALGORITHME TriParInsertion
+VARIABLES
+    tableau : TABLEAU d'entiers
+    n : entier (taille du tableau)
+    i, j : entiers (indices)
+    cle : entier (élément à insérer)
+
+DÉBUT
+    n ← longueur(tableau)
+    
+    // Parcourir le tableau à partir du 2ème élément
+    POUR i DE 1 À n-1 FAIRE
+        
+        // Prendre l'élément à insérer
+        cle ← tableau[i]
+        j ← i - 1
+        
+        // Déplacer les éléments plus grands vers la droite
+        TANT QUE (j >= 0 ET tableau[j] > cle) FAIRE
+            tableau[j+1] ← tableau[j]
+            j ← j - 1
+        FIN TANT QUE
+        
+        // Insérer l'élément à sa place
+        tableau[j+1] ← cle
+        
+    FIN POUR
+    
+FIN
+```
+
+### Code Python du Tri par Insertion
+
+```python
+def tri_par_insertion(tableau):
+    """
+    Trie un tableau par ordre croissant en utilisant le tri par insertion.
+    """
+    n = len(tableau)
+    
+    # Parcourir le tableau à partir du 2ème élément
+    for i in range(1, n):
+        
+        # Prendre l'élément à insérer
+        cle = tableau[i]
+        j = i - 1
+        
+        # Déplacer les éléments plus grands vers la droite
+        while j >= 0 and tableau[j] > cle:
+            tableau[j + 1] = tableau[j]
+            j -= 1
+        
+        # Insérer l'élément à sa place
+        tableau[j + 1] = cle
+    
+    return tableau
+
+# Exemple d'utilisation
+serveurs = [5, 2, 8, 1, 9]
+print("Avant tri :", serveurs)
+tri_par_insertion(serveurs)
+print("Après tri :", serveurs)
+```
+
+### Avantages et Inconvénients du Tri par Insertion
+
+| **Avantages** | **Inconvénients** |
+|---|---|
+| ✅ Efficace sur de petites données | ❌ Lent sur de grandes données |
+| ✅ Très efficace si les données sont presque triées | ❌ Moins intuitif que le tri à bulles |
+| ✅ Ne nécessite pas de mémoire supplémentaire | ❌ Beaucoup de déplacements d'éléments |
+| ✅ Plus rapide que le tri à bulles | |
+
+**🎓 À retenir :** Le tri par insertion est utilisé en pratique pour **de petites listes** ou des **données presque triées**.
 
 ---
 
-### II.B. Chiffrement par Bloc vs Chiffrement par Flux
+## ⚖️ IV. Comparaison : Tri à Bulles vs Tri par Insertion
 
-```
-   DEUX FAMILLES DE CHIFFREMENT SYMÉTRIQUE
-   ═══════════════════════════════════════════════════════════════
+### Tableau Comparatif
 
-   CHIFFREMENT PAR BLOC (Block Cipher)
-   ──────────────────────────────────────────────────────────────
-   Principe : Les données sont découpées en blocs de taille fixe,
-              chaque bloc est chiffré indépendamment (ou en chaîne).
+| **Critère** | **Tri à Bulles** | **Tri par Insertion** |
+|---|---|---|
+| **Principe** | Échanger les éléments adjacents | Insérer chaque élément à sa place |
+| **Métaphore** | Bulles qui remontent | Cartes à trier dans la main |
+| **Complexité** | O(n²) — quadratique | O(n²) — quadratique (mais plus rapide en pratique) |
+| **Nombre de comparaisons** | Beaucoup (même sur données presque triées) | Peu si les données sont presque triées |
+| **Facilité de compréhension** | ⭐⭐⭐⭐⭐ Très facile | ⭐⭐⭐ Moyenne |
+| **Utilisation en pratique** | ❌ Jamais (trop lent) | ✅ Oui (petites données) |
 
-   Taille de bloc typique : 128 bits (16 octets)
+### Visualisation Comparative
 
-   Exemple : "Bonjour tout le monde !"
-   → Bloc 1 : "Bonjour t"   (16 octets)
-   → Bloc 2 : "out le mon"  (16 octets)
-   → Bloc 3 : "de !"        (4 octets + padding)
+**Sur un tableau de 5 éléments déjà trié : [1, 2, 3, 4, 5]**
 
-   Algorithmes : AES, DES, 3DES, Blowfish
-   Usage : Chiffrement fichiers, disques, BDD
+| **Algorithme** | **Nombre de comparaisons** | **Nombre d'échanges** |
+|---|---|---|
+| **Tri à bulles** | 10 comparaisons | 0 échange |
+| **Tri par insertion** | 4 comparaisons | 0 échange |
 
-   CHIFFREMENT PAR FLUX (Stream Cipher)
-   ──────────────────────────────────────────────────────────────
-   Principe : Génère un flux pseudo-aléatoire de bits (keystream)
-              et les XOR avec les données bit par bit (ou octet par octet).
+➡️ Le tri par insertion est **plus rapide** sur des données déjà triées ou presque triées.
 
-   Analogie : Un masque unique de la même longueur que le message.
+### Exemple Visuel
 
-   Algorithmes : RC4 (obsolète), ChaCha20, Salsa20
-   Usage : Communications temps réel (TLS, streaming vidéo)
-
-   COMPARAISON
-   ──────────────────────────────────────────────────────────────
-                    │ Bloc              │ Flux
-   ─────────────────┼───────────────────┼────────────────────
-   Traitement       │ Par blocs         │ Bit par bit
-   Vitesse          │ Un peu plus lent  │ Très rapide
-   Erreur           │ Contenue au bloc  │ Peut se propager
-   Parallélisable   │ Oui (certains)    │ Non (en général)
-   Usage typique    │ Fichiers, BDD     │ Streaming, VoIP
-```
+![Illustration : Deux colonnes côte à côte montrant le tri à bulles (gauche) avec beaucoup de flèches d'échange, et le tri par insertion (droite) avec des éléments qui s'insèrent directement]
+*Légende : Comparaison visuelle : le tri à bulles fait beaucoup d'échanges, le tri par insertion insère directement.*
 
 ---
 
-## PARTIE III — AES : Advanced Encryption Standard
+## 💡 V. Application SISR : Trier des Serveurs par Charge CPU
 
-### III.A. Histoire et Adoption
+### Contexte
+
+Vous êtes technicien SISR et vous devez surveiller la charge de 5 serveurs. Vous souhaitez les afficher **du moins chargé au plus chargé** pour identifier rapidement les serveurs disponibles.
+
+**Données initiales :**
+
+| **Serveur** | **Charge CPU (%)** |
+|---|---|
+| SRV-WEB-01 | 75 |
+| SRV-DB-01 | 42 |
+| SRV-MAIL-01 | 88 |
+| SRV-FILE-01 | 15 |
+| SRV-APP-01 | 63 |
+
+### Solution avec le Tri par Insertion
+
+#### Étape 1 : Représentation en Tableau
+
+```python
+charges_cpu = [75, 42, 88, 15, 63]
+noms_serveurs = ["SRV-WEB-01", "SRV-DB-01", "SRV-MAIL-01", 
+                  "SRV-FILE-01", "SRV-APP-01"]
+```
+
+#### Étape 2 : Algorithme de Tri (Pseudo-Code)
 
 ```
-   GENÈSE DE L'AES
-   ═══════════════════════════════════════════════════════════════
+ALGORITHME TriServeursParChargeCPU
+VARIABLES
+    charges : TABLEAU d'entiers
+    serveurs : TABLEAU de chaînes
+    n : entier
+    i, j : entiers
+    cle_charge : entier
+    cle_serveur : chaîne
 
-   1977 : DES adopté par le NIST (National Institute of Standards
-          and Technology — USA)
-          Clé : 56 bits
-
-   1999 : DES cassé en 22h par EFF DES Cracker
-          → DES obsolète, 3DES en attendant
-
-   1997 : NIST lance un concours mondial pour DES successor
-          → 15 algorithmes candidats de 12 pays différents
-
-   2001 : AES adopté — Algorithme gagnant : RIJNDAEL
-          Conçu par Joan Daemen et Vincent Rijmen (Belgique)
-
-   Critères de sélection :
-   → Sécurité maximale
-   → Efficacité (matériel et logiciel)
-   → Simplicité d'implémentation
-   → Flexibilité (tailles de clé)
-
-   AUJOURD'HUI (2025)
-   ──────────────────────────────────────────────────────────────
-   AES est l'algorithme de chiffrement symétrique standard mondial.
-   → Milliards d'opérations AES par seconde sur votre smartphone
-   → Instructions matérielles dédiées : AES-NI (Intel/AMD depuis 2010)
-   → Utilisé partout : HTTPS, VPN, WiFi, stockage, messagerie...
+DÉBUT
+    n ← longueur(charges)
+    
+    // Tri par insertion sur les charges CPU
+    POUR i DE 1 À n-1 FAIRE
+        
+        cle_charge ← charges[i]
+        cle_serveur ← serveurs[i]
+        j ← i - 1
+        
+        // Déplacer les serveurs plus chargés vers la droite
+        TANT QUE (j >= 0 ET charges[j] > cle_charge) FAIRE
+            charges[j+1] ← charges[j]
+            serveurs[j+1] ← serveurs[j]
+            j ← j - 1
+        FIN TANT QUE
+        
+        // Insérer le serveur à sa place
+        charges[j+1] ← cle_charge
+        serveurs[j+1] ← cle_serveur
+        
+    FIN POUR
+    
+    // Afficher les serveurs triés
+    POUR i DE 0 À n-1 FAIRE
+        AFFICHER serveurs[i], " : ", charges[i], "%"
+    FIN POUR
+    
+FIN
 ```
+
+#### Étape 3 : Résultat Attendu
+
+```
+SRV-FILE-01 : 15%
+SRV-DB-01 : 42%
+SRV-APP-01 : 63%
+SRV-WEB-01 : 75%
+SRV-MAIL-01 : 88%
+```
+
+**Interprétation :**
+- ✅ **SRV-FILE-01** est le moins chargé (15%) → peut accueillir de nouvelles tâches
+- ⚠️ **SRV-MAIL-01** est le plus chargé (88%) → à surveiller ou à libérer
 
 ---
 
-### III.B. Caractéristiques d'AES
-
-```
-   PARAMÈTRES FONDAMENTAUX D'AES
-   ═══════════════════════════════════════════════════════════════
-
-   TAILLE DU BLOC : 128 bits (fixe)
-   ──────────────────────────────────────────────────────────────
-   AES traite TOUJOURS des blocs de 128 bits (16 octets)
-   → Quelle que soit la taille de la clé
-
-   TAILLES DE CLÉ : 128, 192 ou 256 bits
-   ──────────────────────────────────────────────────────────────
-   AES-128 : Clé de 128 bits → 10 tours de transformation
-   AES-192 : Clé de 192 bits → 12 tours de transformation
-   AES-256 : Clé de 256 bits → 14 tours de transformation
-
-   → Plus la clé est longue, plus il y a de tours → Plus sécurisé
-   → AES-128 est déjà considéré sûr pour 2025
-   → AES-256 est recommandé pour données ultra-sensibles
-     et résistant aux futurs ordinateurs quantiques
-
-   NOMBRE DE COMBINAISONS DE CLÉ
-   ──────────────────────────────────────────────────────────────
-   AES-128 : 2^128  ≈ 340 000 milliards de milliards de milliards de milliards
-   AES-256 : 2^256  ≈ 115 quattuorvigintillions
-             (un 1 suivi de 77 zéros)
-
-   Pour casser AES-256 par force brute :
-   → Supposons 1 milliard de milliards de milliards de tentatives/s
-   → Durée : ≈ 10^44 ans
-   → Âge de l'univers : 1,38 × 10^10 ans
-   → AES-256 : 10^34 fois l'âge de l'univers → Inattaquable
-```
-
----
-
-### III.C. Fonctionnement d'AES (Conceptuel)
-
-```
-   AES — FONCTIONNEMENT CONCEPTUEL
-   ═══════════════════════════════════════════════════════════════
-
-   STRUCTURE GÉNÉRALE
-   ──────────────────────────────────────────────────────────────
-   AES traite un bloc de 128 bits (4×4 octets = matrice d'état)
-   et lui applique N tours de 4 transformations successives.
-
-   LA MATRICE D'ÉTAT (State)
-   ──────────────────────────────────────────────────────────────
-   Le bloc de 128 bits est organisé en matrice 4×4 octets :
-
-   ┌────┬────┬────┬────┐
-   │ b0 │ b4 │ b8 │b12 │
-   ├────┼────┼────┼────┤
-   │ b1 │ b5 │ b9 │b13 │
-   ├────┼────┼────┼────┤
-   │ b2 │ b6 │b10 │b14 │
-   ├────┼────┼────┼────┤
-   │ b3 │ b7 │b11 │b15 │
-   └────┴────┴────┴────┘
-
-   Les 4 TRANSFORMATIONS par tour :
-   ──────────────────────────────────────────────────────────────
-
-   ① SubBytes (Substitution)
-   ──────────────────────────────────────────────────────────────
-   Chaque octet est remplacé par un autre selon une table de
-   substitution (S-Box).
-
-   Analogie : Comme un code secret où chaque lettre est
-              remplacée par une autre selon un tableau prédéfini.
-
-   But : Confusion — Rendre la relation clé↔chiffré non linéaire.
-
-   ② ShiftRows (Décalage de lignes)
-   ──────────────────────────────────────────────────────────────
-   Chaque ligne de la matrice est décalée circulairement :
-   • Ligne 0 : Pas de décalage
-   • Ligne 1 : Décalage de 1 octet vers la gauche
-   • Ligne 2 : Décalage de 2 octets vers la gauche
-   • Ligne 3 : Décalage de 3 octets vers la gauche
-
-   But : Diffusion — Mélanger les octets entre les colonnes.
-
-   ③ MixColumns (Mélange de colonnes)
-   ──────────────────────────────────────────────────────────────
-   Chaque colonne est multipliée par une matrice fixe (algèbre
-   de corps de Galois GF(2^8)).
-
-   Analogie : Mélanger les ingrédients d'une recette —
-              Chaque élément influence tous les autres.
-
-   But : Diffusion maximale — 1 bit modifié → 128 bits différents.
-
-   ④ AddRoundKey (Ajout de la sous-clé)
-   ──────────────────────────────────────────────────────────────
-   Le résultat est XORé avec une sous-clé dérivée de la clé
-   principale (Key Schedule).
-
-   XOR : 0 XOR 0 = 0 | 0 XOR 1 = 1 | 1 XOR 0 = 1 | 1 XOR 1 = 0
-
-   But : Mélanger les données avec la clé secrète.
-
-   STRUCTURE COMPLÈTE (AES-128 = 10 tours)
-   ──────────────────────────────────────────────────────────────
-
-   Données claires
-       │
-   AddRoundKey (Tour 0)
-       │
-       ▼
-   ┌─────────────────────────────┐  × 9 tours
-   │  SubBytes                   │
-   │  ShiftRows                  │
-   │  MixColumns                 │
-   │  AddRoundKey                │
-   └─────────────────────────────┘
-       │
-   ┌─────────────────────────────┐  Tour final (sans MixColumns)
-   │  SubBytes                   │
-   │  ShiftRows                  │
-   │  AddRoundKey                │
-   └─────────────────────────────┘
-       │
-   Données chiffrées ✅
-```
-
----
-
-### III.D. Les Modes Opératoires
-
-**Le problème :** AES chiffre 1 bloc de 128 bits. Mais un fichier fait souvent plusieurs mégaoctets → Des milliers de blocs. Comment enchaîner le chiffrement de ces blocs ?
-
-```
-   MODES OPÉRATOIRES D'AES
-   ═══════════════════════════════════════════════════════════════
-
-   MODE ECB (Electronic Code Book) — ❌ À NE PAS UTILISER
-   ──────────────────────────────────────────────────────────────
-   Principe : Chaque bloc chiffré INDÉPENDAMMENT avec la même clé.
-
-   Problème :
-   → 2 blocs identiques en clair → 2 blocs IDENTIQUES chiffrés
-   → Un attaquant détecte les patterns même sans la clé
-
-   Exemple célèbre : Pingouin Linux chiffré en ECB
-   → L'image chiffrée laisse voir la silhouette du pingouin !
-
-   Utilisation : JAMAIS en production.
-
-   MODE CBC (Cipher Block Chaining) — ✅ Standard
-   ──────────────────────────────────────────────────────────────
-   Principe : Chaque bloc est XORé avec le bloc chiffré précédent
-              avant d'être chiffré.
-
-   Bloc 1 clair ──XOR──► [AES] ──► Bloc 1 chiffré
-                  ↑                        │
-                  IV                       │
-                                           ▼
-   Bloc 2 clair ──XOR──► [AES] ──► Bloc 2 chiffré
-                  ↑
-            Bloc 1 chiffré
-
-   IV = Initialization Vector (vecteur d'initialisation, aléatoire)
-   → 2 blocs identiques en clair → 2 blocs DIFFÉRENTS chiffrés ✅
-   → Si un bloc est corrompu → Les 2 blocs suivants affectés
-
-   Utilisation : Chiffrement fichiers, disques → OpenSSL par défaut
-
-   MODE CTR (Counter) — ✅ Efficace
-   ──────────────────────────────────────────────────────────────
-   Principe : Chiffre un compteur incrémenté (nonce + counter)
-              et XOR avec les données → Transforme AES en flux.
-
-   Avantages :
-   → Chiffrement parallélisable (rapide sur multi-cœurs)
-   → Erreur contenue (pas de propagation)
-   → Pas de padding nécessaire
-
-   Utilisation : TLS, VPN, communications temps réel
-
-   MODE GCM (Galois/Counter Mode) — ✅✅ Recommandé
-   ──────────────────────────────────────────────────────────────
-   Principe : CTR + Authentification intégrée (MAC)
-
-   Double avantage :
-   → Chiffrement (confidentialité)
-   → Authentification (intégrité + authenticité)
-   → Si les données sont modifiées → Déchiffrement ÉCHOUE
-
-   Utilisation : HTTPS/TLS 1.3 (obligatoire), SSH moderne
-
-   TABLEAU RÉCAPITULATIF
-   ──────────────────────────────────────────────────────────────
-   Mode │ Sécurité │ Parallèle │ Authenticité │ Usage
-   ─────┼──────────┼───────────┼──────────────┼─────────────────
-   ECB  │ ❌ Nulle │ ✅ Oui    │ ❌ Non       │ JAMAIS
-   CBC  │ ✅ Bonne │ ❌ Non    │ ❌ Non       │ Fichiers (legacy)
-   CTR  │ ✅ Bonne │ ✅ Oui    │ ❌ Non       │ Streaming
-   GCM  │ ✅✅ Top │ ✅ Oui    │ ✅ Oui       │ TLS 1.3, SSH
-```
-
----
-
-## PARTIE IV — Le Problème de l'Échange de Clé
-
-### IV.A. La Limite Fondamentale du Symétrique
-
-```
-   LE PARADOXE DE L'ÉCHANGE DE CLÉ
-   ═══════════════════════════════════════════════════════════════
-
-   SCÉNARIO : Alice veut envoyer un fichier chiffré à Bob.
-              Ils ne se sont jamais rencontrés.
-
-   ① Alice chiffre le fichier avec la clé "X7k#P2mQ"
-   ② Alice envoie le fichier chiffré à Bob par email ✅
-      → L'attaquant Eve intercepte → Ne peut pas lire (chiffré ✅)
-
-   ③ Alice doit maintenant envoyer la clé "X7k#P2mQ" à Bob
-      → Par email → Eve intercepte la clé ❌
-      → Par téléphone → Eve écoute ❌
-      → Par courrier → Eve intercepte ❌
-
-   PROBLÈME FONDAMENTAL
-   ──────────────────────────────────────────────────────────────
-   "Comment partager la clé secrète de façon sécurisée
-    sur un canal non sécurisé ?"
-
-   → Ce problème a été RÉSOLU en 1976 par Whitfield Diffie et
-     Martin Hellman (échange de clés Diffie-Hellman)
-   → Et par la cryptographie ASYMÉTRIQUE (RSA, 1977)
-   → Ce sera le sujet de S12
-
-   EN PRATIQUE AUJOURD'HUI (TLS/HTTPS)
-   ──────────────────────────────────────────────────────────────
-   TLS résout le problème ainsi :
-   ① Cryptographie ASYMÉTRIQUE (RSA/ECDH) pour échanger
-      une clé de session de façon sécurisée
-   ② Cryptographie SYMÉTRIQUE (AES-GCM) pour chiffrer
-      toutes les données (plus rapide)
-
-   → Asymétrique pour l'échange de clé (lent mais sécurisé)
-   → Symétrique pour les données (rapide)
-   → C'est le meilleur des deux mondes
-
-   POURQUOI SYMÉTRIQUE POUR LES DONNÉES ?
-   ──────────────────────────────────────────────────────────────
-   AES-256 : 10 Gb/s sur matériel moderne (avec AES-NI)
-   RSA-2048 : ~10 Mb/s (100× plus lent)
-   → Pour chiffrer 1 To de données :
-     AES-256 : ~13 minutes
-     RSA :     ~22 heures
-```
-
----
-
-## PARTIE V — Vocabulaire Clé
+## 🔑 VI. Vocabulaire Clé à Maîtriser
 
 | **Terme** | **Définition** |
-|-----------|---------------|
-| **Cryptographie** | Science de la protection de l'information par transformation mathématique |
-| **Chiffrement** | Transformation réversible d'un message avec une clé (≠ hachage irréversible) |
-| **Texte clair** | Données originales lisibles (plaintext) |
-| **Texte chiffré** | Données après chiffrement, illisibles sans la clé (ciphertext) |
-| **Clé symétrique** | Clé unique partagée servant à chiffrer ET déchiffrer |
-| **AES** | Advanced Encryption Standard — algorithme de chiffrement symétrique par bloc standard mondial |
-| **Bloc** | Unité de traitement d'AES = 128 bits (16 octets) |
-| **IV / Nonce** | Valeur aléatoire unique utilisée pour initialiser le chiffrement (Initialization Vector) |
-| **Mode ECB** | Mode dangereux — blocs identiques → chiffrés identiques |
-| **Mode CBC** | Mode standard — chaînage des blocs, IV requis |
-| **Mode GCM** | Mode recommandé — chiffrement + authentification intégrée |
-| **Padding** | Données ajoutées pour compléter le dernier bloc à 128 bits |
-| **AES-NI** | Instructions matérielles Intel/AMD accélérant AES (x10 à x20) |
-| **XOR** | Opération logique bit à bit (0⊕0=0, 0⊕1=1, 1⊕0=1, 1⊕1=0) |
-| **Diffie-Hellman** | Protocole d'échange de clé sécurisé sur canal non sécurisé |
-| **Problème de l'échange de clé** | Comment partager la clé symétrique de façon sécurisée ? (résolu par crypto asymétrique) |
+|---|---|
+| **Algorithme de tri** | Séquence d'instructions pour réorganiser des éléments dans un ordre spécifique |
+| **Tri à bulles** | Algorithme qui compare et échange des éléments adjacents |
+| **Tri par insertion** | Algorithme qui insère chaque élément à sa place dans une partie triée |
+| **Comparaison** | Action de vérifier si un élément est plus grand/petit qu'un autre |
+| **Échange** | Action de permuter deux éléments dans un tableau |
+| **Passage** | Une itération complète de l'algorithme sur tout le tableau |
+| **Complexité** | Mesure de l'efficacité d'un algorithme (temps d'exécution) |
+| **Ordre croissant** | Du plus petit au plus grand (1, 2, 3, 4, 5) |
+| **Ordre décroissant** | Du plus grand au plus petit (5, 4, 3, 2, 1) |
+
+---
+
+## 🎯 VII. Points Clés à Retenir
+
+### ✅ Les 5 Règles d'Or
+
+1. **Trier = organiser** : Le tri est essentiel pour exploiter efficacement des données.
+
+2. **Plusieurs algorithmes existent** : Tri à bulles, tri par insertion, tri par sélection, tri fusion, tri rapide...
+
+3. **Tri à bulles = simple mais lent** : Facile à comprendre, mais inefficace en pratique.
+
+4. **Tri par insertion = plus efficace** : Meilleur choix pour de petites données ou données presque triées.
+
+5. **Choisir selon le contexte** : La taille des données et leur état initial influencent le choix de l'algorithme.
+
+### ⚠️ Erreurs Fréquentes
+
+❌ **Erreur 1 : Oublier de comparer avec l'élément adjacent**
+```python
+# INCORRECT (tri à bulles)
+if tableau[i] > tableau[i+2]:  # On saute un élément !
+```
+
+❌ **Erreur 2 : Oublier de déplacer les éléments dans le tri par insertion**
+```python
+# INCORRECT (tri par insertion)
+tableau[i] = cle  # On écrase sans avoir déplacé les autres !
+```
+
+❌ **Erreur 3 : Mélanger les deux algorithmes**
+- Ne pas confondre : **échange** (bulles) et **insertion** (insertion)
+
+---
+
+## 📝 Fiche de Référence Pseudo-Code (Aide-Mémoire)
+
+**À garder sous les yeux pendant les exercices :**
+
+```
+═══════════════════════════════════════════════════════════════
+ALGORITHMES DE TRI - AIDE-MÉMOIRE
+═══════════════════════════════════════════════════════════════
+
+--- TRI À BULLES ---
+POUR i DE 0 À n-2 FAIRE
+    POUR j DE 0 À n-2-i FAIRE
+        SI tableau[j] > tableau[j+1] ALORS
+            échanger tableau[j] et tableau[j+1]
+        FIN SI
+    FIN POUR
+FIN POUR
+
+--- TRI PAR INSERTION ---
+POUR i DE 1 À n-1 FAIRE
+    cle ← tableau[i]
+    j ← i - 1
+    TANT QUE (j >= 0 ET tableau[j] > cle) FAIRE
+        tableau[j+1] ← tableau[j]
+        j ← j - 1
+    FIN TANT QUE
+    tableau[j+1] ← cle
+FIN POUR
+
+═══════════════════════════════════════════════════════════════
+```
+
+---
+
+## 📊 Quand Utiliser Quel Algorithme ?
+
+| **Situation** | **Algorithme recommandé** |
+|---|---|
+| Apprentissage des algorithmes de tri | **Tri à bulles** (pédagogique) |
+| Petite liste (< 20 éléments) | **Tri par insertion** |
+| Données presque déjà triées | **Tri par insertion** |
+| Grande liste (> 100 éléments) | **Tri rapide** ou **Tri fusion** (hors programme) |
+| Production réelle | **Jamais le tri à bulles !** |
+
+---
+
+## 🚀 Pour Aller Plus Loin (Facultatif)
+
+### Autres Algorithmes de Tri
+
+**Algorithmes plus avancés (non au programme) :**
+- **Tri par sélection** : Chercher le minimum à chaque fois
+- **Tri fusion (Merge Sort)** : Diviser pour régner — O(n log n)
+- **Tri rapide (Quick Sort)** : Le plus utilisé en pratique — O(n log n)
+- **Tri par tas (Heap Sort)** : Utilise une structure de tas — O(n log n)
+
+### Notion de Complexité
+
+**La notation "Grand O" :**
+- **O(n²)** : Temps quadratique (tri à bulles, tri par insertion)
+- **O(n log n)** : Temps quasi-linéaire (tri fusion, tri rapide)
+- **O(n)** : Temps linéaire (tri par comptage — cas spéciaux)
+
+Plus le "O" est petit, plus l'algorithme est rapide.
 
 ---

@@ -3,11 +3,11 @@
 | **Champ** | **Détail** |
 |-----------|-----------|
 | **Semaine** | S15 — Année 1 |
-| **Bloc** | Bloc 3 — Cybersécurité des services informatiques |
+| **Module** | Mathématiques pour l'informatique et algorithmique |
 | **Durée totale** | 4 heures |
-| **Public** | Apprentis BTS SIO SISR — quinzième semaine |
-| **Modalité** | Présentiel — salle de cours + TP machines |
-| **Prérequis** | S5-S8 (RGPD complet) · Notions de démarrage système · BIOS/UEFI basiques |
+| **Public** | Apprentis BTS SIO SISR — profils hétérogènes |
+| **Modalité** | Présentiel — salle informatique |
+| **Prérequis** | S1-S14 : Variables, listes, boucles, fonctions, ensembles |
 
 ---
 
@@ -15,32 +15,35 @@
 
 | **Code** | **Intitulé de la compétence** | **Niveau visé** |
 |----------|-------------------------------|-----------------|
-| **B3.1** | Identifier les principales menaces de sécurité | Maîtrise |
-| **B3.2** | Mettre en œuvre les mesures de sécurité de base | Maîtrise |
-| **B3.8** | Protéger l'intégrité du démarrage système | Acquisition |
-| **B2.1** | Comprendre les obligations légales (vie privée, image) | Maîtrise |
+| **B2.1** | Concevoir et développer une solution applicative | Application |
+| **B2.2** | Assurer la sécurité d'un système informatique | Application |
+| **B3.3** | Optimiser les performances d'un système | Sensibilisation |
 
-> 📌 **S15 BLOC 3 couvre deux dimensions complémentaires de la cybersécurité.** L'identité numérique touche à la protection des personnes (RGPD, vie privée, réputation en ligne) — compétence de plus en plus demandée avec les réseaux sociaux et le recrutement digital. La sécurité BIOS/UEFI touche à la base de la chaîne de confiance matérielle — un technicien SISR qui ne comprend pas Secure Boot ne peut pas déployer correctement Windows 11 en entreprise ni sécuriser un parc informatique contre les attaques de bas niveau.
+> 📌 **S15 introduit un concept CRUCIAL pour tout développeur et admin sys** : la **performance**. Cette séance montre que deux algorithmes qui produisent le même résultat peuvent avoir des **temps d'exécution radicalement différents**. Sur 1 million de données, un mauvais choix d'algorithme peut faire la différence entre 1 seconde et 12 heures d'exécution.
 
 ---
 ## 🎯 Objectifs
 
-**Identité Numérique & E-réputation :**
-- ✅ Définir l'**identité numérique** et ses composantes (déclarative vs calculée)
-- ✅ Comprendre l'**e-réputation** et son impact professionnel
-- ✅ Maîtriser le **droit à l'image** (cadre légal français Art. 9 Code Civil)
-- ✅ Distinguer **anonymat**, **pseudonymat** et **identité réelle**
-- ✅ Identifier les **traces numériques** laissées en ligne (5 types)
-- ✅ Savoir exercer ses **droits RGPD** sur ses données personnelles (Art. 17 effacement)
-- ✅ Connaître les **outils de gestion** de la réputation (Google Alerts, déréférencement)
+**Compréhension intuitive de la complexité :**
+- ✅ Comprendre ce qu'est la **complexité algorithmique** (temps d'exécution)
+- ✅ Distinguer la **complexité dans le meilleur cas**, **cas moyen**, et **pire cas**
+- ✅ Comprendre intuitivement les notations **O(1)**, **O(log n)**, **O(n)**, **O(n log n)**, **O(n²)**
+- ✅ Visualiser la différence de croissance entre ces complexités
 
-**Sécurité BIOS/UEFI :**
-- ✅ Comprendre la **chaîne de démarrage** sécurisée (boot chain)
-- ✅ Définir **Secure Boot** et son fonctionnement (db/dbx, vérification signature)
-- ✅ Configurer les **mots de passe BIOS/UEFI** (supervisor/user/HDD)
-- ✅ Identifier les **attaques** contre le firmware (Evil Maid, bootkits)
-- ✅ Comprendre **TPM 2.0** (Trusted Platform Module) et Measured Boot
-- ✅ Configurer Secure Boot et TPM pour **Windows 11** (prérequis obligatoires)
+**Algorithmes de recherche :**
+- ✅ Implémenter une **recherche linéaire** (O(n))
+- ✅ Implémenter une **recherche dichotomique** (O(log n))
+- ✅ Comprendre pourquoi la recherche dichotomique nécessite un **tableau trié**
+- ✅ **Mesurer** les temps d'exécution réels
+
+**Application métier :**
+- ✅ Rechercher un utilisateur dans un annuaire AD (1000 utilisateurs)
+- ✅ Rechercher une ligne dans un log (10 000 lignes)
+- ✅ Comprendre pourquoi les **index** de bases de données sont importants
+
+**Posture ITIL :**
+- ✅ Optimiser les **temps de réponse** des services
+- ✅ Dimensionner les infrastructures en fonction de la complexité
+- ✅ Documenter les **performances** attendues
+
 ---
-
-

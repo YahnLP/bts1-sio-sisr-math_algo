@@ -8,41 +8,44 @@
 | **Champ** | **Détail** |
 |-----------|-----------|
 | **Semaine** | S14 — Année 1 |
-| **Bloc** | Bloc 3 — Cybersécurité des services informatiques |
+| **Module** | Mathématiques pour l'informatique et algorithmique |
 | **Durée totale** | 4 heures |
-| **Public** | Apprentis BTS SIO SISR — quatorzième semaine |
-| **Modalité** | Présentiel — salle de cours + TP |
-| **Prérequis** | S11 (cryptographie symétrique AES) · S13 (PKI, certificats X.509) · Notions réseau IP/routage |
+| **Public** | Apprentis BTS SIO SISR |
+| **Modalité** | Présentiel — salle de cours + salle informatique |
+| **Prérequis** | Algorithmique de base (S6-S11), notions de réseau (Bloc 2) |
 
 ---
 
-## Compétences RNCP Visées
+## Compétences Visées
 
 | **Code** | **Intitulé de la compétence** | **Niveau visé** |
 |----------|-------------------------------|-----------------|
-| **B3.2** | Mettre en œuvre les mesures de sécurité de base | Maîtrise |
-| **B3.5** | Mettre en œuvre des mécanismes de chiffrement | Maîtrise |
-| **B3.7** | Configurer et administrer un VPN | Acquisition |
+| **B2.1** | Administrer les systèmes et les services informatiques | Maîtrise |
+| **B2.2** | Gérer les incidents et les problèmes | Application |
+| **B3.1** | Protéger les données à caractère personnel | Application |
+| **B3.2** | Préserver l'identité numérique de l'organisation | Application |
 
-> 📌 **S14 BLOC 3 réunit deux sujets profondément liés.** Un VPN sans cryptographie asymétrique n'existe pas — les certificats X.509 (S13) et la cryptographie asymétrique sont le fondement de l'authentification VPN. La séance articule d'abord la théorie complète de la cryptographie asymétrique (complément de S11 et S13), puis montre concrètement comment elle s'applique dans l'architecture VPN.
+> 📌 **S14 introduit la logique du 1er ordre**, un formalisme mathématique puissant pour exprimer des règles et des contraintes. Cette séance est **volontairement ancrée dans le concret SISR** : filtrage réseau, règles de pare-feu, politiques de sécurité. L'objectif est de montrer l'utilité pratique de la logique formelle.
 
 ---
 
 ## Objectifs Pédagogiques
 
-**Chiffrement Asymétrique :**
-- ✅ Maîtriser le principe **clé publique / clé privée** (usages distincts)
-- ✅ Comprendre l'**échange de clé Diffie-Hellman** (et sa version ECDH)
-- ✅ Comprendre le **chiffrement hybride** (asymétrique + symétrique)
-- ✅ Relier les certificats X.509 (S13) au chiffrement asymétrique
-- ✅ Identifier les usages concrets (TLS, SSH, GPG, email S/MIME)
+**Compréhension de la logique du 1er ordre :**
+- ✅ Comprendre la notion de **prédicat** (propriété vraie ou fausse)
+- ✅ Identifier les **quantificateurs** (∀ pour tout, ∃ il existe)
+- ✅ Différencier **variables libres** et **variables liées**
+- ✅ Comprendre la notion de **domaine** (ensemble des valeurs possibles)
 
-**VPN :**
-- ✅ Définir un **VPN** et expliquer le concept de **tunnelisation**
-- ✅ Distinguer les **2 grands types** : Site-à-Site et Nomade (Remote Access)
-- ✅ Comprendre les **protocoles VPN** (IPsec, OpenVPN, WireGuard, SSL/TLS)
-- ✅ Identifier les **composants** d'une infrastructure VPN
-- ✅ Comparer les **cas d'usage** et choisir le bon type de VPN
-- ✅ Comprendre le rôle du **chiffrement** dans le VPN
+**Formalisation logique :**
+- ✅ Traduire une phrase en langage naturel en formule logique
+- ✅ Écrire des formules avec connecteurs logiques (∧, ∨, ¬, →)
+- ✅ Utiliser les quantificateurs pour exprimer "tous" et "au moins un"
+
+**Application aux règles réseau :**
+- ✅ Formaliser des **règles de filtrage réseau** (ACL, pare-feu)
+- ✅ Exprimer des **politiques de sécurité** en logique formelle
+- ✅ Identifier les ambiguïtés dans les règles en langage naturel
+- ✅ Comprendre l'importance de la **rigueur formelle** en sécurité
 
 ---
