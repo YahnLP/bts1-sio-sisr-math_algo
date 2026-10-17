@@ -1,0 +1,5 @@
+assert somme([[2, 1], [0, 3]], [[1, 4], [2, 5]]) == [[3, 5], [2, 8]]
+assert somme([[1, 2]], [[3, 4]]) == [[4, 6]]
+assert produit_reel(3, [[2, 1], [0, 3]]) == [[6, 3], [0, 9]]
+assert produit_reel(0, [[5, 6]]) == [[0, 0]]
+assert produit_reel(-1, [[1, -2]]) == [[-1, 2]]

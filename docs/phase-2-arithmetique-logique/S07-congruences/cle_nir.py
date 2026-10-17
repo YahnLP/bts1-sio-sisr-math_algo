@@ -1,0 +1,3 @@
+def cle_nir(numero):
+    """Clé de contrôle : 97 - (numero modulo 97)."""
+    ...

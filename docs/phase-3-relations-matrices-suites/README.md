@@ -13,5 +13,6 @@
 | S12 | 12 | [Algorithmique : fonctions, tableaux et chaînes](S12-algorithmique-fonctions-tableaux/README.md) | Algorithmique appliquée – modularité, tableaux, chaînes | **à valider** |
 | S13 | 13 | [Calcul matriciel : opérations](S13-matrices-calcul/README.md) | Calcul matriciel – définitions et opérations | **à valider** |
 | S14 | 14 | [Calcul matriciel : inverse et systèmes](S14-matrices-inverse-systemes/README.md) | Calcul matriciel – inverse, systèmes de Cramer | **à valider** |
+| S15 | 15 | [Suites numériques](S15-suites-numeriques/README.md) | Suites numériques | **à valider** |
 
 Les numéros de semaine sont ceux de la séquence (semaine 01 à 19) : ils ne correspondent pas à des dates, les 19 semaines d'alternance étant réparties sur l'année.

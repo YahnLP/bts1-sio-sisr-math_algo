@@ -1,0 +1,3 @@
+def factorielle(n):
+    """Renvoie n! (n entier >= 0)."""
+    ...

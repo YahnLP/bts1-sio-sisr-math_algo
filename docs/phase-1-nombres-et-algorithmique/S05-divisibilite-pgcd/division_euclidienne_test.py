@@ -1,0 +1,6 @@
+assert division_euclidienne(17, 5) == (3, 2)
+assert division_euclidienne(100, 7) == (14, 2)
+assert division_euclidienne(7, 100) == (0, 7)
+assert division_euclidienne(0, 3) == (0, 0)
+assert division_euclidienne(24, 6) == (4, 0)
+assert all(division_euclidienne(a, b) == (a // b, a % b) for a in range(0, 60) for b in range(1, 20))

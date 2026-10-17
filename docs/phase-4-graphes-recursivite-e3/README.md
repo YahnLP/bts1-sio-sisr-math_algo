@@ -9,6 +9,9 @@
 
 | Séance | Semaine | Thème | Chapitre du programme | Statut |
 |---|---|---|---|---|
-
+| S16 | 16 | [Graphes : représentations, chemins et niveaux](S16-graphes-representations/README.md) | Théorie des graphes | **à valider** |
+| S17 | 17 | [Graphes valués et ordonnancement (MPM)](S17-graphes-values-ordonnancement/README.md) | Théorie des graphes et ordonnancement | **à valider** |
+| S18 | 18 | [Algorithmique : récursivité, complexité et débogage](S18-recursivite-complexite/README.md) | Algorithmique appliquée – récursivité, complexité, effets indésirables | **à valider** |
+| S19 | 19 | [Révisions et épreuve blanche E3](S19-revisions-epreuve-blanche/README.md) | Tous les chapitres | **à valider** |
 
 Les numéros de semaine sont ceux de la séquence (semaine 01 à 19) : ils ne correspondent pas à des dates, les 19 semaines d'alternance étant réparties sur l'année.
