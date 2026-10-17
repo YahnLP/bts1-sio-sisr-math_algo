@@ -1,0 +1,8 @@
+title: "Phase 2 – Arithmétique, logique et calcul booléen"
+nav:
+  - README.md
+  - S06-nombres-premiers
+  - S07-congruences
+  - S08-logique-propositions
+  - S09-predicats-ensembles
+  - S10-algebre-de-boole

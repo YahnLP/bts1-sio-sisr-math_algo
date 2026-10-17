@@ -1,4 +1,4 @@
-mkdocs-material>=8,<9
+mkdocs-material>=9.5,<10
 mkdocs-awesome-pages-plugin
+mkdocs-callouts
 mkdocs-macros-plugin
-mkdocs-enumerate-headings-plugin

@@ -1,0 +1,5 @@
+assert chiffres_apres_virgule(0.8125, 4) == "1101"
+assert chiffres_apres_virgule(0.5, 3) == "100"
+assert chiffres_apres_virgule(0.3125, 4) == "0101"
+assert chiffres_apres_virgule(0.375, 3) == "011"
+assert chiffres_apres_virgule(0.1, 10) == "0001100110"

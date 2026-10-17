@@ -1,0 +1,3 @@
+def addition_n_bits(a, b, n):
+    """Renvoie (résultat sur n bits, débordement) pour a + b."""
+    ...

@@ -1,23 +1,8 @@
+/* Formules en MathJax 3 : \( … \) en ligne, \[ … \] en bloc (balises produites par pymdownx.arithmatex) */
 window.MathJax = {
-startup: {
-    ready: () => {
-        console.log('MathJax is loaded, but not yet initialized');
-        MathJax.startup.defaultReady();
-        console.log('MathJax is initialized, and the initial typeset is queued');
-    }
-},
-tex: {
-    inlineMath: [["\\(", "\\)"]],
-    displayMath: [["\\[", "\\]"]],
-    processEscapes: true,
-    processEnvironments: true
-},
-options: {
-    ignoreHtmlClass: ".*|",
-    processHtmlClass: "arithmatex"
-}
+  tex: { inlineMath: [["\\(", "\\)"]], displayMath: [["\\[", "\\]"]], processEscapes: true, processEnvironments: true },
+  options: { ignoreHtmlClass: ".*|", processHtmlClass: "arithmatex" }
 };
-
 document$.subscribe(() => {
-MathJax.typesetPromise()
-})
+  if (window.MathJax && MathJax.typesetPromise) { MathJax.startup.output.clearCache(); MathJax.typesetClear(); MathJax.texReset(); MathJax.typesetPromise(); }
+});
