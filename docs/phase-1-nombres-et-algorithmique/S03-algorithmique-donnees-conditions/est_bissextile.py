@@ -1,0 +1,3 @@
+def est_bissextile(annee):
+    """Renvoie True si l'année est bissextile."""
+    ...

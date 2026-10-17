@@ -1,0 +1,3 @@
+def duree_transfert(taille_octets, debit_bits_par_s):
+    """Durée théorique (en secondes) d'un transfert."""
+    ...

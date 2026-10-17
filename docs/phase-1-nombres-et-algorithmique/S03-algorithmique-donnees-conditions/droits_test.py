@@ -1,0 +1,10 @@
+assert ajouter(5, 2) == 7
+assert ajouter(4, 1) == 5
+assert ajouter(7, 2) == 7
+assert retirer(7, 4) == 3
+assert retirer(6, 2) == 4
+assert retirer(4, 1) == 4
+assert accorde(6, 2) is True
+assert accorde(6, 1) is False
+assert accorde(7, 5) is True
+assert accorde(5, 6) is False

@@ -121,27 +121,9 @@ def define_env(env):
 
     # TODO : this issue concerning the urls must be closed ASAP
     def get_filepath() -> str:
-        print("docs_dirs", env.conf["docs_dir"])
-        print(
-            "P1",
-            env.variables.page.abs_url,
-            "/".join(
-                filter(
-                    lambda folder: folder != "",
-                    convert_url_to_utf8(env.variables.page.url).split("/")[:-2],
-                )
-            ),
-        )
-        print(
-            "P2",
-            env.variables.page.abs_url,
-            "/".join(
-                filter(
-                    lambda folder: folder != "",
-                    convert_url_to_utf8(env.variables.page.abs_url).split("/")[2:-2],
-                )
-            ),
-        )
+        pass
+        pass
+        pass
         return "/".join(
             filter(
                 lambda folder: folder != "",
@@ -496,10 +478,10 @@ def define_env(env):
     @env.macro
     def qcm(list_answers, list_correct, opts=None, shuffle=True, single=True):
         # single -> une seule question de QCM
-        print("opts", opts)
+        pass
         if type(list_correct) == int:
             list_correct = [list_correct]
-        print("liste", list_correct, type(list_correct))
+        pass
         list_correct = list(
             map(lambda x: x - 1, list_correct)
         )  # back to 0 to n-1 indexing
@@ -529,7 +511,7 @@ def define_env(env):
         prefix = "data-var-"
         variable_part = ""
         if opts != None:
-            print("opts", opts, type(opts))
+            pass
             for clé in opts:
                 variable_part += f"""{prefix}{clé} = "{opts[clé]}" """
         html_element = f"""<div class="wrapper_qcm" id = "qcm_{id}" data-n-correct = {len(list_correct)} data-shuffle = {1 if shuffle else 0} {variable_part}>"""
@@ -572,7 +554,7 @@ def define_env(env):
             content = list(map(lambda x: x[:-1], f.readlines()))
             header = content.pop(0).split(sep)
             csv_file = []
-            print(header)
+            pass
             for ligne in content:
                 split_ligne = ligne.split(sep)
                 dico = {
@@ -678,7 +660,7 @@ def define_env(env):
             list_correct = entry[2]
             dictionnaire_var = entry[3]
 
-            print(entry, dictionnaire_var)
+            pass
 
             html_element += f"<div class = 'setQCM'>"
             html_element += f"<span class = 'questionQCM arithmatex' data-nq = {i+1}>{latexify(question)}</span>"

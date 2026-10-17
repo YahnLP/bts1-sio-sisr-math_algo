@@ -1,1 +1,7 @@
-arrange:
+nav:
+  - Accueil: index.md
+  - phase-1-nombres-et-algorithmique
+  - phase-2-arithmetique-logique
+  - phase-3-relations-matrices-suites
+  - phase-4-graphes-recursivite-e3
+  - ressources

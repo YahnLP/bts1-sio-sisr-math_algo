@@ -1,0 +1,5 @@
+assert suite(lambda v: 2 * v - 1, 5, 5) == [5, 9, 17, 33, 65, 129]
+assert suite(lambda v: 2 * v + 1, 3, 5) == [3, 7, 15, 31, 63, 127]
+assert suite(lambda v: v + 4, 7, 3) == [7, 11, 15, 19]
+assert suite(lambda v: v, 1, 0) == [1]
+assert suite(lambda v: v * 3, 1, 4) == [1, 3, 9, 27, 81]

@@ -1,0 +1,7 @@
+t = [7, 3, 5, 1]
+assert tri_selection(t) == [1, 3, 5, 7]
+assert t == [7, 3, 5, 1]
+assert tri_selection([5, 2, 9, 1]) == [1, 2, 5, 9]
+assert tri_selection([]) == [] and tri_selection([4]) == [4]
+assert tri_selection([3, 1, 3, 2, 1]) == [1, 1, 2, 3, 3]
+assert tri_selection([9, 8, 7, 6, 5, 4, 3, 2, 1]) == [1, 2, 3, 4, 5, 6, 7, 8, 9]

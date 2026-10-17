@@ -1,0 +1,6 @@
+assert addition_n_bits(200, 100, 8) == (44, True)
+assert addition_n_bits(180, 90, 8) == (14, True)
+assert addition_n_bits(100, 100, 8) == (200, False)
+assert addition_n_bits(255, 1, 8) == (0, True)
+assert addition_n_bits(15, 1, 4) == (0, True)
+assert addition_n_bits(7, 8, 4) == (15, False)

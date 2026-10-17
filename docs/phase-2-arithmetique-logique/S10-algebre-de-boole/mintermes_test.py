@@ -1,0 +1,5 @@
+assert mintermes(lambda a, b, c: (a and c) or not b, 3) == [0, 1, 4, 5, 7]
+assert mintermes(lambda a, b, c: (not a and c) or (a and b), 3) == [1, 3, 6, 7]
+assert mintermes(lambda a, b: a and b, 2) == [3]
+assert mintermes(lambda a, b: a or b, 2) == [1, 2, 3]
+assert mintermes(lambda a: 0, 1) == []

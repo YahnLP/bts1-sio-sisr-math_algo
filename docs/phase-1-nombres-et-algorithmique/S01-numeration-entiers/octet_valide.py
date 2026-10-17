@@ -1,0 +1,3 @@
+def octet_valide(texte):
+    """Renvoie True si texte est l'écriture décimale d'un entier de 0 à 255."""
+    ...

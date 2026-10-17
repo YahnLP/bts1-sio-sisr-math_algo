@@ -1,0 +1,3 @@
+def autorise(protocole, port):
+    """Règle : (TCP et port 80 ou 443) ou ICMP."""
+    ...
