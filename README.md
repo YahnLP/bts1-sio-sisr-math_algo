@@ -10,8 +10,8 @@ Auteur : **Yahn LE PRETTRE** – Formateur. Licence **CC BY-NC-SA 4.0** (voir `L
 |---|---|---|
 | 1 – Nombres et premiers algorithmes | S01–S05 | Bases 2, 10, 16 ; calcul binaire ; algorithmique ; PGCD |
 | 2 – Arithmétique, logique et booléens | S06–S10 | Premiers, congruences, propositions, ensembles, Boole, IPv4 |
-| 3 – Relations, matrices et suites | S11–S15 | Relations, fonctions, matrices, systèmes, suites |
-| 4 – Graphes, récursivité, E3 | S16–S19 | Graphes, Dijkstra, MPM, récursivité, épreuve blanche |
+| 3 – Relations, matrices, algorithmique appliquée | S11–S15 | Relations, fonctions, matrices, systèmes, validation de données |
+| 4 – Graphes, programmation, E3 | S16–S19 | Graphes, Dijkstra, MPM, écrire et tester un algorithme, épreuve blanche |
 
 Le site est publié par GitHub Pages à chaque modification de la branche `main`.
 

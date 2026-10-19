@@ -41,16 +41,16 @@
 
 <div class="card violet" markdown>
 
-### Phase 3 – Relations, matrices et suites
-**S11 à S15** – Relations et applications, fonctions et tableaux, calcul matriciel, systèmes, suites.
+### Phase 3 – Relations, matrices et algorithmique appliquée
+**S11 à S15** – Relations et applications, fonctions et tableaux, calcul matriciel, systèmes, validation et contrôle de données.
 
 [**Ouvrir la phase**](phase-3-relations-matrices-suites/README.md){ .go }
 </div>
 
 <div class="card" markdown>
 
-### Phase 4 – Graphes, récursivité, E3
-**S16 à S19** – Graphes, plus court chemin, ordonnancement, récursivité, complexité, révisions et épreuve blanche.
+### Phase 4 – Graphes, programmation, E3
+**S16 à S19** – Graphes, plus court chemin, ordonnancement, écriture et test d'algorithmes, révisions et épreuve blanche.
 
 [**Ouvrir la phase**](phase-4-graphes-recursivite-e3/README.md){ .go }
 </div>

@@ -26,9 +26,10 @@ La colonne « Vu en » indique la séance où le mot apparaît pour la première
 | **Bijective** |  | *bijective* | À la fois injective et surjective. | S11 |
 | **Binaire** |  | *binary* | Numération en base 2, n'utilisant que les chiffres 0 et 1. | S01 |
 | **Bit** |  | *bit* | Chiffre binaire : 0 ou 1. | S01 |
+| **Bit de parité** |  | *parity bit* | Bit ajouté à un mot pour que son nombre total de 1 soit pair (parité paire) ; il permet de détecter une erreur. | S15 |
 | **Boucle** |  | *loop* | Structure qui répète un bloc d'instructions. | S04 |
 | **Cardinal** |  | *cardinality* | Nombre d'éléments d'un ensemble fini. | S09 |
-| **Cas de base** |  | *base case* | Cas résolu sans nouvel appel récursif. | S18 |
+| **Cas limite** |  | *edge case* | Valeur située à la frontière ou situation particulière (liste vide, un seul élément) qui révèle souvent une erreur. | S15 |
 | **Chaîne de caractères** |  | *string* | Suite de caractères, non modifiable en Python. | S12 |
 | **Chemin** |  | *path* | Suite de sommets reliés par des arcs successifs. | S16 |
 | **Chemin critique** |  | *critical path* | Chemin de tâches critiques ; sa longueur est la durée minimale du projet. | S17 |
@@ -39,7 +40,6 @@ La colonne « Vu en » indique la séance où le mot apparaît pour la première
 | **Clé de contrôle** |  | *check digit* | Chiffre calculé à partir des autres pour détecter une erreur de saisie. | S07 |
 | **Code de Gray** |  | *Gray code* | Suite de codes dont deux voisins ne diffèrent que d'un bit. | S10 |
 | **Complémentaire** |  | *complement* | Éléments de l'ensemble de référence qui ne sont pas dans la partie. | S09 |
-| **Complexité** |  | *complexity* | Nombre d'opérations significatives d'un algorithme en fonction de la taille des données. | S18 |
 | **Compteur** |  | *counter* | Variable qui compte les tours d'une boucle. | S04 |
 | **Condition** |  | *condition* | Expression qui vaut vrai ou faux et oriente l'exécution. | S03 |
 | **Congruence** |  | *congruence* | Deux entiers sont congrus modulo \(n\) s'ils ont le même reste dans la division par \(n\). | S07 |
@@ -79,8 +79,8 @@ La colonne « Vu en » indique la séance où le mot apparaît pour la première
 | **Invariant** |  | *invariant* | Propriété vraie avant, pendant et après chaque tour de boucle. | S04 |
 | **Inverse modulaire** |  | *modular inverse* | Entier \(b\) tel que \(ab \equiv 1 \pmod n\) ; il existe si PGCD\((a, n) = 1\). | S07 |
 | **Itération** |  | *iteration* | Un passage dans une boucle. | S04 |
+| **Jeu de tests** |  | *test suite* | Ensemble de cas, avec le résultat attendu, qui permet de contrôler une fonction. | S18 |
 | **Kibioctet / Mébioctet** |  | *kibibyte / mebibyte* | 1 024 octets (\(2^{10}\)) / 1 048 576 octets (\(2^{20}\)). | S02 |
-| **Limite** |  | *limit* | Valeur dont les termes d'une suite s'approchent ; peut être infinie. | S15 |
 | **Lois de De Morgan** |  | *De Morgan's laws* | \(\neg(p \wedge q) \equiv \neg p \vee \neg q\) et \(\neg(p \vee q) \equiv \neg p \wedge \neg q\). | S08 |
 | **Marge certaine** |  | *safe float* | Retard possible même si tous les prédécesseurs finissent au plus tard. | S17 |
 | **Marge libre** |  | *free float* | Retard maximal d'une tâche sans retarder le début au plus tôt des suivantes. | S17 |
@@ -114,7 +114,6 @@ La colonne « Vu en » indique la séance où le mot apparaît pour la première
 | **Partie (sous-ensemble)** |  | *subset* | Ensemble dont tous les éléments appartiennent à un autre ensemble. | S09 |
 | **Partie entière** |  | *integer part* | Plus grand entier inférieur ou égal à un nombre. | S02 |
 | **Passerelle** |  | *gateway* | Routeur par lequel passent les paquets destinés à un autre réseau. | S10 |
-| **Pire cas** |  | *worst case* | Situation qui demande le plus d'opérations. | S18 |
 | **Pivot** |  | *pivot* | Coefficient qu'on ramène à 1 pour éliminer les autres de sa colonne. | S14 |
 | **Plus grand commun diviseur** | PGCD | *greatest common divisor, GCD* | Plus grand entier qui divise deux entiers. | S05 |
 | **Plus petit commun multiple** | PPCM | *least common multiple, LCM* | Plus petit entier strictement positif multiple de deux entiers. | S05 |
@@ -133,24 +132,18 @@ La colonne « Vu en » indique la séance où le mot apparaît pour la première
 | **Puissance d'une matrice** |  | *matrix power* | Produit répété d'une matrice carrée par elle-même. | S13 |
 | **Quantificateur existentiel** |  | *existential quantifier* | \(\exists\) : « il existe au moins un ». | S09 |
 | **Quantificateur universel** |  | *universal quantifier* | \(\forall\) : « pour tout ». | S09 |
-| **Raison** |  | *common difference / ratio* | Nombre ajouté (arithmétique) ou multiplicateur (géométrique) d'un terme au suivant. | S15 |
 | **Rang** |  | *position* | Position d'un chiffre dans un nombre, comptée à partir de 0 à droite. | S01 |
 | **Recherche dichotomique** |  | *binary search* | Recherche dans un tableau trié qui élimine la moitié des éléments à chaque étape. | S12 |
-| **Récurrence (définition par)** |  | *recurrence* | Définition de \(u_{n+1}\) à partir de \(u_n\) et de \(u_0\). | S15 |
-| **Récursivité** |  | *recursion* | Définition d'un traitement par un appel à lui-même sur un problème plus petit. | S18 |
 | **Réflexive** |  | *reflexive* | Tout élément est en relation avec lui-même. | S11 |
 | **Relation binaire** |  | *binary relation* | Partie d'un produit cartésien \(A \times B\). | S11 |
 | **Relation d'équivalence** |  | *equivalence relation* | Relation réflexive, symétrique et transitive ; elle partitionne l'ensemble en classes. | S11 |
 | **Relation d'ordre** |  | *order relation* | Relation réflexive, antisymétrique et transitive. | S11 |
 | **Retenue** |  | *carry* | Chiffre reporté au rang suivant lors d'une addition. | S02 |
-| **Seuil** |  | *threshold* | Premier rang à partir duquel une condition sur une suite est vérifiée. | S15 |
+| **Somme de contrôle** |  | *checksum* | Valeur calculée à partir de tous les octets d'un message et transmise avec lui pour détecter une altération. | S15 |
 | **Somme de produits** |  | *sum of products* | Expression écrite comme un OU de ET (forme issue d'une table de vérité). | S10 |
 | **Sommet** |  | *vertex* | Point d'un graphe. | S16 |
 | **Successeur / prédécesseur** |  | *successor / predecessor* | Sommet atteint par un arc / sommet d'où part un arc. | S16 |
-| **Suite arithmétique** |  | *arithmetic sequence* | Suite où l'on ajoute toujours la même raison \(r\). | S15 |
 | **Suite de Fibonacci** |  | *Fibonacci sequence* | Suite \(F_0 = 0, F_1 = 1, F_{n} = F_{n-1} + F_{n-2}\). | S13 |
-| **Suite géométrique** |  | *geometric sequence* | Suite où l'on multiplie toujours par la même raison \(q\). | S15 |
-| **Suite numérique** |  | *sequence* | Application de \(\mathbb{N}\) dans \(\mathbb{R}\) : \(n \mapsto u_n\). | S15 |
 | **Surjective** |  | *surjective* | Tout élément d'arrivée a au moins un antécédent. | S11 |
 | **Symétrique** |  | *symmetric* | Si \(x\) est lié à \(y\), alors \(y\) est lié à \(x\). | S11 |
 | **Système de Cramer** |  | *Cramer system* | Système linéaire \(AX = B\) dont la matrice est inversible : solution unique \(X = A^{-1}B\). | S14 |

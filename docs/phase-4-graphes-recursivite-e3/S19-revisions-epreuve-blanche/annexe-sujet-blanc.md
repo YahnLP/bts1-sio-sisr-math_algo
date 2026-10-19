@@ -46,18 +46,35 @@ a) Écrire le système sous la forme \(AX = B\) avec \(A\), \(X\), \(B\) matrice
 b) On donne \(P = \begin{pmatrix} 2 & -1 \\ -5 & 3 \end{pmatrix}\). Vérifier que \(P\) est l'inverse de \(A\).
 c) En déduire \(x\) et \(y\).
 
-## Exercice 3 – Journaux et volumétrie, avec programmation Python (8 points)
+## Exercice 3 – Relevés, journaux et contrôle de données, avec programmation Python (8 points)
 
-Le volume \(V_n\) (en Go) des journaux d'un serveur, au bout de \(n\) mois, vaut 120 Go au départ (\(V_0 = 120\)) et augmente de 8 % chaque mois.
+Une sonde relève la température (en °C, nombres entiers) d'une salle serveur. Un relevé est *en alerte* s'il est **strictement supérieur** au seuil.
 
-**1. (3 points)** Étude de la suite.
+**1. (3 points)** On donne la fonction suivante.
 
-a) Justifier que \((V_n)\) est une suite géométrique ; donner sa raison et \(V_n\) en fonction de \(n\).
-b) Calculer \(V_3\) (arrondir au centième).
-c) Le disque a une capacité de 200 Go. Écrire un algorithme (pseudo-code) qui détermine le premier mois où le volume atteint ou dépasse 200 Go. Donner la réponse.
+```python
+def serie(releves, seuil):
+    courante = 0
+    meilleure = 0
+    for r in releves:
+        if r > seuil:
+            courante = courante + 1
+        else:
+            courante = 0
+        if courante > meilleure:
+            meilleure = courante
+    return meilleure
+```
 
-**2. (2 points)** Écrire en Python une fonction `premier_mois(v0, q, capacite)` qui renvoie le plus petit entier \(n\) tel que `v0 * q**n >= capacite` (on suppose \(q > 1\)).
+a) Recopier et compléter le tableau de suivi pour `serie([21, 26, 27, 24, 28], 25)` (colonnes `r`, `courante`, `meilleure`). Donner la valeur renvoyée.
+b) Que calcule cette fonction ? Que renvoie-t-elle pour une liste vide ?
+c) Un élève déplace le test `if courante > meilleure: ...` dans la branche `else`, juste avant `courante = 0`. Que renvoie sa fonction pour `[30, 31, 32]` avec le seuil 25 ? Pourquoi est-ce faux ?
+
+**2. (2 points)** Écrire en Python une fonction `premiere_alerte(releves, seuil)` qui renvoie l'indice du premier relevé en alerte, ou \(-1\) s'il n'y en a pas.
 
 **3. (2 points)** Une ligne de journal a la forme `date heure adresse niveau message`, par exemple `2026-03-14 08:13:02 10.0.0.9 ERROR timeout db`. Écrire une fonction `compte_erreurs(lignes)` qui, à partir d'une liste de lignes, renvoie un dictionnaire qui à chaque adresse associe son nombre de lignes de niveau `ERROR`.
 
-**4. (1 point)** Un tableau trié contient 1 000 éléments. Quel est le nombre maximal de comparaisons d'une recherche par dichotomie ? Comparer avec une recherche séquentielle.
+**4. (1 point)** Trois relevés \(200, 100, 50\) sont transmis avec un octet de contrôle \(c\) tel que la somme des quatre octets soit un multiple de 256.
+
+a) Calculer \(c\).
+b) On reçoit \(201, 99, 50\) et \(c\). Le contrôle détecte-t-il l'erreur ? Justifier.

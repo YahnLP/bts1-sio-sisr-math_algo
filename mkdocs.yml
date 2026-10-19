@@ -1,5 +1,5 @@
 site_name: "Mathématiques pour l'informatique – BTS SIO 1re année"
-site_description: "Cours, exercices, TP Python et aide-mémoire de mathématiques pour l'informatique (épreuve E3) du BTS SIO : numération, arithmétique, logique, ensembles, matrices, suites, graphes, algorithmique appliquée"
+site_description: "Cours, exercices, TP Python et aide-mémoire de mathématiques pour l'informatique (épreuve E3) du BTS SIO : numération, arithmétique, logique, ensembles, matrices, graphes, algorithmique appliquée"
 site_url: "https://yahnlp.github.io/bts1-sio-sisr-math_algo/"
 site_author: "Yahn Le Prettre"
 repo_url: "https://github.com/YahnLP/bts1-sio-sisr-math_algo"

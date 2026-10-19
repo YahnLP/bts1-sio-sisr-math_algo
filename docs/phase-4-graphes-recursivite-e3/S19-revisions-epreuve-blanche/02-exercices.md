@@ -22,13 +22,13 @@ Réponds à chaque question **sans aide**, puis ouvre la réponse. Entoure les s
 | S09 | Nier \(\forall x\, \exists y,\ P(x, y)\). | <details markdown="1"><summary>Réponse</summary>\(\exists x\, \forall y,\ \neg P(x, y)\)</details> |
 | S10 | Simplifier \(a + \overline{a}\,b\). | <details markdown="1"><summary>Réponse</summary>\(a + b\)</details> |
 | S11 | \(x \mapsto x \bmod 5\) de \(\{0,\dots,9\}\) dans \(\{0,\dots,4\}\) est-elle injective ? surjective ? | <details markdown="1"><summary>Réponse</summary>Surjective, pas injective (0 et 5 ont la même image).</details> |
-| S12 | Nombre maximal de comparaisons de la dichotomie pour 1 000 éléments ? | <details markdown="1"><summary>Réponse</summary>\(\lfloor \log_2 1000 \rfloor + 1 = 10\)</details> |
+| S12 | Pour `t = [4, 8, 15, 16]`, que valent `len(t)` et l'indice de 15 ? | <details markdown="1"><summary>Réponse</summary>`len(t)` vaut 4 ; 15 est à l'indice 2 (les indices vont de 0 à 3).</details> |
 | S13 | Un produit \((2 \times 3)(3 \times 4)\) existe-t-il ? taille ? | <details markdown="1"><summary>Réponse</summary>Oui, \(2 \times 4\).</details> |
 | S14 | Résoudre \(\begin{cases} x + 2y = 5 \\ 3x + 7y = 16 \end{cases}\) avec \(A^{-1} = \begin{pmatrix} 7 & -2 \\ -3 & 1 \end{pmatrix}\). | <details markdown="1"><summary>Réponse</summary>\(X = A^{-1}B = (3,\ 1)\)</details> |
-| S15 | \(u_n = 5 + 3n\) : \(u_0 + \dots + u_{10}\) ? | <details markdown="1"><summary>Réponse</summary>\(11 \times \frac{5 + 35}{2} = 220\)</details> |
+| S15 | `10.0.0.256` est-elle une adresse IPv4 valide ? Bit de parité (paire) de `1011001` ? | <details markdown="1"><summary>Réponse</summary>Non (256 > 255). Quatre 1, donc bit de parité 0.</details> |
 | S16 | Graphe \(a \to b,\ a \to c,\ b \to d,\ c \to d\) : nombre de chemins de longueur 2 de \(a\) à \(d\) ? | <details markdown="1"><summary>Réponse</summary>2 (par \(b\) et par \(c\)).</details> |
 | S17 | Dans le graphe valué du cours (sites \(S\) à \(T\)), valeur minimale de \(S\) à \(T\) ? | <details markdown="1"><summary>Réponse</summary>13 (méthode de Dijkstra, S17).</details> |
-| S18 | Combien d'appels fait `fib(5)` récursif ? | <details markdown="1"><summary>Réponse</summary>15 appels (\(2F_6 - 1 = 15\)).</details> |
+| S18 | Que renvoie `est_croissant([1, 3, 2])` si la fonction fait `return True` dès que `t[i] <= t[i+1]` ? | <details markdown="1"><summary>Réponse</summary>`True` (arrêt trop tôt, dès le couple `1, 3`) ; attendu `False`.</details> |
 
 ## Exercices de synthèse
 
@@ -56,14 +56,14 @@ Résoudre \(7x \equiv 3 \pmod{26}\). (Méthode : chercher l'inverse de 7 modulo 
 
 </details>
 
-### Synthèse 3 – Suite et seuil
+### Synthèse 3 – Contrôle de données
 
-Un volume de journaux de 120 Go augmente de 8 % par mois. Donner \(u_n\), calculer \(u_3\) (arrondi au centième) et déterminer le premier mois où il atteint 200 Go.
+Trois octets \(120, 200, 77\) sont envoyés avec un octet de contrôle \(c\) tel que la somme des quatre octets soit un multiple de 256. (a) Calculer \(c\). (b) On reçoit \(120, 201, 76\) et \(c\) : l'erreur est-elle détectée ? (c) L'adresse `192.168.1.256` est-elle une adresse IPv4 valide ?
 
 <details markdown="1">
 <summary>Voir la réponse</summary>
 
-\(u_n = 120 \times 1{,}08^n\) (géométrique de raison 1,08). \(u_3 \approx 151,17\) Go. \(u_6 \approx 190,42 < 200\) et \(u_7 \approx 205,66 \ge 200\) : au mois **7**.
+(a) Somme \(397\) ; \(397 \bmod 256 = 141\) ; \(c = 256 - 141 = 115\) (contrôle : \(397 + 115 = 512\)). (b) \(120 + 201 + 76 + 115 = 512\) : le contrôle réussit alors que deux octets sont faux ; deux erreurs qui se compensent ne sont pas détectées. (c) Non : le dernier octet, 256, dépasse 255.
 
 </details>
 

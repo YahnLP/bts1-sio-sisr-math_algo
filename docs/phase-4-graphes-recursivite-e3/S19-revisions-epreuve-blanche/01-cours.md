@@ -39,7 +39,7 @@ Les exercices s'appuient sur des **situations professionnelles** (adressage, dro
 
 Une réponse de calcul comporte **quatre éléments** :
 
-1. **La méthode** : « on applique l'algorithme d'Euclide », « on utilise la formule de la somme d'une suite géométrique » ;
+1. **La méthode** : « on applique l'algorithme d'Euclide », « on utilise le ET bit à bit entre l'adresse et le masque » ;
 2. **Le calcul**, avec les étapes intermédiaires (on peut perdre des points sur un résultat juste sans calcul) ;
 3. **Le résultat**, avec son **unité** et une phrase de conclusion dans le contexte ;
 4. **Une vérification** quand elle est rapide : reporter dans l'énoncé, contrôler un ordre de grandeur.
@@ -56,7 +56,7 @@ Pour un **algorithme** : donner l'entrée, la sortie, les variables, puis les in
 | Congruences | simplifier sans inversibilité | n'inverser que si PGCD = 1 |
 | Logique | nier une implication en \(\neg p \Rightarrow \neg q\) | \(\neg(p \Rightarrow q) \equiv p \wedge \neg q\) |
 | Matrices | multiplier dans le mauvais ordre, tailles incompatibles | vérifier colonnes de \(A\) = lignes de \(B\) |
-| Suites | confondre rang et nombre de termes | \(u_0, \dots, u_n\) : \(n + 1\) termes |
+| Contrôle de données | croire qu'un bit de parité détecte toute erreur | il ne voit pas un nombre **pair** d'erreurs |
 | Graphes | oublier un prédécesseur | retracer chaque arc dans le tableau |
 | Python | indices de 0 à \(n - 1\) ; boucle sans variant | suivre les variables sur un petit exemple |
 
@@ -65,12 +65,11 @@ Pour un **algorithme** : donner l'entrée, la sortie, les variables, puis les in
 | Séance | Notion | À savoir faire |
 |---|---|---|
 | S01–S02 | Numération, réels, calcul binaire | convertir (2, 10, 16), additionner, arrondir |
-| S03–S04, S12, S18 | Algorithmique | conditions, boucles, tableaux, chaînes, récursivité, complexité |
+| S03–S04, S12, S15, S18 | Algorithmique | conditions, boucles, tableaux, chaînes, validation de données, jeux de tests, suivi de variables |
 | S05–S07 | Arithmétique | division euclidienne, PGCD, premiers, congruences |
 | S08–S10 | Logique et calcul booléen | tables, équivalences, quantificateurs, Karnaugh, masques |
 | S11 | Relations et applications | propriétés, classes, injective/surjective/bijective |
 | S13–S14 | Matrices | produit, puissances, inverse, systèmes |
-| S15 | Suites | arithmétiques, géométriques, limites, seuils |
 | S16–S17 | Graphes | matrice d'adjacence, niveaux, Dijkstra, MPM |
 
 ## À retenir

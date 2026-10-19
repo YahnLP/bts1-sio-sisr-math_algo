@@ -566,36 +566,39 @@ from fractions import Fraction
 Fraction(1, 3) + Fraction(1, 6)   # Fraction(1, 2), exact
 ```
 
-## S15 · Suites numériques
+## S15 · Validation et contrôle de données
 
-### Formules
+### Valider un format
 
-| | Arithmétique (raison \(r\)) | Géométrique (raison \(q\)) |
-|---|---|---|
-| Récurrence | \(u_{n+1} = u_n + r\) | \(u_{n+1} = q\,u_n\) |
-| Terme général | \(u_n = u_0 + nr\) | \(u_n = u_0\,q^n\) |
-| Somme \(u_0 + \dots + u_n\) | \((n+1)\dfrac{u_0 + u_n}{2}\) | \(u_0 \dfrac{1 - q^{n+1}}{1 - q}\) (\(q \neq 1\)) |
-| Variations | croissante si \(r > 0\) | croissante si \(q > 1\) et \(u_0 > 0\) |
+1. Écrire **toutes** les règles ; 2. un test par règle ; 3. `return False` dès qu'une règle est violée ; 4. `return True` à la fin.
 
-- \(1 + 2 + \dots + n = \dfrac{n(n+1)}{2}\) ; \(1 + 2 + 4 + \dots + 2^n = 2^{n+1} - 1\).
-
-### Limites de référence
-
-| \(n,\ n^2,\ \sqrt{n}\) | \(+\infty\) |
+| Donnée | Règles |
 |---|---|
-| \(1/n,\ 1/n^2,\ 1/\sqrt{n}\) | 0 |
-| \(q^n\), \(q > 1\) | \(+\infty\) |
-| \(q^n\), \(-1 < q < 1\) | 0 |
-| \(q^n\), \(q \le -1\) | pas de limite |
+| Octet décimal | non vide, chiffres seuls, pas de zéro initial (sauf `"0"`), valeur de 0 à 255 |
+| Adresse IPv4 | `s.split(".")` : 4 morceaux, chacun est un octet valide |
+| Adresse MAC | `s.split(":")` : 6 groupes de 2 chiffres hexadécimaux |
+| Octet de masque | 0, 128, 192, 224, 240, 248, 252, 254, 255 |
 
-### Algorithme de seuil
+Cas limites : chaîne vide, 0, 255, 256, caractère interdit, morceau en trop ou en moins.
+
+### Parité
+
+- Parité paire : bit \(= (\text{nombre de 1}) \bmod 2\) ; le mot transmis a un nombre pair de 1.
+- Détecte un nombre **impair** d'erreurs ; ne localise pas ; ne voit pas deux erreurs.
+- Deux dimensions : ligne fausse **et** colonne fausse = bit à corriger.
+
+### Sommes de contrôle
 
 ```python
-n, u = 0, u0
-while u < limite:
-    u = u * q
-    n = n + 1
+c = (-sum(octets)) % 256          # somme de contrôle
+ok = (sum(octets) + c) % 256 == 0 # vérification
+r = 0
+for o in octets:
+    r = r ^ o                     # OU exclusif de contrôle
 ```
+
+- Deux erreurs qui se compensent ne sont pas détectées.
+- Un contrôle détecte des erreurs, il ne protège pas contre une modification volontaire.
 
 ## S16 · Graphes
 
@@ -644,41 +647,40 @@ while u < limite:
 - Tâche critique : \(M_T = 0\) ; chemin critique = plus long chemin = durée du projet.
 - Retard d'une tâche non critique : sans effet tant qu'il reste dans \(M_T\).
 
-## S18 · Récursivité et complexité
+## S18 · Écrire, tester et déboguer
 
-### Récursivité
+### De l'énoncé au programme
 
-```python
-def f(n):
-    if n == 0:        # cas de base
-        return ...
-    return ... f(n - 1) ...   # appel sur un problème plus petit
-```
+1. Entrées, sortie. 2. Exemple à la main. 3. Schéma. 4. Pseudo-code, puis Python. 5. Tests.
 
-- Terminaison : un entier naturel qui diminue strictement à chaque appel.
-- Sans cas de base : `RecursionError` (environ 1 000 appels imbriqués).
-- Récursive terminale (appel en dernier) : facile à transformer en boucle.
-- Fibonacci récursif : nombre d'appels \(= 2F_{n+1} - 1\) ; version à boucle : \(n\) additions.
+| Schéma | Initialisation | Remarque |
+|---|---|---|
+| Compteur | `n = 0` | `n = n + 1` dans le `if` |
+| Accumulateur | `s = 0` | `s = s + x` |
+| Recherche avec arrêt | `return -1` **après** la boucle | `return i` dans la boucle |
+| Maximum | `m = t[0]` | liste non vide ; `>` strict = première apparition |
+| Série consécutive | `courante = 0`, `meilleure = 0` | mise à jour de `meilleure` dans la boucle |
 
-### Complexité (pire cas)
+### Jeux de tests
 
-| Algorithme | Comparaisons |
-|---|---|
-| Recherche séquentielle | \(n\) |
-| Dichotomie (tableau trié) | \(\lfloor \log_2 n \rfloor + 1\) |
-| Tri par sélection | \(\dfrac{n(n-1)}{2}\) |
+Cas normal, vide, un élément, valeurs égales ou à la frontière, toujours vrai, jamais vrai, début et fin.
+
+### Suivi de variables
+
+Une ligne par tour, une colonne par variable ; chercher le **premier** écart avec ce qui est attendu.
 
 ### Erreurs classiques
 
 | Erreur | Réflexe |
 |---|---|
 | Indice hors domaine | indices de 0 à \(n - 1\) ; `range(len(t))` |
+| Parcours qui oublie le début | `range(len(t))`, pas `range(1, len(t))` |
 | Mauvaise initialisation | `m = t[0]` pour un maximum |
+| Arrêt trop tôt | `return False` dans la boucle, `return True` après |
 | Boucle infinie | le variant doit changer à chaque tour |
 | Égalité de flottants | tolérance, entiers ou `Fraction` |
+| Division entière | multiplier avant de diviser, ou `/` |
 | Effet de bord | `list(l)` pour travailler sur une copie |
-
-Méthode : reproduire, tracer les variables, trouver le premier écart, corriger, retester les cas limites.
 
 ## S19 · Préparer l'épreuve E3
 
@@ -702,7 +704,7 @@ Méthode : reproduire, tracer les variables, trouver le premier écart, corriger
 | Boole | absorption \(a + ab = a\) ; \(a + \overline{a}b = a + b\) ; Karnaugh : 1, 2, 4, 8 cases |
 | Adressage | réseau = IP ET masque ; machines \(2^{32-n} - 2\) |
 | Matrices | \((m \times n)(n \times p)\) ; \(X = A^{-1}B\) ; méthode des lignes \([A \mid I] \to [I \mid A^{-1}]\) |
-| Suites | arith. \(u_n = u_0 + nr\) ; géom. \(u_n = u_0 q^n\) ; sommes ; seuil par boucle |
+| Contrôle de données | parité paire : bit \(= (\text{nombre de 1}) \bmod 2\) ; somme de contrôle \(c = (-\sum o_i) \bmod 256\) |
 | Graphes | \((M^p)_{ij}\) = chemins de longueur \(p\) ; niveaux ; Dijkstra ; MPM \(t, T\), marges |
-| Algorithmique | indices de 0 à \(n - 1\) ; dichotomie \(\lfloor \log_2 n \rfloor + 1\) ; tri sélection \(\frac{n(n-1)}{2}\) |
+| Algorithmique | indices de 0 à \(n - 1\) ; cas limites (vide, un élément) ; `return False` dans la boucle, `return True` après |
 

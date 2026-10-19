@@ -1,7 +1,7 @@
 # Programme et épreuve E3
 
 > [!NOTE]
-> Les modalités ci-dessous sont reprises de l'**arrêté du 8 juillet 2024** (Journal officiel du 10 juillet 2024, annexe sur la définition des épreuves). La répartition des séances par chapitre du programme reste une **proposition de l'enseignant** : le programme détaillé (annexe I de l'arrêté) n'est pas reproduit ici.
+> Les modalités ci-dessous sont reprises de l'**arrêté du 8 juillet 2024** (Journal officiel du 10 juillet 2024, annexe sur la définition des épreuves). La répartition des séances par module du programme reste une **proposition de l'enseignant** : la liste des modules est reprise ci-dessous, mais le contenu détaillé de chaque module (arrêté du 4 juin 2013) n'est pas reproduit ici.
 
 ## L'épreuve en bref
 
@@ -13,10 +13,20 @@
 | Langage | **Python** (choix de cette formation) |
 | Matériel | Calculatrice : règles à vérifier dans le sujet de l'année |
 
-> [!NOTE]
-> Le texte prévoit aussi un **contrôle en cours de formation** (une situation pratique orale d'algorithmique, coefficient 1, puis une situation écrite de 55 minutes, coefficient 2). Dans cette formation, l'épreuve est préparée **sous sa forme ponctuelle terminale** ; le contrôle en cours de formation n'est pas utilisé.
-
 Les exercices demandent de calculer, de justifier et d'écrire ou de lire un petit programme ; chaque formule du cours est donc accompagnée d'un exemple chiffré et d'un exercice corrigé.
+
+## Les modules du programme
+
+Le programme de l'unité de mathématiques pour l'informatique comprend les modules suivants (programme de mathématiques des BTS, arrêté du 4 juin 2013) :
+
+- arithmétique ;
+- calcul matriciel ;
+- algèbres de Boole ;
+- savoirs de la théorie des ensembles ;
+- graphes et ordonnancement ;
+- algorithmique appliquée, **à l'exception** de l'item « récursivité » et de l'item « analyse d'algorithme ».
+
+Les **suites numériques** ne figurent pas dans cette liste : elles relèvent de l'unité facultative de mathématiques approfondies. Cette formation ne les traite donc pas dans le parcours obligatoire. Pour l'algorithmique, le texte cite aussi des situations où l'informaticien est confronté aux mathématiques : calcul binaire, masque de réseau, opérateurs logiques.
 
 ## Couverture des séances
 
@@ -36,10 +46,10 @@ Les exercices demandent de calculer, de justifier et d'écrire ou de lire un pet
 | [S12](../phase-3-relations-matrices-suites/S12-algorithmique-fonctions-tableaux/README.md) | Algorithmique : fonctions, tableaux et chaînes | Algorithmique appliquée – modularité, tableaux, chaînes |
 | [S13](../phase-3-relations-matrices-suites/S13-matrices-calcul/README.md) | Calcul matriciel : opérations | Calcul matriciel – définitions et opérations |
 | [S14](../phase-3-relations-matrices-suites/S14-matrices-inverse-systemes/README.md) | Calcul matriciel : inverse et systèmes | Calcul matriciel – inverse, systèmes de Cramer |
-| [S15](../phase-3-relations-matrices-suites/S15-suites-numeriques/README.md) | Suites numériques | Suites numériques |
+| [S15](../phase-3-relations-matrices-suites/S15-validation-controle-donnees/README.md) | Algorithmique : validation et contrôle de données | Algorithmique appliquée – chaînes, tableaux, tests ; calcul binaire et opérateurs logiques |
 | [S16](../phase-4-graphes-recursivite-e3/S16-graphes-representations/README.md) | Graphes : représentations, chemins et niveaux | Théorie des graphes |
 | [S17](../phase-4-graphes-recursivite-e3/S17-graphes-values-ordonnancement/README.md) | Graphes valués et ordonnancement (MPM) | Théorie des graphes et ordonnancement |
-| [S18](../phase-4-graphes-recursivite-e3/S18-recursivite-complexite/README.md) | Algorithmique : récursivité, complexité et débogage | Algorithmique appliquée – récursivité, complexité, effets indésirables |
+| [S18](../phase-4-graphes-recursivite-e3/S18-programmer-tester-deboguer/README.md) | Algorithmique : écrire, tester et déboguer | Algorithmique appliquée – écrire un programme, le tester, corriger les erreurs |
 | [S19](../phase-4-graphes-recursivite-e3/S19-revisions-epreuve-blanche/README.md) | Révisions et épreuve blanche E3 | Tous les chapitres |
 
 ## S'entraîner
