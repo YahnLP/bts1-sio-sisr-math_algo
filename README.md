@@ -2,7 +2,7 @@
 
 Cours, exercices corrigés, TP Python et aide-mémoire des **19 séances** (plus une séance préalable d'introduction à Python, hors classe) de mathématiques pour l'informatique (option SISR), préparant l'épreuve écrite E3.
 
-Auteur : **Yahn LE PRETTRE** – Formateur. Licence **CC BY-NC-SA 4.0** (voir `LICENSE`).
+Auteur : **Yahn LE PRETTRE** – Formateur. Licence **CC BY-NC-SA 4.0** (voir `LICENSE`). Utilisation dans une formation payante ou financée (CFA, OPCO) : accord préalable de l'auteur, voir `docs/ressources/licences.md`.
 
 ## Contenu
 
