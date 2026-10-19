@@ -1,19 +1,22 @@
 # Programme et épreuve E3
 
-> [!WARNING]
-> **À vérifier par l'enseignant.** Le tableau ci-dessous relie les séances aux grands thèmes du programme de mathématiques pour l'informatique du BTS SIO. Les modalités de l'épreuve (durée, coefficient, nombre d'exercices, matériel autorisé) sont indiquées **telles que prévues dans cette séquence** : elles sont à confirmer sur le **texte officiel en vigueur** (référentiel du BTS SIO et circulaire de l'année d'examen) avant d'être présentées aux apprenants.
+> [!NOTE]
+> Les modalités ci-dessous sont reprises de l'**arrêté du 8 juillet 2024** (Journal officiel du 10 juillet 2024, annexe sur la définition des épreuves). La répartition des séances par chapitre du programme reste une **proposition de l'enseignant** : le programme détaillé (annexe I de l'arrêté) n'est pas reproduit ici.
 
 ## L'épreuve en bref
 
-| Élément | Choix retenu dans le cours |
+| Élément | Contenu |
 |---|---|
-| Forme | Épreuve **écrite**, **terminale** (pas de contrôle en cours de formation) |
-| Durée | 2 heures |
-| Barème | 20 points, coefficient 3 |
-| Contenu | 2 à 3 exercices indépendants, dont un d'**algorithmique en Python** |
+| Épreuve | **E3 – Mathématiques pour l'informatique**, **coefficient 3** |
+| Forme ponctuelle (celle préparée ici) | Épreuve **écrite de 2 heures**, un sujet de **2 ou 3 exercices** couvrant une partie significative du programme, pour **20 points** |
+| Algorithmique | **L'un des exercices évalue la capacité « programmer »**, en lien avec le module d'algorithmique appliquée |
+| Langage | **Python** (choix de cette formation) |
 | Matériel | Calculatrice : règles à vérifier dans le sujet de l'année |
 
-Le langage de programmation de l'épreuve est **Python**. Les exercices demandent de calculer, de justifier et d'écrire ou de lire un petit programme ; chaque formule du cours est donc accompagnée d'un exemple chiffré et d'un exercice corrigé.
+> [!NOTE]
+> Le texte prévoit aussi un **contrôle en cours de formation** (une situation pratique orale d'algorithmique, coefficient 1, puis une situation écrite de 55 minutes, coefficient 2). Dans cette formation, l'épreuve est préparée **sous sa forme ponctuelle terminale** ; le contrôle en cours de formation n'est pas utilisé.
+
+Les exercices demandent de calculer, de justifier et d'écrire ou de lire un petit programme ; chaque formule du cours est donc accompagnée d'un exemple chiffré et d'un exercice corrigé.
 
 ## Couverture des séances
 
