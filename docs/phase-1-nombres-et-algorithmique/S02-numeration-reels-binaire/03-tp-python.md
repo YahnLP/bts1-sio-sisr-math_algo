@@ -9,6 +9,9 @@ render_macros: true
 > [!NOTE]
 > **Comment ce TP fonctionne.** Chaque exercice a un éditeur Python intégré à la page (il s'exécute dans ton navigateur, rien à installer). Avant de lancer, écris sur ta feuille ce que tu **anticipes** (« J'anticipe »). Puis lance et compare. Le bouton **Valider** exécute des tests : un test réussi ne dispense pas de **comprendre** pourquoi.
 
+> [!TIP]
+> Si Python est nouveau pour toi, relis l'[annexe Python : premiers pas](../S01-numeration-entiers/annexe-python.md) de S01 (variables, `//` et `%`, `while`, `for`, texte, `def`). Les notions sont reprises en détail en S03 et S04.
+
 ## Exercice A – Pourquoi `0.1 + 0.2 != 0.3`
 
 **J'anticipe.** Que vaut, selon toi, `0.1 + 0.2 == 0.3` ? Et `0.5 + 0.25 == 0.75` ? Justifie avec le cours (§ I).

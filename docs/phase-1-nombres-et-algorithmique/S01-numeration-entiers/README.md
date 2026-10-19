@@ -29,6 +29,7 @@
 | [Cours – Numération : entiers](01-cours.md) | Cours |
 | [Exercices – Conversions et lecture de nombres](02-exercices.md) | Exercices |
 | [TP Python – Vérifier ses conversions](03-tp-python.md) | TP (éditeur Python intégré) |
+| [Annexe – Python : premiers pas](annexe-python.md) | À lire avant le TP : variables, `//` et `%`, `if`, `while`, `def` |
 | [Aide-mémoire – Numération](04-aide-memoire.md) | Aide-mémoire |
 
 ## Déroulé conseillé (4 h)
@@ -38,7 +39,7 @@
 | 0 h 00 – 0 h 20 | **Accroche** : pourquoi 192.168.1.10 et 00:1A:2B:3C:4D:5E ? (recueil des idées) | Oral |
 | 0 h 20 – 1 h 30 | **Cours** : écriture en base \(b\), conversions, bits et octets | Cours et questions |
 | 1 h 30 – 2 h 45 | **Exercices** : conversions, lecture d'adresses | Individuel, puis binômes |
-| 2 h 45 – 3 h 45 | **TP Python** : vérifier, puis programmer une conversion | Individuel |
+| 2 h 45 – 3 h 45 | **TP Python** : lecture de l'[annexe Python](annexe-python.md) (10 min), puis vérifier et programmer une conversion | Individuel |
 | 3 h 45 – 4 h 00 | **Auto-évaluation** « Je sais faire » | Individuel |
 
 *Durées indicatives : la séance dure 4 h ; l'enseignant ajuste selon le rythme du groupe.*
