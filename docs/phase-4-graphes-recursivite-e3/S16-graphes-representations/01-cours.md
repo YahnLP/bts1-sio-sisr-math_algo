@@ -20,22 +20,64 @@ Un **graphe orienté** est un ensemble de **sommets** reliés par des **arcs** (
 
 **Situation.** Six services s'appuient les uns sur les autres : l'arc \(x \to y\) signifie « \(y\) a besoin de \(x\) ».
 
-```mermaid
-flowchart LR
-    n0((a))
-    n1((b))
-    n2((c))
-    n3((d))
-    n4((e))
-    n5((f))
-    n0 --> n1
-    n0 --> n2
-    n1 --> n3
-    n2 --> n3
-    n2 --> n4
-    n3 --> n5
-    n4 --> n5
-```
+<figure class="graphe diagramme">
+<svg viewBox="0.00 0.00 375.60 151.60" style="max-width:501px" role="img" aria-label="Schéma" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g class="graph" transform="scale(1 1) rotate(0) translate(10.8 140.8)">
+<g class="node n&#45;circle">
+<ellipse fill="none" stroke="black" stroke-width="1.8" cx="22.5" cy="-64.5" rx="22.5" ry="22.5"/>
+<text text-anchor="start" x="17.5" y="-61" font-family="Helvetica,sans-Serif" font-size="15.00">a</text>
+</g>
+<g class="node n&#45;circle">
+<ellipse fill="none" stroke="black" stroke-width="1.8" cx="125.5" cy="-107.5" rx="22.5" ry="22.5"/>
+<text text-anchor="start" x="120.5" y="-104" font-family="Helvetica,sans-Serif" font-size="15.00">b</text>
+</g>
+<g class="edge">
+<path fill="none" stroke="black" stroke-width="1.8" d="M43.45,-73C58.53,-79.41 79.43,-88.31 96.23,-95.46"/>
+<polygon fill="black" stroke="black" stroke-width="1.8" points="95.07,-98.39 104.59,-99.02 97.54,-92.6 95.07,-98.39"/>
+</g>
+<g class="node n&#45;circle">
+<ellipse fill="none" stroke="black" stroke-width="1.8" cx="125.5" cy="-22.5" rx="22.5" ry="22.5"/>
+<text text-anchor="start" x="121" y="-19" font-family="Helvetica,sans-Serif" font-size="15.00">c</text>
+</g>
+<g class="edge">
+<path fill="none" stroke="black" stroke-width="1.8" d="M43.45,-56.2C58.43,-49.97 79.16,-41.35 95.9,-34.39"/>
+<polygon fill="black" stroke="black" stroke-width="1.8" points="97.14,-37.29 104.24,-30.92 94.72,-31.47 97.14,-37.29"/>
+</g>
+<g class="node n&#45;circle">
+<ellipse fill="none" stroke="black" stroke-width="1.8" cx="228.5" cy="-107.5" rx="22.5" ry="22.5"/>
+<text text-anchor="start" x="223.5" y="-104" font-family="Helvetica,sans-Serif" font-size="15.00">d</text>
+</g>
+<g class="edge">
+<path fill="none" stroke="black" stroke-width="1.8" d="M148.42,-107.5C162.54,-107.5 181.12,-107.5 196.71,-107.5"/>
+<polygon fill="black" stroke="black" stroke-width="1.8" points="196.97,-110.65 205.97,-107.5 196.97,-104.35 196.97,-110.65"/>
+</g>
+<g class="edge">
+<path fill="none" stroke="black" stroke-width="1.8" d="M143.18,-36.54C159.7,-50.44 185.16,-71.86 203.78,-87.54"/>
+<polygon fill="black" stroke="black" stroke-width="1.8" points="201.88,-90.06 210.8,-93.44 205.94,-85.24 201.88,-90.06"/>
+</g>
+<g class="node n&#45;circle">
+<ellipse fill="none" stroke="black" stroke-width="1.8" cx="228.5" cy="-22.5" rx="22.5" ry="22.5"/>
+<text text-anchor="start" x="223.5" y="-19" font-family="Helvetica,sans-Serif" font-size="15.00">e</text>
+</g>
+<g class="edge">
+<path fill="none" stroke="black" stroke-width="1.8" d="M148.42,-22.5C162.54,-22.5 181.12,-22.5 196.71,-22.5"/>
+<polygon fill="black" stroke="black" stroke-width="1.8" points="196.97,-25.65 205.97,-22.5 196.97,-19.35 196.97,-25.65"/>
+</g>
+<g class="node n&#45;circle">
+<ellipse fill="none" stroke="black" stroke-width="1.8" cx="331.5" cy="-64.5" rx="22.5" ry="22.5"/>
+<text text-anchor="start" x="328.5" y="-61" font-family="Helvetica,sans-Serif" font-size="15.00">f</text>
+</g>
+<g class="edge">
+<path fill="none" stroke="black" stroke-width="1.8" d="M249.45,-99C264.53,-92.59 285.43,-83.69 302.23,-76.54"/>
+<polygon fill="black" stroke="black" stroke-width="1.8" points="303.54,-79.4 310.59,-72.98 301.07,-73.61 303.54,-79.4"/>
+</g>
+<g class="edge">
+<path fill="none" stroke="black" stroke-width="1.8" d="M249.45,-30.8C264.43,-37.03 285.16,-45.65 301.9,-52.61"/>
+<polygon fill="black" stroke="black" stroke-width="1.8" points="300.72,-55.53 310.24,-56.08 303.14,-49.71 300.72,-55.53"/>
+</g>
+</g>
+</svg>
+</figure>
 
 | Vocabulaire | Définition | Dans ce graphe |
 |---|---|---|
@@ -93,31 +135,85 @@ Dans le graphe des services, \(a \to c \to d \to f\) est un chemin de longueur 3
 
 Voici un graphe **avec circuit** : \(1 \to 2 \to 3 \to 1\) est un circuit de longueur 3.
 
-```mermaid
-flowchart LR
-    n0((1))
-    n1((2))
-    n2((3))
-    n3((4))
-    n0 --> n1
-    n1 --> n2
-    n2 --> n0
-    n2 --> n3
-```
+<figure class="graphe diagramme">
+<svg viewBox="0.00 0.00 375.60 108.60" style="max-width:501px" role="img" aria-label="Schéma" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g class="graph" transform="scale(1 1) rotate(0) translate(10.8 97.8)">
+<g class="node n&#45;circle">
+<ellipse fill="none" stroke="black" stroke-width="1.8" cx="22.5" cy="-22.5" rx="22.5" ry="22.5"/>
+<text text-anchor="start" x="17.5" y="-19" font-family="Helvetica,sans-Serif" font-size="15.00">1</text>
+</g>
+<g class="node n&#45;circle">
+<ellipse fill="none" stroke="black" stroke-width="1.8" cx="125.5" cy="-64.5" rx="22.5" ry="22.5"/>
+<text text-anchor="start" x="120.5" y="-61" font-family="Helvetica,sans-Serif" font-size="15.00">2</text>
+</g>
+<g class="edge">
+<path fill="none" stroke="black" stroke-width="1.8" d="M43.45,-30.8C58.43,-37.03 79.16,-45.65 95.9,-52.61"/>
+<polygon fill="black" stroke="black" stroke-width="1.8" points="94.72,-55.53 104.24,-56.08 97.14,-49.71 94.72,-55.53"/>
+</g>
+<g class="node n&#45;circle">
+<ellipse fill="none" stroke="black" stroke-width="1.8" cx="228.5" cy="-22.5" rx="22.5" ry="22.5"/>
+<text text-anchor="start" x="223.5" y="-19" font-family="Helvetica,sans-Serif" font-size="15.00">3</text>
+</g>
+<g class="edge">
+<path fill="none" stroke="black" stroke-width="1.8" d="M146.45,-56.2C161.43,-49.97 182.16,-41.35 198.9,-34.39"/>
+<polygon fill="black" stroke="black" stroke-width="1.8" points="200.14,-37.29 207.24,-30.92 197.72,-31.47 200.14,-37.29"/>
+</g>
+<g class="edge">
+<path fill="none" stroke="black" stroke-width="1.8" d="M205.83,-22.5C169.5,-22.5 96.23,-22.5 54.48,-22.5"/>
+<polygon fill="black" stroke="black" stroke-width="1.8" points="54.33,-19.35 45.33,-22.5 54.33,-25.65 54.33,-19.35"/>
+</g>
+<g class="node n&#45;circle">
+<ellipse fill="none" stroke="black" stroke-width="1.8" cx="331.5" cy="-22.5" rx="22.5" ry="22.5"/>
+<text text-anchor="start" x="326.5" y="-19" font-family="Helvetica,sans-Serif" font-size="15.00">4</text>
+</g>
+<g class="edge">
+<path fill="none" stroke="black" stroke-width="1.8" d="M251.42,-22.5C265.54,-22.5 284.12,-22.5 299.71,-22.5"/>
+<polygon fill="black" stroke="black" stroke-width="1.8" points="299.97,-25.65 308.97,-22.5 299.97,-19.35 299.97,-25.65"/>
+</g>
+</g>
+</svg>
+</figure>
 
 Et un graphe qui possède un chemin hamiltonien : \(1 \to 2 \to 3 \to 4\) passe une seule fois par chacun des quatre sommets.
 
-```mermaid
-flowchart LR
-    n0((1))
-    n1((2))
-    n2((3))
-    n3((4))
-    n0 --> n1
-    n1 --> n2
-    n2 --> n3
-    n0 --> n2
-```
+<figure class="graphe diagramme">
+<svg viewBox="0.00 0.00 375.60 108.60" style="max-width:501px" role="img" aria-label="Schéma" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g class="graph" transform="scale(1 1) rotate(0) translate(10.8 97.8)">
+<g class="node n&#45;circle">
+<ellipse fill="none" stroke="black" stroke-width="1.8" cx="22.5" cy="-22.5" rx="22.5" ry="22.5"/>
+<text text-anchor="start" x="17.5" y="-19" font-family="Helvetica,sans-Serif" font-size="15.00">1</text>
+</g>
+<g class="node n&#45;circle">
+<ellipse fill="none" stroke="black" stroke-width="1.8" cx="125.5" cy="-64.5" rx="22.5" ry="22.5"/>
+<text text-anchor="start" x="120.5" y="-61" font-family="Helvetica,sans-Serif" font-size="15.00">2</text>
+</g>
+<g class="edge">
+<path fill="none" stroke="black" stroke-width="1.8" d="M43.45,-30.8C58.43,-37.03 79.16,-45.65 95.9,-52.61"/>
+<polygon fill="black" stroke="black" stroke-width="1.8" points="94.72,-55.53 104.24,-56.08 97.14,-49.71 94.72,-55.53"/>
+</g>
+<g class="node n&#45;circle">
+<ellipse fill="none" stroke="black" stroke-width="1.8" cx="228.5" cy="-22.5" rx="22.5" ry="22.5"/>
+<text text-anchor="start" x="223.5" y="-19" font-family="Helvetica,sans-Serif" font-size="15.00">3</text>
+</g>
+<g class="edge">
+<path fill="none" stroke="black" stroke-width="1.8" d="M45.33,-22.5C81.76,-22.5 155.04,-22.5 196.7,-22.5"/>
+<polygon fill="black" stroke="black" stroke-width="1.8" points="196.83,-25.65 205.83,-22.5 196.83,-19.35 196.83,-25.65"/>
+</g>
+<g class="edge">
+<path fill="none" stroke="black" stroke-width="1.8" d="M146.45,-56.2C161.43,-49.97 182.16,-41.35 198.9,-34.39"/>
+<polygon fill="black" stroke="black" stroke-width="1.8" points="200.14,-37.29 207.24,-30.92 197.72,-31.47 200.14,-37.29"/>
+</g>
+<g class="node n&#45;circle">
+<ellipse fill="none" stroke="black" stroke-width="1.8" cx="331.5" cy="-22.5" rx="22.5" ry="22.5"/>
+<text text-anchor="start" x="326.5" y="-19" font-family="Helvetica,sans-Serif" font-size="15.00">4</text>
+</g>
+<g class="edge">
+<path fill="none" stroke="black" stroke-width="1.8" d="M251.42,-22.5C265.54,-22.5 284.12,-22.5 299.71,-22.5"/>
+<polygon fill="black" stroke="black" stroke-width="1.8" points="299.97,-25.65 308.97,-22.5 299.97,-19.35 299.97,-25.65"/>
+</g>
+</g>
+</svg>
+</figure>
 
 Le graphe des services n'a **pas** de chemin hamiltonien (vérifié en essayant les 720 ordres possibles des 6 sommets) : ni \(b\) n'atteint \(c\), ni \(c\) n'atteint \(b\) : un même chemin ne peut pas visiter les deux.
 

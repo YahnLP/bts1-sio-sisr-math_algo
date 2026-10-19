@@ -101,16 +101,64 @@ Une relation est une **relation d'ordre** si elle est **réflexive, antisymétri
 
 On représente un ordre fini par son **diagramme de Hasse** : on ne trace que les liens de « couverture » (sans les liens déduits par transitivité ni les boucles), le plus petit en bas.
 
-```mermaid
-flowchart BT
-    n1["1"] --> n2["2"]
-    n1 --> n3["3"]
-    n2 --> n4["4"]
-    n2 --> n6["6"]
-    n3 --> n6
-    n4 --> n12["12"]
-    n6 --> n12
-```
+<figure class="graphe diagramme">
+<svg viewBox="0.00 0.00 169.60 343.60" style="max-width:227px" role="img" aria-label="Schéma" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g class="graph" transform="scale(1 1) rotate(0) translate(10.8 332.8)">
+<g class="node n&#45;rect">
+<path fill="none" stroke="black" stroke-width="1.8" d="M89,-37C89,-37 59,-37 59,-37 53,-37 47,-31 47,-25 47,-25 47,-12 47,-12 47,-6 53,0 59,0 59,0 89,0 89,0 95,0 101,-6 101,-12 101,-12 101,-25 101,-25 101,-31 95,-37 89,-37"/>
+<text text-anchor="start" x="69" y="-15" font-family="Helvetica,sans-Serif" font-size="15.00">1</text>
+</g>
+<g class="node n&#45;rect">
+<path fill="none" stroke="black" stroke-width="1.8" d="M42,-132C42,-132 12,-132 12,-132 6,-132 0,-126 0,-120 0,-120 0,-107 0,-107 0,-101 6,-95 12,-95 12,-95 42,-95 42,-95 48,-95 54,-101 54,-107 54,-107 54,-120 54,-120 54,-126 48,-132 42,-132"/>
+<text text-anchor="start" x="22" y="-110" font-family="Helvetica,sans-Serif" font-size="15.00">2</text>
+</g>
+<g class="edge">
+<path fill="none" stroke="black" stroke-width="1.8" d="M64.94,-37.43C57.87,-51.42 47.96,-71.03 40.04,-86.7"/>
+<polygon fill="black" stroke="black" stroke-width="1.8" points="37.12,-85.49 35.87,-94.94 42.75,-88.33 37.12,-85.49"/>
+</g>
+<g class="node n&#45;rect">
+<path fill="none" stroke="black" stroke-width="1.8" d="M136,-132C136,-132 106,-132 106,-132 100,-132 94,-126 94,-120 94,-120 94,-107 94,-107 94,-101 100,-95 106,-95 106,-95 136,-95 136,-95 142,-95 148,-101 148,-107 148,-107 148,-120 148,-120 148,-126 142,-132 136,-132"/>
+<text text-anchor="start" x="116" y="-110" font-family="Helvetica,sans-Serif" font-size="15.00">3</text>
+</g>
+<g class="edge">
+<path fill="none" stroke="black" stroke-width="1.8" d="M83.06,-37.43C90.13,-51.42 100.04,-71.03 107.96,-86.7"/>
+<polygon fill="black" stroke="black" stroke-width="1.8" points="105.25,-88.33 112.13,-94.94 110.88,-85.49 105.25,-88.33"/>
+</g>
+<g class="node n&#45;rect">
+<path fill="none" stroke="black" stroke-width="1.8" d="M42,-227C42,-227 12,-227 12,-227 6,-227 0,-221 0,-215 0,-215 0,-202 0,-202 0,-196 6,-190 12,-190 12,-190 42,-190 42,-190 48,-190 54,-196 54,-202 54,-202 54,-215 54,-215 54,-221 48,-227 42,-227"/>
+<text text-anchor="start" x="22" y="-205" font-family="Helvetica,sans-Serif" font-size="15.00">4</text>
+</g>
+<g class="edge">
+<path fill="none" stroke="black" stroke-width="1.8" d="M27,-132.43C27,-146.16 27,-165.3 27,-180.82"/>
+<polygon fill="black" stroke="black" stroke-width="1.8" points="23.85,-180.94 27,-189.94 30.15,-180.94 23.85,-180.94"/>
+</g>
+<g class="node n&#45;rect">
+<path fill="none" stroke="black" stroke-width="1.8" d="M136,-227C136,-227 106,-227 106,-227 100,-227 94,-221 94,-215 94,-215 94,-202 94,-202 94,-196 100,-190 106,-190 106,-190 136,-190 136,-190 142,-190 148,-196 148,-202 148,-202 148,-215 148,-215 148,-221 142,-227 136,-227"/>
+<text text-anchor="start" x="116" y="-205" font-family="Helvetica,sans-Serif" font-size="15.00">6</text>
+</g>
+<g class="edge">
+<path fill="none" stroke="black" stroke-width="1.8" d="M45.12,-132.43C59.78,-146.93 80.56,-167.49 96.66,-183.42"/>
+<polygon fill="black" stroke="black" stroke-width="1.8" points="94.64,-185.85 103.25,-189.94 99.07,-181.37 94.64,-185.85"/>
+</g>
+<g class="edge">
+<path fill="none" stroke="black" stroke-width="1.8" d="M121,-132.43C121,-146.16 121,-165.3 121,-180.82"/>
+<polygon fill="black" stroke="black" stroke-width="1.8" points="117.85,-180.94 121,-189.94 124.15,-180.94 117.85,-180.94"/>
+</g>
+<g class="node n&#45;rect">
+<path fill="none" stroke="black" stroke-width="1.8" d="M91,-322C91,-322 57,-322 57,-322 51,-322 45,-316 45,-310 45,-310 45,-297 45,-297 45,-291 51,-285 57,-285 57,-285 91,-285 91,-285 97,-285 103,-291 103,-297 103,-297 103,-310 103,-310 103,-316 97,-322 91,-322"/>
+<text text-anchor="start" x="64" y="-300" font-family="Helvetica,sans-Serif" font-size="15.00">12</text>
+</g>
+<g class="edge">
+<path fill="none" stroke="black" stroke-width="1.8" d="M36.06,-227.43C43.13,-241.42 53.04,-261.03 60.96,-276.7"/>
+<polygon fill="black" stroke="black" stroke-width="1.8" points="58.25,-278.33 65.13,-284.94 63.88,-275.49 58.25,-278.33"/>
+</g>
+<g class="edge">
+<path fill="none" stroke="black" stroke-width="1.8" d="M111.94,-227.43C104.87,-241.42 94.96,-261.03 87.04,-276.7"/>
+<polygon fill="black" stroke="black" stroke-width="1.8" points="84.12,-275.49 82.87,-284.94 89.75,-278.33 84.12,-275.49"/>
+</g>
+</g>
+</svg>
+</figure>
 
 Les arêtes (calculées) sont : 1→2, 1→3, 2→4, 2→6, 3→6, 4→12, 6→12. Ici 1 est le **plus petit élément** et 12 le **plus grand**. En informatique : ordre des tâches d'un projet (S17), version d'un logiciel, droits hiérarchisés.
 

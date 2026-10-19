@@ -68,19 +68,84 @@ On considère la divisibilité sur \(E = \{1, 2, 3, 4, 6, 8, 12, 24\}\).
 1. Réflexive (\(x\) divise \(x\)) ; antisymétrique (si \(x \mid y\) et \(y \mid x\) alors \(x = y\), entiers positifs) ; transitive (\(y = kx\) et \(z = ly\) donnent \(z = (kl)x\)). Pas total : 2 ne divise pas 3, et 3 ne divise pas 2.
 2. Arêtes de couverture : 1→2, 1→3, 2→4, 2→6, 3→6, 4→8, 4→12, 6→12, 8→24, 12→24.
 
-```mermaid
-flowchart BT
-    a1["1"] --> a2["2"]
-    a1 --> a3["3"]
-    a2 --> a4["4"]
-    a2 --> a6["6"]
-    a3 --> a6
-    a4 --> a8["8"]
-    a4 --> a12["12"]
-    a6 --> a12
-    a8 --> a24["24"]
-    a12 --> a24
-```
+<figure class="graphe diagramme">
+<svg viewBox="0.00 0.00 173.60 438.60" style="max-width:232px" role="img" aria-label="Schéma" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g class="graph" transform="scale(1 1) rotate(0) translate(10.8 427.8)">
+<g class="node n&#45;rect">
+<path fill="none" stroke="black" stroke-width="1.8" d="M91,-37C91,-37 61,-37 61,-37 55,-37 49,-31 49,-25 49,-25 49,-12 49,-12 49,-6 55,0 61,0 61,0 91,0 91,0 97,0 103,-6 103,-12 103,-12 103,-25 103,-25 103,-31 97,-37 91,-37"/>
+<text text-anchor="start" x="71" y="-15" font-family="Helvetica,sans-Serif" font-size="15.00">1</text>
+</g>
+<g class="node n&#45;rect">
+<path fill="none" stroke="black" stroke-width="1.8" d="M44,-132C44,-132 14,-132 14,-132 8,-132 2,-126 2,-120 2,-120 2,-107 2,-107 2,-101 8,-95 14,-95 14,-95 44,-95 44,-95 50,-95 56,-101 56,-107 56,-107 56,-120 56,-120 56,-126 50,-132 44,-132"/>
+<text text-anchor="start" x="24" y="-110" font-family="Helvetica,sans-Serif" font-size="15.00">2</text>
+</g>
+<g class="edge">
+<path fill="none" stroke="black" stroke-width="1.8" d="M66.94,-37.43C59.87,-51.42 49.96,-71.03 42.04,-86.7"/>
+<polygon fill="black" stroke="black" stroke-width="1.8" points="39.12,-85.49 37.87,-94.94 44.75,-88.33 39.12,-85.49"/>
+</g>
+<g class="node n&#45;rect">
+<path fill="none" stroke="black" stroke-width="1.8" d="M138,-132C138,-132 108,-132 108,-132 102,-132 96,-126 96,-120 96,-120 96,-107 96,-107 96,-101 102,-95 108,-95 108,-95 138,-95 138,-95 144,-95 150,-101 150,-107 150,-107 150,-120 150,-120 150,-126 144,-132 138,-132"/>
+<text text-anchor="start" x="118" y="-110" font-family="Helvetica,sans-Serif" font-size="15.00">3</text>
+</g>
+<g class="edge">
+<path fill="none" stroke="black" stroke-width="1.8" d="M85.06,-37.43C92.13,-51.42 102.04,-71.03 109.96,-86.7"/>
+<polygon fill="black" stroke="black" stroke-width="1.8" points="107.25,-88.33 114.13,-94.94 112.88,-85.49 107.25,-88.33"/>
+</g>
+<g class="node n&#45;rect">
+<path fill="none" stroke="black" stroke-width="1.8" d="M44,-227C44,-227 14,-227 14,-227 8,-227 2,-221 2,-215 2,-215 2,-202 2,-202 2,-196 8,-190 14,-190 14,-190 44,-190 44,-190 50,-190 56,-196 56,-202 56,-202 56,-215 56,-215 56,-221 50,-227 44,-227"/>
+<text text-anchor="start" x="24" y="-205" font-family="Helvetica,sans-Serif" font-size="15.00">4</text>
+</g>
+<g class="edge">
+<path fill="none" stroke="black" stroke-width="1.8" d="M29,-132.43C29,-146.16 29,-165.3 29,-180.82"/>
+<polygon fill="black" stroke="black" stroke-width="1.8" points="25.85,-180.94 29,-189.94 32.15,-180.94 25.85,-180.94"/>
+</g>
+<g class="node n&#45;rect">
+<path fill="none" stroke="black" stroke-width="1.8" d="M138,-227C138,-227 108,-227 108,-227 102,-227 96,-221 96,-215 96,-215 96,-202 96,-202 96,-196 102,-190 108,-190 108,-190 138,-190 138,-190 144,-190 150,-196 150,-202 150,-202 150,-215 150,-215 150,-221 144,-227 138,-227"/>
+<text text-anchor="start" x="118" y="-205" font-family="Helvetica,sans-Serif" font-size="15.00">6</text>
+</g>
+<g class="edge">
+<path fill="none" stroke="black" stroke-width="1.8" d="M47.12,-132.43C61.78,-146.93 82.56,-167.49 98.66,-183.42"/>
+<polygon fill="black" stroke="black" stroke-width="1.8" points="96.64,-185.85 105.25,-189.94 101.07,-181.37 96.64,-185.85"/>
+</g>
+<g class="edge">
+<path fill="none" stroke="black" stroke-width="1.8" d="M123,-132.43C123,-146.16 123,-165.3 123,-180.82"/>
+<polygon fill="black" stroke="black" stroke-width="1.8" points="119.85,-180.94 123,-189.94 126.15,-180.94 119.85,-180.94"/>
+</g>
+<g class="node n&#45;rect">
+<path fill="none" stroke="black" stroke-width="1.8" d="M42,-322C42,-322 12,-322 12,-322 6,-322 0,-316 0,-310 0,-310 0,-297 0,-297 0,-291 6,-285 12,-285 12,-285 42,-285 42,-285 48,-285 54,-291 54,-297 54,-297 54,-310 54,-310 54,-316 48,-322 42,-322"/>
+<text text-anchor="start" x="22" y="-300" font-family="Helvetica,sans-Serif" font-size="15.00">8</text>
+</g>
+<g class="edge">
+<path fill="none" stroke="black" stroke-width="1.8" d="M28.61,-227.43C28.32,-241.16 27.91,-260.3 27.57,-275.82"/>
+<polygon fill="black" stroke="black" stroke-width="1.8" points="24.42,-275.87 27.38,-284.94 30.72,-276.01 24.42,-275.87"/>
+</g>
+<g class="node n&#45;rect">
+<path fill="none" stroke="black" stroke-width="1.8" d="M140,-322C140,-322 106,-322 106,-322 100,-322 94,-316 94,-310 94,-310 94,-297 94,-297 94,-291 100,-285 106,-285 106,-285 140,-285 140,-285 146,-285 152,-291 152,-297 152,-297 152,-310 152,-310 152,-316 146,-322 140,-322"/>
+<text text-anchor="start" x="113" y="-300" font-family="Helvetica,sans-Serif" font-size="15.00">12</text>
+</g>
+<g class="edge">
+<path fill="none" stroke="black" stroke-width="1.8" d="M47.12,-227.43C61.78,-241.93 82.56,-262.49 98.66,-278.42"/>
+<polygon fill="black" stroke="black" stroke-width="1.8" points="96.64,-280.85 105.25,-284.94 101.07,-276.37 96.64,-280.85"/>
+</g>
+<g class="edge">
+<path fill="none" stroke="black" stroke-width="1.8" d="M123,-227.43C123,-241.16 123,-260.3 123,-275.82"/>
+<polygon fill="black" stroke="black" stroke-width="1.8" points="119.85,-275.94 123,-284.94 126.15,-275.94 119.85,-275.94"/>
+</g>
+<g class="node n&#45;rect">
+<path fill="none" stroke="black" stroke-width="1.8" d="M92,-417C92,-417 58,-417 58,-417 52,-417 46,-411 46,-405 46,-405 46,-392 46,-392 46,-386 52,-380 58,-380 58,-380 92,-380 92,-380 98,-380 104,-386 104,-392 104,-392 104,-405 104,-405 104,-411 98,-417 92,-417"/>
+<text text-anchor="start" x="65" y="-395" font-family="Helvetica,sans-Serif" font-size="15.00">24</text>
+</g>
+<g class="edge">
+<path fill="none" stroke="black" stroke-width="1.8" d="M36.25,-322.43C43.47,-336.42 53.59,-356.03 61.68,-371.7"/>
+<polygon fill="black" stroke="black" stroke-width="1.8" points="59.01,-373.39 65.94,-379.94 64.61,-370.5 59.01,-373.39"/>
+</g>
+<g class="edge">
+<path fill="none" stroke="black" stroke-width="1.8" d="M113.75,-322.43C106.53,-336.42 96.41,-356.03 88.32,-371.7"/>
+<polygon fill="black" stroke="black" stroke-width="1.8" points="85.39,-370.5 84.06,-379.94 90.99,-373.39 85.39,-370.5"/>
+</g>
+</g>
+</svg>
+</figure>
 
 3. Plus petit : 1 ; plus grand : 24. Non comparables : 2 et 3, ou 8 et 12.
 

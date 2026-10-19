@@ -52,17 +52,44 @@ La matrice d'adjacence d'un graphe de sommets \(a, b, c, d\) est \(M = \begin{pm
 
 Arcs (ligne → colonne) : a → b, a → d, b → c, c → d.
 
-```mermaid
-flowchart LR
-    n0((a))
-    n1((b))
-    n2((c))
-    n3((d))
-    n0 --> n1
-    n0 --> n3
-    n1 --> n2
-    n2 --> n3
-```
+<figure class="graphe diagramme">
+<svg viewBox="0.00 0.00 375.60 108.60" style="max-width:501px" role="img" aria-label="Schéma" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g class="graph" transform="scale(1 1) rotate(0) translate(10.8 97.8)">
+<g class="node n&#45;circle">
+<ellipse fill="none" stroke="black" stroke-width="1.8" cx="22.5" cy="-22.5" rx="22.5" ry="22.5"/>
+<text text-anchor="start" x="17.5" y="-19" font-family="Helvetica,sans-Serif" font-size="15.00">a</text>
+</g>
+<g class="node n&#45;circle">
+<ellipse fill="none" stroke="black" stroke-width="1.8" cx="125.5" cy="-64.5" rx="22.5" ry="22.5"/>
+<text text-anchor="start" x="120.5" y="-61" font-family="Helvetica,sans-Serif" font-size="15.00">b</text>
+</g>
+<g class="edge">
+<path fill="none" stroke="black" stroke-width="1.8" d="M43.45,-30.8C58.43,-37.03 79.16,-45.65 95.9,-52.61"/>
+<polygon fill="black" stroke="black" stroke-width="1.8" points="94.72,-55.53 104.24,-56.08 97.14,-49.71 94.72,-55.53"/>
+</g>
+<g class="node n&#45;circle">
+<ellipse fill="none" stroke="black" stroke-width="1.8" cx="331.5" cy="-22.5" rx="22.5" ry="22.5"/>
+<text text-anchor="start" x="326.5" y="-19" font-family="Helvetica,sans-Serif" font-size="15.00">d</text>
+</g>
+<g class="edge">
+<path fill="none" stroke="black" stroke-width="1.8" d="M45.09,-22.16C61.08,-21.92 83.4,-21.62 103,-21.5 168.78,-21.09 185.22,-21.09 251,-21.5 267.08,-21.6 284.98,-21.82 299.73,-22.02"/>
+<polygon fill="black" stroke="black" stroke-width="1.8" points="299.86,-25.17 308.91,-22.16 299.95,-18.88 299.86,-25.17"/>
+</g>
+<g class="node n&#45;circle">
+<ellipse fill="none" stroke="black" stroke-width="1.8" cx="228.5" cy="-64.5" rx="22.5" ry="22.5"/>
+<text text-anchor="start" x="224" y="-61" font-family="Helvetica,sans-Serif" font-size="15.00">c</text>
+</g>
+<g class="edge">
+<path fill="none" stroke="black" stroke-width="1.8" d="M148.42,-64.5C162.54,-64.5 181.12,-64.5 196.71,-64.5"/>
+<polygon fill="black" stroke="black" stroke-width="1.8" points="196.97,-67.65 205.97,-64.5 196.97,-61.35 196.97,-67.65"/>
+</g>
+<g class="edge">
+<path fill="none" stroke="black" stroke-width="1.8" d="M249.45,-56.2C264.43,-49.97 285.16,-41.35 301.9,-34.39"/>
+<polygon fill="black" stroke="black" stroke-width="1.8" points="303.14,-37.29 310.24,-30.92 300.72,-31.47 303.14,-37.29"/>
+</g>
+</g>
+</svg>
+</figure>
 
 Chemin hamiltonien : a → b → c → d (il passe une fois par chaque sommet).
 
