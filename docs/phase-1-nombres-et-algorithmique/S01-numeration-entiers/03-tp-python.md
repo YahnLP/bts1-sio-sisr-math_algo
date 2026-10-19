@@ -9,6 +9,9 @@ render_macros: true
 > [!NOTE]
 > **Comment ce TP fonctionne.** Chaque exercice a un éditeur Python intégré à la page (il s'exécute dans ton navigateur, rien à installer). Avant de lancer, écris sur ta feuille ce que tu **anticipes** (« J'anticipe »). Puis lance et compare. Le bouton **Valider** exécute des tests : un test réussi ne dispense pas de **comprendre** pourquoi.
 
+> [!TIP]
+> **Première fois avec Python ?** Les TP de S01 et S02 supposent seulement les bases de l'[annexe Python : premiers pas](annexe-python.md) (10 minutes de lecture). Les notions sont reprises en détail en S03 et S04. Pour chaque fonction, repère d'abord **ce que tu dois remplacer** (les `...` et les lignes « à compléter »), le reste du programme est déjà écrit.
+
 ## Exercice A – Découvrir `bin`, `hex` et `int`
 
 **J'anticipe.** Écris sur ta feuille ce que tu penses voir s'afficher pour `bin(205)`, `hex(205)`, `int("11001101", 2)` et `int("CD", 16)`. Puis lance le script.
