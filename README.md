@@ -1,6 +1,6 @@
 # Mathématiques pour l'informatique – BTS SIO 1re année
 
-Cours, exercices corrigés, TP Python et aide-mémoire des **19 séances** de mathématiques pour l'informatique (option SISR), préparant l'épreuve écrite E3.
+Cours, exercices corrigés, TP Python et aide-mémoire des **19 séances** (plus une séance préalable d'introduction à Python, hors classe) de mathématiques pour l'informatique (option SISR), préparant l'épreuve écrite E3.
 
 Auteur : **Yahn LE PRETTRE** – Formateur. Licence **CC BY-NC-SA 4.0** (voir `LICENSE`).
 
