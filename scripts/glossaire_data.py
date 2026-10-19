@@ -143,14 +143,10 @@ DATA = [
 ("Pivot", None, "pivot", "Coefficient qu'on ramène à 1 pour éliminer les autres de sa colonne.", "S14"),
 ("Méthode des lignes", None, "Gauss-Jordan elimination", "Opérations sur les lignes de \\([A \\mid I]\\) pour obtenir \\([I \\mid A^{-1}]\\).", "S14"),
 ("Fraction", None, "fraction", "Nombre rationnel exact (`Fraction` en Python), qui évite les arrondis.", "S14"),
-# --- S15 Suites
-("Suite numérique", None, "sequence", "Application de \\(\\mathbb{N}\\) dans \\(\\mathbb{R}\\) : \\(n \\mapsto u_n\\).", "S15"),
-("Suite arithmétique", None, "arithmetic sequence", "Suite où l'on ajoute toujours la même raison \\(r\\).", "S15"),
-("Suite géométrique", None, "geometric sequence", "Suite où l'on multiplie toujours par la même raison \\(q\\).", "S15"),
-("Raison", None, "common difference / ratio", "Nombre ajouté (arithmétique) ou multiplicateur (géométrique) d'un terme au suivant.", "S15"),
-("Récurrence (définition par)", None, "recurrence", "Définition de \\(u_{n+1}\\) à partir de \\(u_n\\) et de \\(u_0\\).", "S15"),
-("Limite", None, "limit", "Valeur dont les termes d'une suite s'approchent ; peut être infinie.", "S15"),
-("Seuil", None, "threshold", "Premier rang à partir duquel une condition sur une suite est vérifiée.", "S15"),
+# --- S15 Validation et contrôle de données
+("Cas limite", None, "edge case", "Valeur située à la frontière ou situation particulière (liste vide, un seul élément) qui révèle souvent une erreur.", "S15"),
+("Bit de parité", None, "parity bit", "Bit ajouté à un mot pour que son nombre total de 1 soit pair (parité paire) ; il permet de détecter une erreur.", "S15"),
+("Somme de contrôle", None, "checksum", "Valeur calculée à partir de tous les octets d'un message et transmise avec lui pour détecter une altération.", "S15"),
 # --- S16 Graphes
 ("Graphe orienté", None, "directed graph", "Ensemble de sommets reliés par des arcs.", "S16"),
 ("Sommet", None, "vertex", "Point d'un graphe.", "S16"),
@@ -173,12 +169,9 @@ DATA = [
 ("Marge certaine", None, "safe float", "Retard possible même si tous les prédécesseurs finissent au plus tard.", "S17"),
 ("Tâche critique", None, "critical task", "Tâche de marge totale nulle.", "S17"),
 ("Chemin critique", None, "critical path", "Chemin de tâches critiques ; sa longueur est la durée minimale du projet.", "S17"),
-# --- S18 Récursivité, complexité, débogage
-("Récursivité", None, "recursion", "Définition d'un traitement par un appel à lui-même sur un problème plus petit.", "S18"),
-("Cas de base", None, "base case", "Cas résolu sans nouvel appel récursif.", "S18"),
+# --- S18 Écrire, tester, déboguer
+("Jeu de tests", None, "test suite", "Ensemble de cas, avec le résultat attendu, qui permet de contrôler une fonction.", "S18"),
 ("Terminaison", None, "termination", "Garantie qu'un algorithme s'arrête.", "S18"),
-("Complexité", None, "complexity", "Nombre d'opérations significatives d'un algorithme en fonction de la taille des données.", "S18"),
-("Pire cas", None, "worst case", "Situation qui demande le plus d'opérations.", "S18"),
 ("Débogage", None, "debugging", "Recherche et correction des erreurs d'un programme.", "S18"),
 ("Effet de bord", None, "side effect", "Modification d'une donnée extérieure à la fonction (par exemple une liste passée en paramètre).", "S18"),
 ("Nombre flottant", None, "floating-point number", "Représentation approchée d'un réel en machine.", "S18"),

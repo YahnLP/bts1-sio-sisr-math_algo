@@ -1,8 +1,8 @@
-title: "Phase 3 – Relations, tableaux, matrices et suites"
+title: "Phase 3 – Relations, tableaux, matrices et contrôle de données"
 nav:
   - README.md
   - S11-relations-applications
   - S12-algorithmique-fonctions-tableaux
   - S13-matrices-calcul
   - S14-matrices-inverse-systemes
-  - S15-suites-numeriques
+  - S15-validation-controle-donnees

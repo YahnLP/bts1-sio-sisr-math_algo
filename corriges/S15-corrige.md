@@ -4,68 +4,104 @@
 
 Réponses détaillées dans les encadrés de la feuille d'exercices. Résultats clés :
 
-- \(v_n = 2^{n+2} - 1\) ; \(u_{10} = 47\), somme 297 ; \(5 \times 3^6 = 3645\), somme 5465.
-- Sauvegardes : mois 32 (arithmétique), mois 24 (géométrique à 3 %).
-- Seuils : 15 ans (1 000 € à 5 %), 7 ans (1 200 € à −20 %).
+- Octets : `"192"` et `"0"` valides ; `"256"`, `"07"`, `""`, `"12a"` invalides.
+- IPv4 : `10.0.0.1` valide ; `10.0.0` (3 morceaux), `172.16.256.1` (256), `192.168.1.1.` (5 morceaux), `1.2.3.04` (zéro initial) invalides.
+- Octets de masque : 0, 128, 192, 224, 240, 248, 252, 254, 255.
+- Bits de parité : `1011001` → 0 ; `1110000` → 1 ; `0000000` → 0 ; `1111111` → 1. Deux erreurs (rangs 3 et 8 de `10110010`) ne sont pas détectées.
+- Parité à deux dimensions : ligne 1 et colonne 2 fausses, on corrige `g[1][2]` (0 devient 1).
+- Somme de contrôle de \(200, 100, 50\) : \(c = 162\) ; \([200, 100, 51]\) est détecté, \([201, 99, 50]\) ne l'est pas.
+- \(\texttt{0xC0} \oplus \texttt{0xA8} \oplus \texttt{0x0A} \oplus \texttt{0x4D} = \texttt{0x2F}\) (47).
 
 ## TP Python – solutions
 
 ```python
-from fractions import Fraction
+def est_octet(s):
+    if s == "" or not s.isdigit():
+        return False
+    if len(s) > 1 and s[0] == "0":
+        return False
+    return 0 <= int(s) <= 255
 
-def terme_arith(u0, r, n):
-    return u0 + n * r
+def ipv4_valide(s):
+    morceaux = s.split(".")
+    if len(morceaux) != 4:
+        return False
+    for m in morceaux:
+        if not est_octet(m):
+            return False
+    return True
 
-def terme_geom(u0, q, n):
-    return u0 * q ** n
-
-def somme_arith(u0, r, n):
-    """u0 + ... + un : (nombre de termes) x (premier + dernier) / 2."""
-    return Fraction((n + 1) * (u0 + terme_arith(u0, r, n)), 2)
-
-def somme_geom(u0, q, n):
-    """u0 + ... + un."""
-    if q == 1:
-        return (n + 1) * u0
-    return u0 * (1 - q ** (n + 1)) / (1 - q)
+def mac_valide(s):
+    hexa = "0123456789abcdefABCDEF"
+    groupes = s.split(":")
+    if len(groupes) != 6:
+        return False
+    for g in groupes:
+        if len(g) != 2:
+            return False
+        for c in g:
+            if c not in hexa:
+                return False
+    return True
 ```
 
 ```python
-def suite(f, u0, n):
-    """Liste [u0, u1, ..., un] avec u(k+1) = f(u(k))."""
-    termes = [u0]
-    u = u0
-    for _ in range(n):
-        u = f(u)
-        termes.append(u)
-    return termes
-```
-
-```python
-def seuil_croissant(u0, q, limite):
-    """Plus petit n tel que u0 q^n >= limite (q > 1)."""
+def bit_parite(bits):
     n = 0
-    u = u0
-    while u < limite:
-        u = u * q
-        n = n + 1
-    return n
+    for b in bits:
+        if b == 1:
+            n = n + 1
+    return n % 2
 
-def seuil_decroissant(u0, q, limite):
-    """Plus petit n tel que u0 q^n <= limite (0 < q < 1)."""
-    n = 0
-    u = u0
-    while u > limite:
-        u = u * q
-        n = n + 1
-    return n
+def ajoute_parite(bits):
+    r = list(bits)
+    r.append(bit_parite(bits))
+    return r
+
+def mot_valide(mot):
+    return bit_parite(mot) == 0
 ```
 
 ```python
-def somme_termes(f, a, b):
-    """Somme des f(k) pour k de a à b inclus (0 si b < a)."""
-    s = 0
-    for k in range(a, b + 1):
-        s = s + f(k)
-    return s
+def lignes_incorrectes(g):
+    res = []
+    for i in range(len(g)):
+        if sum(g[i]) % 2 == 1:
+            res.append(i)
+    return res
+
+def colonnes_incorrectes(g):
+    res = []
+    for j in range(len(g[0])):
+        total = 0
+        for i in range(len(g)):
+            total = total + g[i][j]
+        if total % 2 == 1:
+            res.append(j)
+    return res
+
+def corrige(g):
+    copie = [ligne[:] for ligne in g]
+    lignes = lignes_incorrectes(g)
+    colonnes = colonnes_incorrectes(g)
+    if len(lignes) == 1 and len(colonnes) == 1:
+        i = lignes[0]
+        j = colonnes[0]
+        copie[i][j] = 1 - copie[i][j]
+    return copie
 ```
+
+```python
+def somme_controle(octets):
+    return (-sum(octets)) % 256
+
+def trame_valide(octets, c):
+    return (sum(octets) + c) % 256 == 0
+
+def xor_controle(octets):
+    r = 0
+    for o in octets:
+        r = r ^ o
+    return r
+```
+

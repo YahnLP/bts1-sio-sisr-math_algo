@@ -11,13 +11,13 @@ render_macros: true
 
 Ces trois exercices reprennent le type de programmation de l'épreuve : une fonction à écrire à partir d'un énoncé, avec des tests.
 
-## Exercice A – Seuil
+## Exercice A – Première série en alerte
 
-Écris `premier_mois(v0, q, capacite)` : le plus petit entier \(n\) tel que `v0 * q**n >= capacite` (avec \(q > 1\)).
+Écris `premiere_serie(releves, seuil, k)` : l'indice du premier relevé de la première série d'au moins `k` relevés consécutifs strictement supérieurs au seuil (avec `k >= 1`), ou `-1`.
 
-**J'anticipe.** Pour `v0 = 120`, `q = 1.08` en fraction (`Fraction(27, 25)`) et `capacite = 200`, quel résultat attends-tu ?
+**J'anticipe.** Pour `[30, 10, 30, 31, 32, 10]`, le seuil 25 et `k = 3`, quel résultat attends-tu ?
 
-{{ IDE('premier_mois', MAX="+") }}
+{{ IDE('serie_alerte', MAX="+") }}
 
 ## Exercice B – Journal
 
@@ -25,10 +25,10 @@ Ces trois exercices reprennent le type de programmation de l'épreuve : une fonc
 
 {{ IDE('journal_erreurs', MAX="+") }}
 
-## Exercice C – Bilan de stockage
+## Exercice C – Bilan de relevés
 
-Écris `volumes(v0, q, n)` (liste de \(V_0, \dots, V_n\)) et `bilan(v0, q, capacite)` qui renvoie un couple `(mois_de_saturation, volume_ce_mois)`.
+Écris `bilan_releves(releves, seuil)` qui renvoie un quadruplet `(minimum, maximum, nombre de relevés en alerte, pourcentage de relevés en alerte)` pour une liste non vide.
 
-**Je comprends.** Quelle est la différence entre la liste des volumes jusqu'au mois \(n\) et le nombre d'éléments qu'elle contient ?
+**Je comprends.** Pourquoi faut-il écrire `n * 100 / len(releves)` et non `n // len(releves) * 100` ?
 
-{{ IDE('bilan_stockage', MAX="+") }}
+{{ IDE('bilan_releves', MAX="+") }}

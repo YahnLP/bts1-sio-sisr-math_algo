@@ -48,35 +48,36 @@ c) \(X = P B = \begin{pmatrix} 3 \\ 2 \end{pmatrix}\) : \(x = 3\) euros, \(y = 2
 ## Exercice 3 (8 points)
 
 **1. (3 pts)**
-a) Chaque mois, le volume est multiplié par \(1 + 0{,}08 = 1{,}08\) : géométrique de raison \(q = 1{,}08\), \(V_n = 120 \times 1{,}08^n\) (1 pt).
-b) \(V_3 = 120 \times 1{,}08^3 = 151,17\) Go (valeur exacte \(472392/3125\)) (0,5 pt).
-c) Algorithme (1 pt) :
-```text
-n ← 0 ; V ← 120
-TANT QUE V < 200 FAIRE
-  V ← V × 1,08
-  n ← n + 1
-FIN TANT QUE
-RETOURNER n
-```
-Réponse (0,5 pt) : \(V_6 \approx 190,42 < 200\) et \(V_7 \approx 205,66 \ge 200\) : **mois 7**.
+a) Suivi pour `[21, 26, 27, 24, 28]`, seuil 25 (1,5 pt) :
 
-**2. (2 pts)** Voir la solution Python ci-dessous (1 pt pour la boucle `TANT QUE` correcte, 1 pt pour le cas où le seuil est déjà atteint : `0`).
+| `r` | `courante` | `meilleure` |
+|---|---|---|
+| 21 | 0 | 0 |
+| 26 | 1 | 1 |
+| 27 | 2 | 2 |
+| 24 | 0 | 2 |
+| 28 | 1 | 2 |
+
+Valeur renvoyée : **2**.
+b) Le plus grand nombre de relevés consécutifs strictement supérieurs au seuil ; pour une liste vide, la boucle ne s'exécute pas et la fonction renvoie 0 (0,5 pt).
+c) Pour `[30, 31, 32]`, la série est en cours à la fin de la liste : la mise à jour n'a jamais lieu (elle n'est faite que lorsqu'un relevé n'est pas en alerte). La fonction renvoie 0 au lieu de 3 (1 pt).
+
+**2. (2 pts)** Voir la solution Python ci-dessous (1 pt pour le parcours avec renvoi de l'indice dès qu'un relevé dépasse le seuil, 1 pt pour `-1` **après** la boucle).
 
 **3. (2 pts)** Voir la solution Python (1 pt pour l'extraction des champs avec `split`, 1 pt pour le dictionnaire).
 
-**4. (1 pt)** \(\lfloor \log_2 1000 \rfloor + 1 = 10\) comparaisons au maximum, contre 1 000 pour la recherche séquentielle.
+**4. (1 pt)**
+a) Somme \(350\) ; \(350 \bmod 256 = 94\) ; \(c = 256 - 94 = 162\) (0,5 pt).
+b) \(201 + 99 + 50 + 162 = 512 \equiv 0 \pmod{256}\) : le contrôle réussit, l'erreur **n'est pas détectée** : deux erreurs qui se compensent laissent la somme inchangée (0,5 pt).
 
 ## Solutions Python
 
 ```python
-def premier_mois(v0, q, capacite):
-    n = 0
-    v = v0
-    while v < capacite:
-        v = v * q
-        n = n + 1
-    return n
+def premiere_alerte(releves, seuil):
+    for i in range(len(releves)):
+        if releves[i] > seuil:
+            return i
+    return -1
 ```
 
 ```python
@@ -101,21 +102,32 @@ def adresse_la_plus_active(lignes):
 ```
 
 ```python
-def volumes(v0, q, n):
-    liste = [v0]
-    v = v0
-    for _ in range(n):
-        v = v * q
-        liste.append(v)
-    return liste
+def premiere_serie(releves, seuil, k):
+    courante = 0
+    for i in range(len(releves)):
+        if releves[i] > seuil:
+            courante = courante + 1
+        else:
+            courante = 0
+        if courante == k:
+            return i - k + 1
+    return -1
+```
 
-def bilan(v0, q, capacite):
+```python
+def bilan_releves(releves, seuil):
+    mini = releves[0]
+    maxi = releves[0]
     n = 0
-    v = v0
-    while v < capacite:
-        v = v * q
-        n = n + 1
-    return (n, v)
+    for r in releves:
+        if r < mini:
+            mini = r
+        if r > maxi:
+            maxi = r
+        if r > seuil:
+            n = n + 1
+    pourcentage = n * 100 / len(releves)
+    return (mini, maxi, n, pourcentage)
 ```
 
 ## Barème récapitulatif
