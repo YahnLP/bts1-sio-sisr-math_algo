@@ -3,7 +3,7 @@
 *BTS SIO SISR 1re année – Mathématiques pour l'informatique – S01 – à lire avant les [exercices](02-exercices.md)*
 
 > [!NOTE] Ce que tu dois savoir déjà
-> - **Prérequis :** Aucun (puissances, divisions).
+> - **Prérequis :** Aucun (puissances, divisions). Pour le TP : [S00 – Introduction à Python](../S00-introduction-python/README.md), à faire hors classe.
 > - **Outils :** Papier, calculatrice, éditeur Python intégré au site
 
 ## À la fin de ce cours tu sauras

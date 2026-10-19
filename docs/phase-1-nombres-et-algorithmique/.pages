@@ -1,6 +1,7 @@
 title: "Phase 1 – Nombres et premiers algorithmes"
 nav:
   - README.md
+  - S00-introduction-python
   - S01-numeration-entiers
   - S02-numeration-reels-binaire
   - S03-algorithmique-donnees-conditions

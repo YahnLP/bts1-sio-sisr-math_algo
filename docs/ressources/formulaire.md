@@ -5,6 +5,55 @@ Tous les aide-mémoire du cours réunis sur une seule page, dans l'ordre des sé
 > [!NOTE]
 > Chaque formule a été vérifiée par le calcul sur des exemples. Pour l'épreuve, vérifie dans le sujet ce qui est rappelé et ce qui est à connaître.
 
+## S00 · Syntaxe Python
+
+### Calculs
+
+| Écriture | Sens |
+|---|---|
+| `a + b`, `a - b`, `a * b` | somme, différence, produit |
+| `a // b`, `a % b` | quotient, reste de la division euclidienne |
+| `a ** b` | puissance |
+| `a / b` | division décimale (flottant) |
+| `==`, `!=`, `<`, `<=`, `>`, `>=` | comparaisons (`True` / `False`) |
+| `and`, `or`, `not` | et, ou, non |
+
+### Texte
+
+| Écriture | Sens |
+|---|---|
+| `len(t)` | nombre de caractères |
+| `t[0]`, `t[-1]` | premier, dernier caractère |
+| `a + b` | colle deux textes |
+| `str(n)`, `int(t)` | nombre vers texte, texte vers nombre |
+| `t.split(".")` | découpe en liste de textes |
+
+### Structures
+
+```python
+if condition:          # sinon si : elif, sinon : else
+    ...
+for i in range(a, b):  # i vaut a, a+1, ..., b-1
+    ...
+while condition:       # une variable doit changer à chaque tour
+    ...
+def nom(parametre):
+    return resultat
+```
+
+### Listes
+
+`l = [4, 8, 15]` · `len(l)` · `l[0]` · `l.append(v)` · `for x in l:`
+
+### Erreurs
+
+| Message | Cause probable |
+|---|---|
+| `IndentationError` | bloc mal décalé (4 espaces) |
+| `SyntaxError` | `:` oublié, guillemets non fermés |
+| `NameError` | variable inconnue ou mal écrite |
+| `TypeError` | texte et nombre mélangés |
+
 ## S01 · Numération : bases 2, 10 et 16
 
 ### Définition

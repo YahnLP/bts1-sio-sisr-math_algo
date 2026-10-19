@@ -32,6 +32,7 @@ Les **suites numériques** ne figurent pas dans cette liste : elles relèvent de
 
 | Séance | Thème | Chapitre du programme |
 |---|---|---|
+| [S00](../phase-1-nombres-et-algorithmique/S00-introduction-python/README.md) | Introduction à Python (préalable, hors classe) | Outil de l'algorithmique appliquée |
 | [S01](../phase-1-nombres-et-algorithmique/S01-numeration-entiers/README.md) | Numération : entiers en base 2, 10 et 16 | Arithmétique – numération |
 | [S02](../phase-1-nombres-et-algorithmique/S02-numeration-reels-binaire/README.md) | Numération : nombres à virgule, arrondis et calcul en binaire | Arithmétique – numération, arrondis, opérations en base 2 |
 | [S03](../phase-1-nombres-et-algorithmique/S03-algorithmique-donnees-conditions/README.md) | Algorithmique : données, instructions et conditions | Algorithmique appliquée – données, instructions, conditionnelles |
