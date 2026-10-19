@@ -38,7 +38,6 @@ theme:
     - navigation.tabs
     - navigation.indexes
     - navigation.top
-    - navigation.instant
     - toc.follow
     - content.code.copy
     - search.highlight
