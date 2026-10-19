@@ -14,24 +14,81 @@ Dans le graphe valué de sommets \(A, \dots, F\) et d'arcs A→B (7), A→C (9),
 <details markdown="1">
 <summary>Voir la réponse</summary>
 
-```mermaid
-flowchart LR
-    A((A))
-    B((B))
-    C((C))
-    D((D))
-    E((E))
-    F((F))
-    A -->|7| B
-    A -->|9| C
-    A -->|14| F
-    B -->|10| C
-    B -->|15| D
-    C -->|11| D
-    C -->|2| F
-    D -->|6| E
-    F -->|9| E
-```
+<figure class="graphe diagramme">
+<svg viewBox="0.00 0.00 530.60 167.60" style="max-width:708px" role="img" aria-label="Schéma" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g class="graph" transform="scale(1 1) rotate(0) translate(10.8 156.8)">
+<g class="node n&#45;circle">
+<ellipse fill="none" stroke="black" stroke-width="1.8" cx="22.5" cy="-46.5" rx="22.5" ry="22.5"/>
+<text text-anchor="middle" x="22.5" y="-43" font-family="Helvetica,sans-Serif" font-size="15.00">A</text>
+</g>
+<g class="node n&#45;circle">
+<ellipse fill="none" stroke="black" stroke-width="1.8" cx="134.5" cy="-123.5" rx="22.5" ry="22.5"/>
+<text text-anchor="middle" x="134.5" y="-120" font-family="Helvetica,sans-Serif" font-size="15.00">B</text>
+</g>
+<g class="edge">
+<path fill="none" stroke="black" stroke-width="1.8" d="M41.66,-59.21C59.84,-71.94 87.96,-91.62 108.3,-105.86"/>
+<polygon fill="black" stroke="black" stroke-width="1.8" points="106.49,-108.44 115.67,-111.02 110.11,-103.28 106.49,-108.44"/>
+<text text-anchor="start" x="74" y="-90.1" font-family="Helvetica,sans-Serif" font-size="13.00">7</text>
+</g>
+<g class="node n&#45;circle">
+<ellipse fill="none" stroke="black" stroke-width="1.8" cx="254.5" cy="-48.5" rx="22.5" ry="22.5"/>
+<text text-anchor="middle" x="254.5" y="-45" font-family="Helvetica,sans-Serif" font-size="15.00">C</text>
+</g>
+<g class="edge">
+<path fill="none" stroke="black" stroke-width="1.8" d="M45.14,-46.69C86.15,-47.04 175.31,-47.82 222.6,-48.23"/>
+<polygon fill="black" stroke="black" stroke-width="1.8" points="222.73,-51.38 231.75,-48.31 222.78,-45.08 222.73,-51.38"/>
+<text text-anchor="start" x="130" y="-51.1" font-family="Helvetica,sans-Serif" font-size="13.00">9</text>
+</g>
+<g class="node n&#45;circle">
+<ellipse fill="none" stroke="black" stroke-width="1.8" cx="374.5" cy="-22.5" rx="22.5" ry="22.5"/>
+<text text-anchor="middle" x="374.5" y="-19" font-family="Helvetica,sans-Serif" font-size="15.00">F</text>
+</g>
+<g class="edge">
+<path fill="none" stroke="black" stroke-width="1.8" d="M44.07,-39.65C87.08,-26.11 189.73,2.13 277,-5.5 299.33,-7.45 324.23,-11.9 343.15,-15.75"/>
+<polygon fill="black" stroke="black" stroke-width="1.8" points="342.72,-18.88 352.18,-17.64 344.01,-12.72 342.72,-18.88"/>
+<text text-anchor="middle" x="194.5" y="-12.1" font-family="Helvetica,sans-Serif" font-size="13.00">14</text>
+</g>
+<g class="edge">
+<path fill="none" stroke="black" stroke-width="1.8" d="M153.94,-111.78C173.68,-99.23 205.17,-79.22 227.44,-65.06"/>
+<polygon fill="black" stroke="black" stroke-width="1.8" points="229.29,-67.62 235.19,-60.14 225.91,-62.31 229.29,-67.62"/>
+<text text-anchor="start" x="186" y="-93.1" font-family="Helvetica,sans-Serif" font-size="13.00">10</text>
+</g>
+<g class="node n&#45;circle">
+<ellipse fill="none" stroke="black" stroke-width="1.8" cx="374.5" cy="-107.5" rx="22.5" ry="22.5"/>
+<text text-anchor="middle" x="374.5" y="-104" font-family="Helvetica,sans-Serif" font-size="15.00">D</text>
+</g>
+<g class="edge">
+<path fill="none" stroke="black" stroke-width="1.8" d="M157.04,-122.05C199.41,-119.2 293.73,-112.86 342.68,-109.57"/>
+<polygon fill="black" stroke="black" stroke-width="1.8" points="343.07,-112.7 351.84,-108.96 342.65,-106.42 343.07,-112.7"/>
+<text text-anchor="middle" x="254.5" y="-120.1" font-family="Helvetica,sans-Serif" font-size="13.00">15</text>
+</g>
+<g class="edge">
+<path fill="none" stroke="black" stroke-width="1.8" d="M274.99,-58.24C294.29,-67.89 324.03,-82.76 345.79,-93.64"/>
+<polygon fill="black" stroke="black" stroke-width="1.8" points="344.53,-96.54 353.99,-97.74 347.34,-90.9 344.53,-96.54"/>
+<text text-anchor="start" x="306" y="-85.1" font-family="Helvetica,sans-Serif" font-size="13.00">11</text>
+</g>
+<g class="edge">
+<path fill="none" stroke="black" stroke-width="1.8" d="M276.6,-43.34C285.64,-41.17 296.32,-38.65 306,-36.5 318.17,-33.79 331.61,-30.97 343.27,-28.58"/>
+<polygon fill="black" stroke="black" stroke-width="1.8" points="344,-31.64 352.19,-26.76 342.74,-25.47 344,-31.64"/>
+<text text-anchor="start" x="310" y="-40.1" font-family="Helvetica,sans-Serif" font-size="13.00">2</text>
+</g>
+<g class="node n&#45;circle">
+<ellipse fill="none" stroke="black" stroke-width="1.8" cx="486.5" cy="-64.5" rx="22.5" ry="22.5"/>
+<text text-anchor="middle" x="486.5" y="-61" font-family="Helvetica,sans-Serif" font-size="15.00">E</text>
+</g>
+<g class="edge">
+<path fill="none" stroke="black" stroke-width="1.8" d="M395.68,-99.61C412.7,-92.96 437.29,-83.34 456.44,-75.86"/>
+<polygon fill="black" stroke="black" stroke-width="1.8" points="457.84,-78.69 465.08,-72.48 455.55,-72.83 457.84,-78.69"/>
+<text text-anchor="start" x="426" y="-90.1" font-family="Helvetica,sans-Serif" font-size="13.00">6</text>
+</g>
+<g class="edge">
+<path fill="none" stroke="black" stroke-width="1.8" d="M396.85,-26.05C408.38,-28.32 422.73,-31.76 435,-36.5 443.1,-39.63 451.51,-43.85 459.08,-48.06"/>
+<polygon fill="black" stroke="black" stroke-width="1.8" points="457.55,-50.81 466.92,-52.58 460.69,-45.36 457.55,-50.81"/>
+<text text-anchor="start" x="426" y="-40.1" font-family="Helvetica,sans-Serif" font-size="13.00">9</text>
+</g>
+</g>
+</svg>
+</figure>
 
 | Étape | Sommet fixé | A | B | C | D | E | F |
 |---|---|---|---|---|---|---|---|
