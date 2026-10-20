@@ -4,7 +4,7 @@
 
 Réponses détaillées dans les encadrés de la feuille d'exercices. Résultats clés :
 
-- Coûts des configurations : \begin{pmatrix} 200 \\ 340 \\ 460 \end{pmatrix} (euros fictifs).
+- Coûts des ​configurations : \begin{pmatrix} 200 \\ 340 \\ 460 \end{pmatrix} (euros fictifs).
 - \(AB = \begin{pmatrix} 4 & 13 \\ 6 & 15 \end{pmatrix}\) et \(BA = \begin{pmatrix} 2 & 13 \\ 4 & 17 \end{pmatrix}\).
 - \(F^{10} = \begin{pmatrix} 89 & 55 \\ 55 & 34 \end{pmatrix}\).
 

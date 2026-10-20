@@ -2,11 +2,11 @@
 
 ## Exercices
 
-Réponses détaillées dans les encadrés de la feuille d'exercices. Résultats clés :
+Réponses détaillées dans les encadrés de la feuille d'exercices. ​Résultats clés :
 
 - Chemin minimal \(S \to T\) : S → B → A → C → D → T, valeur 13 ; \(A \to E\) : A → C → F → E, valeur 20.
 - Projet de déploiement : durée 18 jours, chemin critique A → D → E → F → H.
-- Projet de migration : durée 10 jours, tâches critiques B, C, D, E, F (deux chemins critiques).
+- Projet de ​migration : durée 10 jours, tâches critiques B, C, D, E, F (deux chemins critiques).
 
 ## TP Python – solutions
 

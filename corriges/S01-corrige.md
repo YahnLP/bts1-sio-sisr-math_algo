@@ -57,4 +57,4 @@ def octet_valide(texte):
     return texte.isdigit() and 0 <= int(texte) <= 255
 ```
 
-`octet_valide("")` : `"".isdigit()` vaut `False`, donc le `and` court-circuite et renvoie `False`.
+`octet_valide("")` : `"".isdigit()` vaut `False`, donc le `and` court-circuite et ​renvoie `False`.

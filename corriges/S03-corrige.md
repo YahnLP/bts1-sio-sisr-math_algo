@@ -5,7 +5,7 @@
 1. int ; float ; str ; bool ; str ; bool ; int ; float.
 2. 4 ; 5 ; 32 ; -4 ; 3 ; False ; True ; False ; 8 ; 14 ; 6 ; 32 ; 25.
 3. 101 (lecture + exécution) ; `5 | 2` = 7 ; `7 & ~4` = 3 ; `(6 & 1) != 0` = False.
-4. tous, trois, cinq, aucun.
+4. tous, ​trois, cinq, aucun.
 5. Voir les réponses de l'énoncé.
 6. Voir le tableau de l'énoncé.
 7. 192.168.5.64 ; 172.16.32.0.

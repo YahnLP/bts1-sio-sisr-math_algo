@@ -2,14 +2,14 @@
 
 ## Exercices
 
-1–10. Les réponses détaillées figurent dans les encadrés repliables de la feuille d'exercices (chaque nombre, chaque classe et chaque arête de diagramme est calculé à la génération).
+1–10. Les réponses détaillées figurent dans les encadrés ​repliables de la feuille d'exercices (chaque nombre, chaque classe et chaque arête de diagramme est calculé à la génération).
 
 Rappel des résultats clés :
 
 - \(\lvert A \times B \times C \rvert = 30\) ; \(\lvert \text{protocoles} \times \text{ports} \rvert = 12\).
 - Classes de la congruence modulo 3 sur \(\{1,\dots,10\}\) : \(\{1, 4, 7, 10\}\) ; \(\{2, 5, 8\}\) ; \(\{3, 6, 9\}\).
 - Composées en 3 : \(g \circ f\) donne 49, \(f \circ g\) donne 19.
-- 20 identifiants dans 8 cases : au moins 3 dans une même case.
+- 20 identifiants dans 8 cases : au ​moins 3 dans une même case.
 
 ## TP Python – solutions
 

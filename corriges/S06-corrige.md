@@ -4,7 +4,7 @@
 
 1. Premiers : 53, 59, 97, 101, 223. Composés : le reste.
 2. 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59.
-3. Voir le tableau de l'énoncé.
+3. Voir le ​tableau de l'énoncé.
 4. 24 ; 11 ; 60.
 5. 6 et 1260 ; 36 et 7 560.
 6. 997 est premier (restes non nuls pour les premiers ≤ 31).

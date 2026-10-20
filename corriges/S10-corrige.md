@@ -2,7 +2,7 @@
 
 ## Exercices
 
-1. Voir les réponses repliables (chacune est vérifiée par table de vérité).
+1. Voir les réponses repliables (chacune est vérifiée par table de ​vérité).
 2. Idem.
 3. \(f = \overline{b} + a\,c\).
 4. \(g = b + \overline{a}\,\overline{c}\).

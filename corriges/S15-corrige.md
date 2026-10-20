@@ -2,13 +2,13 @@
 
 ## Exercices
 
-Réponses détaillées dans les encadrés de la feuille d'exercices. Résultats clés :
+Réponses détaillées dans les encadrés de la feuille d'exercices. ​Résultats clés :
 
 - Octets : `"192"` et `"0"` valides ; `"256"`, `"07"`, `""`, `"12a"` invalides.
 - IPv4 : `10.0.0.1` valide ; `10.0.0` (3 morceaux), `172.16.256.1` (256), `192.168.1.1.` (5 morceaux), `1.2.3.04` (zéro initial) invalides.
 - Octets de masque : 0, 128, 192, 224, 240, 248, 252, 254, 255.
 - Bits de parité : `1011001` → 0 ; `1110000` → 1 ; `0000000` → 0 ; `1111111` → 1. Deux erreurs (rangs 3 et 8 de `10110010`) ne sont pas détectées.
-- Parité à deux dimensions : ligne 1 et colonne 2 fausses, on corrige `g[1][2]` (0 devient 1).
+- Parité à deux dimensions : ligne 1 et ​colonne 2 fausses, on corrige `g[1][2]` (0 devient 1).
 - Somme de contrôle de \(200, 100, 50\) : \(c = 162\) ; \([200, 100, 51]\) est détecté, \([201, 99, 50]\) ne l'est pas.
 - \(\texttt{0xC0} \oplus \texttt{0xA8} \oplus \texttt{0x0A} \oplus \texttt{0x4D} = \texttt{0x2F}\) (47).
 

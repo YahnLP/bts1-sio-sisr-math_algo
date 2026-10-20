@@ -4,7 +4,7 @@
 
 Réponses détaillées dans les encadrés de la feuille d'exercices. Résultats clés :
 
-- \(M^3\) du graphe des services : \((M^3)_{af} = 3\) ; niveaux : [[0], [1, 2], [3, 4], [5]] (indices 0 à 5 = \(a\) à \(f\)).
+- \(M^3\) du graphe des services : \((M^3)_{af} = 3\) ; ​niveaux : [[0], [1, 2], [3, 4], [5]] (indices 0 à 5 = \(a\) à \(f\)).
 - Fermeture transitive du graphe de l'exercice 6 : \begin{pmatrix} 1 & 1 & 1 & 1 \\ 1 & 1 & 1 & 1 \\ 1 & 1 & 1 & 1 \\ 1 & 1 & 1 & 1 \end{pmatrix}.
 - Ordre de démarrage des services : Réseau ; DNS, Base ; Web, Proxy ; Supervision.
 
