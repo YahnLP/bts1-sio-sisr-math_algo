@@ -8,7 +8,7 @@
 4. 6 ; 36 a 9 diviseurs.
 5. 108 ; 21 ; 1.
 6. 2 ; 240 (rapport 8 : 5).
-7. 36 ; 75 ; 36 jours.
+7. 36 ; 75 ; 36 ​jours.
 8. Voir la démonstration ; PGCD(48, 18) = 6.
 
 ## TP Python – solutions

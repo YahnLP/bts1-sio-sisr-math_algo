@@ -2,7 +2,7 @@
 
 ## Exercices
 
-Les réponses détaillées figurent dans les encadrés de la feuille d'exercices. Rappel :
+Les réponses détaillées ​figurent dans les encadrés de la feuille d'exercices. Rappel :
 
 - Exercice 1 : 16 ; exercice 2 : `4 10 10`.
 - Exercice 5 : totaux par ligne [45, 41, 53], par colonne [37, 35, 32, 35].

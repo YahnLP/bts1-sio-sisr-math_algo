@@ -3,7 +3,7 @@
 ## Exercices
 
 1. Voir les réponses repliables de chaque exercice.
-2. Pour les négations, on échange chaque quantificateur et on nie le prédicat final.
+2. Pour les négations, on ​échange chaque quantificateur et on nie le prédicat final.
 3. Pour le cardinal : \(70 + 45 - 25 = 90\) personnes au moins dans l'un des deux ensembles ; sur 100, il en reste 10 dans aucun.
 
 ## TP Python – solutions

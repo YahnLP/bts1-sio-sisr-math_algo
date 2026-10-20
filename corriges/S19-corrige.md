@@ -1,6 +1,6 @@
 # Corrigé et barème du sujet blanc (S19)
 
-> Ne figure pas sur le site publié : à remettre après la composition.
+> Ne figure pas sur le site publié : à ​remettre après la composition.
 
 ## Exercice 1 (6 points)
 
@@ -36,7 +36,7 @@ a) | \(a\) | \(b\) | \(c\) | \(f\) |
 | 1 | 0 | 1 | 1 |
 | 1 | 1 | 0 | 1 |
 | 1 | 1 | 1 | 1 | (1 pt).
-b) Lignes à 1 : 3, 5, 6, 7. Trois rectangles de 2 cases : \(f = a\,b + a\,c + b\,c\) : l'accès est accordé quand **au moins deux** des trois conditions sont vraies (majorité) (1 pt).
+b) Lignes à 1 : 3, 5, 6, 7. Trois rectangles de 2 cases : \(f = a\,b + a\,c + b\,c\) : l'accès est accordé quand **au moins deux** des trois conditions sont ​vraies (majorité) (1 pt).
 
 **2. (1 pt)** \(\lvert A \cup B \rvert = 70 + 45 - 25 = 90\) ; \(100 - 90 = 10\) salariés n'utilisent aucun des deux services.
 
@@ -59,12 +59,12 @@ a) Suivi pour `[21, 26, 27, 24, 28]`, seuil 25 (1,5 pt) :
 | 28 | 1 | 2 |
 
 Valeur renvoyée : **2**.
-b) Le plus grand nombre de relevés consécutifs strictement supérieurs au seuil ; pour une liste vide, la boucle ne s'exécute pas et la fonction renvoie 0 (0,5 pt).
+b) Le plus grand nombre de relevés consécutifs strictement supérieurs au seuil ; pour une liste vide, la boucle ne s'exécute pas et la ​fonction renvoie 0 (0,5 pt).
 c) Pour `[30, 31, 32]`, la série est en cours à la fin de la liste : la mise à jour n'a jamais lieu (elle n'est faite que lorsqu'un relevé n'est pas en alerte). La fonction renvoie 0 au lieu de 3 (1 pt).
 
 **2. (2 pts)** Voir la solution Python ci-dessous (1 pt pour le parcours avec renvoi de l'indice dès qu'un relevé dépasse le seuil, 1 pt pour `-1` **après** la boucle).
 
-**3. (2 pts)** Voir la solution Python (1 pt pour l'extraction des champs avec `split`, 1 pt pour le dictionnaire).
+**3. (2 pts)** Voir la solution Python (1 pt pour l'extraction des ​champs avec `split`, 1 pt pour le dictionnaire).
 
 **4. (1 pt)**
 a) Somme \(350\) ; \(350 \bmod 256 = 94\) ; \(c = 256 - 94 = 162\) (0,5 pt).
@@ -139,4 +139,4 @@ def bilan_releves(releves, seuil):
 | 3 | 8 |
 | **Total** | **20** |
 
-À répartir selon la qualité de la **rédaction** (méthode, justification, unité) à l'intérieur de chaque question.
+À répartir selon la qualité de la **rédaction** (méthode, ​justification, unité) à l'intérieur de chaque question.

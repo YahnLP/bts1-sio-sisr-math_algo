@@ -4,7 +4,7 @@
 
 Réponses détaillées dans les encadrés de la feuille d'exercices. Résultats clés :
 
-- Exercice 1 : `3 2` puis `18`. Exercice 2 : 8 ; `"53"` ; 8 ; `"53"` ; 6 ; `"r"` et `"u"`.
+- Exercice 1 : `3 2` puis `18`. ​Exercice 2 : 8 ; `"53"` ; 8 ; `"53"` ; 6 ; `"r"` et `"u"`.
 - Exercice 3 : `"ajourné"`, `"rattrapage"`, `"admis"`.
 - Exercice 4 : 9, 16, 25, 36 ; `total` = 18. Exercice 5 : somme des chiffres de 2026 = 10.
 - Exercice 7 : `4 4 16 43`.

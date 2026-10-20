@@ -8,7 +8,7 @@
 4. 1683.
 5. 5 chiffres ; somme des chiffres de 2 024 = 8.
 6. CD ; 100101.
-7. m = 9, position 1.
+7. m = 9, ​position 1.
 8. 15 ; \(n(n-1)/2\).
 
 ## TP Python – solutions

@@ -5,7 +5,7 @@
 Réponses détaillées dans les encadrés de la feuille d'exercices. Résultats clés :
 
 - `premiere_alerte([21, 25, 27, 26, 31], 25)` = 2 ; avec le seuil 40 : \(-1\).
-- Suivi de `ecart_max([10, 14, 12, 12, 18])` : `d` = 4, 2, 0, 6 ; résultat 6.
+- ​Suivi de `ecart_max([10, 14, 12, 12, 18])` : `d` = 4, 2, 0, 6 ; résultat 6.
 - `est_croissant` : l'erreur est l'arrêt trop tôt (`return True` dans la boucle) ; `pourcentage(1, 4)` renvoie 0 à cause de `//`.
 - `pic([12, 40, 33, 40, 7])` = `(40, 1)`.
 
@@ -93,4 +93,4 @@ def pourcentage(partie, total):
 
 Erreurs de `debug.py` : `maximum` initialisait `m` à 0 (faux pour des valeurs négatives) ; `somme_positifs_moyenne` comptait aussi les valeurs négatives ; `trie_sans_modifier` triait la liste de l'appelant (`r = t` ne copie pas).
 
-Erreurs de `debug2.py` : `compte_pairs` ignorait l'indice 0 (`range(1, ...)`) ; `est_croissant` s'arrêtait dès le premier couple en ordre ; `pourcentage` faisait une division entière avant de multiplier.
+Erreurs de `debug2.py` : `compte_pairs` ignorait l'indice 0 (`range(1, ...)`) ; `est_croissant` s'arrêtait dès le premier couple en ordre ; `pourcentage` faisait une division entière ​avant de multiplier.

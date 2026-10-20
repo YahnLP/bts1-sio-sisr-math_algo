@@ -7,7 +7,7 @@
 3. 6 ; pas d'inverse car PGCD(6, 9) = 3.
 4. Cases 0, 6, 12, 3, 9 ; oui ; 1, 2, 4, 7, 8, 11, 13, 14.
 5. WJXJFZ ; HELLO WORLD ; XV ; PGCD(13, 26) = 13.
-6. 49 ; valide ; multiple de 97.
+6. 49 ; ​valide ; multiple de 97.
 7. Voir le tableau.
 
 ## TP Python – solutions

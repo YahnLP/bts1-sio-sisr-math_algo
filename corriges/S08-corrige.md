@@ -5,7 +5,7 @@
 1. Propositions : 1 (V), 4 (V), 5 (V). Non-propositions : 2 (ordre), 3 (prédicat).
 2. Les colonnes de \((p \Rightarrow q) \wedge (q \Rightarrow p)\) et de \(p \Leftrightarrow q\) sont identiques (V, F, F, V).
 3. Voir les tables de l'énoncé (a et b équivalentes, c non).
-4. (a) tautologie ; (b) non ; (c) tautologie.
+4. (a) tautologie ; (b) non ; (c) ​tautologie.
 5. Voir l'énoncé : la contraposée est équivalente.
 6. \(a \le 3 \vee b > 5\) ; port ≠ 22 et port ≠ 3389 ; âge < 18 ou ≥ 65.
 7. TCP/80 : V, TCP/443 : V, TCP/22 : F, ICMP/0 : V, UDP/53 : F, UDP/443 : F.

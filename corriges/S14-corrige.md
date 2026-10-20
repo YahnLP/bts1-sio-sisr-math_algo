@@ -2,7 +2,7 @@
 
 ## Exercices
 
-Réponses détaillées dans les encadrés de la feuille d'exercices. Résultats clés :
+Réponses détaillées dans les encadrés de la ​feuille d'exercices. Résultats clés :
 
 - \(\begin{pmatrix} 2 & 1 \\ 5 & 3 \end{pmatrix}^{-1} = \begin{pmatrix} 3 & -1 \\ -5 & 2 \end{pmatrix}\) ; \(\begin{pmatrix} 1 & 2 \\ 3 & 7 \end{pmatrix}^{-1} = \begin{pmatrix} 7 & -2 \\ -3 & 1 \end{pmatrix}\).
 - \(\begin{pmatrix} 1 & 2 & 3 \\ 0 & 1 & 4 \\ 5 & 6 & 0 \end{pmatrix}^{-1} = \begin{pmatrix} -24 & 18 & 5 \\ 20 & -15 & -4 \\ -5 & 4 & 1 \end{pmatrix}\).
