@@ -55,7 +55,7 @@ Parcourir une plage d'adresses, compter les machines d'un réseau, convertir un 
 <details markdown="1">
 <summary>Notes pour l'enseignant</summary>
 
-- **Programme :** le chapitre est rattaché au programme officiel de mathématiques pour l'informatique (voir [Programme et épreuve E3](../../ressources/programme-e3.md)) ; la répartition en séances est une proposition à valider.
+- **Programme :** le chapitre est rattaché au programme officiel de mathématiques pour l'informatique (voir [Programme et épreuve E3](../../ressources/programme-e3.md)).
 - Le programme limite à deux niveaux les itérations en dépendance : c'est respecté dans les exercices.
 
 </details>

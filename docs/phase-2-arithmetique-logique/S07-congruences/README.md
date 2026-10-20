@@ -55,7 +55,7 @@ Détecter une erreur de saisie (clés de contrôle), chiffrer (code affine : int
 <details markdown="1">
 <summary>Notes pour l'enseignant</summary>
 
-- **Programme :** le chapitre est rattaché au programme officiel de mathématiques pour l'informatique (voir [Programme et épreuve E3](../../ressources/programme-e3.md)) ; la répartition en séances est une proposition à valider.
+- **Programme :** le chapitre est rattaché au programme officiel de mathématiques pour l'informatique (voir [Programme et épreuve E3](../../ressources/programme-e3.md)).
 - Les exemples d'IBAN et de numéro de sécurité sociale sont **fictifs** (numéros de test), voir le cours.
 - Le programme cite les congruences et leurs propriétés élémentaires, la cryptographie, la correction d'erreurs et le parcours circulaire.
 

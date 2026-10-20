@@ -55,7 +55,7 @@ Tailles de fichiers et capacités des disques (Go ou Gio), débits (Mbit/s ou Mo
 <details markdown="1">
 <summary>Notes pour l'enseignant</summary>
 
-- **Programme :** le chapitre est rattaché au programme officiel de mathématiques pour l'informatique (voir [Programme et épreuve E3](../../ressources/programme-e3.md)) ; la répartition en séances est une proposition à valider.
+- **Programme :** le chapitre est rattaché au programme officiel de mathématiques pour l'informatique (voir [Programme et épreuve E3](../../ressources/programme-e3.md)).
 - L'écriture en complément à deux est présentée comme ouverture (entiers relatifs) ; elle n'est pas nommée dans le programme étudié, à valider.
 - Les préfixes ko, Mo, Go (puissances de 10) et Kio, Mio, Gio (puissances de 2) sont ceux de la norme internationale ; l'usage commercial et celui de certains systèmes diffèrent, d'où l'insistance sur l'unité.
 
