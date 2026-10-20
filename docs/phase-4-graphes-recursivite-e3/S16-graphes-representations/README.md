@@ -55,7 +55,7 @@ Topologie d'un réseau, ordre de démarrage de services interdépendants, détec
 <details markdown="1">
 <summary>Notes pour l'enseignant</summary>
 
-- **Programme :** le chapitre est rattaché au programme officiel de mathématiques pour l'informatique (voir [Programme et épreuve E3](../../ressources/programme-e3.md)) ; la répartition en séances est une proposition à valider.
+- **Programme :** le chapitre est rattaché au programme officiel de mathématiques pour l'informatique (voir [Programme et épreuve E3](../../ressources/programme-e3.md)).
 - Le programme précise que, dans une évaluation, tout énoncé sur ces algorithmes doit indiquer la méthode à suivre : les exercices le font.
 
 </details>

@@ -1,7 +1,7 @@
 # Programme et épreuve E3
 
 > [!NOTE]
-> Les modalités ci-dessous sont reprises de l'**arrêté du 8 juillet 2024** (Journal officiel du 10 juillet 2024, annexe sur la définition des épreuves). La répartition des séances par module du programme reste une **proposition de l'enseignant** : la liste des modules est reprise ci-dessous, mais le contenu détaillé de chaque module (arrêté du 4 juin 2013) n'est pas reproduit ici.
+> Les modalités ci-dessous sont reprises de l'**arrêté du 8 juillet 2024** (Journal officiel du 10 juillet 2024, annexe sur la définition des épreuves). La liste des modules est reprise ci-dessous ; le contenu détaillé de chaque module (arrêté du 4 juin 2013) n'est pas reproduit ici.
 
 ## L'épreuve en bref
 

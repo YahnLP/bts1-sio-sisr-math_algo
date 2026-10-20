@@ -55,7 +55,7 @@ Les nombres premiers servent à la cryptographie à clé publique (S07 en donne 
 <details markdown="1">
 <summary>Notes pour l'enseignant</summary>
 
-- **Programme :** le chapitre est rattaché au programme officiel de mathématiques pour l'informatique (voir [Programme et épreuve E3](../../ressources/programme-e3.md)) ; la répartition en séances est une proposition à valider.
+- **Programme :** le chapitre est rattaché au programme officiel de mathématiques pour l'informatique (voir [Programme et épreuve E3](../../ressources/programme-e3.md)).
 - Le programme prévoit des algorithmes de recherche de nombres premiers et de factorisation en travaux pratiques.
 
 </details>

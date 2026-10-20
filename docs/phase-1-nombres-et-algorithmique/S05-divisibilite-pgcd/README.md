@@ -55,7 +55,7 @@ Découper un espace en blocs identiques, synchroniser deux tâches périodiques 
 <details markdown="1">
 <summary>Notes pour l'enseignant</summary>
 
-- **Programme :** le chapitre est rattaché au programme officiel de mathématiques pour l'informatique (voir [Programme et épreuve E3](../../ressources/programme-e3.md)) ; la répartition en séances est une proposition à valider.
+- **Programme :** le chapitre est rattaché au programme officiel de mathématiques pour l'informatique (voir [Programme et épreuve E3](../../ressources/programme-e3.md)).
 - Le programme demande le PGCD de deux entiers ; la relation de Bézout n'est pas exigée et n'est pas traitée.
 
 </details>
