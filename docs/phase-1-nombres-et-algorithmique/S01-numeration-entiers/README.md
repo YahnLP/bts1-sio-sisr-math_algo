@@ -56,7 +56,6 @@ Une adresse **MAC** compte 48 bits (6 octets) écrits en hexadécimal ; une adre
 <summary>Notes pour l'enseignant</summary>
 
 - **Programme :** le chapitre est rattaché au programme officiel de mathématiques pour l'informatique (voir [Programme et épreuve E3](../../ressources/programme-e3.md)) ; la répartition en séances est une proposition à valider.
-- **Corrigé :** dans `corriges/` à la racine du dépôt (hors du site publié).
 - Le chapitre « Arithmétique » du programme impose les bases 10, 2 et 16 (entiers et réels, conversions) : les réels sont traités en S02.
 
 </details>

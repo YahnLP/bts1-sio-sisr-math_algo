@@ -29,7 +29,6 @@ mkdocs build --strict # même vérification que la publication
 |---|---|
 | `docs/` | Pages du site (phases, séances, ressources) |
 | `docs/<phase>/<séance>/` | Fiche, cours, exercices, TP, aide-mémoire, scripts Python et tests |
-| `corriges/` | Corrigés des séances (hors site) |
 | `includes/abbr.md` | Infobulles des sigles, **généré** par `scripts/gen_glossaire.py` |
 | `scripts/` | Génération du glossaire et du formulaire |
 | `my_theme_customizations/` | Éditeur Python intégré (Pyodide) |

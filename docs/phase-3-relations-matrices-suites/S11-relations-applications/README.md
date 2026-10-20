@@ -56,7 +56,6 @@ Regroupement des adresses d'un même sous-réseau (équivalence), ordre des tâc
 <summary>Notes pour l'enseignant</summary>
 
 - **Programme :** le chapitre est rattaché au programme officiel de mathématiques pour l'informatique (voir [Programme et épreuve E3](../../ressources/programme-e3.md)) ; la répartition en séances est une proposition à valider.
-- **Corrigé :** dans `corriges/` à la racine du dépôt (hors du site publié).
 - Le programme demande une présentation sans formalisme excessif : les propriétés sont caractérisées en mots avant de l'être par des quantificateurs.
 
 </details>

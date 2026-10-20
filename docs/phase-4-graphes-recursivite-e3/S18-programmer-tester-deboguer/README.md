@@ -56,6 +56,5 @@ Analyse d'un relevé de températures ou de charges, recherche de la première a
 <summary>Notes pour l'enseignant</summary>
 
 - **Programme :** cette séance remplace l'ancienne séance « Récursivité, complexité et débogage » : le programme officiel exclut les items « récursivité » et « analyse d'algorithme » de l'algorithmique appliquée (voir [Programme et épreuve E3](../../ressources/programme-e3.md)). Elle prépare l'exercice « programmer » de l'épreuve écrite. La répartition en séances est une proposition à valider.
-- **Corrigé :** dans `corriges/` à la racine du dépôt (hors du site publié).
 
 </details>

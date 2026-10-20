@@ -56,7 +56,6 @@ Coûts de plusieurs configurations de postes, flux entre sites, matrice d'adjace
 <summary>Notes pour l'enseignant</summary>
 
 - **Programme :** le chapitre est rattaché au programme officiel de mathématiques pour l'informatique (voir [Programme et épreuve E3](../../ressources/programme-e3.md)) ; la répartition en séances est une proposition à valider.
-- **Corrigé :** dans `corriges/` à la racine du dépôt (hors du site publié).
 - Le programme autorise la calculatrice pour les sommes et produits de matrices lors des évaluations ; les calculs à la main servent à comprendre. Le déterminant est hors programme.
 
 </details>

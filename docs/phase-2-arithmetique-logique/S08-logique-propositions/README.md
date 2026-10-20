@@ -56,7 +56,6 @@ Règles de filtrage, conditions `if`, `while`, requêtes de recherche (ET, OU, N
 <summary>Notes pour l'enseignant</summary>
 
 - **Programme :** le chapitre est rattaché au programme officiel de mathématiques pour l'informatique (voir [Programme et épreuve E3](../../ressources/programme-e3.md)) ; la répartition en séances est une proposition à valider.
-- **Corrigé :** dans `corriges/` à la racine du dépôt (hors du site publié).
 - Le programme précise que l'étude de la logique est brève et vise la familiarité avec les énoncés ; la traduction d'une instruction de boucle en connecteurs relève de l'unité d'algorithmique appliquée.
 
 </details>

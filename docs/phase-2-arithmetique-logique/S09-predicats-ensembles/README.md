@@ -56,7 +56,6 @@ Appartenance à des groupes (annuaire), droits cumulés ou communs (réunion, in
 <summary>Notes pour l'enseignant</summary>
 
 - **Programme :** le chapitre est rattaché au programme officiel de mathématiques pour l'informatique (voir [Programme et épreuve E3](../../ressources/programme-e3.md)) ; la répartition en séances est une proposition à valider.
-- **Corrigé :** dans `corriges/` à la racine du dépôt (hors du site publié).
 - Les prédicats sont limités à trois variables au plus, et l'ordre des quantificateurs est souligné, conformément au programme.
 
 </details>

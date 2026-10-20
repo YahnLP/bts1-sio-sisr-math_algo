@@ -56,7 +56,6 @@ Test d'appartenance d'une adresse à un réseau par masque (`&`), validation d'u
 <summary>Notes pour l'enseignant</summary>
 
 - **Programme :** le chapitre est rattaché au programme officiel de mathématiques pour l'informatique (voir [Programme et épreuve E3](../../ressources/programme-e3.md)) ; la répartition en séances est une proposition à valider.
-- **Corrigé :** dans `corriges/` à la racine du dépôt (hors du site publié).
 - Le programme demande une représentation textuelle indentée avec indicateurs de début et de fin explicites, un en-tête et des commentaires : c'est le format utilisé sur tout le site.
 - Le langage de l'épreuve E3 est Python (choix de la formation, à confirmer auprès du centre d'examen).
 
