@@ -56,7 +56,6 @@ Retrouver des tarifs unitaires à partir de factures, dimensionner des ressource
 <summary>Notes pour l'enseignant</summary>
 
 - **Programme :** le chapitre est rattaché au programme officiel de mathématiques pour l'informatique (voir [Programme et épreuve E3](../../ressources/programme-e3.md)) ; la répartition en séances est une proposition à valider.
-- **Corrigé :** dans `corriges/` à la racine du dépôt (hors du site publié).
 - Le programme exclut le déterminant et les conditions d'existence de l'inverse : la méthode des lignes montre l'inversibilité par le calcul, sans théorème. Les justifications de la méthode ne sont pas exigées.
 
 </details>

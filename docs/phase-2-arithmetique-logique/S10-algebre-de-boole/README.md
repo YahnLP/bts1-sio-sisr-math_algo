@@ -57,7 +57,6 @@ Masque de sous-réseau et adresse réseau (ET bit à bit), additionneur binaire,
 <summary>Notes pour l'enseignant</summary>
 
 - **Programme :** le chapitre est rattaché au programme officiel de mathématiques pour l'informatique (voir [Programme et épreuve E3](../../ressources/programme-e3.md)) ; la répartition en séances est une proposition à valider.
-- **Corrigé :** dans `corriges/` à la racine du dépôt (hors du site publié).
 - Le programme limite la simplification à trois variables (Karnaugh ou propriétés algébriques) et demande de mentionner NAND et NOR.
 - Le calcul d'adresses (CIDR, VLSM) est regroupé dans l'annexe de cette séance : c'est l'application réseau principale du chapitre.
 

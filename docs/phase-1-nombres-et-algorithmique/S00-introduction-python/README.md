@@ -60,6 +60,5 @@ Un script qui convertit une durée, teste un seuil, répète une opération sur 
 
 - **Place dans la progression :** séance **préalable** ajoutée avant S01, sans modifier le déroulé de S01 : à faire hors classe. Elle n'est pas comptée dans les 19 séances de la séquence.
 - **Programme :** elle prépare l'outil Python utilisé pour le module d'algorithmique appliquée (voir [Programme et épreuve E3](../../ressources/programme-e3.md)).
-- **Corrigé :** dans `corriges/` à la racine du dépôt (hors du site publié).
 
 </details>

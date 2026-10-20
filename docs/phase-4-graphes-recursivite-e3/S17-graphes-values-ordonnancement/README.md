@@ -56,7 +56,6 @@ Chemin de moindre coût entre deux sites d'un réseau, planification d'un projet
 <summary>Notes pour l'enseignant</summary>
 
 - **Programme :** le chapitre est rattaché au programme officiel de mathématiques pour l'informatique (voir [Programme et épreuve E3](../../ressources/programme-e3.md)) ; la répartition en séances est une proposition à valider.
-- **Corrigé :** dans `corriges/` à la racine du dépôt (hors du site publié).
 - Le programme traite l'ordonnancement manuellement sur des cas modestes et demande que l'énoncé indique la méthode ; les définitions de marge libre et certaine sont rappelées dans le cours pour lever toute ambiguïté de vocabulaire.
 
 </details>

@@ -56,7 +56,6 @@ Contrôle d'une saisie d'adresse IP ou MAC dans un formulaire ou un script de co
 <summary>Notes pour l'enseignant</summary>
 
 - **Programme :** cette séance remplace l'ancienne séance « Suites numériques », car les suites ne figurent pas au programme obligatoire de l'épreuve E3 (elles relèvent de l'unité facultative de mathématiques approfondies). Elle s'appuie sur l'algorithmique appliquée, le calcul binaire et les opérateurs logiques (voir [Programme et épreuve E3](../../ressources/programme-e3.md)). La répartition en séances est une proposition à valider.
-- **Corrigé :** dans `corriges/` à la racine du dépôt (hors du site publié).
 - Les calculs d'adresse réseau et de masque sont traités en S10 ; cette séance ne les reprend pas.
 
 </details>

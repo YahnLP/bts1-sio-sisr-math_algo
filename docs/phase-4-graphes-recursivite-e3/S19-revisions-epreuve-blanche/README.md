@@ -57,8 +57,7 @@ Toutes les applications du cours : adressage, droits, conditions, chiffrement, o
 <summary>Notes pour l'enseignant</summary>
 
 - **Programme :** le chapitre est rattaché au programme officiel de mathématiques pour l'informatique (voir [Programme et épreuve E3](../../ressources/programme-e3.md)) ; la répartition en séances est une proposition à valider.
-- **Corrigé :** dans `corriges/` à la racine du dépôt (hors du site publié).
 - Le format (écrit de 2 h, 20 points, deux ou trois exercices dont un de programmation, coefficient 3) est celui du document de déroulement de l'épreuve E3 de la session 2026 ; vérifier à chaque session le document en vigueur, notamment les moyens de calcul autorisés.
-- Le sujet blanc est original ; son corrigé est dans `corriges/`.
+- Le sujet blanc est original.
 
 </details>
