@@ -71,6 +71,17 @@ L'**erreur** est la distance entre la valeur exacte et la valeur retenue. En bas
 
 **Exemple.** On tronque \(0{,}1\) à 8 chiffres binaires : \((0,00011001)_2 = \dfrac{25}{256} = 0,09765625\). L'erreur vaut \(0{,}1 - 0,09765625 = 0,00234375\), qui est bien inférieure à \(2^{-8} = 0,00390625\).
 
+**Chiffres significatifs.** En décimal, on indique souvent la précision d'un résultat par son nombre de **chiffres significatifs** : ce sont les chiffres à partir du premier chiffre non nul en partant de la gauche, les zéros qui suivent compris. Les zéros qui ne servent qu'à placer la virgule ne comptent pas.
+
+| Écriture | Chiffres significatifs | Arrondi à 3 chiffres significatifs |
+|---|---|---|
+| 0,004567 | 4 (4, 5, 6, 7) | 0,00457 |
+| 12 345 | 5 | 12 300 |
+| 3,14159 | 6 | 3,14 |
+| 0,3040 | 4 (3, 0, 4, 0) | 0,304 |
+
+Donner « 3,14 » pour π, c'est annoncer 3 chiffres significatifs, donc une erreur d'au plus \(0{,}005\). Les résultats d'un calcul approché ne doivent pas annoncer plus de chiffres que ce que les données permettent.
+
 ## III. Les nombres « à virgule » dans un ordinateur
 
 Un `float` Python est un nombre binaire **à précision finie** (53 chiffres binaires significatifs). La plupart des décimaux ne sont donc que des **valeurs approchées** :

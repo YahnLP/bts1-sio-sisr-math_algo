@@ -103,6 +103,20 @@ F^{10} = \begin{pmatrix} 89 & 55 \\ 55 & 34 \end{pmatrix} \quad \text{donc } F_{
 
 En général \(F^n = \begin{pmatrix} F_{n+1} & F_n \\ F_n & F_{n-1} \end{pmatrix}\) (contrôlé pour \(n\) de 1 à 24).
 
+**Un processus discret.** Un serveur est soit *disponible* (état 1), soit *en panne* (état 2). Chaque jour, s'il est disponible il le reste avec la probabilité 0,9 ; s'il est en panne il redevient disponible avec la probabilité 0,4. On range ces probabilités dans la matrice de transition (une ligne = un état de départ, la somme d'une ligne vaut 1) :
+
+\[
+P = \begin{pmatrix} 0{,}9 & 0{,}1 \\ 0{,}4 & 0{,}6 \end{pmatrix}
+\]
+
+Si le serveur est disponible aujourd'hui, la ligne \(X_0 = (1\ \ 0)\) décrit la situation. La répartition au jour \(n\) est \(X_n = X_0 P^n\) :
+
+\[
+X_1 = (0{,}9\ \ 0{,}1), \quad X_2 = X_0 P^2 = (0{,}85\ \ 0{,}15), \quad X_3 = (0{,}825\ \ 0{,}175)
+\]
+
+Après quelques dizaines de jours, \(X_n\) se stabilise autour de \((0{,}8\ \ 0{,}2)\) : à long terme le serveur est disponible 80 % du temps, quel que soit l'état de départ. C'est l'intérêt des puissances de matrices : décrire l'évolution d'un système d'un pas au suivant.
+
 > [!NOTE]
 > **Calculatrice.** Le programme autorise la calculatrice pour les sommes, produits et puissances de matrices. Les calculs à la main servent à **comprendre** ; pour un exercice avec une calculatrice, on écrit les matrices, on indique l'opération et on recopie le résultat.
 
