@@ -141,6 +141,19 @@ Un **projet** est un ensemble de **tâches** de durées connues, liées par des 
 | **G** | Configuration du serveur | 3 | B |
 | **H** | Recette et formation | 2 | F, G |
 
+### MPM et PERT : deux représentations du même problème
+
+La méthode **PERT** répond aux mêmes questions que la MPM (durée minimale, dates au plus tôt et au plus tard, marges, chemin critique) avec une autre représentation.
+
+| | **MPM** | **PERT** |
+|---|---|---|
+| Une tâche est | un **sommet** (case avec sa durée) | un **arc** (flèche portant son nom et sa durée) |
+| Un sommet représente | une tâche | une **étape** (un événement : « tout ce qui précède est terminé ») |
+| Contrainte d'antériorité | un arc entre deux tâches | deux arcs qui se suivent ; au besoin, un **arc fictif** de durée 0 |
+| Résultats | identiques | identiques |
+
+Les calculs sont les mêmes : date au plus tôt = plus long chemin depuis le début, date au plus tard = on remonte depuis la fin, marge = écart entre les deux. Ce site utilise la MPM ; si un énoncé est donné en PERT, on lit chaque arc comme une tâche et chaque étape comme un jalon, puis on applique les mêmes formules.
+
 ### Le graphe MPM
 
 - Chaque tâche est un **sommet** portant sa durée ;

@@ -34,6 +34,14 @@ soit \(3 \times 2 = 6\) couples. Avec trois protocoles et quatre ports, il y a \
 
 On écrit \(A^2\) pour \(A \times A\), et \(A^n\) pour les \(n\)-uplets.
 
+Le produit se généralise à \(n\) ensembles finis : \(E_1 \times E_2 \times \dots \times E_n\) est l'ensemble des \(n\)-uplets \((x_1, \dots, x_n)\) avec \(x_i \in E_i\), et
+
+\[
+\lvert E_1 \times \dots \times E_n \rvert = \lvert E_1 \rvert \cdot \lvert E_2 \rvert \cdots \lvert E_n \rvert .
+\]
+
+*Exemple.* Une adresse IPv4 est un élément de \(\{0,\dots,255\}^4\) : il y a \(256^4 = 4\,294\,967\,296\) adresses possibles.
+
 ## II. Relations binaires
 
 Une **relation binaire** \(\mathcal{R}\) de \(A\) vers \(B\) est une partie de \(A \times B\). On écrit \(x\,\mathcal{R}\,y\) pour \((x, y) \in \mathcal{R}\). Quand \(A = B = E\), on parle de relation **sur \(E\)**.
@@ -202,6 +210,8 @@ Une **application** \(f\) de \(A\) dans \(B\) associe à **chaque** élément \(
 Si \(f : A \to B\) est **bijective**, elle a une **réciproque** \(f^{-1} : B \to A\) qui à \(y\) associe son unique antécédent. Pour \(f(x) = 2x + 1\) : \(y = 2x + 1 \iff x = \dfrac{y - 1}{2}\), donc \(f^{-1}(y) = \dfrac{y - 1}{2}\).
 
 La **composée** de \(f : A \to B\) et \(g : B \to C\) est \(g \circ f : A \to C\), \(x \mapsto g(f(x))\) : on applique \(f\) **d'abord**. L'ordre compte. Avec \(f(x) = 2x + 1\) et \(g(x) = x^2\) : \((g \circ f)(x) = (2x + 1)^2\) et \((f \circ g)(x) = 2x^2 + 1\) ; pour \(x = 3\), \((g \circ f)(3) = 49\) et \((f \circ g)(3) = 19\).
+
+**Composée et propriétés.** Si \(f\) et \(g\) sont toutes deux **injectives**, \(g \circ f\) est injective ; si elles sont toutes deux **surjectives**, \(g \circ f\) est surjective ; si elles sont toutes deux **bijectives**, \(g \circ f\) est bijective et sa réciproque est \(f^{-1} \circ g^{-1}\) (on défait dans l'ordre inverse). *Exemple.* Avec \(f(x) = 2x + 1\) et \(g(x) = x + 3\), \((g \circ f)(x) = 2x + 4\), de réciproque \(y \mapsto \dfrac{y - 4}{2}\) ; et \(f^{-1}(g^{-1}(y)) = \dfrac{(y - 3) - 1}{2} = \dfrac{y - 4}{2}\).
 
 ### Image directe et image réciproque
 

@@ -2,7 +2,7 @@
 
 | Ressource | Description |
 |---|---|
-| [Programme et épreuve E3](programme-e3.md) | Couverture du programme séance par séance, cadre de l'épreuve (à confirmer sur le texte officiel) |
+| [Programme et épreuve E3](programme-e3.md) | Couverture du programme séance par séance, cadre de l'épreuve |
 | [Formulaire](formulaire.md) | Tous les aide-mémoire réunis sur une page |
 | [Outils](outils.md) | Python dans le navigateur, formules, calculatrice |
 | [Glossaire](glossaire.md) | Tous les mots techniques expliqués simplement, avec la séance où ils apparaissent |
