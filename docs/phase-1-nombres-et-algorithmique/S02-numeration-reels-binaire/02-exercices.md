@@ -135,6 +135,21 @@ Un registre de 8 bits contient \(180\), on lui ajoute \(90\).
 </details>
 
 
+## Exercice 10 – Chiffres significatifs
+
+1. Combien de chiffres significatifs ont 0,00305 ; 2 500 ; 47,20 ?
+2. Arrondir 2/3 et 0,0123456 à 3 chiffres significatifs.
+3. Un débit est mesuré à 94,7 Mbit/s. On le convertit en Mo/s en divisant par 8 : la calculatrice affiche 11,8375. Que faut-il annoncer ?
+
+<details markdown="1">
+<summary>Voir la réponse</summary>
+
+1. 0,00305 : 3 (3, 0, 5) ; 2 500 : 4 si le zéro final est mesuré, sinon 2 ou 3, on précise donc par la notation scientifique (\(2{,}5 \times 10^3\) pour 2 chiffres) ; 47,20 : 4.
+2. \(2/3 \approx 0{,}667\) ; \(0{,}0123456 \approx 0{,}0123\).
+3. La mesure a 3 chiffres significatifs : on annonce 11,8 Mo/s. Écrire 11,8375 laisserait croire à une précision que la mesure n'a pas.
+
+</details>
+
 ## Je sais faire
 
 Coche honnêtement ; ce que tu ne coches pas se reprend avant la séance suivante.
@@ -142,6 +157,7 @@ Coche honnêtement ; ce que tu ne coches pas se reprend avant la séance suivant
 - [ ] Convertir un nombre à virgule entre les bases 2 et 10 ;
 - [ ] Dire si un décimal a une écriture finie en base 2 ;
 - [ ] Arrondir et majorer une erreur ;
+- [ ] Donner un résultat avec un nombre de chiffres significatifs imposé ;
 - [ ] Additionner et multiplier en binaire ;
 - [ ] Convertir des unités (bit, octet, ko, Kio…) et calculer un temps de transfert.
 

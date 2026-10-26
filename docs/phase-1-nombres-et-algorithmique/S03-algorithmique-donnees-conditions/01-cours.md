@@ -55,7 +55,7 @@ Une **variable** est un nom associé à une valeur gardée en mémoire. **L'affe
 | Booléen | vrai, faux | `bool` (`True`, `False`) | Résultat d'une comparaison |
 | Chaîne de caractères | `"192.168.1.10"` | `str` | Texte ; `"42"` n'est pas le nombre 42 |
 
-Deux instructions d'échange : **lire** une valeur (`input` en Python, toujours une chaîne) et **afficher** (`print`). Pour passer d'un type à l'autre on **convertit** : `int("42")`, `str(42)`.
+Deux instructions d'échange : **lire** une valeur (`input` en Python, toujours une chaîne) et **afficher** (`print`). Pour passer d'un type à l'autre on **convertit** (on parle de **transtypage**) : `int("42")` donne l'entier 42, `float("3.5")` le réel 3,5, `str(42)` la chaîne `"42"`. Convertir un réel en entier supprime la partie décimale : `int(3.9)` donne 3. Une conversion impossible (`int("abc")`) provoque une erreur.
 
 > [!WARNING]
 > **Piège classique.** `"1" + "2"` donne `"12"` (concaténation de chaînes) alors que `1 + 2` donne `3`. Une saisie `input()` est une chaîne : on la convertit avant de calculer.

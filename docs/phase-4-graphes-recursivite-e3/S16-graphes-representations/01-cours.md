@@ -12,7 +12,8 @@
 - [ ] **Reconnaître** chemin, circuit, boucle, chemin hamiltonien ;
 - [ ] **Interpréter** les puissances de la matrice d'adjacence (nombre de chemins de longueur \(p\)) ;
 - [ ] **Calculer** la fermeture transitive avec des produits booléens ;
-- [ ] **Déterminer** les niveaux d'un graphe sans circuit.
+- [ ] **Déterminer** les niveaux d'un graphe sans circuit ;
+- [ ] **Reconnaître** une arborescence (racine, feuilles).
 
 ## I. Graphes orientés
 
@@ -271,6 +272,21 @@ On peut donc démarrer \(a\), puis \(b\) et \(c\), puis \(d\) et \(e\), puis \(f
 
 Pour le graphe à circuit (\(1 \to 2 \to 3 \to 1,\ 3 \to 4\)) : tous les sommets ont un prédécesseur (4 a pour prédécesseur 3, et 1, 2, 3 se suivent en cercle) : aucun niveau 0, **impossible**. En pratique, une dépendance circulaire empêche tout démarrage.
 
+## VII. Arborescences
+
+Une **arborescence** est un graphe orienté qui a une **racine** : un sommet d'où l'on atteint tous les autres sommets par **un seul chemin**. Elle ne contient aucun circuit, et chaque sommet, sauf la racine, a **exactement un prédécesseur**. Les sommets sans successeur sont les **feuilles**.
+
+**Exemple.** Un dossier `www` contient `css` et `img` ; `css` contient `main` et `print` ; `img` contient `logo`. Les arcs sont \(www \to css\), \(www \to img\), \(css \to main\), \(css \to print\), \(img \to logo\).
+
+| Sommet | Prédécesseur | Successeurs |
+|---|---|---|
+| www | aucun : c'est la racine | css, img |
+| css | www | main, print |
+| img | www | logo |
+| main, print, logo | un seul | aucun : ce sont les feuilles |
+
+Les niveaux se lisent comme avant : www au niveau 0, css et img au niveau 1, main, print et logo au niveau 2. Un système de fichiers, un arbre de décision, l'organisation hiérarchique d'une entreprise sont des arborescences. Un test rapide : si un sommet a deux prédécesseurs (ou si l'on peut atteindre un sommet par deux chemins), ce n'est pas une arborescence.
+
 ## À retenir
 
 - Graphe orienté = sommets + arcs ; matrice d'adjacence \(M\) (\(m_{ij} = 1\) si \(i \to j\)) ; somme d'une ligne = demi-degré extérieur, d'une colonne = intérieur.
@@ -278,3 +294,4 @@ Pour le graphe à circuit (\(1 \to 2 \to 3 \to 1,\ 3 \to 4\)) : tous les sommets
 - \((M^p)_{ij}\) = nombre de chemins de longueur \(p\) de \(i\) à \(j\) ; sans circuit : \(M^n = 0\).
 - Fermeture transitive = « qui atteint qui » (somme booléenne des puissances).
 - Niveaux : retirer successivement les sommets sans prédécesseur ; échec = circuit.
+- Arborescence : une racine, pas de circuit, un seul prédécesseur pour chaque autre sommet ; feuilles = sommets sans successeur.

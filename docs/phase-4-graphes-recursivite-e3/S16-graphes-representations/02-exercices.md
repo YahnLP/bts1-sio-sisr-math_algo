@@ -177,6 +177,17 @@ Colonne 1 nulle : sommet 1 au niveau 0. On le retire : la colonne 2 devient null
 </details>
 
 
+## Exercice 9 – Arborescence ?
+
+Les arcs \(a \to b,\ a \to c,\ b \to d,\ b \to e,\ c \to e\) forment-ils une arborescence ? Et si l'on supprime l'arc \(c \to e\) ?
+
+<details markdown="1">
+<summary>Voir la réponse</summary>
+
+Non : \(e\) a deux prédécesseurs (\(b\) et \(c\)) et on l'atteint depuis \(a\) par deux chemins (\(a \to b \to e\) et \(a \to c \to e\)). Sans l'arc \(c \to e\), c'est une arborescence de racine \(a\) ; les feuilles sont \(c\), \(d\) et \(e\).
+
+</details>
+
 ## Je sais faire
 
 Coche honnêtement ; ce que tu ne coches pas se reprend avant la séance suivante.
@@ -185,7 +196,8 @@ Coche honnêtement ; ce que tu ne coches pas se reprend avant la séance suivant
 - [ ] Compter les chemins de longueur \(p\) avec \(A^p\) ;
 - [ ] Calculer une fermeture transitive ;
 - [ ] Reconnaître un circuit ;
-- [ ] Déterminer les niveaux d'un graphe sans circuit.
+- [ ] Déterminer les niveaux d'un graphe sans circuit ;
+- [ ] Reconnaître une arborescence.
 
 **Ce que je dois reprendre :** ______________________
 
