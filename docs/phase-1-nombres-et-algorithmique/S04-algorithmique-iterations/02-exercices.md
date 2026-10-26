@@ -126,7 +126,7 @@ Pour 2 024 : \(4 + 2 + 0 + 2 = 8\).
 
 </details>
 
-## Exercice 6 – Conversion en base \(b\)
+## Exercice 6 – Conversion en base b
 
 Dérouler l'algorithme `vers_base` du cours pour \(n = 205\) et \(b = 16\), puis \(n = 37\) et \(b = 2\).
 

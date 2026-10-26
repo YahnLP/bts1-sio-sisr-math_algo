@@ -53,7 +53,7 @@ On peut donc **réduire à chaque étape** : on remplace chaque nombre par son r
 > [!WARNING]
 > **On ne simplifie pas toujours.** Modulo 6, \(2 \times 3 = 6 \equiv 0 = 2 \times 0\), pourtant \(3 \not\equiv 0\). On ne peut pas « diviser par 2 » dans une congruence modulo 6 : voir le paragraphe suivant.
 
-## IV. Multiples et inverses modulo \(n\)
+## IV. Multiples et inverses modulo n
 
 Modulo \(n\), les multiples d'un entier \(a\) sont les multiples de \(\operatorname{PGCD}(a, n)\). En particulier, si \(\operatorname{PGCD}(a, n) = 1\), tous les restes apparaissent.
 

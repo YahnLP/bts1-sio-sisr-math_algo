@@ -172,7 +172,7 @@ FIN
 
 Pour \(n = 2024\) : \(2024 \to 202 \to 20 \to 2 \to 0\), soit 4 tours. Pour \(n = 0\), la boucle ne s'exécute pas et renvoie 0 : **cas particulier** à traiter à part si on veut 1.
 
-### Convertir un entier en base \(b\) (lien avec S01)
+### Convertir un entier en base b (lien avec S01)
 
 La méthode des divisions successives est une boucle `TANT QUE` : le variant est `n`.
 

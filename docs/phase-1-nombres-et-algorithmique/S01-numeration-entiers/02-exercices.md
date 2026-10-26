@@ -5,7 +5,7 @@
 > [!NOTE]
 > **Comment travailler.** Cherche d'abord **sur papier**, avec la méthode du cours : écris les étapes, pas seulement le résultat. Ouvre ensuite « Voir la réponse » pour te corriger. À l'épreuve, **aucune réponse sans justification** n'est complète.
 
-## Exercice 1 – De la base \(b\) vers la base 10
+## Exercice 1 – De la base b vers la base 10
 
 Convertir en base 10, en écrivant la somme pondérée : \((101101)_2\), \((3E8)_{16}\), \((FF)_{16}\), \((1000)_2\).
 

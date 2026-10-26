@@ -16,7 +16,7 @@
 | Partie fractionnaire décimal → binaire | **× 2** répété ; chiffres = parties entières, lus de haut en bas |
 | Fini en binaire ? | Fraction irréductible \(\frac{k}{2^m}\) |
 
-## Erreur avec \(p\) chiffres binaires après la virgule
+## Erreur avec p chiffres binaires après la virgule
 
 | Méthode | Erreur |
 |---|---|

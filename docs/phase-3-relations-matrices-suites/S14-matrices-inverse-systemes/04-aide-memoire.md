@@ -9,7 +9,7 @@
 - \(A\) carrée est inversible s'il existe \(A^{-1}\) avec \(A A^{-1} = A^{-1} A = I\).
 - Vérification : calculer le produit.
 
-## Système \(AX = B\)
+## Système AX = B
 
 - Si \(A\) est inversible : \(X = A^{-1}B\) (produit **à gauche**), solution unique.
 - Sinon : aucune solution ou une infinité.

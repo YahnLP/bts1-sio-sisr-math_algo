@@ -9,7 +9,7 @@ render_macros: true
 > [!NOTE]
 > **Comment ce TP fonctionne.** Chaque exercice a un éditeur Python intégré à la page (il s'exécute dans ton navigateur, rien à installer). Avant de lancer, écris sur ta feuille ce que tu **anticipes** (« J'anticipe »). Puis lance et compare. Le bouton **Valider** exécute des tests : un test réussi ne dispense pas de **comprendre** pourquoi.
 
-## Exercice A – Puissance modulo \(n\)
+## Exercice A – Puissance modulo n
 
 Écris `puissance_mod(a, k, n)` qui calcule \(a^k \bmod n\) en **réduisant à chaque tour** (la valeur reste inférieure à \(n\)), sans utiliser `**` ni `pow`.
 
@@ -17,7 +17,7 @@ render_macros: true
 
 {{ IDE('puissance_mod', MAX="+") }}
 
-## Exercice B – Inverse modulo \(n\)
+## Exercice B – Inverse modulo n
 
 Écris `inverse_mod(a, n)` qui renvoie l'inverse de `a` modulo `n` (un entier entre 1 et `n - 1`) ou `None` s'il n'existe pas : essaie les valeurs `x` de 1 à `n - 1`.
 

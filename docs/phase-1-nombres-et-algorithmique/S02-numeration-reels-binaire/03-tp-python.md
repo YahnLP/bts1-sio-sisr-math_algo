@@ -43,7 +43,7 @@ render_macros: true
 
 {{ IDE('addition_binaire', MAX="+") }}
 
-## Exercice D – Débordement sur \(n\) bits
+## Exercice D – Débordement sur n bits
 
 > [!TIP]
 > **Syntaxe utile.** `2 ** n` : puissance ; `x % m` : reste de la division de `x` par `m` ; `a + b > 2 ** n - 1` : comparaison, donne `True` ou `False` ; `return (resultat, debordement)` : renvoie deux valeurs.
