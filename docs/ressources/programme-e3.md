@@ -26,7 +26,7 @@ Le programme de l'unité de mathématiques pour l'informatique comprend les modu
 - graphes et ordonnancement ;
 - algorithmique appliquée, **à l'exception** de l'item « récursivité » et de l'item « analyse d'algorithme ».
 
-Les **suites numériques** ne figurent pas dans cette liste : elles relèvent de l'unité facultative de mathématiques approfondies. Cette formation ne les traite donc pas dans le parcours obligatoire. Pour l'algorithmique, le texte cite aussi des situations où l'informaticien est confronté aux mathématiques : calcul binaire, masque de réseau, opérateurs logiques.
+Les **suites numériques**, la **récursivité** et l'**analyse d'algorithme** ne figurent pas dans cette liste. Cette formation ne les traite donc pas dans le parcours de 1re année ; le site de 2e année les propose en complément, pour aller plus loin. Pour l'algorithmique, le texte cite aussi des situations où l'informaticien est confronté aux mathématiques : calcul binaire, masque de réseau, opérateurs logiques.
 
 ## Couverture des séances
 
@@ -49,7 +49,7 @@ Les **suites numériques** ne figurent pas dans cette liste : elles relèvent de
 | [S14](../phase-3-relations-matrices-suites/S14-matrices-inverse-systemes/README.md) | Calcul matriciel : inverse et systèmes | Calcul matriciel – inverse, systèmes de Cramer |
 | [S15](../phase-3-relations-matrices-suites/S15-validation-controle-donnees/README.md) | Algorithmique : validation et contrôle de données | Algorithmique appliquée – chaînes, tableaux, tests ; calcul binaire et opérateurs logiques |
 | [S16](../phase-4-graphes-recursivite-e3/S16-graphes-representations/README.md) | Graphes : représentations, chemins et niveaux | Théorie des graphes |
-| [S17](../phase-4-graphes-recursivite-e3/S17-graphes-values-ordonnancement/README.md) | Graphes valués et ordonnancement (MPM) | Théorie des graphes et ordonnancement |
+| [S17](../phase-4-graphes-recursivite-e3/S17-graphes-values-ordonnancement/README.md) | Graphes valués et ordonnancement (MPM) | Théorie des graphes et ordonnancement (MPM, lecture d'un PERT) |
 | [S18](../phase-4-graphes-recursivite-e3/S18-programmer-tester-deboguer/README.md) | Algorithmique : écrire, tester et déboguer | Algorithmique appliquée – écrire un programme, le tester, corriger les erreurs |
 | [S19](../phase-4-graphes-recursivite-e3/S19-revisions-epreuve-blanche/README.md) | Révisions et épreuve blanche E3 | Tous les chapitres |
 
