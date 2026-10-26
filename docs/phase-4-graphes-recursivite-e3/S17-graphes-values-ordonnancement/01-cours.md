@@ -160,7 +160,7 @@ Les calculs sont les mêmes : date au plus tôt = plus long chemin depuis le dé
 - un arc va d'une tâche vers chacune de ses **successeurs**, valué par la **durée de la tâche de départ** ;
 - on ajoute un sommet **Début** (relié aux tâches sans prédécesseur) et un sommet **Fin** (relié aux tâches sans successeur).
 
-### Dates au plus tôt \(t\)
+### Dates au plus tôt t
 
 \(t(\text{Début}) = 0\). Une tâche ne peut commencer qu'une fois **tous** ses prédécesseurs finis :
 
@@ -172,7 +172,7 @@ t(x) = \max_{p \in \text{prédécesseurs}} \bigl(t(p) + d(p)\bigr)
 
 Ici : \(t(A) = 0\), \(t(B) = 3\), \(t(C) = 5\), \(t(D) = 3\), \(t(E) = 7\), \(t(F) = 12\), \(t(G) = 5\), \(t(H) = 16\), et \(t(\text{Fin}) = 18\) : **durée minimale du projet : 18 jours**. Par exemple \(t(F) = \max(t(C) + d(C),\ t(E) + d(E)) = \max(5 + 6,\ 7 + 5) = 12\).
 
-### Dates au plus tard \(T\)
+### Dates au plus tard T
 
 \(T(\text{Fin}) = t(\text{Fin})\). On remonte le graphe (sens inverse) : une tâche doit finir à temps pour **tous** ses successeurs :
 

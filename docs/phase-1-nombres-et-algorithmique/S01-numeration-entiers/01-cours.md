@@ -45,7 +45,7 @@ En hexadécimal, les lettres représentent les chiffres de dix à quinze :
 > [!NOTE]
 > **Notation.** On indique la base en indice : \((1011)_2\), \((CD)_{16}\). Sans indice, c'est la base 10. En Python, `0b1011` est un nombre binaire et `0xCD` un nombre hexadécimal.
 
-## II. De la base \(b\) vers la base 10
+## II. De la base b vers la base 10
 
 Il suffit de calculer la somme pondérée de la définition.
 
@@ -61,7 +61,7 @@ Il suffit de calculer la somme pondérée de la définition.
 (3F)_{16} = 3 \times 16 + 15 \times 1 = 63 .
 \]
 
-## III. De la base 10 vers la base \(b\) : les divisions successives
+## III. De la base 10 vers la base b : les divisions successives
 
 On divise le nombre par \(b\), puis on divise les quotients successifs, jusqu'à obtenir un quotient nul. Les **restes**, lus **du dernier au premier**, donnent l'écriture dans la base \(b\).
 

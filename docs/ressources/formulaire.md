@@ -136,7 +136,7 @@ int("CD", 16)      # 205
 | Partie fractionnaire décimal → binaire | **× 2** répété ; chiffres = parties entières, lus de haut en bas |
 | Fini en binaire ? | Fraction irréductible \(\frac{k}{2^m}\) |
 
-### Erreur avec \(p\) chiffres binaires après la virgule
+### Erreur avec p chiffres binaires après la virgule
 
 | Méthode | Erreur |
 |---|---|
@@ -362,7 +362,7 @@ a \equiv b \pmod n \iff n \mid (a - b) \iff \text{même reste dans la division p
 
 Compatible avec \(+\), \(-\), \(\times\) et les puissances : **on réduit à chaque étape**. Pas de simplification automatique.
 
-### Inverse modulo \(n\)
+### Inverse modulo n
 
 - \(a\) a un inverse modulo \(n\) ⟺ \(\operatorname{PGCD}(a, n) = 1\).
 - Résoudre \(a x \equiv c\) : \(x \equiv a' c\) où \(a' a \equiv 1\).
@@ -591,7 +591,7 @@ a = [[1, 2], [3, 4]]   # a[i][j]
 - \(A\) carrée est inversible s'il existe \(A^{-1}\) avec \(A A^{-1} = A^{-1} A = I\).
 - Vérification : calculer le produit.
 
-### Système \(AX = B\)
+### Système AX = B
 
 - Si \(A\) est inversible : \(X = A^{-1}B\) (produit **à gauche**), solution unique.
 - Sinon : aucune solution ou une infinité.

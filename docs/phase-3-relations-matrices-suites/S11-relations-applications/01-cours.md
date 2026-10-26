@@ -59,7 +59,7 @@ Une relation sur un ensemble fini se représente par une **table** (1 si \(x\,\m
 
 (« \(x\) divise \(y\) » sur \(\{1,2,3,4\}\) ; la ligne est \(x\), la colonne \(y\).)
 
-## III. Propriétés d'une relation sur \(E\)
+## III. Propriétés d'une relation sur E
 
 | Propriété | En mots | Avec quantificateurs |
 |---|---|---|

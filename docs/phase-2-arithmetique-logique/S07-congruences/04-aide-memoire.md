@@ -14,7 +14,7 @@ a \equiv b \pmod n \iff n \mid (a - b) \iff \text{même reste dans la division p
 
 Compatible avec \(+\), \(-\), \(\times\) et les puissances : **on réduit à chaque étape**. Pas de simplification automatique.
 
-## Inverse modulo \(n\)
+## Inverse modulo n
 
 - \(a\) a un inverse modulo \(n\) ⟺ \(\operatorname{PGCD}(a, n) = 1\).
 - Résoudre \(a x \equiv c\) : \(x \equiv a' c\) où \(a' a \equiv 1\).
